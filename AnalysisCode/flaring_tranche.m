@@ -1,8 +1,9 @@
-function [flare_tab] = flaring_tranche(Basin_Select, Basin_Index, Basin_N, OPGEE_bin)
+function [flare_tab] = flaring_tranche(Basin_Select, Basin_Index, Basin_N, OPGEE_bin, activityfolder)
 
 %% How many flare stacks are there?
 
-flare_data = importdata('GAS_TO_FLARE.csv');
+filepath = fullfile(pwd, activityfolder,'GAS_TO_FLARE.csv');
+flare_data = importdata(filepath);
 
 
 % n_stacks.Gas = 282;

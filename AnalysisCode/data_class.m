@@ -1,4 +1,4 @@
-function [M_out,count,totalprod,averageprod] = data_class(M_in, cutoff)
+function [M_out,count,totalprod,averageprod] = data_class(M_in, cutoff, activityfolder)
 
 M_in(M_in <= 0) = 99E-8;
 [size_mat,~] = size(M_in);
@@ -105,8 +105,8 @@ logind = zeros(size_mat,7);
 
 % Adding coproduced gas to oil wells with no reported gas production
 % Begin by loading data generated in 'api_grab_matlab.m'
-
-load('GOR_data.mat'); %GOR in units of scf/bbl
+filepath = fullfile(pwd, activityfolder,'GOR_data.mat');
+load(filepath); %GOR in units of scf/bbl
 size_oil = sum(ind.oil);
 coprodgas = zeros(size_oil,3);
 coprodgas(:,1) = M_out.oil(:,1); % oil with no gas production

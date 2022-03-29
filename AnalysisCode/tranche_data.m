@@ -1,4 +1,4 @@
-function [tranche] = tranche_data
+function [tranche] = tranche_data(drillinginfofolder)
 
     cutoff = 100;% Mscf/bbl
 
@@ -6,9 +6,10 @@ function [tranche] = tranche_data
 % Lyon on August 14, 2019, with offshore wells removed
 
     csvFileName = 'david_lyon_2015_no_offshore.csv';
-    file = fopen(csvFileName);
-    M.raw = csvread(csvFileName,0,0);
-    fclose(file);
+    filepath = fullfile(pwd, drillinginfofolder,csvFileName);
+    %file = fopen(filepath);
+    M.raw = csvread(filepath,0,0);
+    %fclose(filepath);
 
 % Data is organized as follows:
 % Col 1 = oil (bbl/year)

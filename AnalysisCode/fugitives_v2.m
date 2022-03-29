@@ -1,4 +1,4 @@
-function [Data_Out] = fugitives_v2(n, j, maxit, Activity, Emissions, EquipGas, EquipOil, Data_Out, Basin_Select)
+function [Data_Out] = fugitives_v2(n, j, maxit, Activity, Emissions, EquipGas, EquipOil, Data_Out, Basin_Select, activityfolder)
 
 %  Equipment-level outputs are as follows:
 %       row 1  - Wells
@@ -37,7 +37,8 @@ if Basin_Select == 0
      frac_control = 0.765; 
 else
     % Import equipment leakage activity matrices
-    raw_data = importdata('AF_equip_leaks.csv');
+    filepath = fullfile(pwd, activityfolder,'AF_equip_leaks.csv');
+    raw_data = importdata(filepath);
     AF_leaks = raw_data(Basin_Select,:);
     % Need two columns for tanks
     AF_leaks = [AF_leaks(1:6) AF_leaks(6:10)];
@@ -46,7 +47,8 @@ else
 
     % Import flash frac vector and select based on chosen Basin ID
     %raw_data = importdata('flash_frac.csv');
-    raw_data = importdata('flash_frac_thru.csv');
+    filepath = fullfile(pwd, activityfolder,'flash_frac_thru.csv');
+    raw_data = importdata(filepath);
     frac_control = raw_data(Basin_Select); 
 end
 

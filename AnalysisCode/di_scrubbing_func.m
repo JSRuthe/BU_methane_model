@@ -1,4 +1,4 @@
-function [plot_dat, OPGEE_bin] = di_scrubbing_func(M_raw, Basin_Select, Basin_Index)
+function [plot_dat, OPGEE_bin] = di_scrubbing_func(M_raw, Basin_Select, Basin_Index, activityfolder)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -49,7 +49,7 @@ for i = 1:size_mat
 end
 
 plot_dat = M_new(:,2);
-[M_no_offshore,count,totalprod,averageprod] = data_class(M_new(:,1:2), cutoff);
+[M_no_offshore,count,totalprod,averageprod] = data_class(M_new(:,1:2), cutoff, activityfolder);
 
 %     %   PRINT OUTPUTS FROM THIS SECTION
 %     
@@ -78,14 +78,15 @@ data_tab(3,2) = num2cell(count.oilall);           %# wells
 data_tab(3,3) = num2cell(totalprod.oilall(1,1));  %Total oil (MMbbls)
 data_tab(3,4) = num2cell(totalprod.oilall(1,2));  %Total gas (Bscf/yr)        
 
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'   
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'   
 if Basin_Select == 0
     FileName = 'DI_summary_US.xlsx';
 else
     FileName = ['DI_summary_' Basin_Index{Basin_Select} 'out.xlsx'];
+    filepath = fullfile(pwd, 'Outputs/',FileName);
 end
-xlswrite(FileName, data_tab)
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\'
+xlswrite(filepath, data_tab)
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\'
  
 %% BINNING - DRY GAS WELLS
         

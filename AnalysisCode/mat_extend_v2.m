@@ -1,4 +1,4 @@
-function [EmissionsGas, EmissionsOil, Superemitters, welldata, equipdata] = mat_extend_v2(dataraw, welldata, equipdata, k, welloption, equipoption)
+function [EmissionsGas, EmissionsOil, Superemitters, welldata, equipdata] = mat_extend_v2(dataraw, welldata, equipdata, k, welloption, equipoption, activityfolder)
 
 data = dataraw;
 [rows, columns] = size(data);
@@ -232,7 +232,8 @@ Study.Oil(13) = Oil.completions;
 Study.Oil(14) = Oil.workovers;
 
 % Combustion emissions are added to the site-level vectors
-load('EF_Comp_v2');
+filepath = fullfile(pwd, activityfolder,'EF_Comp_v2');
+load(filepath);
 
 if k == 1
     Study.All = [Study.Gas', Study.Oil'];

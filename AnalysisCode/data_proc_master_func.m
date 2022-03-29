@@ -1,4 +1,4 @@
-function [] = data_proc_master_func(n_trial, Basin_Select, Basin_Index)
+function [] = data_proc_master_func(n_trial, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % OPGEE OUTPUTS DATA PROCESSING
@@ -86,7 +86,7 @@ function [] = data_proc_master_func(n_trial, Basin_Select, Basin_Index)
 
 % Binary options
     welloption = 1;
-    equipoption = 1;
+    equipoption = 0;
 
 %% Begin data processing
     
@@ -126,7 +126,7 @@ function [] = data_proc_master_func(n_trial, Basin_Select, Basin_Index)
 
 % Process tranche data from the David Lyon file if welloption is selected
 if welloption == 1
-    [tranche] = tranche_data;
+    [tranche] = tranche_data(drillinginfofolder);
 end
     
 counter = 0;
@@ -139,16 +139,17 @@ for k = 1:n_trial
             dataraw = importdata(csvFileName);
             cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
         else
-            cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+            %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
 
             csvFileName = ['Equip' num2str(k) Basin_Index{Basin_Select} 'out.csv'];
-            dataraw = importdata(csvFileName);
+            filepath = fullfile(pwd, 'Outputs/',csvFileName);
+            dataraw = importdata(filepath);
 
-            cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+            %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
         end
         counter = counter + 1;
 
-        [EmissionsGas(:,counter), EmissionsOil(:,counter), Superemitters(counter), welldata, equipdata] = mat_extend_v2(dataraw, welldata, equipdata, k, welloption, equipoption);
+        [EmissionsGas(:,counter), EmissionsOil(:,counter), Superemitters(counter), welldata, equipdata] = mat_extend_v2(dataraw, welldata, equipdata, k, welloption, equipoption, activityfolder);
 
     if welloption == 1
         sitedata = wellpersite_v6(welldata, tranche);
@@ -168,10 +169,12 @@ for k = 1:n_trial
                 save(FileName,'sitedata_All', '-v7.3'); 
                 cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
             else
-                cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+                %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+                
                 FileName = ['sitedata_' Basin_Index{Basin_Select} 'out.mat'];
-                save(FileName,'sitedata_All', '-v7.3'); 
-                cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+                filepath = fullfile(pwd, 'Outputs/',FileName);
+                save(filepath,'sitedata_All', '-v7.3'); 
+                %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
             end
         end
         
@@ -230,10 +233,11 @@ if Basin_Select == 0
     xlswrite(FileName, data_tab)
     cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'    
 else
-    cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+    %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
     FileName = ['Emission_Summary_' Basin_Index{Basin_Select} 'out.xlsx'];
-    xlswrite(FileName, data_tab)
-    cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+    filepath = fullfile(pwd, 'Outputs/',FileName);
+    xlswrite(filepath, data_tab)
+    %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
 end
 
 if Basin_Select == 0
@@ -242,10 +246,11 @@ if Basin_Select == 0
     save(FileName,'EmissionsGas','EmissionsOil')
     cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'    
 else
-    cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+    %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
     FileName = ['Emissiondata_' Basin_Index{Basin_Select} 'out.mat'];
-    save(FileName,'EmissionsGas','EmissionsOil')
-    cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+    filepath = fullfile(pwd, 'Outputs/',FileName);
+    save(filepath,'EmissionsGas','EmissionsOil')
+    %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
 end
 
 % save('Emissionsdata_set21_1-100.mat','EmissionsGas','EmissionsOil','Superemitters');

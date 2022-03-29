@@ -1,4 +1,4 @@
-function [] = autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index)
+function [] = autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index, activityfolder, distributionsfolder)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % OPGEE fugitives component-level model
@@ -38,9 +38,12 @@ n.wellpad = 16;
 n.offsite = 4;
 
 % Import input datasets
-Emissions.LU = importdata('LiquidsUnloadings.csv');
-Emissions.HARC = importdata('HARC.csv');
-Emissions.gvakharia = importdata('gvakharia.csv');
+filepath = fullfile(pwd, activityfolder,'LiquidsUnloadings.csv');
+Emissions.LU = importdata(filepath);
+filepath = fullfile(pwd, activityfolder,'HARC.csv');
+Emissions.HARC = importdata(filepath);
+filepath = fullfile(pwd, activityfolder,'gvakharia.csv');
+Emissions.gvakharia = importdata(filepath);
 
 Activity.prod_bbl = Activity_tranches(1,:)'; %bbl/day
 Activity.wells = Activity_tranches(2,:)'; %number of wells
@@ -58,17 +61,20 @@ for i = 1:n_trial
   
     % Read input data files
     
-    cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Set21_Inputs'
+    %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Set21_Inputs'
     
     csvFileName = ['EquipGas' num2str(i) '.csv'];
-    dataraw = importdata(csvFileName);
+    filepath = fullfile(pwd, distributionsfolder,csvFileName);
+    filepath
+    dataraw = importdata(filepath);
     EquipGas = dataraw;
     
     csvFileName = ['EquipOil' num2str(i) '.csv'];
-    dataraw = importdata(csvFileName);
+    filepath = fullfile(pwd, distributionsfolder,csvFileName);
+    dataraw = importdata(filepath);
     EquipOil = dataraw;  
     
-    cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+    %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
     
     % Calculations are performed within fugitives macro
     
@@ -76,7 +82,7 @@ for i = 1:n_trial
     	if  j == 1
                 Data_Out = zeros(1,1);
         end
-        [Data_Out] = fugitives_v2(n, j, maxit, Activity, Emissions, EquipGas, EquipOil, Data_Out, Basin_Select);
+        [Data_Out] = fugitives_v2(n, j, maxit, Activity, Emissions, EquipGas, EquipOil, Data_Out, Basin_Select, activityfolder);
 
     end
     
@@ -87,12 +93,13 @@ for i = 1:n_trial
        csvwrite(FileName,Data_Out);
         cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
     else
-        cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+        %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
 
         FileName = ['Equip' num2str(i) Basin_Index{Basin_Select} 'out.csv']; 
-       csvwrite(FileName,Data_Out);
+        filepath = fullfile(pwd, 'Outputs/',FileName);
+       csvwrite(filepath,Data_Out);
 
-        cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+        %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
     end
 
 end

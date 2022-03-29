@@ -20,28 +20,33 @@ clear; clc; close all;
 
 %% Data inputs
 
+activityfolder = 'ActivityData/';
+basinmapfolder = 'BasinMaps/';
+drillinginfofolder = 'DrillingInfo/';
+distributionsfolder = 'EquipmentDistributions/Set21_Inputs';
+
 % n_trial: number of Monte Carlo iterations for autorun
 
 % for i = 1:13
-i = 9;
+%i = 9;
     n_trial = 1;
 
-    Basin_Select = i;
+    Basin_Select = 1;
 
-    Basin_Index = {                 % (0) - If you wish to run all basins (select to replicate tranches for Rutherford et al 2021
-        'PERMIAN',...               % (1) 
-        'WESTERN GULF',...          % (2) 
-        'TX-LA-MS SALT',...         % (3) 
-        'FORT WORTH',...            % (4)
-        'ANADARKO',...              % (5)    
-        'DENVER',...                % (6) 
-        'UINTA-PICEANCE',...        % (7)
-        'GREATER GREEN RIVER',...   % (8)
-        'SAN JOAQUIN BASIN',...     % (9)
-        'APPALACHIAN',...           % (10)
-        'ARKOMA',...                % (11)
-        'WILLISTON',...             % (12)
-        'POWDER RIVER'};            % (13)
+    Basin_Index = {                     % (0) - If you wish to run all basins (select to replicate tranches for Rutherford et al 2021
+        'PERMIAN',...                   % (1) 
+        'GULF COAST WEST',...           % (2) 
+        'EAST TEXAS',...                % (3) 
+        'FORT WORTH',...                % (4)
+        'ANADARKO',...                  % (5)    
+        'DENVER-JULESBURG',...          % (6) 
+        'UINTA',...                     % (7)
+        'GREEN RIVER - OVERTHRUST',...  % (8)
+        'CALIFORNIA',...                % (9)
+        'APPALACHIAN',...               % (10)
+        'ARKOMA',...                    % (11)
+        'WILLISTON',...                 % (12)
+        'POWDER RIVER'};                % (13)
 
     Basin_N = [
         430,...
@@ -59,15 +64,15 @@ i = 9;
         515];
 
 
-    [Activity_tranches] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N);
+    [Activity_tranches] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder);
     Activity_tranches = Activity_tranches';
 
 
     %% Main functions
 
-    autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index);
+    autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index, activityfolder, distributionsfolder);
 
-    data_proc_master_func(n_trial, Basin_Select, Basin_Index)
+    data_proc_master_func(n_trial, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
 % end
 % 
 %% Plotting
