@@ -48,6 +48,7 @@ for i = 1:size_mat
 
 end
 
+M_new(isnan(M_new)) = 0;
 plot_dat = M_new(:,2);
 [M_no_offshore,count,totalprod,averageprod] = data_class(M_new(:,1:2), cutoff, activityfolder);
 
@@ -81,6 +82,7 @@ data_tab(3,4) = num2cell(totalprod.oilall(1,2));  %Total gas (Bscf/yr)
 %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'   
 if Basin_Select == 0
     FileName = 'DI_summary_US.xlsx';
+    filepath = fullfile(pwd, 'Outputs/',FileName);
 else
     FileName = ['DI_summary_' Basin_Index{Basin_Select} 'out.xlsx'];
     filepath = fullfile(pwd, 'Outputs/',FileName);

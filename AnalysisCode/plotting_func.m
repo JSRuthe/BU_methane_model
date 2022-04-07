@@ -1,4 +1,4 @@
-function [] = plotting_func(Basin_Index, Basin_Select)
+function [] = plotting_func(Basin_Index, Basin_Select, basinmapfolder, activityfolder, drillinginfofolder)
 
 ColorMat = [140/255,21/255,21/255;...%Stanford red
     233/255,131/255,0/255;...% Stanford orange
@@ -17,41 +17,52 @@ ColorMat = [140/255,21/255,21/255;...%Stanford red
 
 
 csvFileName = 'david_lyon_2015_no_offshore.csv';
-file = fopen(csvFileName);
-M_US = csvread(csvFileName,0,0);
-fclose(file);
+filepath = fullfile(pwd, drillinginfofolder,csvFileName);
+%file = fopen(csvFileName);
+M_US = csvread(filepath,0,0);
+%fclose(file);
 
-load('Basin_Identifier_Export.mat');
+filepath = fullfile(pwd, basinmapfolder,'Basin_Identifier_Export_Pivot_22221.mat');
+load(filepath);
 M_all = [Prior_12_Oil, Prior_12_Gas, Well_Count];
+Basin_Name(Basin_Name == 'CENTRAL BASIN PLATFORM' | ...
+    Basin_Name == 'DELAWARE' | ...
+    Basin_Name == 'MIDLAND') = 'PERMIAN';
+Basin_Name(Basin_Name == 'SAN JOAQUIN' | ...
+    Basin_Name == 'SACRAMENTO') = 'CALIFORNIA';
 ind = ismember(Basin_Name, Basin_Index(Basin_Select));
 ind = int16(ind);
 M_basin = M_all(ind == 1,:);  
 
 
 
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
 FileName = ['sitedata_out.mat'];
-load(FileName);
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+filepath = fullfile(pwd, 'Outputs/',FileName);
+load(filepath);
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
 sitedata_US = sitedata_All;
 
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
 FileName = ['sitedata_' Basin_Index{Basin_Select} 'out.mat'];
-load(FileName);
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+filepath = fullfile(pwd, 'Outputs/',FileName);
+load(filepath);
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
 sitedata_basin = sitedata_All;
 
 
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
 FileName = ['Emissionsdata_out.mat'];
-load(FileName);
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+filepath = fullfile(pwd, 'Outputs/',FileName);
+load(filepath);
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
 Study_US = EmissionsGas + EmissionsOil;
 
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
 FileName = ['Emissiondata_' Basin_Index{Basin_Select} 'out.mat'];
-load(FileName);
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+filepath = fullfile(pwd, 'Outputs/',FileName);
+load(filepath);
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
 Study_basin = EmissionsGas + EmissionsOil;
 
 
@@ -60,8 +71,8 @@ Study_basin = EmissionsGas + EmissionsOil;
 
 % productivity distribution
 
-[plot_dat_basin, OPGEE_bin] = di_scrubbing_func(M_basin, Basin_Select, Basin_Index);
-[plot_dat_US, OPGEE_bin] = di_scrubbing_func(M_US, Basin_Select, Basin_Index);
+[plot_dat_basin, OPGEE_bin] = di_scrubbing_func(M_basin, Basin_Select, Basin_Index, activityfolder);
+[plot_dat_US, OPGEE_bin] = di_scrubbing_func(M_US, 0, Basin_Index, activityfolder);
 
 clf;
 figure(1)
@@ -197,10 +208,11 @@ set(gca,'FontName','Arial');
 
 set(figure(1),'PaperUnits','inches','PaperPosition',[0 0 8 5.5])
 
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
 FileName = ['plot_' Basin_Index{Basin_Select} 'out.emf'];
-print('-painters','-dmeta',FileName);
-cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2/'
+filepath = fullfile(pwd, 'Outputs/',FileName);
+print('-painters','-dmeta',filepath);
+%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2/'
    
 
 % figure(1)

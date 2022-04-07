@@ -27,11 +27,11 @@ distributionsfolder = 'EquipmentDistributions/Set21_Inputs';
 
 % n_trial: number of Monte Carlo iterations for autorun
 
-% for i = 1:13
-%i = 9;
+for i = 1:14
+
     n_trial = 1;
 
-    Basin_Select = 1;
+    Basin_Select = i;
 
     Basin_Index = {                     % (0) - If you wish to run all basins (select to replicate tranches for Rutherford et al 2021
         'PERMIAN',...                   % (1) 
@@ -46,7 +46,8 @@ distributionsfolder = 'EquipmentDistributions/Set21_Inputs';
         'APPALACHIAN',...               % (10)
         'ARKOMA',...                    % (11)
         'WILLISTON',...                 % (12)
-        'POWDER RIVER'};                % (13)
+        'POWDER RIVER',...              % (13)
+        'SAN JUAN'};
 
     Basin_N = [
         430,...
@@ -61,29 +62,31 @@ distributionsfolder = 'EquipmentDistributions/Set21_Inputs';
         160,...
         345,...
         395,...
-        515];
-
-
+        515,...
+        580];
+    
+    fprintf('Basin = %s... \n', Basin_Index{Basin_Select})
+    fprintf('Loading model inputs... \n')
     [Activity_tranches] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder);
     Activity_tranches = Activity_tranches';
-
+    fprintf('Model inputs generated... \n')
 
     %% Main functions
-
+    fprintf('Starting model... \n')
     autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index, activityfolder, distributionsfolder);
-
+    fprintf('Results generated. Processing results... \n')
     data_proc_master_func(n_trial, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
-% end
-% 
+end
+
 %% Plotting
 
 %EmissionsPlots_UStot()
-x = 1;
 
-for i = 1:13
+fprintf('Initializing plotting functions... \n')
+for i = 1:14
     Basin_Select = i;
-    plotting_func(Basin_Index, Basin_Select)
+    plotting_func(Basin_Index, Basin_Select, basinmapfolder, activityfolder, drillinginfofolder)
 end
 
-
+fprintf('Program finished \n')
 

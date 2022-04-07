@@ -236,7 +236,6 @@ filepath = fullfile(pwd, activityfolder,'EF_Comp_v2');
 load(filepath);
 
 if k == 1
-    Study.All = [Study.Gas', Study.Oil'];
     if welloption == 1
         gas_length = length(dataplot.drygas(:,1)) + length(dataplot.gaswoil(:,1));
         if gas_length > length(EF)
@@ -252,12 +251,18 @@ if k == 1
         welldata.drygas(:,2) = welldata.drygas(:,2) + EF(1:length(dataplot.drygas(:,1)));
         if gas_length > length(EF)
             welldata.gaswoil(:,2) = welldata.gaswoil(:,2) + EF((length(dataplot.drygas(:,1))+1):end);
+            Gas.Combustion = sum(EF((length(dataplot.drygas(:,1))+1):end))*365/10^9; % Tg/year
+            Study.Gas(15) = Gas.Combustion;
         else
             welldata.gaswoil(:,2) = welldata.gaswoil(:,2) + EF((length(dataplot.drygas(:,1))+1):gas_length);
+            Gas.Combustion = sum(EF((length(dataplot.drygas(:,1))+1):gas_length))*365/10^9; % Tg/year
+            Study.Gas(15) = Gas.Combustion;
         end
         welldata.assoc = dataplot.assoc(:,[1 22]);
         welldata.oil = dataplot.oil(:,[1 22]);
+
     end
+    Study.All = [Study.Gas', Study.Oil'];    
 else
     Study.All = [Study.Gas', Study.Oil'];
     if welloption == 1

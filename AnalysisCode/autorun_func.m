@@ -65,7 +65,6 @@ for i = 1:n_trial
     
     csvFileName = ['EquipGas' num2str(i) '.csv'];
     filepath = fullfile(pwd, distributionsfolder,csvFileName);
-    filepath
     dataraw = importdata(filepath);
     EquipGas = dataraw;
     

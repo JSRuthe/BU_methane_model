@@ -48,7 +48,6 @@ if Basin_Select ~= 0
     ind = logind;
     ind = int16(ind);
     M_in = M_all(ind == 1,:);
-    x = 1;
 end
 
 [plot_dat, OPGEE_bin] = di_scrubbing_func(M_in, Basin_Select, Basin_Index, activityfolder);

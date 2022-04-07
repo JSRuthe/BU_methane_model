@@ -21,13 +21,13 @@ end
 
 cluster = well_iteration(startrow:endrow,:);
 
-if isempty(cluster)
-    x = 1
-end
-
-if cluster(1,1) == 1 && sum(cluster(:,2)) > 10
-    x = 1
-end
+% if isempty(cluster)
+%     x = 1
+% end
+% 
+% if cluster(1,1) == 1 && sum(cluster(:,2)) > 10
+%     x = 1
+% end
 
 matadd(1,2) = sum(cluster(:,2));
 matadd(1,1) = cluster(1,1);
