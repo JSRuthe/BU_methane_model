@@ -1,4 +1,4 @@
-function [] = plotting_func(Basin_Index, Basin_Select, basinmapfolder, activityfolder, drillinginfofolder)
+function [] = plotting_func(Basin_Index, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder)
 
 ColorMat = [140/255,21/255,21/255;...%Stanford red
     233/255,131/255,0/255;...% Stanford orange
@@ -16,11 +16,11 @@ ColorMat = [140/255,21/255,21/255;...%Stanford red
     0/255,152/255,219/255];
 
 
-csvFileName = 'david_lyon_2015_no_offshore.csv';
-filepath = fullfile(pwd, drillinginfofolder,csvFileName);
-%file = fopen(csvFileName);
-M_US = csvread(filepath,0,0);
-%fclose(file);
+% csvFileName = 'david_lyon_2015_no_offshore.csv';
+% filepath = fullfile(pwd, drillinginfofolder,csvFileName);
+% %file = fopen(csvFileName);
+% M_US = csvread(filepath,0,0);
+% %fclose(file);
 
 filepath = fullfile(pwd, basinmapfolder,'Basin_Identifier_Export_Pivot_22221.mat');
 load(filepath);
@@ -72,7 +72,7 @@ Study_basin = EmissionsGas + EmissionsOil;
 % productivity distribution
 
 [plot_dat_basin, OPGEE_bin] = di_scrubbing_func(M_basin, Basin_Select, Basin_Index, activityfolder);
-[plot_dat_US, OPGEE_bin] = di_scrubbing_func(M_US, 0, Basin_Index, activityfolder);
+% [plot_dat_US, OPGEE_bin] = di_scrubbing_func(M_US, 0, Basin_Index, activityfolder);
 
 clf;
 figure(1)
@@ -87,15 +87,15 @@ b = 10.^linspace(log10(start),log10(stop),N+1);
 h = histogram(plot_dat_basin,b,...
     'Normalization','probability','DisplayStyle','stairs','LineStyle','-','LineWidth',2,'EdgeColor',ColorMat(Basin_Select,:));  %,...
 %     'DisplayName', char(Basin_Index(Basin_Select)));
-hold on
-
-h = histogram(plot_dat_US,b,...
-    'Normalization','probability','DisplayStyle','stairs','LineStyle','-','LineWidth',2,'EdgeColor',[0.66, 0.66, 0.66]);   %,...
-%     'DisplayName', 'US ave');
+% hold on
+% 
+% h = histogram(plot_dat_US,b,...
+%     'Normalization','probability','DisplayStyle','stairs','LineStyle','-','LineWidth',2,'EdgeColor',[0.66, 0.66, 0.66]);   %,...
+% %     'DisplayName', 'US ave');
 
 
 % legend('show');
-dim = [.2 .6 .3 .3];
+dim = [.3 .6 .3 .3];
 str = sprintf('%s \nn = %d wells', char(Basin_Index(Basin_Select)), length(plot_dat_basin));
 a = annotation('textbox',dim,'String',str,'FitBoxToText','on');
 a.FontSize = 8;
@@ -110,28 +110,48 @@ set(gca,'FontName','Arial')
 
 subplot(2,2,3)
 
-x = sitedata_basin;
-x = x(:,2);
-x = x./24;
-x = sort(x);
 
-y = x;
-y = cumsum(y);
-y = y./max(y);
-y = 1 - y;
-scatter(x,y,10,ColorMat(Basin_Select,:)); %,'DisplayName',Basin_Index{Basin_Select})
 hold on
 
-x = sitedata_US;
-x = x(:,2);
-x = x./24;
-x = sort(x);
+for i = 1:n_trial
+    
+    x = sitedata_basin(:,2,i)/24;
+    x = sort(x);
+    x_all(:,i) = x;
+    well_per_site(i) = mean(sitedata_basin(:,3,i));
+    
+    y = x;
+    y = cumsum(y);
+    y = y./max(y);
+    y = 1 - y;
+    
+%     if i == 1
+        s = scatter(x,y,0.5,'s','MarkerEdgeColor',ColorMat(Basin_Select,:),'MarkerFaceColor',ColorMat(Basin_Select,:));
+        s.MarkerFaceAlpha = 0.01;
+        s.MarkerEdgeAlpha = 0.01;
+%         x = sitedata_US;
+%         x = x(:,2);
+%         x = x./24;
+%         x = sort(x);
+%         
+%         y = x;
+%         y = cumsum(y);
+%         y = y./max(y);
+%         y = 1 - y;
+%         scatter(x,y,10, [0.66, 0.66, 0.66]);
+%     else
+%         scatter(x,y,5,ColorMat(Basin_Select,:));
+%     end
+end
+
+x = mean(x_all,2);
 
 y = x;
 y = cumsum(y);
 y = y./max(y);
 y = 1 - y;
-scatter(x,y,10, [0.66, 0.66, 0.66]); %,'DisplayName','US ave')
+scatter(x,y,5,'s','MarkerEdgeColor',ColorMat(Basin_Select,:),'MarkerFaceColor',ColorMat(Basin_Select,:));
+
 
 set(gca,'xscale','log')
 xlim([0.005 1000])
@@ -140,6 +160,13 @@ ylabel('Fraction total emissions');
 set(gca,'FontSize',9);
 set(gca,'FontName','Arial');
 
+FileName = ['site_average_' Basin_Index{Basin_Select} '.xlsx'];
+filepath = fullfile(pwd, 'Outputs/',FileName);
+xlswrite(filepath, x)
+
+FileName = ['wellpersite_' Basin_Index{Basin_Select} '.xlsx'];
+filepath = fullfile(pwd, 'Outputs/',FileName);
+xlswrite(filepath, well_per_site)
 
 subplot(2,2,[2 4])
 
@@ -163,7 +190,17 @@ GatherData_basin = ...
      Study_basin(15,:)];
 
  GatherData_US_ave = mean(GatherData_US,2);
+ 
  GatherData_basin_ave = mean(GatherData_basin,2);
+ 
+ GatherData_basin_SumTot = sum(GatherData_basin,1);
+ GatherData_basin_Prc = prctile(GatherData_basin_SumTot,[2.5 97.5],2);
+ GatherData_basin_TotHi = GatherData_basin_Prc(2);
+ GatherData_basin_TotLo = GatherData_basin_Prc(1);
+ 
+ GatherData_basin_TotHi = GatherData_basin_TotHi - sum(GatherData_basin_ave);
+ GatherData_basin_TotLo = sum(GatherData_basin_ave) - GatherData_basin_TotLo;
+ 
  
 %  PlotData_Ave = [GatherData_US_ave GatherData_basin_ave];
 %  
@@ -198,7 +235,20 @@ joblblpos = GatherData_basin_ave(1:5)/2 + barbase;
 
 text(1.4*ones(5,1), joblblpos, yjob(1:5), 'HorizontalAlignment','left');
 
-up = ceil(sum(GatherData_basin_ave(1:5)) * 20) / 20;
+if string(Basin_Index{Basin_Select}) == 'CALIFORNIA'
+    up = ceil(sum(GatherData_basin_ave(1:5)) * 20) / 20;
+elseif string(Basin_Index{Basin_Select}) == 'PERMIAN'...
+        || string(Basin_Index{Basin_Select}) == 'APPALACHIAN'...
+        || string(Basin_Index{Basin_Select}) == 'WILLISTON'
+    up = (ceil(sum(GatherData_basin_ave(1:5)) * 10) / 10) + 0.2;
+else
+    up = ceil(sum(GatherData_basin_ave(1:5)) * 10) / 10;
+end
+
+hold on
+er = errorbar(1, sum(GatherData_basin_ave(1:5)), GatherData_basin_TotLo, GatherData_basin_TotHi);
+er.Color = [0 0 0];
+er.LineStyle = 'none';
 
 xlim([0 3])
 ylim([0 up])
@@ -209,12 +259,14 @@ set(gca,'FontName','Arial');
 set(figure(1),'PaperUnits','inches','PaperPosition',[0 0 8 5.5])
 
 %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-FileName = ['plot_' Basin_Index{Basin_Select} 'out.emf'];
+%FileName = ['plot_' Basin_Index{Basin_Select} 'out.emf'];
+FileName = ['plot_' Basin_Index{Basin_Select} 'out.jpg'];
 filepath = fullfile(pwd, 'Outputs/',FileName);
-print('-painters','-dmeta',filepath);
+%print('-painters','-dmeta',filepath);
 %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2/'
-   
 
+print('-djpeg','-r300',filepath);
+x = 1;
 % figure(1)
 % hold on
 % for i = 1:13

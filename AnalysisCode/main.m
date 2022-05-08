@@ -24,14 +24,17 @@ activityfolder = 'ActivityData/';
 basinmapfolder = 'BasinMaps/';
 drillinginfofolder = 'DrillingInfo/';
 distributionsfolder = 'EquipmentDistributions/Set21_Inputs';
+GHGRPfolder = 'GHGRP_Dat/';
 
 % n_trial: number of Monte Carlo iterations for autorun
 
-for i = 1:14
+for i = 2:2
 
-    n_trial = 1;
-
-    Basin_Select = i;
+    n_trial = 100;
+    
+    Basin_index = [1,4,6,7,9,10,12,14];
+    
+    Basin_Select = Basin_index(i);
 
     Basin_Index = {                     % (0) - If you wish to run all basins (select to replicate tranches for Rutherford et al 2021
         'PERMIAN',...                   % (1) 
@@ -64,6 +67,24 @@ for i = 1:14
         395,...
         515,...
         580];
+ 
+%     Basin_Index = {                     % (0) - If you wish to run all basins (select to replicate tranches for Rutherford et al 2021
+%         'PERMIAN',...                   % (1)     
+%         'DENVER-JULESBURG',...          % (6) 
+%         'UINTA',...                     % (7)
+%         'CALIFORNIA',...                % (9)
+%         'APPALACHIAN',...               % (10)
+%         'WILLISTON',...                 % (12)
+%         'SAN JUAN'};
+% 
+%     Basin_N = [
+%         430,...
+%         540,...
+%         575,...
+%         745,...
+%         160,...
+%         395,...
+%         580];
     
     fprintf('Basin = %s... \n', Basin_Index{Basin_Select})
     fprintf('Loading model inputs... \n')
@@ -83,9 +104,9 @@ end
 %EmissionsPlots_UStot()
 
 fprintf('Initializing plotting functions... \n')
-for i = 1:14
-    Basin_Select = i;
-    plotting_func(Basin_Index, Basin_Select, basinmapfolder, activityfolder, drillinginfofolder)
+for i = 2:2
+    Basin_Select = Basin_index(i);
+    plotting_func(Basin_Index, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder)
 end
 
 fprintf('Program finished \n')

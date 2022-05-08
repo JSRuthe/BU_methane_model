@@ -121,6 +121,10 @@ function [] = data_proc_master_func(n_trial, Basin_Select, Basin_Index, activity
     sitedata.gaswoil = [];
     sitedata.assoc = [];
     sitedata.oil = [];
+    sitedata_old.drygas = [];
+    sitedata_old.gaswoil = [];
+    sitedata_old.assoc = [];
+    sitedata_old.oil = [];
     results_tab = zeros(1,1);
     results_hist = zeros(1,1);
 
@@ -150,9 +154,15 @@ for k = 1:n_trial
         counter = counter + 1;
 
         [EmissionsGas(:,counter), EmissionsOil(:,counter), Superemitters(counter), welldata, equipdata] = mat_extend_v2(dataraw, welldata, equipdata, k, welloption, equipoption, activityfolder);
-
+    wellpersite = 0;
     if welloption == 1
+        fprintf('Basin %s, site iter %f... \n', Basin_Index{Basin_Select}, k)
         sitedata = wellpersite_v6(welldata, tranche);
+        if ~any(sitedata.drygas(:)); sitedata.drygas = sitedata_old.drygas; end
+        if ~any(sitedata.gaswoil(:)); sitedata.gaswoil = sitedata_old.gaswoil; end
+        if ~any(sitedata.assoc(:)); sitedata.assoc = sitedata_old.assoc; end
+        if ~any(sitedata.oil(:)); sitedata.oil = sitedata_old.oil; end
+        
         [sitedata, sitedatainit] = adjustlengths(sitedata,sitedatainit, k);
         
         DataMerged = [];
@@ -161,6 +171,11 @@ for k = 1:n_trial
         if any(sitedata.assoc(:)); DataMerged = [DataMerged; sitedata.assoc]; end
         if any(sitedata.oil(:)); DataMerged = [DataMerged; sitedata.oil]; end
         sitedata_All(:,:,k) = DataMerged;
+        
+        sitedata_old.drygas = sitedata.drygas;
+        sitedata_old.gaswoil = sitedata.gaswoil;
+        sitedata_old.assoc = sitedata.assoc;
+        sitedata_old.oil = sitedata.oil;
         
         if k == n_trial
             if Basin_Select == 0
