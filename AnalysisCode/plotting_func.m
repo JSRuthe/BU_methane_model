@@ -1,4 +1,4 @@
-function [] = plotting_func(Basin_Index, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder)
+function [] = plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder,drillinginfofolder2, DI_filename)
 
 ColorMat = [140/255,21/255,21/255;...%Stanford red
     233/255,131/255,0/255;...% Stanford orange
@@ -22,19 +22,27 @@ ColorMat = [140/255,21/255,21/255;...%Stanford red
 % M_US = csvread(filepath,0,0);
 % %fclose(file);
 
-filepath = fullfile(pwd, basinmapfolder,'Basin_Identifier_Export_Pivot_22221.mat');
-load(filepath);
-M_all = [Prior_12_Oil, Prior_12_Gas, Well_Count];
-Basin_Name(Basin_Name == 'CENTRAL BASIN PLATFORM' | ...
-    Basin_Name == 'DELAWARE' | ...
-    Basin_Name == 'MIDLAND') = 'PERMIAN';
-Basin_Name(Basin_Name == 'SAN JOAQUIN' | ...
-    Basin_Name == 'SACRAMENTO') = 'CALIFORNIA';
-ind = ismember(Basin_Name, Basin_Index(Basin_Select));
+formatSpec = '%f%f%f%f%f%f%f%f%f%C';
+filepath = fullfile(pwd, drillinginfofolder2,DI_filename);
+DI_data = readtable(filepath,'Format',formatSpec);
+DI_data.Prov_Cod_1(DI_data.Prov_Cod_1 == '160A') = '160';
+
+catdata = DI_data.Prov_Cod_1;
+strings = string(catdata);
+Basin_Name = double(strings);
+
+% Note that although the headers in the file are “monthly oil” and “monthly gas”, these are summed across all months for 2020 so the units are “bbl/year” and “mscf/year”.
+Gas_Production = DI_data.Monthly_Ga;
+Oil_Production = DI_data.Monthly_Oi;
+Gas_Production(isnan(Gas_Production)) = 0;
+Oil_Production(isnan(Oil_Production)) = 0;
+    
+Well_Count = ones(numel(Basin_Name),1);
+logind = ismember(Basin_Name, Basin_N(Basin_Select));
+M_all = [Oil_Production, Gas_Production, Well_Count];
+ind = logind;
 ind = int16(ind);
-M_basin = M_all(ind == 1,:);  
-
-
+M_basin = M_all(ind == 1,:);
 
 %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
 FileName = ['sitedata_out.mat'];
@@ -117,7 +125,12 @@ for i = 1:n_trial
     
     x = sitedata_basin(:,2,i)/24;
     x = sort(x);
-    x_all(:,i) = x;
+    
+    if i == 1
+        x_all(:,1) = x;
+    else
+        x_all = vertcat(x_all,x);
+    end
     well_per_site(i) = mean(sitedata_basin(:,3,i));
     
     y = x;
@@ -144,8 +157,18 @@ for i = 1:n_trial
 %     end
 end
 
-x = mean(x_all,2);
+n_sites = size(sitedata_basin,1);
 
+% Mean by stacking:
+fprintf('Mean by stacking = %d \n',mean(x_all))
+
+% Mean by taking sample of size n_sites:
+samp = randsample(x_all,n_sites);
+fprintf('Mean by random sampling = %d \n',mean(samp))
+
+%x = mean(x_all,2);
+x = samp;
+x = sort(x);
 y = x;
 y = cumsum(y);
 y = y./max(y);

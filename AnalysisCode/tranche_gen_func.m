@@ -1,4 +1,4 @@
-function [tranche_OPGEE] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder)
+function [tranche_OPGEE] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder,drillinginfofolder2, DI_filename)
 
 
 %% Import data
@@ -26,15 +26,20 @@ if Basin_Select == 0
     M_in = csvread(csvFileName,0,0);
     fclose(file);
 else
-    filepath = fullfile(pwd, basinmapfolder,'Basin_Identifier_Export_Pivot_22221.mat');
-    load(filepath);
-    Prior_12_Gas(isnan(Prior_12_Gas)) = 0;
-    Prior_12_Oil(isnan(Prior_12_Oil)) = 0;
-    Basin_Name(Basin_Name == 'CENTRAL BASIN PLATFORM' | ...
-               Basin_Name == 'DELAWARE' | ...
-               Basin_Name == 'MIDLAND') = 'PERMIAN';
-    Basin_Name(Basin_Name == 'SAN JOAQUIN' | ...
-               Basin_Name == 'SACRAMENTO') = 'CALIFORNIA';
+    formatSpec = '%f%f%f%f%f%f%f%f%f%C';
+    filepath = fullfile(pwd, drillinginfofolder2,DI_filename);
+    DI_data = readtable(filepath,'Format',formatSpec);
+    DI_data.Prov_Cod_1(DI_data.Prov_Cod_1 == '160A') = '160';
+    
+    catdata = DI_data.Prov_Cod_1;
+    strings = string(catdata);
+    Basin_Name = double(strings);
+    
+    % Note that although the headers in the file are “monthly oil” and “monthly gas”, these are summed across all months for 2020 so the units are “bbl/year” and “mscf/year”.
+    Gas_Production = DI_data.Monthly_Ga;
+    Oil_Production = DI_data.Monthly_Oi;
+    Gas_Production(isnan(Gas_Production)) = 0;
+    Oil_Production(isnan(Oil_Production)) = 0;
     
 end
 
@@ -42,9 +47,9 @@ end
 %% Analysis
 
 if Basin_Select ~= 0
-
-    logind = ismember(Basin_Name, Basin_Index{Basin_Select});
-    M_all = [Prior_12_Oil, Prior_12_Gas, Well_Count];
+    Well_Count = ones(numel(Basin_Name),1);
+    logind = ismember(Basin_Name, Basin_N(Basin_Select));
+    M_all = [Oil_Production, Gas_Production, Well_Count];
     ind = logind;
     ind = int16(ind);
     M_in = M_all(ind == 1,:);
