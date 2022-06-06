@@ -14,7 +14,10 @@ extrap_factor = (388/265);
 
 %Ratio of VIIRS estimate for 2020 over EPA estimate for 2020
 % See World Bank Global Gas Flaring Tracker Report
-
+% https://thedocs.worldbank.org/en/doc/1f7221545bf1b7c89b850dd85cb409b0-0400072021/original/WB-GGFR-Report-Design-05a.pdf
+% See page 12
+% SEcond number is the GHGRP total gas throughput to flares with no
+% extrapolation
 % Separate into oil categories and gas categories
 %***
 
