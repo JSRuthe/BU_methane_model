@@ -1,4 +1,4 @@
-function [sitedata] = wellpersite_v6(welldata, tranche)
+function [sitedata] = wellpersite_v6(welldata, tranche, k)
 
 %% PREPROCESSING
 
@@ -15,7 +15,7 @@ function [sitedata] = wellpersite_v6(welldata, tranche)
     
 %% DRY GAS
     
-    well_iteration = welldata.drygas;
+    well_iteration = welldata.drygas(:,:,k);
 %     well_iteration = well_iteration(randperm(length(well_iteration)),:);
 %     newlength = round((1/size_adjust) * length(well_iteration));
 %     well_iteration = well_iteration(1:newlength,:);
@@ -92,7 +92,7 @@ function [sitedata] = wellpersite_v6(welldata, tranche)
 
     %% GAS W OIL
  
-     well_iteration = welldata.gaswoil;
+     well_iteration = welldata.gaswoil(:,:,k);
 %     well_iteration = well_iteration(randperm(length(well_iteration)),:);
 %     newlength = round((1/size_adjust) * length(well_iteration));
 %     well_iteration = well_iteration(1:newlength,:);
@@ -168,7 +168,7 @@ function [sitedata] = wellpersite_v6(welldata, tranche)
 
 %% OIL W GAS
 
-    well_iteration = welldata.assoc;
+    well_iteration = welldata.assoc(:,:,k);
 %     well_iteration = well_iteration(randperm(length(well_iteration)),:);
 %     newlength = round((1/size_adjust) * length(well_iteration));
 %     well_iteration = well_iteration(1:newlength,:);
@@ -247,7 +247,7 @@ sitedata.assoc = site_iteration;
 
 %% OIL ONLY
 
-    well_iteration = welldata.oil;
+    well_iteration = welldata.oil(:,:,k);
 %     well_iteration = well_iteration(randperm(length(well_iteration)),:);
 %     newlength = round((1/size_adjust) * length(well_iteration));
 %     well_iteration = well_iteration(1:newlength,:);

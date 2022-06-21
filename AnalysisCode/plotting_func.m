@@ -15,49 +15,41 @@ ColorMat = [140/255,21/255,21/255;...%Stanford red
     23/255,94/255,84/255;... % Stanford dark green
     0/255,152/255,219/255];
 
+if Basin_Select ~= 0
+    formatSpec = '%f%f%f%f%f%f%f%f%f%C';
+    filepath = fullfile(pwd, drillinginfofolder2,DI_filename);
+    DI_data = readtable(filepath,'Format',formatSpec);
+    DI_data.Prov_Cod_1(DI_data.Prov_Cod_1 == '160A') = '160';
 
-% csvFileName = 'david_lyon_2015_no_offshore.csv';
-% filepath = fullfile(pwd, drillinginfofolder,csvFileName);
-% %file = fopen(csvFileName);
-% M_US = csvread(filepath,0,0);
-% %fclose(file);
+    catdata = DI_data.Prov_Cod_1;
+    strings = string(catdata);
+    Basin_Name = double(strings);
 
-formatSpec = '%f%f%f%f%f%f%f%f%f%C';
-filepath = fullfile(pwd, drillinginfofolder2,DI_filename);
-DI_data = readtable(filepath,'Format',formatSpec);
-DI_data.Prov_Cod_1(DI_data.Prov_Cod_1 == '160A') = '160';
+    % Note that although the headers in the file are “monthly oil” and “monthly gas”, these are summed across all months for 2020 so the units are “bbl/year” and “mscf/year”.
+    Gas_Production = DI_data.Monthly_Ga;
+    Oil_Production = DI_data.Monthly_Oi;
+    Gas_Production(isnan(Gas_Production)) = 0;
+    Oil_Production(isnan(Oil_Production)) = 0;
 
-catdata = DI_data.Prov_Cod_1;
-strings = string(catdata);
-Basin_Name = double(strings);
-
-% Note that although the headers in the file are “monthly oil” and “monthly gas”, these are summed across all months for 2020 so the units are “bbl/year” and “mscf/year”.
-Gas_Production = DI_data.Monthly_Ga;
-Oil_Production = DI_data.Monthly_Oi;
-Gas_Production(isnan(Gas_Production)) = 0;
-Oil_Production(isnan(Oil_Production)) = 0;
-    
-Well_Count = ones(numel(Basin_Name),1);
-logind = ismember(Basin_Name, Basin_N(Basin_Select));
-M_all = [Oil_Production, Gas_Production, Well_Count];
-ind = logind;
-ind = int16(ind);
-M_basin = M_all(ind == 1,:);
-
-%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-FileName = ['sitedata_out.mat'];
-filepath = fullfile(pwd, 'Outputs/',FileName);
-load(filepath);
-%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
-sitedata_US = sitedata_All;
-
-%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-FileName = ['sitedata_' Basin_Index{Basin_Select} 'out.mat'];
-filepath = fullfile(pwd, 'Outputs/',FileName);
-load(filepath);
-%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
-sitedata_basin = sitedata_All;
-
+    Well_Count = ones(numel(Basin_Name),1);
+    logind = ismember(Basin_Name, Basin_N(Basin_Select));
+    M_all = [Oil_Production, Gas_Production, Well_Count];
+    ind = logind;
+    ind = int16(ind);
+    M_basin = M_all(ind == 1,:);
+else
+    csvFileName = 'david_lyon_2015_no_offshore.csv';
+    filepath = fullfile(pwd, drillinginfofolder,csvFileName);
+    %file = fopen(csvFileName);
+    M_US = csvread(filepath,0,0);
+    %fclose(file);
+end
+% %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+% FileName = ['sitedata_out.mat'];
+% filepath = fullfile(pwd, 'Outputs/',FileName);
+% load(filepath);
+% %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+% sitedata_US = sitedata_All;
 
 %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
 FileName = ['Emissionsdata_out.mat'];
@@ -66,21 +58,24 @@ load(filepath);
 %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
 Study_US = EmissionsGas + EmissionsOil;
 
-%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-FileName = ['Emissiondata_' Basin_Index{Basin_Select} 'out.mat'];
-filepath = fullfile(pwd, 'Outputs/',FileName);
-load(filepath);
-%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
-Study_basin = EmissionsGas + EmissionsOil;
-
+if Basin_Select ~= 0
+    %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+    FileName = ['Emissiondata_' Basin_Index{Basin_Select} 'out.mat'];
+    filepath = fullfile(pwd, 'Outputs/',FileName);
+    load(filepath);
+    %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+    Study_basin = EmissionsGas + EmissionsOil;
+end
 
 
 %% Analysis
 
 % productivity distribution
-
-[plot_dat_basin, OPGEE_bin] = di_scrubbing_func(M_basin, Basin_Select, Basin_Index, activityfolder);
-% [plot_dat_US, OPGEE_bin] = di_scrubbing_func(M_US, 0, Basin_Index, activityfolder);
+if Basin_Select ~= 0
+    [plot_dat_basin, OPGEE_bin] = di_scrubbing_func(M_basin, Basin_Select, Basin_Index, activityfolder);
+else
+    [plot_dat_US, OPGEE_bin] = di_scrubbing_func(M_US, 0, Basin_Index, activityfolder);
+end
 
 clf;
 figure(1)
@@ -92,22 +87,26 @@ start = 10^-1;
 stop = 10^5;
 b = 10.^linspace(log10(start),log10(stop),N+1);
 
-h = histogram(plot_dat_basin,b,...
-    'Normalization','probability','DisplayStyle','stairs','LineStyle','-','LineWidth',2,'EdgeColor',ColorMat(Basin_Select,:));  %,...
+if Basin_Select ~=0
+    h = histogram(plot_dat_basin,b,...
+        'Normalization','probability','DisplayStyle','stairs','LineStyle','-','LineWidth',2,'EdgeColor',ColorMat(Basin_Select,:));  %,...
 %     'DisplayName', char(Basin_Index(Basin_Select)));
 % hold on
 % 
-% h = histogram(plot_dat_US,b,...
-%     'Normalization','probability','DisplayStyle','stairs','LineStyle','-','LineWidth',2,'EdgeColor',[0.66, 0.66, 0.66]);   %,...
-% %     'DisplayName', 'US ave');
-
+else
+    h = histogram(plot_dat_US,b,...
+        'Normalization','probability','DisplayStyle','stairs','LineStyle','-','LineWidth',2,'EdgeColor',[0.66, 0.66, 0.66]);   %,...
+    %     'DisplayName', 'US ave');
+end
 
 % legend('show');
 dim = [.3 .6 .3 .3];
-str = sprintf('%s \nn = %d wells', char(Basin_Index(Basin_Select)), length(plot_dat_basin));
-a = annotation('textbox',dim,'String',str,'FitBoxToText','on');
-a.FontSize = 8;
 
+if Basin_Select ~= 0
+    str = sprintf('%s \nn = %d wells', char(Basin_Index(Basin_Select)), length(plot_dat_basin));
+    a = annotation('textbox',dim,'String',str,'FitBoxToText','on');
+    a.FontSize = 8;
+end
 
 xlabel({'Wellpad throughput'; '[mscf d^{-1}, log scale]'});
 ylabel('Probability');
@@ -121,9 +120,21 @@ subplot(2,2,3)
 
 hold on
 
+
+
 for i = 1:n_trial
-    
-    x = sitedata_basin(:,2,i)/24;
+    if Basin_Select ~= 0
+        FileName = ['sitedata_' Basin_Index{Basin_Select} num2str(i) '.csv'];
+        filepath = fullfile(pwd, 'Outputs/',FileName);
+        sitedata_basin = importdata(filepath);
+    else
+        FileName = ['sitedata' num2str(i) '.csv'];
+        filepath = fullfile(pwd, 'Outputs/',FileName);
+        sitedata_basin = importdata(filepath);        
+    end
+        
+        
+    x = sitedata_basin(:,2)/24;
     x = sort(x);
     
     if i == 1
@@ -131,7 +142,7 @@ for i = 1:n_trial
     else
         x_all = vertcat(x_all,x);
     end
-    well_per_site(i) = mean(sitedata_basin(:,3,i));
+    well_per_site(i) = mean(sitedata_basin(:,3));
     
     y = x;
     y = cumsum(y);
@@ -139,7 +150,11 @@ for i = 1:n_trial
     y = 1 - y;
     
 %     if i == 1
-        s = scatter(x,y,0.5,'s','MarkerEdgeColor',ColorMat(Basin_Select,:),'MarkerFaceColor',ColorMat(Basin_Select,:));
+        if Basin_Select ~= 0
+            s = scatter(x,y,0.5,'s','MarkerEdgeColor',ColorMat(Basin_Select,:),'MarkerFaceColor',ColorMat(Basin_Select,:));
+        else
+            s = scatter(x,y,0.5,'s','MarkerEdgeColor',[140/255,21/255,21/255],'MarkerFaceColor',[140/255,21/255,21/255]);
+        end
         s.MarkerFaceAlpha = 0.01;
         s.MarkerEdgeAlpha = 0.01;
 %         x = sitedata_US;
@@ -157,23 +172,25 @@ for i = 1:n_trial
 %     end
 end
 
-n_sites = size(sitedata_basin,1);
+% n_sites = size(sitedata_basin,1);
 
 % Mean by stacking:
-fprintf('Mean by stacking = %d \n',mean(x_all))
+%fprintf('Mean by stacking = %d \n',mean(x_all))
 
 % Mean by taking sample of size n_sites:
-samp = randsample(x_all,n_sites);
-fprintf('Mean by random sampling = %d \n',mean(samp))
+% samp = randsample(x_all,n_sites);
+%fprintf('Mean by random sampling = %d \n',mean(samp))
+
+
 
 %x = mean(x_all,2);
-x = samp;
-x = sort(x);
-y = x;
-y = cumsum(y);
-y = y./max(y);
-y = 1 - y;
-scatter(x,y,5,'s','MarkerEdgeColor',ColorMat(Basin_Select,:),'MarkerFaceColor',ColorMat(Basin_Select,:));
+% x = samp;
+% x = sort(x);
+% y = x;
+% y = cumsum(y);
+% y = y./max(y);
+% y = 1 - y;
+%scatter(x,y,5,'s','MarkerEdgeColor',ColorMat(Basin_Select,:),'MarkerFaceColor',ColorMat(Basin_Select,:));
 
 
 set(gca,'xscale','log')
@@ -183,13 +200,13 @@ ylabel('Fraction total emissions');
 set(gca,'FontSize',9);
 set(gca,'FontName','Arial');
 
-FileName = ['site_average_' Basin_Index{Basin_Select} '.xlsx'];
-filepath = fullfile(pwd, 'Outputs/',FileName);
-xlswrite(filepath, x)
-
-FileName = ['wellpersite_' Basin_Index{Basin_Select} '.xlsx'];
-filepath = fullfile(pwd, 'Outputs/',FileName);
-xlswrite(filepath, well_per_site)
+% FileName = ['site_average_' Basin_Index{Basin_Select} '.xlsx'];
+% filepath = fullfile(pwd, 'Outputs/',FileName);
+% xlswrite(filepath, samp)
+% 
+% FileName = ['wellpersite_' Basin_Index{Basin_Select} '.xlsx'];
+% filepath = fullfile(pwd, 'Outputs/',FileName);
+% xlswrite(filepath, well_per_site)
 
 subplot(2,2,[2 4])
 
@@ -203,27 +220,30 @@ GatherData_US = ...
      sum(Study_US(13:14,:));...
      Study_US(15,:)];
 
-GatherData_basin = ...
-    [Study_basin(6,:) + Study_basin(7,:)+ Study_basin(16,:);...
-     sum(Study_basin(1:5,:))+sum(Study_basin(8:9,:));...
-     sum(Study_basin(10:11,:));...
-     Study_basin(12,:);...
-     Study_basin(17,:);...
-     sum(Study_basin(13:14,:));...
-     Study_basin(15,:)];
+ 
+GatherData_US_ave = mean(GatherData_US,2);
+ 
+if Basin_Select ~= 0
+    GatherData_basin = ...
+        [Study_basin(6,:) + Study_basin(7,:)+ Study_basin(16,:);...
+         sum(Study_basin(1:5,:))+sum(Study_basin(8:9,:));...
+         sum(Study_basin(10:11,:));...
+         Study_basin(12,:);...
+         Study_basin(17,:);...
+         sum(Study_basin(13:14,:));...
+         Study_basin(15,:)];
 
- GatherData_US_ave = mean(GatherData_US,2);
- 
- GatherData_basin_ave = mean(GatherData_basin,2);
- 
- GatherData_basin_SumTot = sum(GatherData_basin,1);
- GatherData_basin_Prc = prctile(GatherData_basin_SumTot,[2.5 97.5],2);
- GatherData_basin_TotHi = GatherData_basin_Prc(2);
- GatherData_basin_TotLo = GatherData_basin_Prc(1);
- 
- GatherData_basin_TotHi = GatherData_basin_TotHi - sum(GatherData_basin_ave);
- GatherData_basin_TotLo = sum(GatherData_basin_ave) - GatherData_basin_TotLo;
- 
+
+     GatherData_basin_ave = mean(GatherData_basin,2);
+
+     GatherData_basin_SumTot = sum(GatherData_basin,1);
+     GatherData_basin_Prc = prctile(GatherData_basin_SumTot,[2.5 97.5],2);
+     GatherData_basin_TotHi = GatherData_basin_Prc(2);
+     GatherData_basin_TotLo = GatherData_basin_Prc(1);
+
+     GatherData_basin_TotHi = GatherData_basin_TotHi - sum(GatherData_basin_ave);
+     GatherData_basin_TotLo = sum(GatherData_basin_ave) - GatherData_basin_TotLo;
+end 
  
 %  PlotData_Ave = [GatherData_US_ave GatherData_basin_ave];
 %  

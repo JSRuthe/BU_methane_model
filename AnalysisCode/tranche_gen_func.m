@@ -1,4 +1,4 @@
-function [tranche_OPGEE] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder,drillinginfofolder2, DI_filename)
+function [tranche_OPGEE] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, drillinginfofolder2, DI_filename)
 
 
 %% Import data
@@ -21,9 +21,10 @@ end
 
 
 if Basin_Select == 0
-    csvFileName = 'david_lyon_2015_no_offshore.csv';
-    file = fopen(csvFileName);
-    M_in = csvread(csvFileName,0,0);
+    filepath = fullfile(pwd, drillinginfofolder,'david_lyon_2015_no_offshore.csv');
+    %csvFileName = 'david_lyon_2015_no_offshore.csv';
+    file = fopen(filepath);
+    M_in = csvread(filepath,0,0);
     fclose(file);
 else
     formatSpec = '%f%f%f%f%f%f%f%f%f%C';
@@ -66,7 +67,8 @@ end
 [tranche_OPGEE] = OPGEE_rows_func(Basin_Select, OPGEE_bin, LU_type, flare_tab);
 
 if Basin_Select == 0
-    frac_wells_flaring = importdata('frac_wells_flaring.csv');
+    filepath = fullfile(pwd, activityfolder,'frac_wells_flaring.csv');
+    frac_wells_flaring = importdata(filepath);
     tranche_OPGEE(:,6) = frac_wells_flaring;
 end
 

@@ -87,10 +87,11 @@ for i = 1:n_trial
     
     % Save output
     if Basin_Select == 0
-        cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+        %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
         FileName = ['Equip' num2str(i)  'out.csv']; 
-       csvwrite(FileName,Data_Out);
-        cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+        filepath = fullfile(pwd, 'Outputs/',FileName);
+       csvwrite(filepath,Data_Out);
+        %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
     else
         %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
 

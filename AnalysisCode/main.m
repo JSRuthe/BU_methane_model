@@ -27,17 +27,27 @@ DI_filename = 'annualDF_2020_SpatialJoin_2258.csv'; % % Note that although the h
 activityfolder = 'ActivityData/';
 basinmapfolder = 'BasinMaps/';
 drillinginfofolder = 'DrillingInfo/';
-drillinginfofolder2 = 'DrillingInfo/Monthly_Production/Maps/';
+drillinginfofolder2 = 'DrillingInfo/Monthly_Production/Maps_Distributions_Paper/';
 distributionsfolder = 'EquipmentDistributions/Set21_Inputs';
 GHGRPfolder = 'GHGRP_Dat/';
 
-% n_trial: number of Monte Carlo iterations for autorun
-n_trial = 100;
+%% Do you want to replicate results for Rutherford et al 2021?
 
-%Basin_index = [1,4,6,7,9,10,12,14];
+Replicate = 1;
+
+%% Initialize model
+% n_trial: number of Monte Carlo iterations for autorun
+n_trial = 25;
+
+if Replicate == 1
+    Basin_index = 1;
+end
 
 % Distributions indices
-Basin_index = [1,4,6,7,9,10];
+%Basin_index = [1,4,6,7,9,10];
+
+% All basins
+%Basin_index = [1,4,6,7,9,10,12,14];
 
 Basin_Index = {                     % (0) - If you wish to run all basins (select to replicate tranches for Rutherford et al 2021
     'PERMIAN',...                   % (1)
@@ -72,11 +82,17 @@ Basin_N = [
     580];
 
 for i = 1:numel(Basin_index)
-%for i = 1:2
-    Basin_Select = Basin_index(i);    
-    fprintf('Basin = %s... \n', Basin_Index{Basin_Select})
+    
+    if Replicate ~= 1
+        Basin_Select = Basin_index(i);  
+        fprintf('Basin = %s... \n', Basin_Index{Basin_Select})
+    else
+        Basin_Select = 0;
+        fprintf('Replicating Rutherford et al 2021')
+    end
+    
     fprintf('Loading model inputs... \n')
-    [Activity_tranches] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder2, DI_filename);
+    [Activity_tranches] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, drillinginfofolder2, DI_filename);
     Activity_tranches = Activity_tranches';
     fprintf('Model inputs generated... \n')
 
@@ -92,7 +108,7 @@ end
 %EmissionsPlots_UStot()
 
 fprintf('Initializing plotting functions... \n')
-for i = 1:1
+for i = 3:3
     Basin_Select = Basin_index(i);
     plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder,drillinginfofolder2, DI_filename)
 end
