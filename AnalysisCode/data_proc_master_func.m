@@ -85,7 +85,7 @@ function [] = data_proc_master_func(n_trial, Basin_Select, Basin_Index, activity
 %% Inputs
 
 % Binary options
-    welloption = 0;
+    welloption = 1;
     equipoption = 0;
 
 %% Begin data processing

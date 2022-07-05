@@ -21,14 +21,6 @@ end
 
 cluster = well_iteration(startrow:endrow,:);
 
-% if isempty(cluster)
-%     x = 1
-% end
-% 
-% if cluster(1,1) == 1 && sum(cluster(:,2)) > 10
-%     x = 1
-% end
-
 matadd(1,2) = sum(cluster(:,2));
 matadd(1,1) = cluster(1,1);
 matadd(1,3) = welldraw;
@@ -39,10 +31,10 @@ matadd(1,6) = matadd(1,2)/ matadd(1,5);
 test = matadd(1,6);
 
 % Only advance and update if test < 1 and welldraw is reasonable
-if test < 1 && welldraw < 100 || testcount >= 100
-    
+%if test < 1 && welldraw < 100 || testcount >= 100
+% if welldraw < 100 || testcount >= 100    
     startrow = endrow + 1;
-    testcount = 1;
+%     testcount = 1;
     
     if reset == true
         site_iteration = matadd;
@@ -50,6 +42,6 @@ if test < 1 && welldraw < 100 || testcount >= 100
     else
         site_iteration = vertcat(site_iteration,matadd);
     end
-else
-    testcount = testcount + 1;
-end
+% else
+%     testcount = testcount + 1;
+% end

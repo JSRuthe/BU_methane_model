@@ -51,12 +51,12 @@ end
 % %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
 % sitedata_US = sitedata_All;
 
-%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-FileName = ['Emissionsdata_out.mat'];
-filepath = fullfile(pwd, 'Outputs/',FileName);
-load(filepath);
-%cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
-Study_US = EmissionsGas + EmissionsOil;
+% %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+% FileName = ['Emissionsdata_out.mat'];
+% filepath = fullfile(pwd, 'Outputs/',FileName);
+% load(filepath);
+% %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+% Study_US = EmissionsGas + EmissionsOil;
 
 if Basin_Select ~= 0
     %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
@@ -136,7 +136,7 @@ for i = 1:n_trial
         
     x = sitedata_basin(:,2)/24;
     x = sort(x);
-    
+    site_ave(i) = sum(x)*(365*24)/1000000000;
     if i == 1
         x_all(:,1) = x;
     else
@@ -172,25 +172,25 @@ for i = 1:n_trial
 %     end
 end
 
-% n_sites = size(sitedata_basin,1);
+n_sites = size(sitedata_basin,1);
 
 % Mean by stacking:
-%fprintf('Mean by stacking = %d \n',mean(x_all))
+fprintf('Total by stacking = %d \n',(sum(x_all)*(365*24)/1000000000)/100)
 
 % Mean by taking sample of size n_sites:
-% samp = randsample(x_all,n_sites);
+samp = randsample(x_all,n_sites);
 %fprintf('Mean by random sampling = %d \n',mean(samp))
 
 
 
-%x = mean(x_all,2);
-% x = samp;
-% x = sort(x);
-% y = x;
-% y = cumsum(y);
-% y = y./max(y);
-% y = 1 - y;
-%scatter(x,y,5,'s','MarkerEdgeColor',ColorMat(Basin_Select,:),'MarkerFaceColor',ColorMat(Basin_Select,:));
+x = mean(x_all,2);
+x = samp;
+x = sort(x);
+y = x;
+y = cumsum(y);
+y = y./max(y);
+y = 1 - y;
+scatter(x,y,2,'s','MarkerEdgeColor','k','MarkerFaceColor','k');
 
 
 set(gca,'xscale','log')
@@ -200,28 +200,28 @@ ylabel('Fraction total emissions');
 set(gca,'FontSize',9);
 set(gca,'FontName','Arial');
 
-% FileName = ['site_average_' Basin_Index{Basin_Select} '.xlsx'];
-% filepath = fullfile(pwd, 'Outputs/',FileName);
-% xlswrite(filepath, samp)
-% 
-% FileName = ['wellpersite_' Basin_Index{Basin_Select} '.xlsx'];
-% filepath = fullfile(pwd, 'Outputs/',FileName);
-% xlswrite(filepath, well_per_site)
+FileName = ['site_average_' Basin_Index{Basin_Select} '.xlsx'];
+filepath = fullfile(pwd, 'Outputs/',FileName);
+xlswrite(filepath, samp)
+
+FileName = ['wellpersite_' Basin_Index{Basin_Select} '.xlsx'];
+filepath = fullfile(pwd, 'Outputs/',FileName);
+xlswrite(filepath, well_per_site)
 
 subplot(2,2,[2 4])
 
 
-GatherData_US = ...
-    [Study_US(6,:) + Study_US(7,:)+ Study_US(16,:);...
-     sum(Study_US(1:5,:))+sum(Study_US(8:9,:));...
-     sum(Study_US(10:11,:));...
-     Study_US(12,:);...
-     Study_US(17,:);...
-     sum(Study_US(13:14,:));...
-     Study_US(15,:)];
-
- 
-GatherData_US_ave = mean(GatherData_US,2);
+% GatherData_US = ...
+%     [Study_US(6,:) + Study_US(7,:)+ Study_US(16,:);...
+%      sum(Study_US(1:5,:))+sum(Study_US(8:9,:));...
+%      sum(Study_US(10:11,:));...
+%      Study_US(12,:);...
+%      Study_US(17,:);...
+%      sum(Study_US(13:14,:));...
+%      Study_US(15,:)];
+% 
+%  
+% GatherData_US_ave = mean(GatherData_US,2);
  
 if Basin_Select ~= 0
     GatherData_basin = ...

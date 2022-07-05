@@ -33,11 +33,11 @@ GHGRPfolder = 'GHGRP_Dat/';
 
 %% Do you want to replicate results for Rutherford et al 2021?
 
-Replicate = 1;
+Replicate = 0;
 
 %% Initialize model
 % n_trial: number of Monte Carlo iterations for autorun
-n_trial = 25;
+n_trial = 100;
 
 if Replicate == 1
     Basin_index = 1;
@@ -45,6 +45,7 @@ end
 
 % Distributions indices
 %Basin_index = [1,4,6,7,9,10];
+Basin_index = 7;
 
 % All basins
 %Basin_index = [1,4,6,7,9,10,12,14];
@@ -108,7 +109,7 @@ end
 %EmissionsPlots_UStot()
 
 fprintf('Initializing plotting functions... \n')
-for i = 3:3
+for i = 1:numel(Basin_index)
     Basin_Select = Basin_index(i);
     plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder,drillinginfofolder2, DI_filename)
 end
