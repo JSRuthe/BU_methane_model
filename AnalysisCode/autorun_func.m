@@ -1,4 +1,4 @@
-function [] = autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index, activityfolder, distributionsfolder)
+function [] = autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index, activityfolder, distributionsfolder, AF_overwrite, AF)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % OPGEE fugitives component-level model
@@ -81,7 +81,7 @@ for i = 1:n_trial
     	if  j == 1
                 Data_Out = zeros(1,1);
         end
-        [Data_Out] = fugitives_v2(n, j, maxit, Activity, Emissions, EquipGas, EquipOil, Data_Out, Basin_Select, activityfolder);
+        [Data_Out] = fugitives_v2(n, j, maxit, Activity, Emissions, EquipGas, EquipOil, Data_Out, Basin_Select, activityfolder, AF_overwrite, AF);
 
     end
     

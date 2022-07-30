@@ -39,6 +39,10 @@ Replicate = 0;
 % n_trial: number of Monte Carlo iterations for autorun
 n_trial = 100;
 
+% Blank AF matrix
+AF = [];
+AF_overwrite = 0;
+
 if Replicate == 1
     Basin_index = 1;
 end
@@ -99,7 +103,7 @@ for i = 1:numel(Basin_index)
 
     %% Main functions
     fprintf('Starting model... \n')
-    autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index, activityfolder, distributionsfolder);
+    autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index, activityfolder, distributionsfolder, AF_overwrite, AF);
     fprintf('Results generated. Processing results... \n')
     data_proc_master_func(n_trial, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
 end

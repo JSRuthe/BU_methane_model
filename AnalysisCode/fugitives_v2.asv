@@ -22,7 +22,6 @@ if Basin_Select == 0
     % Activity factors for rows 1-11 are based on GHGRP data for reporting year
     % 2015. See GHGRP_Master Excel file. [Double checked 21.6.29)
     
-    if AF_overwrite == 0
         %WL    HD          HE      SE      ME          TAL         TAV
         AF.Gas = [1;    0;          0.1321; 0.7102; 0.8399;     0.40570;    0.40570;...
 
@@ -32,8 +31,7 @@ if Basin_Select == 0
         AF.Oil = [1;    0.2234;     0.1859; 0.3689; 0;          0.815404;   0.815404;...
 
         0;      0;          0.08612;    1.1051];
-    end
-    
+
     % According to GHGRP Data, 49% of storage tanks are controlled. 
      frac_control = 0.489;    
      %frac_control = 0.765; 
