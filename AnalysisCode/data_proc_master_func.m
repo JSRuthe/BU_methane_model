@@ -1,4 +1,4 @@
-function [] = data_proc_master_func(n_trial, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
+function [] = data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % OPGEE OUTPUTS DATA PROCESSING
@@ -82,11 +82,6 @@ function [] = data_proc_master_func(n_trial, Basin_Select, Basin_Index, activity
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Inputs
-
-% Binary options
-    welloption = 1;
-    equipoption = 0;
 
 %% Begin data processing
     

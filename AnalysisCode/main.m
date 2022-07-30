@@ -20,6 +20,10 @@ clear; clc; close all;
 
 %% Data inputs
 
+% Binary options for results
+    welloption = 1;
+    equipoption = 0;
+
 % Specify file name of DrillingInfo data
 DI_filename = 'annualDF_2020_SpatialJoin_2258.csv'; % % Note that although the headers in the file are “monthly oil” and “monthly gas”, these are summed across all months for 2020 so the units are “bbl/year” and “mscf/year”.
 
@@ -105,7 +109,7 @@ for i = 1:numel(Basin_index)
     fprintf('Starting model... \n')
     autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index, activityfolder, distributionsfolder, AF_overwrite, AF);
     fprintf('Results generated. Processing results... \n')
-    data_proc_master_func(n_trial, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
+    data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
 end
 
 %% Plotting
