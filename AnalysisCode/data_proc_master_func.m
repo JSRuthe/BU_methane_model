@@ -1,4 +1,4 @@
-function [] = data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
+function [equipdata_tot] = data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % OPGEE OUTPUTS DATA PROCESSING
@@ -241,11 +241,8 @@ for k = 1:n_trial
         equipdata_tot.gaswoil(:,:,k) = equipdata.gaswoil;
         equipdata_tot.assoc(:,:,k) = equipdata.assoc;
         equipdata_tot.oil(:,:,k) = equipdata.oil;
-        
-        if k == n_trial
-           save('equipdata_SetSanJoaquin.mat','equipdata_tot', '-v7.3'); 
-        end
-        
+    else
+        equipdata_tot = [];
     end
     
 end
