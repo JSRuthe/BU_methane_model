@@ -20,7 +20,7 @@ clear; clc; close all;
 
 %% Data inputs
 
-root_path = 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 3';
+root_path = 'M:\OPGEE MATLAB';
 
 % n_trial: number of Monte Carlo iterations for autorun
 
@@ -87,11 +87,11 @@ set_apply = 22;
 % Mat_base.Gas = func_loss_frac_allcolumns(equipdata_tot, 1, set_apply);
 Mat_base.Oil = func_loss_frac_allcolumns(equipdata_tot, 2, set_apply);
 
-save('Mat_base_22.1.11.mat','Mat_base');
+save('Mat_base_22.1.22.mat','Mat_base');
 
 %% LATIN HYPERCUBE SAMPLING
 
-n_lhs = 10000;
+n_lhs = 5000;
 
 sampling_AF.gas = lhsdesign(n_lhs,10);
 sampling_AF.oil = sampling_AF.gas;
@@ -105,8 +105,7 @@ AF_Multipliers = importdata('AF_Multipliers.csv');
 sampling_AF.gas = (sampling_AF.gas .* (AF_Multipliers(1,:) - AF_Multipliers(2,:))) + AF_Multipliers(2,:);
 sampling_AF.oil = (sampling_AF.oil .* (AF_Multipliers(3,:) - AF_Multipliers(4,:))) + AF_Multipliers(4,:);
 
-save('Mat_AFR_22.1.11.mat','sampling_AF');
-
+save('Mat_AFR_22.1.22.mat','sampling_AF');
 
 n_trial = 1;
 
@@ -125,10 +124,9 @@ for i = 1:n_lhs
     Mat_LHS.Gas(:,:,i) = Mat_temp.Gas;
     Mat_LHS.Oil(:,:,i) = Mat_temp.Oil;
 
-
 end
 
-save('Mat_LF_22.1.11.mat','Mat_LHS');
+save('Mat_LFR_22.1.22_2.mat','Mat_LHS');
 
 %% Plotting
 

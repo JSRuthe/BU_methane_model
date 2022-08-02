@@ -80,16 +80,67 @@ tranche.none = vec;
     
     %% SAMPLING
 
-    tranche_sample.i1 = datasample(tranche.i1,10000,'Replace',false);
-    tranche_sample.i2 = datasample(tranche.i2,10000,'Replace',false);
-    tranche_sample.i3 = datasample(tranche.i3,10000,'Replace',false);
-    tranche_sample.i4 = datasample(tranche.i4,10000,'Replace',false);
-    tranche_sample.i5 = datasample(tranche.i5,10000,'Replace',false);
-    tranche_sample.i6 = datasample(tranche.i6,10000,'Replace',false);
-    tranche_sample.i7 = datasample(tranche.i7,10000,'Replace',false);
-    tranche_sample.i8 = tranche.i8;
-    tranche_sample.i9 = tranche.i9;
-    tranche_sample.i10 = tranche.i10;
+    if length(tranche.i1) > 10000
+        tranche_sample.i1 = datasample(tranche.i1,10000,'Replace',false);
+    else
+        tranche_sample.i1 = tranche.i1;
+    end
+
+    if length(tranche.i2) > 10000
+        tranche_sample.i2 = datasample(tranche.i2,10000,'Replace',false);
+    else
+        tranche_sample.i2 = tranche.i2;
+    end
+    
+    if length(tranche.i3) > 10000
+        tranche_sample.i3 = datasample(tranche.i3,10000,'Replace',false);
+    else
+        tranche_sample.i3 = tranche.i3;
+    end
+    
+    if length(tranche.i4) > 10000
+        tranche_sample.i4 = datasample(tranche.i4,10000,'Replace',false);
+    else
+        tranche_sample.i4 = tranche.i4;
+    end
+    
+    if length(tranche.i5) > 10000
+        tranche_sample.i5 = datasample(tranche.i5,10000,'Replace',false);
+    else
+        tranche_sample.i5 = tranche.i5;
+    end
+    
+    if length(tranche.i6) > 10000
+        tranche_sample.i6 = datasample(tranche.i6,10000,'Replace',false);
+    else
+        tranche_sample.i6 = tranche.i6;
+    end
+    
+    if length(tranche.i7) > 10000
+        tranche_sample.i7 = datasample(tranche.i7,10000,'Replace',false);
+    else
+        tranche_sample.i7 = tranche.i7;
+    end
+    
+    if length(tranche.i8) > 10000
+        tranche_sample.i8 = datasample(tranche.i8,10000,'Replace',false);
+    else
+        tranche_sample.i8 = tranche.i8;
+    end
+    
+    if length(tranche.i9) > 10000
+        tranche_sample.i9 = datasample(tranche.i9,10000,'Replace',false);
+    else
+        tranche_sample.i9 = tranche.i9;
+    end
+
+    
+    if length(tranche.i10) > 10000
+        tranche_sample.i10 = datasample(tranche.i10,10000,'Replace',false);
+    else
+        tranche_sample.i10 = tranche.i10;
+    end
+    
      tranche_sample.none = datasample(tranche.none,10000,'Replace',false);
     
 %     counter = 1;
@@ -136,26 +187,87 @@ tranche.none = vec;
     counter = 10;
     color = 'k';
     [s, t, tranche_sample_norm.i10] = OPGEE_Fast_Bins_v8(s, t, counter, tranche_sample.i10, plotting, prod_ind);
-    
 
+    
+if length(tranche.i1) < 10000 && ~isempty(tranche.i1)    
+    tranche_sample_norm.i1 = tranche_sample_norm.i1;
+     tranche_sample_norm.i1 = [repmat(tranche_sample_norm.i1, floor(10000/size(tranche_sample_norm.i1,1)),1);...
+         tranche_sample_norm.i1(1:mod(10000, size(tranche_sample_norm.i1,1)),:)];
+end
+
+if length(tranche.i2) < 10000 && ~isempty(tranche.i2)    
+    tranche_sample_norm.i2 = tranche_sample_norm.i2;
+     tranche_sample_norm.i2 = [repmat(tranche_sample_norm.i2, floor(10000/size(tranche_sample_norm.i2,1)),1);...
+         tranche_sample_norm.i2(1:mod(10000, size(tranche_sample_norm.i2,1)),:)];
+end
+
+if length(tranche.i3) < 10000 && ~isempty(tranche.i3) 
+    tranche_sample_norm.i3 = tranche_sample_norm.i3;
+     tranche_sample_norm.i3 = [repmat(tranche_sample_norm.i3, floor(10000/size(tranche_sample_norm.i3,1)),1);...
+         tranche_sample_norm.i3(1:mod(10000, size(tranche_sample_norm.i3,1)),:)];
+end
+
+if length(tranche.i4) < 10000 && ~isempty(tranche.i4) 
+    tranche_sample_norm.i4 = tranche_sample_norm.i4;
+     tranche_sample_norm.i4 = [repmat(tranche_sample_norm.i4, floor(10000/size(tranche_sample_norm.i4,1)),1);...
+         tranche_sample_norm.i4(1:mod(10000, size(tranche_sample_norm.i4,1)),:)];
+end
+
+if length(tranche.i5) < 10000 && ~isempty(tranche.i5) 
+    tranche_sample_norm.i5 = tranche_sample_norm.i5;
+     tranche_sample_norm.i5 = [repmat(tranche_sample_norm.i5, floor(10000/size(tranche_sample_norm.i5,1)),1);...
+         tranche_sample_norm.i5(1:mod(10000, size(tranche_sample_norm.i5,1)),:)];
+end
+
+if length(tranche.i6) < 10000 && ~isempty(tranche.i6)
+    tranche_sample_norm.i6 = tranche_sample_norm.i6;
+     tranche_sample_norm.i6 = [repmat(tranche_sample_norm.i6, floor(10000/size(tranche_sample_norm.i6,1)),1);...
+         tranche_sample_norm.i6(1:mod(10000, size(tranche_sample_norm.i6,1)),:)];
+end
+
+if length(tranche.i7) < 10000 && ~isempty(tranche.i7)
+    tranche_sample_norm.i7 = tranche_sample_norm.i7;
+     tranche_sample_norm.i7 = [repmat(tranche_sample_norm.i7, floor(10000/size(tranche_sample_norm.i7,1)),1);...
+         tranche_sample_norm.i7(1:mod(10000, size(tranche_sample_norm.i7,1)),:)];
+end
+
+if length(tranche.i8) < 10000 && ~isempty(tranche.i8)
     tranche_sample_norm.i8 = tranche_sample_norm.i8;
      tranche_sample_norm.i8 = [repmat(tranche_sample_norm.i8, floor(10000/size(tranche_sample_norm.i8,1)),1);...
          tranche_sample_norm.i8(1:mod(10000, size(tranche_sample_norm.i8,1)),:)];
-
+end
+     
+if length(tranche.i9) < 10000 && ~isempty(tranche.i9)    
     tranche_sample_norm.i9 = tranche_sample_norm.i9;
      tranche_sample_norm.i9 = [repmat(tranche_sample_norm.i9, floor(10000/size(tranche_sample_norm.i9,1)),1);...
          tranche_sample_norm.i9(1:mod(10000, size(tranche_sample_norm.i9,1)),:)];
-
+end
+     
+if length(tranche.i10) < 10000 && ~isempty(tranche.i10)
     tranche_sample_norm.i10 = tranche_sample_norm.i10;
      tranche_sample_norm.i10 = [repmat(tranche_sample_norm.i10, floor(10000/size(tranche_sample_norm.i10,1)),1);...
          tranche_sample_norm.i10(1:mod(10000, size(tranche_sample_norm.i10,1)),:)];
+end
 
+%     tranche_mat = cat(3, tranche_sample_norm.i1(:,[1:12,15,20]), tranche_sample_norm.i2(:,[1:12,15,20]), tranche_sample_norm.i3(:,[1:12,15,20]), ...
+%         tranche_sample_norm.i4(:,[1:12,15,20]), tranche_sample_norm.i5(:,[1:12,15,20]), tranche_sample_norm.i6(:,[1:12,15,20]), ...
+%         tranche_sample_norm.i7(:,[1:12,15,20]), tranche_sample_norm.i8(:,[1:12,15,20]), tranche_sample_norm.i9(:,[1:12,15,20]),...
+%         tranche_sample_norm.i10(:,[1:12,15,20]));
 
-    tranche_mat = cat(3, tranche_sample_norm.i1(:,[1:12,15,20]), tranche_sample_norm.i2(:,[1:12,15,20]), tranche_sample_norm.i3(:,[1:12,15,20]), ...
-        tranche_sample_norm.i4(:,[1:12,15,20]), tranche_sample_norm.i5(:,[1:12,15,20]), tranche_sample_norm.i6(:,[1:12,15,20]), ...
-        tranche_sample_norm.i7(:,[1:12,15,20]), tranche_sample_norm.i8(:,[1:12,15,20]), tranche_sample_norm.i9(:,[1:12,15,20]),...
-        tranche_sample_norm.i10(:,[1:12,15,20]));
-
+    
+        DataMerged = [];
+        if any(tranche_sample_norm.i1(:)); DataMerged = cat(3, DataMerged, tranche_sample_norm.i1(:,[1:12,15,20])); end
+        if any(tranche_sample_norm.i2(:)); DataMerged = cat(3, DataMerged, tranche_sample_norm.i2(:,[1:12,15,20])); end
+        if any(tranche_sample_norm.i3(:)); DataMerged = cat(3, DataMerged, tranche_sample_norm.i3(:,[1:12,15,20])); end
+        if any(tranche_sample_norm.i4(:)); DataMerged = cat(3, DataMerged, tranche_sample_norm.i4(:,[1:12,15,20])); end
+        if any(tranche_sample_norm.i5(:)); DataMerged = cat(3, DataMerged, tranche_sample_norm.i5(:,[1:12,15,20])); end
+        if any(tranche_sample_norm.i6(:)); DataMerged = cat(3, DataMerged, tranche_sample_norm.i6(:,[1:12,15,20])); end
+        if any(tranche_sample_norm.i7(:)); DataMerged = cat(3, DataMerged, tranche_sample_norm.i7(:,[1:12,15,20])); end
+        if any(tranche_sample_norm.i8(:)); DataMerged = cat(3, DataMerged, tranche_sample_norm.i8(:,[1:12,15,20])); end
+        if any(tranche_sample_norm.i9(:)); DataMerged = cat(3, DataMerged, tranche_sample_norm.i9(:,[1:12,15,20])); end
+        if any(tranche_sample_norm.i10(:)); DataMerged = cat(3, DataMerged, tranche_sample_norm.i10(:,[1:12,15,20])); end
+        tranche_mat = DataMerged;
+    
 tranche_norm_mean = mean(tranche_mat,1);
 tranche_norm_mean = squeeze(tranche_norm_mean);
 %     csvwrite('Gas_Tranche_none.csv',tranche_sample_norm.none(:,[1:12,15,20]));

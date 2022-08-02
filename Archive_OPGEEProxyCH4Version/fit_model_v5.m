@@ -1,7 +1,7 @@
 clear;
 clc;
 
-root_path = 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 3';
+root_path = 'C:\Users\jruthe\BU_methane_model\Archive_OPGEEProxyCH4Version';
 
 prod_index = 1;
 
@@ -61,7 +61,7 @@ Equipment = {...
     'PneumControls',...% (11)
     };
 
-
+% This table is for figure generation
 AFR_table = [0.25 1;
              0.5  1;
              0.75 1;
