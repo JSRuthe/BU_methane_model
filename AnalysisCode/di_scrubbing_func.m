@@ -178,11 +178,36 @@ xlswrite(filepath, data_tab)
     bins_exp(1:length(bin_ave_gas'),2) = bin_ave_gas';
     bins_exp(1:length(bin_sum_gas'),3) = bin_sum_gas';
     bins_exp(1:length(bin_sum_oilwg'),4) = bin_sum_oilwg';
-    
 %(iii) Print outputs to a text file
     
 %       csvwrite(char(strcat(Basin_Index(1),'_oilwet_bins.csv')),bins_exp)
       OPGEE_bin.oil = bins_exp; 
+%% BINNING - ALL WELLS
+
+%(ii) Determine bin indices and bin means
+
+    M_all = [M_no_offshore.oilall; M_no_offshore.gasall];
+    edges_set =[0, 1, 5, 10, 20, 50, 100, 500, 1000, 10000,1500000];
+    [counts, edges, ind] = histcounts(M_all(:,2), edges_set);
+    
+% %(iii) Determine bin means
+
+    bin_ave_gas = accumarray(ind, M_all(:,2),[],@mean);
+    bin_sum_gas = accumarray(ind, M_all(:,2),[],@sum);
+    bin_sum_oilwg = accumarray(ind, M_all(:,1),[],@sum);
+
+    bins_exp = zeros((length(edges_set)-1),4);
+    
+    bins_exp(1:length(counts'),1) = counts';
+    bins_exp(1:length(bin_ave_gas'),2) = bin_ave_gas';
+    bins_exp(1:length(bin_sum_gas'),3) = bin_sum_gas';
+    bins_exp(1:length(bin_sum_oilwg'),4) = bin_sum_oilwg';    
+    
+    
+%(iii) Print outputs to a text file
+    
+%       csvwrite(char(strcat(Basin_Index(1),'_oilwet_bins.csv')),bins_exp)
+      OPGEE_bin.all = bins_exp; 
 end
 
      

@@ -39,19 +39,23 @@ if Basin_Select == 0
      %frac_control = 0.765; 
 else
     % Import equipment leakage activity matrices
-    filepath = fullfile(pwd, activityfolder,'AF_equip_leaks.csv');
-    raw_data = importdata(filepath);
-    AF_leaks = raw_data(Basin_Select,:);
-    % Need two columns for tanks
-    AF_leaks = [AF_leaks(1:6) AF_leaks(6:10)];
-    AF.Gas = AF_leaks;
-    AF.Oil = AF_leaks;
+%     filepath = fullfile(pwd, activityfolder,'AF_equip_leaks.csv');
+%     raw_data = importdata(filepath);
+%     AF_leaks = raw_data(Basin_Select,:);
+%     % Need two columns for tanks
+%     AF_leaks = [AF_leaks(1:6) AF_leaks(6:10)];
+%     AF.Gas = AF_leaks;
+%     AF.Oil = AF_leaks;    
+    AF.Gas = [1; Activity.AF(1:10,j)];
+    AF.Oil = [1; Activity.AF(1:10,j)];    
+
 
     % Import flash frac vector and select based on chosen Basin ID
     %raw_data = importdata('flash_frac.csv');
-    filepath = fullfile(pwd, activityfolder,'flash_frac_thru.csv');
-    raw_data = importdata(filepath);
-    frac_control = raw_data(Basin_Select); 
+%     filepath = fullfile(pwd, activityfolder,'flash_frac_thru.csv');
+%     raw_data = importdata(filepath);
+%     frac_control = raw_data(Basin_Select); 
+    frac_control = Activity.AF(11,j);
 end
 
 % Loss rates (fraction 0-1) for gathering, processing, transmission, distribution, respectively

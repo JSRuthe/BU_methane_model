@@ -1,4 +1,4 @@
-function [] = plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder,drillinginfofolder2, DI_filename)
+function [] = plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder,DI_filename)
 
 ColorMat = [140/255,21/255,21/255;...%Stanford red
     233/255,131/255,0/255;...% Stanford orange
@@ -17,7 +17,7 @@ ColorMat = [140/255,21/255,21/255;...%Stanford red
 
 if Basin_Select ~= 0
     formatSpec = '%f%f%f%f%f%f%f%f%f%C';
-    filepath = fullfile(pwd, drillinginfofolder2,DI_filename);
+    filepath = fullfile(pwd, drillinginfofolder,DI_filename);
     DI_data = readtable(filepath,'Format',formatSpec);
     DI_data.Prov_Cod_1(DI_data.Prov_Cod_1 == '160A') = '160';
 
@@ -138,9 +138,9 @@ for i = 1:n_trial
     x = sort(x);
     site_ave(i) = sum(x)*(365*24)/1000000000;
     if i == 1
-        x_all(:,1) = x;
+        x_all = [x sitedata_basin(:,4)];
     else
-        x_all = vertcat(x_all,x);
+        x_all = vertcat(x_all,[x sitedata_basin(:,4)]);
     end
     well_per_site(i) = mean(sitedata_basin(:,3));
     
@@ -177,14 +177,14 @@ n_sites = size(sitedata_basin,1);
 % Mean by stacking:
 fprintf('Total by stacking = %d \n',(sum(x_all)*(365*24)/1000000000)/100)
 
-% Mean by taking sample of size n_sites:
-samp = randsample(x_all,n_sites);
+% Mean by taking sample (without replacement) of size n_sites:
+% https://www.mathworks.com/help/stats/randsample.html
+index = randsample(1:length(x_all(:,1)),n_sites);
+samp = x_all(index,:);
 %fprintf('Mean by random sampling = %d \n',mean(samp))
 
-
-
-x = mean(x_all,2);
-x = samp;
+% x = mean(x_all,2);
+x = samp(:,1);
 x = sort(x);
 y = x;
 y = cumsum(y);
@@ -200,7 +200,7 @@ ylabel('Fraction total emissions');
 set(gca,'FontSize',9);
 set(gca,'FontName','Arial');
 
-FileName = ['site_average_' Basin_Index{Basin_Select} '.xlsx'];
+FileName = ['site_average_' Basin_Index{Basin_Select} '_.xlsx'];
 filepath = fullfile(pwd, 'Outputs/',FileName);
 xlswrite(filepath, samp)
 

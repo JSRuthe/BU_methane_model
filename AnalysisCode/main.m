@@ -52,8 +52,8 @@ if Replicate == 1
 end
 
 % Distributions indices
-%Basin_index = [1,4,6,7,9,10];
-Basin_index = 7;
+Basin_index = [1,4,6,7,9,10];
+
 
 % All basins
 %Basin_index = [1,4,6,7,9,10,12,14];
@@ -100,8 +100,12 @@ for i = 1:numel(Basin_index)
         fprintf('Replicating Rutherford et al 2021')
     end
     
+    fprintf('Loading GHGRP data... \n')
+    GHGRP_exp = GHGRP_read_v3(Basin_Select, Basin_Index, Basin_N, GHGRPfolder);
+    fprintf('Done loading GHGRP data... \n')  
+    
     fprintf('Loading model inputs... \n')
-    [Activity_tranches] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, drillinginfofolder2, DI_filename);
+    [Activity_tranches, OPGEE_bin] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, DI_filename, GHGRP_exp);
     Activity_tranches = Activity_tranches';
     fprintf('Model inputs generated... \n')
 
@@ -119,7 +123,7 @@ end
 fprintf('Initializing plotting functions... \n')
 for i = 1:numel(Basin_index)
     Basin_Select = Basin_index(i);
-    plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder,drillinginfofolder2, DI_filename)
+    plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder,DI_filename)
 end
 
 fprintf('Program finished \n')

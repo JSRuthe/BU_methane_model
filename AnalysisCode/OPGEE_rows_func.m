@@ -29,7 +29,7 @@ for i = 1: length(tranche_data(:,1))
         
         prod_GOR = (prod_mscf*1000)/prod_bbl;
         
-        vec = [prod_bbl wells C1_frac prod_GOR j flare_frac];
+        vec = [prod_bbl wells C1_frac prod_GOR j flare_frac tranche_data(i,5:15)];
         tranche_OPGEE = [tranche_OPGEE; vec];
     end    
 end
@@ -59,7 +59,7 @@ for i = 1: length(tranche_data(:,1))
         
         prod_GOR = (prod_mscf*1000)/prod_bbl;
            
-        vec = [prod_bbl wells C1_frac prod_GOR j flare_frac];
+        vec = [prod_bbl wells C1_frac prod_GOR j flare_frac tranche_data(i,5:15)];
         tranche_OPGEE = [tranche_OPGEE; vec];
     end    
 end
@@ -87,7 +87,7 @@ for i = 1: length(tranche_data(:,1))
     
     prod_GOR = (prod_mscf*1000)/prod_bbl;
             
-    vec = [prod_bbl wells C1_frac prod_GOR 3 flare_frac];
+    vec = [prod_bbl wells C1_frac prod_GOR 3 flare_frac tranche_data(i,5:15)];
     tranche_OPGEE = [tranche_OPGEE; vec];   
 end
 
@@ -114,7 +114,7 @@ for i = 1: length(tranche_data(:,1))
     
     prod_GOR = (prod_mscf*1000)/prod_bbl;
         
-    vec = [prod_bbl wells C1_frac prod_GOR 3 flare_frac];
+    vec = [prod_bbl wells C1_frac prod_GOR 3 flare_frac tranche_data(i,5:15)];
     tranche_OPGEE = [tranche_OPGEE; vec];   
 end
 

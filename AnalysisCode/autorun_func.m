@@ -55,6 +55,8 @@ Activity.frac_wells_flaring = Activity_tranches(6,:); % fraction
 Activity.prod_scf = Activity.prod_bbl .* Activity.GOR; % scf/day
 Activity.prod_kg = Activity.prod_scf .* ((16.041 * 1.20233 .* (Activity.frac_C1 / 100)) / 1000); % kg CH4/day
 
+Activity.AF = Activity_tranches(7:17,:);
+
 %% Calculations
 
 for i = 1:n_trial

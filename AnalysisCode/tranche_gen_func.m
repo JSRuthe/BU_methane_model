@@ -1,4 +1,4 @@
-function [tranche_OPGEE] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, drillinginfofolder2, DI_filename)
+function [tranche_OPGEE, OPGEE_bin] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, DI_filename, GHGRP_exp)
 
 
 %% Import data
@@ -28,7 +28,7 @@ if Basin_Select == 0
     fclose(file);
 else
     formatSpec = '%f%f%f%f%f%f%f%f%f%C';
-    filepath = fullfile(pwd, drillinginfofolder2,DI_filename);
+    filepath = fullfile(pwd, drillinginfofolder,DI_filename);
     DI_data = readtable(filepath,'Format',formatSpec);
     DI_data.Prov_Cod_1(DI_data.Prov_Cod_1 == '160A') = '160';
     
@@ -63,6 +63,24 @@ if Basin_Select ~=0
 else
     flare_tab = 0;
 end
+
+col_nums = [5:14,17];
+for i = 1:11
+    all_prod(i) = sum((GHGRP_exp([1:10],col_nums(i)).*OPGEE_bin.all([1:10],1)))/sum(OPGEE_bin.all([1:10],1));
+    low_prod(i) = sum((GHGRP_exp([1:3],col_nums(i)).*OPGEE_bin.all([1:3],1)))/sum(OPGEE_bin.all([1:3],1));
+    high_prod(i) = sum((GHGRP_exp([4:10],col_nums(i)).*OPGEE_bin.all([4:10],1)))/sum(OPGEE_bin.all([4:10],1));
+end
+
+AF_basin = [all_prod; low_prod; high_prod];
+
+FileName = ['AF_' Basin_Index{Basin_Select} '.xlsx'];
+filepath = fullfile(pwd, 'Outputs/',FileName);
+xlswrite(filepath,AF_basin)
+
+OPGEE_bin.gasdry(:,5:15) = [repmat(low_prod,3,1); repmat(high_prod,7,1)];
+OPGEE_bin.gasassoc(:,5:15) = [repmat(low_prod,3,1); repmat(high_prod,7,1)];
+OPGEE_bin.oilwgas(:,5:15) = [repmat(low_prod,3,1); repmat(high_prod,7,1)];
+OPGEE_bin.oil(:,5:15) = [repmat(low_prod,3,1); repmat(high_prod,1,1)];
 
 [tranche_OPGEE] = OPGEE_rows_func(Basin_Select, OPGEE_bin, LU_type, flare_tab);
 

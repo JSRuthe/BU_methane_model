@@ -202,8 +202,8 @@ for k = 1:n_trial
 
         if Basin_Select == 0
             %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-            FileName = ['sitedata' num2str(k) '.csv'];
-            filepath = fullfile(pwd, 'Outputs/',FileName);
+            %FileName = ['sitedata' num2str(k) '.csv'];
+            %filepath = fullfile(pwd, 'Outputs/',FileName);
             %save(FileName,'sitedata_All', '-v7.3');
             csvwrite(filepath,sitedata_All);
             %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
@@ -212,7 +212,7 @@ for k = 1:n_trial
 
             FileName = ['sitedata_' Basin_Index{Basin_Select} num2str(k) '.csv'];
             filepath = fullfile(pwd, 'Outputs/',FileName);
-            %save(filepath,'sitedata_All', '-v7.3');
+            save(filepath,'sitedata_All', '-v7.3');
             csvwrite(filepath,sitedata_All);
             %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
         end
