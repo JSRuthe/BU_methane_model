@@ -1,4 +1,4 @@
-function [equipdata_tot] = data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
+function [equipdata_tot] = data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_Index, activityfolder, drillinginfofolder, Enverus_tab, AF_basin)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % OPGEE OUTPUTS DATA PROCESSING
@@ -45,7 +45,7 @@ function [equipdata_tot] = data_proc_master_func(n_trial, welloption, equipoptio
 %
 %  OPGEE outputs
 %       col 1 = tranche iteration (1-74)
-%       col 2 = OPGEE row (200 - 273)
+%       col 2 = well productivity (bbl/day]
 %       col 3 = sample (wells/sample size)
 %       col 4 = well productivity [kg/well/d]
 %       col 5 = well productivity [scf/well/d]
@@ -60,6 +60,7 @@ function [equipdata_tot] = data_proc_master_func(n_trial, welloption, equipoptio
 %       col 4 = site productivity [mscf/site/day]
 %       col 5 = site productivity [kg/d]
 %       col 6 = fractional loss rate
+%       col 7 = site productivity [bbl/d]
 %
 %  Equipment-level outputs are as follows:
 %       row 1  - Wells
@@ -132,47 +133,37 @@ counter = 0;
 s = [];
 
 for k = 1:n_trial
-        if Basin_Select == 0
-            %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-            csvFileName = ['Equip' num2str(k) 'out.csv'];
-            filepath = fullfile(pwd, 'Outputs/',csvFileName);
-            dataraw = importdata(filepath);
-            %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
-        else
-            %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-
-            csvFileName = ['Equip' num2str(k) Basin_Index{Basin_Select} 'out.csv'];
-            filepath = fullfile(pwd, 'Outputs/',csvFileName);
-            dataraw = importdata(filepath);
-
-            %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
-        end
-        counter = counter + 1;
-
-        [EmissionsGas(:,counter), EmissionsOil(:,counter), Superemitters(counter), welldata, equipdata] = mat_extend_v2(dataraw, welldata, equipdata, k, welloption, equipoption, activityfolder, Basin_Select);
+    if Basin_Select == 0
+        %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+        csvFileName = ['Equip' num2str(k) 'out.csv'];
+        filepath = fullfile(pwd, 'Outputs/',csvFileName);
+        dataraw = importdata(filepath);
+        %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+    else
+        %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+        
+        csvFileName = ['Equip' num2str(k) Basin_Index{Basin_Select} 'out.csv'];
+        filepath = fullfile(pwd, 'Outputs/',csvFileName);
+        dataraw = importdata(filepath);
+        
+        %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+    end
+    counter = counter + 1;
+    
+    [EmissionsGas(:,counter), EmissionsOil(:,counter), Superemitters(counter), welldata, equipdata] = mat_extend_v2(dataraw, welldata, equipdata, k, welloption, equipoption, activityfolder, Basin_Select, Enverus_tab, AF_basin);
     wellpersite = 0;
     if welloption == 1
         if Basin_Select ~= 0
             fprintf('Basin %s, site iter %f... \n', Basin_Index{Basin_Select}, k)
         end
-        sitedata = wellpersite_v6(welldata, tranche, k);
+        sitedata = wellpersite_func(welldata, tranche, k, AF_basin);
         %if ~any(sitedata.drygas(:)); sitedata.drygas = sitedata_old.drygas; end
         %if ~any(sitedata.gaswoil(:)); sitedata.gaswoil = sitedata_old.gaswoil; end
         %if ~any(sitedata.assoc(:)); sitedata.assoc = sitedata_old.assoc; end
         %if ~any(sitedata.oil(:)); sitedata.oil = sitedata_old.oil; end
-
-        fprintf('Sitedata - drygas, %g, pre length adjust = %d \n',k,(sum(sitedata.drygas(:,2)))*(365)/1000000000)
-        fprintf('Sitedata - gaswoil, %g, pre length adjust = %d \n',k,(sum(sitedata.gaswoil(:,2)))*(365)/1000000000)
-        fprintf('Sitedata - assoc, %g, pre length adjust = %d \n',k,(sum(sitedata.assoc(:,2)))*(365)/1000000000)
-        fprintf('Sitedata - oil, %g, pre length adjust = %d \n',k,(sum(sitedata.oil(:,2)))*(365)/1000000000)
         
-        fprintf('Sitedata - drygas, %g, wells = %d \n',k,(sum(sitedata.drygas(:,3))))
-        fprintf('Sitedata - gaswoil, %g, wells = %d \n',k,(sum(sitedata.gaswoil(:,3))))
-        fprintf('Sitedata - assoc, %g, wells = %d \n',k,(sum(sitedata.assoc(:,3))))
-        fprintf('Sitedata - oil, %g, wells = %d \n',k,(sum(sitedata.oil(:,3))))          
+        fprintf('Sitedata, %g, Total gas = %d \n',k,(sum(sitedata.drygas(:,2)) + sum(sitedata.gaswoil(:,2)) + sum(sitedata.assoc(:,2)) + sum(sitedata.oil(:,2)))*(365)/1000000000)
         
-        fprintf('Sitedata, %g, pre length adjust = %d \n',k,(sum(sitedata.drygas(:,2)) + sum(sitedata.gaswoil(:,2)) + sum(sitedata.assoc(:,2)) + sum(sitedata.oil(:,2)))*(365)/1000000000)
-       
         %[sitedata, sitedatainit] = adjustlengths(sitedata,sitedatainit, k);
         
         DataMerged = [];
@@ -183,23 +174,6 @@ for k = 1:n_trial
         %sitedata_All(:,:,k) = DataMerged;
         sitedata_All = DataMerged;
         
-        %sitedata_old.drygas = sitedata.drygas;
-        %sitedata_old.gaswoil = sitedata.gaswoil;
-        %sitedata_old.assoc = sitedata.assoc;
-        %sitedata_old.oil = sitedata.oil;
-        
-%         fprintf('Sitedata - drygas, %g, post length adjust = %d \n',k,(sum(sitedata.drygas(:,2)))*(365)/1000000000)
-%         fprintf('Sitedata - gaswoil, %g, post length adjust = %d \n',k,(sum(sitedata.gaswoil(:,2)))*(365)/1000000000)
-%         fprintf('Sitedata - assoc, %g, post length adjust = %d \n',k,(sum(sitedata.assoc(:,2)))*(365)/1000000000)
-%         fprintf('Sitedata - oil, %g, post length adjust = %d \n',k,(sum(sitedata.oil(:,2)))*(365)/1000000000)
-% 
-%         fprintf('Sitedata - drygas, %g, wells = %d \n',k,(sum(sitedata.drygas(:,3))))
-%         fprintf('Sitedata - gaswoil, %g, wells = %d \n',k,(sum(sitedata.gaswoil(:,3))))
-%         fprintf('Sitedata - assoc, %g, wells = %d \n',k,(sum(sitedata.assoc(:,3))))
-%         fprintf('Sitedata - oil, %g, wells = %d \n',k,(sum(sitedata.oil(:,3))))               
-%         
-%         fprintf('Sitedata, %g, post length adjust = %d \n',k,sum(sitedata_All(:,2,k),1)*365/1000000000);
-
         if Basin_Select == 0
             %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
             %FileName = ['sitedata' num2str(k) '.csv'];
@@ -209,7 +183,7 @@ for k = 1:n_trial
             %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
         else
             %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-
+            
             FileName = ['sitedata_' Basin_Index{Basin_Select} num2str(k) '.csv'];
             filepath = fullfile(pwd, 'Outputs/',FileName);
             save(filepath,'sitedata_All', '-v7.3');
@@ -217,21 +191,21 @@ for k = 1:n_trial
             %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
         end
         
-%         if k == n_trial
-%             if Basin_Select == 0
-%                 cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-%                 FileName = ['sitedata_out.mat'];
-%                 save(FileName,'sitedata_All', '-v7.3'); 
-%                 cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
-%             else
-%                 %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
-%                 
-%                 FileName = ['sitedata_' Basin_Index{Basin_Select} 'out.mat'];
-%                 filepath = fullfile(pwd, 'Outputs/',FileName);
-%                 save(filepath,'sitedata_All', '-v7.3'); 
-%                 %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
-%             end
-%         end
+        %         if k == n_trial
+        %             if Basin_Select == 0
+        %                 cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+        %                 FileName = ['sitedata_out.mat'];
+        %                 save(FileName,'sitedata_All', '-v7.3');
+        %                 cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+        %             else
+        %                 %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2\Outputs'
+        %
+        %                 FileName = ['sitedata_' Basin_Index{Basin_Select} 'out.mat'];
+        %                 filepath = fullfile(pwd, 'Outputs/',FileName);
+        %                 save(filepath,'sitedata_All', '-v7.3');
+        %                 %cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\OPGEE\0_OPGEE_Matlab\Version 2'
+        %             end
+        %         end
         
     end
     

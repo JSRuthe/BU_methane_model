@@ -138,9 +138,9 @@ for i = 1:n_trial
     x = sort(x);
     site_ave(i) = sum(x)*(365*24)/1000000000;
     if i == 1
-        x_all = [x sitedata_basin(:,4)];
+        x_all = [x sitedata_basin(:,4) sitedata_basin(:,7)];
     else
-        x_all = vertcat(x_all,[x sitedata_basin(:,4)]);
+        x_all = vertcat(x_all,[x sitedata_basin(:,4) sitedata_basin(:,7)]);
     end
     well_per_site(i) = mean(sitedata_basin(:,3));
     
@@ -175,7 +175,7 @@ end
 n_sites = size(sitedata_basin,1);
 
 % Mean by stacking:
-fprintf('Total by stacking = %d \n',(sum(x_all)*(365*24)/1000000000)/100)
+% fprintf('Total by stacking = %d \n',(sum(x_all)*(365*24)/1000000000)/100)
 
 % Mean by taking sample (without replacement) of size n_sites:
 % https://www.mathworks.com/help/stats/randsample.html

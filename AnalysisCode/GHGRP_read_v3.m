@@ -1,4 +1,35 @@
-function [OPGEE_bin] = GHGRP_read_v3(Basin_Select, Basin_Index, Basin_N, GHGRPfolder)
+function [OPGEE_bin, wellcounts] = GHGRP_read_v3(i, Basin_Index, Basin_N, GHGRPfolder)
+
+
+ % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %  
+ %
+ % All equipment counts in this export are per well reported by GHGRP.
+ % All outputs are binned into gas production tranches
+ % All bin averages are a weighted average (according to well counts, either 
+ %the well count reported
+ % on the equiipment leak sheet or in the facilities sheet
+ % 
+ % Bins export:
+ % (1)  GHGRP Well count
+ % (2)  GHGRP Mean Gas
+ % (3)  GHGRP Total Gas
+ % (4)  GHGRP Total Oil
+ % (5)  Headers
+ % (6)  Heaters
+ % (7)  Separators
+ % (8)  Meters
+ % (9)  Tanks
+ % (10) Tanks
+ % (11) Reciprocating compressors
+ % (12) Dehydrators
+ % (13) CIPs
+ % (14) PCs
+ % (15) 
+ % (16) Total oil throughput
+ % (17) Oil controls 
+ % (18) Average methane content 
+ % 
+ %% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 
 % Parameters for processing
@@ -74,24 +105,53 @@ cutoff = 100;% Mscf/bbl
 formatSpec = '%f%f%f%f%C%f%f';
 filepath = fullfile(pwd, GHGRPfolder,'API_Facility_correspondence_2020.csv');
 facility_correspondence = readtable(filepath,'Format',formatSpec);
-facility_correspondence.Prov_Cod_1(facility_correspondence.Prov_Cod_1 == '160A') = '160';
-
-catdata = facility_correspondence.Prov_Cod_1;
-strings = string(catdata);
-Basin_Name = double(strings);
+% facility_correspondence.Prov_Cod_1(facility_correspondence.Prov_Cod_1 == '160A') = '160';
+% 
+% catdata = facility_correspondence.Prov_Cod_1;
+% strings = string(catdata);
+% Basin_Name = double(strings);
 
 Gas_Production = facility_correspondence.AnnualGas_mscf_year_;
 Oil_Production = facility_correspondence.AnnualOil_bbl_year_;
 Gas_Production(isnan(Gas_Production)) = 0;
 Oil_Production(isnan(Oil_Production)) = 0;
 Facility_No = facility_correspondence.FACILITY_ID;
-Well_Count = ones(numel(Basin_Name),1);
-basin_ind = ismember(Basin_Name, Basin_N(Basin_Select));
+% Well_Count = ones(numel(Basin_Name),1);
+% basin_ind = ismember(Basin_Name, Basin_N(i));
 M_all = [Facility_No, Oil_Production, Gas_Production];
+% ind = basin_ind;
+% ind = int16(ind);
+% M_in = M_all(ind == 1,:);
+    
+%%
+
+% FAcility basin correspondence was created from
+% "Equipment_Counts_v9_RY2020_Distributions.xlsx"
+% Facility_ID and Basin copied from tab "RY_2020+FACILITY_OVERVIEW"
+% Sorted for Onshore petroleum and natural gas production
+% Removed duplicates
+
+formatSpec = '%f%C';
+filepath = fullfile(pwd, GHGRPfolder,'Facility_Basin_correspondence_2020.csv');
+facility_basin = readtable(filepath,'Format',formatSpec);
+%facility_basin.Basin_ID(facility_correspondence.Basin_ID == '160A') = '160';
+
+catdata = facility_basin.Basin_ID;
+strings = string(catdata);
+Basin_Name = double(strings);
+
+basin_ind = ismember(Basin_Name, Basin_N(i));
 ind = basin_ind;
 ind = int16(ind);
-M_in = M_all(ind == 1,:);
-    
+facility_basin = facility_basin(ind == 1,:);
+
+
+[Lia, Loc_facilities] = ismember(M_all(:,1),facility_basin.FACILITY_ID);
+M_in = M_all(Lia, :);
+
+%%
+
+
 filepath = fullfile(pwd, GHGRPfolder,'Facilities_2020.csv');
 Facilities_dat = importdata(filepath);
 Facilities_dat(isnan(Facilities_dat))=0;
@@ -190,22 +250,11 @@ col_9 = accumarray(ic,Equip_data_wells(:,2),[],@sum);
 Equip_data_all = [Facility_ID_prod_2 col_1 col_2 col_3 col_4 col_7 col_8 col_9];
 
 
-%% SECTION NO LONGER NEEDED
-% % EQUIPMENT - Perform lookup so that Facility ID's match those from Facility dataset
-% [Lia, Locb] = ismember(Facility_ID_prod_2,Facility_ID_prod);
-% temp = zeros(535,7);
-% for i = 1:length(Locb)
-%     temp(Locb(i),:) = Equip_data_all(i,2:8);
-% end
-% 
-% M_raw(:,5:10) = temp(:,1:6);
-% equip_count_2 = temp(:,7);
-
-
 %% FACILITY DATA
 [Facility_ID_prod_facilities, ia, ic] = unique(Facilities_dat(:,1));
 
 Facilities_dat_consol(:,2) = accumarray(ic,Facilities_dat(:,3),[],@sum);
+Facilities_dat_consol(:,3) = accumarray(ic,Facilities_dat(:,4),[],@mean);
 
 Facilities_dat_consol(:,1) = Facility_ID_prod_facilities;
 
@@ -218,15 +267,6 @@ end
 
 tanks12_dat_consol(:,1) = Facility_ID_prod_tanks;
 
-%% SECTION NO LONGER NEEDED
-% - Perform lookup so that Facility ID's match those from Facility dataset
-% [Lia, Locb] = ismember(Facility_ID_prod_tanks,Facility_ID_prod);
-% temp = zeros(535,3);
-% for i = 1:length(Locb)
-%     temp(Locb(i),:) = tanks12_dat_consol(i,2:4);
-% end
-% M_raw(:,11:13) = temp;
-
 %% TANKS3
 [Facility_ID_prod_tanks3, ia, ic] = unique(Tanks3_dat(:,1));
 
@@ -236,29 +276,11 @@ end
 
 tanks3_dat_consol(:,1) = Facility_ID_prod_tanks3;
 
-%% SECTION NO LONGER NEEDED
-% - Perform lookup so that Facility ID's match those from Facility dataset
-% [Lia, Locb] = ismember(Facility_ID_prod_tanks3,Facility_ID_prod);
-% temp = zeros(535,3);
-% for i = 1:length(Locb)
-%     temp(Locb(i),:) = Tanks3_dat(i,2:4);
-% end
-% M_raw(:,14:16) = temp;
-
 %% PCs
 [Facility_ID_prod_PC, ia, ic] = unique(PC_dat(:,1));
 
 PC_dat_consol(:,2) = accumarray(ic,PC_dat(:,2),[],@sum);
 PC_dat_consol(:,1) = Facility_ID_prod_PC;
-
-%% SECTION NO LONGER NEEDED
-% - Perform lookup so that Facility ID's match those from Facility dataset
-% [Lia, Locb] = ismember(Facility_ID_prod_PC,Facility_ID_prod);
-% temp = zeros(535,1);
-% for i = 1:length(Locb)
-%     temp(Locb(i),:) = PC_dat_consol(i,2);
-% end
-% M_raw(:,17) = temp;
 
 
 %% PUMPS
@@ -267,124 +289,22 @@ PC_dat_consol(:,1) = Facility_ID_prod_PC;
 pump_dat_consol(:,2) = accumarray(ic,Pump_dat(:,2),[],@sum);
 pump_dat_consol(:,1) = Facility_ID_prod_pumps;
 
-%% SECTION NO LONGER NEEDED
-% - Perform lookup so that Facility ID's match those from Facility dataset
-% [Lia, Locb] = ismember(Facility_ID_prod_pumps,Facility_ID_prod);
-% temp = zeros(535,1);
-% for i = 1:length(Locb)
-%     temp(Locb(i),:) = pump_dat_consol(i,2);
-% end
-% M_raw(:,18) = temp;
-% 
-% M_raw(:,19) = equip_count_2;
 
-% % MRAW
-% % Col 1 = FACILITY
-% % Col 2 = gas (Mscf/year)
-% % Col 3 = Oil (bbl/year)
-% % Col 4 = well count
-% % Col 5 = HEader 
-% % Col 6 = Heater
-% % Col 7 = Separator 
-% % Col 8 = Meter 
-% % Col 9 = Recip compressor 
-% % Col 10 = Dehydrators
-% % Col 11 = Tanks 12
-% % Col 12 = Tanks 12 - Oil throughput
-% % Col 13 = Tanks 12 - Oil throughput controlled
-% % Col 14 = Tanks 3
-% % Col 15 = Tanks 3 - Oil throughput
-% % Col 16 = Tanks 3 - Oil throughput controlled
-% % Col 17 = PCs
-% % Col 18 = Pumps
-% % Col 19 = Equip data wellhead count
-% 
-% 
-% % Produce a well-level dataset
-% 
-% [size_mat,~] = size(M_raw);
-% M_raw(:,4) = round(M_raw(:,4));
-% total_wells = sum(M_raw(:,4));
-% M_new = zeros(size_mat,4);
-% 
-% 
-
-% 
-% row = 1;
-% for i = 1:size_mat
-%     wells = M_raw(i,4);
-%     if wells == 1
-%         M_new(row,1) = M_raw(i,3)/365.25;
-%         M_new(row,2) = M_raw(i,2)/365.25;
-%         M_new(row,3) = 0;
-%         M_new(row,4) = 1;
-%         M_new(row,5) = M_raw(i,5);
-%         M_new(row,6) = M_raw(i,6);
-%         M_new(row,7) = M_raw(i,7);
-%         M_new(row,8) = M_raw(i,8);
-%         M_new(row,9) = M_raw(i,11) + M_raw(i,14); 
-%         M_new(row,10) = M_raw(i,11) + M_raw(i,14);
-%         M_new(row,11) = M_raw(i,9);
-%         M_new(row,12) = M_raw(i,10);
-%         M_new(row,13) = M_raw(i,18);
-%         M_new(row,14) = M_raw(i,17);
-%         M_new(row,15) = 0;
-%         M_new(row,16) = M_raw(i,12) + M_raw(i,15);
-%         M_new(row,17) = M_raw(i,13) + M_raw(i,16);
-%         
-%         row = row + 1;
-%     else
-%         for j = 1:wells
-%             prod.oil = M_raw(i,3)/wells/365.25; % Convert to bbl/day
-%             prod.gas = M_raw(i,2)/wells/365.25; % Convert to Mscf/day
-%             M_new(row,1) = prod.oil;
-%             M_new(row,2) = prod.gas;
-%             M_new(row,3) = 0;
-%             M_new(row,4) = 1;
-%             M_new(row,5) = M_raw(i,5)/wells;
-%             M_new(row,6) = M_raw(i,6)/wells;
-%             M_new(row,7) = M_raw(i,7)/wells;
-%             M_new(row,8) = M_raw(i,8)/wells;
-%             M_new(row,9) = (M_raw(i,11) + M_raw(i,14))/wells;
-%             M_new(row,10) = (M_raw(i,11) + M_raw(i,14))/wells;
-%             M_new(row,11) = M_raw(i,9)/wells;
-%             M_new(row,12) = M_raw(i,10)/wells;
-%             M_new(row,13) = M_raw(i,18)/wells;
-%             M_new(row,14) = M_raw(i,17)/wells;
-%             M_new(row,15) = 0;
-%             M_new(row,16) = M_raw(i,12) + M_raw(i,15);
-%             M_new(row,17) = M_raw(i,13) + M_raw(i,16);
-%             row = row + 1;
-%         end
-%     end
-% 
-% end
-% 
-% plot_dat = M_new(:,2);
-% [M_no_offshore,count,totalprod,averageprod] = data_class(M_new, cutoff);
-% 
-% data_tab = cell(3,4);
-% 
-% data_tab(1,2) = cellstr('# wells');
-% data_tab(1,3) = cellstr('Total oil (MMbbls)');
-% data_tab(1,4) = cellstr('Total gas (Bscf/yr)');
-% data_tab(2,1) = cellstr('Gas wells');
-% data_tab(2,2) = num2cell(count.gasall);           %# wells
-% data_tab(2,3) = num2cell(totalprod.gasall(1,1));  %Total oil (MMbbls)
-% data_tab(2,4) = num2cell(totalprod.gasall(1,2));  %Total gas (Bscf/yr)
-% data_tab(3,1) = cellstr('Oil wells');
-% data_tab(3,2) = num2cell(count.oilall);           %# wells
-% data_tab(3,3) = num2cell(totalprod.oilall(1,1));  %Total oil (MMbbls)
-% data_tab(3,4) = num2cell(totalprod.oilall(1,2));  %Total gas (Bscf/yr)        
-% 
-% cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\manuscripts\3_global gas\2_Analysis\4_NEW_Combined_OPGEE\GHGRP_Analysis\Outputs'   
-% 
-% FileName = 'DI_summary.xlsx';
-% 
-% % xlswrite(FileName, data_tab)
-% cd 'C:\Users\jruthe\Dropbox\Doctoral\Projects\Research Projects\manuscripts\3_global gas\2_Analysis\4_NEW_Combined_OPGEE\GHGRP_Analysis'
-%  
 %% Matching with facility correspondence
+
+if i == 1
+   fprintf('Total GHGRP wells in EQUIP_LEAKS = %d... \n', sum(Equip_data_all(:,8))) 
+end
+
+if i == 1
+   fprintf('Total GHGRP wells in FACILITY_OVERVIEW = %d... \n', sum(Facilities_dat_consol(:,2))) 
+end
+
+[Lia, Loc_equip] = ismember(Equip_data_all(:,1),M_in(:,1));
+wellcounts(1) = sum(Equip_data_all(Lia,8));
+
+[Lia, Loc_facilities] = ismember(Facilities_dat_consol(:,1),M_in(:,1));
+wellcounts(2) = sum(Facilities_dat_consol(Lia,2));
 
 [Lia, Loc_equip] = ismember(M_in(:,1),Equip_data_all(:,1));
 [Lia, Loc_tanks12] = ismember(M_in(:,1),tanks12_dat_consol(:,1));
@@ -415,6 +335,7 @@ pump_dat_consol(:,1) = Facility_ID_prod_pumps;
 % % Col 16 = flares per well
 % % Col 17 = oil throughput
 % % Col 18 = oil controlled
+% % Col 19 = CH4 mole fraction
 [size_mat,~] = size(M_in);
 M_new = zeros(size_mat,18);
 M_new(:,1:3) = M_in;
@@ -428,7 +349,8 @@ for i = 1:length(Loc_equip)
         M_new(i,12:13) = Equip_data_all(Loc_equip(i),6:7);        
     end
     if Loc_facilities(i)>0
-        M_new(i,5) = Facilities_dat_consol(Loc_facilities(i),2);
+        M_new(i,5) = Facilities_dat_consol(Loc_facilities(i),2);    
+        M_new(i,19) = Facilities_dat_consol(Loc_facilities(i),3);
     end
     if Loc_tanks12(i)>0
         M_new(i,10) = tanks12_dat_consol(Loc_tanks12(i),5);
@@ -472,7 +394,7 @@ M_new(:,18) = M_new(:,18)./M_new(:,17);
     WeightedMeanFcn = @(x) sum(M_new(x,18).*M_new(x,2))/sum(M_new(x,2));
     bin_sum_oilcontrol = accumarray(ind, 1:numel(ind),[],WeightedMeanFcn);
     %bin_ave_AF = zeros(sum(counts>0),11);
-    bin_ave_AF = zeros(sum(counts>0),11);
+    bin_ave_AF = zeros(find((counts>0),1,'last'),11);
     
     for i = 1:10
         M_new(isinf(M_new(:,i+5)),i+5)=0;
@@ -481,6 +403,10 @@ M_new(:,18) = M_new(:,18)./M_new(:,17);
         bin_ave_AF(:,i) = accumarray(ind, 1:numel(ind),[],WeightedMeanFcn);
     end
     
+    % Ave CH4 mole frac
+    WeightedMeanFcn = @(x) sum(M_new(x,19).*M_new(x,3))/sum(M_new(x,3));
+    bin_ave_CH4 = accumarray(ind, 1:numel(ind),[],WeightedMeanFcn);
+    
     bins_exp = zeros((length(edges_set)-1),17);
     
     bins_exp(1:length(counts'),1) = counts';
@@ -488,15 +414,16 @@ M_new(:,18) = M_new(:,18)./M_new(:,17);
     bins_exp(1:length(bin_sum_gas'),3) = bin_sum_gas';
     bins_exp(1:length(bin_sum_oilwg'),4) = bin_sum_oilwg';
     
-     bins_exp(1:sum(counts>0),5:15) = bin_ave_AF;
+     bins_exp(1:find((counts>0),1,'last'),5:15) = bin_ave_AF;
     bins_exp(1:length(bin_sum_oilthru'),16) = bin_sum_oilthru';
     bins_exp(1:length(bin_sum_oilcontrol'),17) = bin_sum_oilcontrol';
-
-%     bins_exp(:,15) = frac_wells_flaring(:,1);
-%     bins_exp(:,16) = bins_exp(:,18)./bins_exp(:,17);
+    bins_exp(1:length(bin_sum_oilcontrol'),18) = bin_ave_CH4';
     
     OPGEE_bin = bins_exp;
   
+    % Bins export:
+    % 
+    
 
 end
 

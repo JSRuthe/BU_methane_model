@@ -1,4 +1,4 @@
-function [EmissionsGas, EmissionsOil, Superemitters, welldata, equipdata] = mat_extend_v2(dataraw, welldata, equipdata, k, welloption, equipoption, activityfolder, Basin_Select)
+function [EmissionsGas, EmissionsOil, Superemitters, welldata, equipdata] = mat_extend_v2(dataraw, welldata, equipdata, k, welloption, equipoption, activityfolder, Basin_Select, Enverus_tab, AF_basin)
 
 data = dataraw;
 [rows, columns] = size(data);
@@ -87,8 +87,8 @@ firstrow = 0;
     dataplot.gas(:,22) = sum(dataplot.gas(:,6:21),2);
     dataplot.gas(:,23) = dataplot.gas(:,22)./dataplot.gas(:,4);
 
-    dataplot.drygas = dataplot.gas((dataplot.gas(:,2) < 230),:);
-    dataplot.gaswoil = dataplot.gas((dataplot.gas(:,2) > 229 & data(:,2) < 260),:);
+    dataplot.drygas = dataplot.gas((dataplot.gas(:,1) < 31),:);
+    dataplot.gaswoil = dataplot.gas((dataplot.gas(:,1) > 30 & data(:,1) < 61),:);
     
 counter = 0;
 for i = 1:17
@@ -168,13 +168,13 @@ firstrow = 0;
     % oil : Oil wells with no gas production
     % gaswoil : Oil wells with gas production and GOR < 100 Mscf/bbl
     
-    dataplot.assoc = data(data(:,2) < 270 & data(:,2) > 259,:);
+    dataplot.assoc = data(data(:,1) < 71 & data(:,1) > 60,:);
     dataplot.assoc(:,22) = sum(dataplot.assoc(:,6:21),2);
     dataplot.assoc(:,23) = dataplot.assoc(:,22)./dataplot.assoc(:,4);
 %     dataplot.assoc(:,1) = dataplot.assoc(:,1) + 60;
     dataplot.assoc(:,1) = dataplot.assoc(:,1);
 
-    dataplot.oil = data(data(:,2) > 269,:);
+    dataplot.oil = data(data(:,1) > 70,:);
     dataplot.oil(:,22) = sum(dataplot.oil(:,6:21),2);
     dataplot.oil(:,23) = dataplot.oil(:,22)./dataplot.oil(:,4);
 %     dataplot.oil(:,1) = dataplot.oil(:,1) + 60;
@@ -236,13 +236,7 @@ filepath = fullfile(pwd, activityfolder,'EF_Comp_v2');
 load(filepath);
 
 if Basin_Select ~= 0
-    % Import equipment leakage activity matrices
-    filepath = fullfile(pwd, activityfolder,'AF_equip_leaks.csv');
-    raw_data = importdata(filepath);
-    AF_leaks = raw_data(Basin_Select,:);
-    % Need two columns for tanks
-    AF_leaks = [AF_leaks(1:6) AF_leaks(6:10)];
-    n_compressors = AF_leaks(8)*...
+    n_compressors = AF_basin(1,7)*...
         (length(dataplot.drygas(:,1)) + length(dataplot.gaswoil(:,1)) + ...
         length(dataplot.assoc(:,1)) + length(dataplot.oil(:,1)));
     
@@ -271,29 +265,42 @@ if k == 1
         welldata.gaswoil = dataplot.gaswoil(:,[1 22]);
         
         welldata.drygas(:,2) = welldata.drygas(:,2) + EF(1:length(dataplot.drygas(:,1)));
-%         if gas_length > length(EF)
+%          if gas_length > length(EF)
             welldata.gaswoil(:,2) = welldata.gaswoil(:,2) + EF((length(dataplot.drygas(:,1))+1):end);
             Gas.Combustion = sum(EF)*365/10^9; % Tg/year
             Study.Gas(15) = Gas.Combustion;
-            x =1;
-%         else
-%             welldata.gaswoil(:,2) = welldata.gaswoil(:,2) + EF((length(dataplot.drygas(:,1))+1):gas_length);
-%             Gas.Combustion = sum(EF((length(dataplot.drygas(:,1))+1):gas_length))*365/10^9; % Tg/year
-%             Study.Gas(15) = Gas.Combustion;
-%             x = 1;
-%         end
+%          else
+%              welldata.gaswoil(:,2) = welldata.gaswoil(:,2) + EF((length(dataplot.drygas(:,1))+1):gas_length);
+%              Gas.Combustion = sum(EF((length(dataplot.drygas(:,1))+1):gas_length))*365/10^9; % Tg/year
+%              Study.Gas(15) = Gas.Combustion;
+%          end
         welldata.assoc = dataplot.assoc(:,[1 22]);
         welldata.oil = dataplot.oil(:,[1 22]);
 
-%         fprintf('Welldata - drygas, iter %g total = %d \n',k,(sum(welldata.drygas(:,2)))*(365)/1000000000)
-%         fprintf('Welldata - gaswoil, iter %g total = %d \n',k,(sum(welldata.gaswoil(:,2)))*(365)/1000000000)
-%         fprintf('Welldata - assoc, iter %g total = %d \n',k,(sum(welldata.assoc(:,2)))*(365)/1000000000)
-%         fprintf('Welldata - oil, iter %g total = %d \n',k,(sum(welldata.oil(:,2)))*(365)/1000000000)
+
 % 
 %         fprintf('Welldata, iter %g total = %d \n',k,(sum(welldata.drygas(:,2)) + sum(welldata.gaswoil(:,2)) + sum(welldata.assoc(:,2)) + sum(welldata.oil(:,2)))*(365)/1000000000)
 %         x = 1;
     end
-    Study.All = [Study.Gas', Study.Oil'];    
+    Study.All = [Study.Gas', Study.Oil'];
+    
+    printtotal_mmbbl = sum(dataplot.drygas(:,2,k))*(365)/1000000 +...
+                 sum(dataplot.gaswoil(:,2,k))*(365)/1000000 +...
+                 sum(dataplot.assoc(:,2,k))*(365)/1000000 +...
+                 sum(dataplot.oil(:,2,k))*(365)/1000000;
+    printtotal_Bscf = sum(dataplot.drygas(:,5,k))*(365)/1000000000 +...
+                 sum(dataplot.gaswoil(:,5,k))*(365)/1000000000 +...
+                 sum(dataplot.assoc(:,5,k))*(365)/1000000000 +...
+                 sum(dataplot.oil(:,5,k))*(365)/1000000000;        
+    
+    Enverus_mmbbl = Enverus_tab{2,3}+Enverus_tab{3,3};
+    Enverus_Bscf = Enverus_tab{2,4}+Enverus_tab{3,4};
+
+    fprintf('dataplot - oil, iter 1 total = %d \n',printtotal_mmbbl)
+    fprintf('dataplot - gas, iter 1 total = %d \n',printtotal_Bscf)
+    fprintf('Enverus - oil, total = %d \n',Enverus_mmbbl)
+    fprintf('Enverus - gas, total = %d \n',Enverus_Bscf)
+    
 else
 
     if welloption == 1
@@ -302,24 +309,19 @@ else
         welldata.gaswoil(:,:,k) = dataplot.gaswoil(:,[1 22]);
         
         welldata.drygas(:,2,k) = welldata.drygas(:,2,k) + EF(1:length(dataplot.drygas(:,1)));
-%         if gas_length > length(EF)
+%          if gas_length > length(EF)
             welldata.gaswoil(:,2,k) = welldata.gaswoil(:,2,k) + EF((length(dataplot.drygas(:,1))+1):end);
             Gas.Combustion = sum(EF)*365/10^9; % Tg/year
             Study.Gas(15) = Gas.Combustion;
-            x =1;
-%         else
-%             welldata.gaswoil(:,2,k) = welldata.gaswoil(:,2,k) + EF((length(dataplot.drygas(:,1))+1):gas_length);
-%             Gas.Combustion = sum(EF((length(dataplot.drygas(:,1))+1):gas_length))*365/10^9; % Tg/year
-%             Study.Gas(15) = Gas.Combustion;
-%         end
+%          else
+%              welldata.gaswoil(:,2,k) = welldata.gaswoil(:,2,k) + EF((length(dataplot.drygas(:,1))+1):gas_length);
+%              Gas.Combustion = sum(EF((length(dataplot.drygas(:,1))+1):gas_length))*365/10^9; % Tg/year
+%              Study.Gas(15) = Gas.Combustion;
+%          end
 
         welldata.assoc(:,:,k) = dataplot.assoc(:,[1 22]);
         welldata.oil(:,:,k) = dataplot.oil(:,[1 22]);
-        
-%         fprintf('Welldata - drygas, iter %g total = %d \n',k,(sum(welldata.drygas(:,2,k)))*(365)/1000000000)
-%         fprintf('Welldata - gaswoil, iter %g total = %d \n',k,(sum(welldata.gaswoil(:,2,k)))*(365)/1000000000)
-%         fprintf('Welldata - assoc, iter %g total = %d \n',k,(sum(welldata.assoc(:,2,k)))*(365)/1000000000)
-%         fprintf('Welldata - oil, iter %g total = %d \n',k,(sum(welldata.oil(:,2,k)))*(365)/1000000000)
+
 % 
 %         fprintf('Welldata - drygas, iter %g wells = %d \n',k,length(welldata.drygas(:,2,k)))
 %         fprintf('Welldata - gaswoil, iter %g wells = %d \n',k,length(welldata.gaswoil(:,2,k)))
@@ -327,9 +329,8 @@ else
 %         fprintf('Welldata - oil, iter %g wells = %d \n',k,length(welldata.oil(:,2,k)))        
 %         
 %         fprintf('Welldata, iter %g total = %d \n',k,(sum(welldata.drygas(:,2,k)) + sum(welldata.gaswoil(:,2,k)) + sum(welldata.assoc(:,2,k)) + sum(welldata.oil(:,2,k)))*(365)/1000000000)
-%         x = 1;
     end
-    Study.All = [Study.Gas', Study.Oil'];    
+    Study.All = [Study.Gas', Study.Oil'];
 end
 
 if equipoption == 1
@@ -346,6 +347,5 @@ EmissionsOil = Study.All(:,2);
 fprintf('%d \n',k,(sum(EmissionsGas(1:12)) + sum(EmissionsGas(15:17)) + sum(EmissionsOil(1:12)) + sum(EmissionsOil(15:17))))
 
 
-x = 1;
 
 

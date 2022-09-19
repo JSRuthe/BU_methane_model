@@ -11,6 +11,13 @@ function [tranche] = tranche_data(drillinginfofolder)
     M.raw = csvread(filepath,0,0);
     %fclose(filepath);
 
+M.raw(M.raw(:,3) == 10453,:) = [];
+M.raw(M.raw(:,3) == 4625,:) = [];
+M.raw(M.raw(:,3) == 4536,:) = [];
+M.raw(M.raw(:,3) == 1157,:) = [];
+M.raw(M.raw(:,3) == 1088,:) = [];
+M.raw(M.raw(:,3) == 1046,:) = [];
+
 % Data is organized as follows:
 % Col 1 = oil (bbl/year)
 % Col 2 = gas (Mscf/year)

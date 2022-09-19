@@ -20,6 +20,8 @@ clear; clc; close all;
 
 %% Data inputs
 
+diary diary_22914.out
+
 % Binary options for results
     welloption = 1;
     equipoption = 0;
@@ -27,7 +29,11 @@ clear; clc; close all;
 % Specify file name of DrillingInfo data
 DI_filename = 'annualDF_2020_SpatialJoin_2258.csv'; % % Note that although the headers in the file are “monthly oil” and “monthly gas”, these are summed across all months for 2020 so the units are “bbl/year” and “mscf/year”.
 
+% Specify file name of the input data
+input_filename = 'Distributions_Paper.csv';
+
 % Folder names
+inputsfolder = 'Inputs';
 activityfolder = 'ActivityData/';
 basinmapfolder = 'BasinMaps/';
 drillinginfofolder = 'DrillingInfo/';
@@ -51,80 +57,48 @@ if Replicate == 1
     Basin_index = 1;
 end
 
-% Distributions indices
-Basin_index = [1,4,6,7,9,10];
+% Import data inputs file
+formatSpec = '%f%C';
+filepath = fullfile(pwd, inputsfolder,input_filename);
+raw_dat = readtable(filepath,'Format',formatSpec);
+Basin_N = raw_dat.Var1;
+Basin_Index = cellstr(raw_dat.Var2);
 
-
-% All basins
-%Basin_index = [1,4,6,7,9,10,12,14];
-
-Basin_Index = {                     % (0) - If you wish to run all basins (select to replicate tranches for Rutherford et al 2021
-    'PERMIAN',...                   % (1)
-    'GULF COAST WEST',...           % (2)
-    'EAST TEXAS',...                % (3)
-    'FORT WORTH',...                % (4)
-    'ANADARKO',...                  % (5)
-    'DENVER-JULESBURG',...          % (6)
-    'UINTA',...                     % (7)
-    'GREEN RIVER - OVERTHRUST',...  % (8)
-    'SAN JOAQUIN',...                % (9)
-    'APPALACHIAN',...               % (10)
-    'ARKOMA',...                    % (11)
-    'WILLISTON',...                 % (12)
-    'POWDER RIVER',...              % (13)
-    'SAN JUAN'};
-
-Basin_N = [
-    430,...
-    220,...
-    210,...
-    420,...
-    360,...
-    540,...
-    575,...
-    535,...
-    745,...
-    160,...
-    345,...
-    395,...
-    515,...
-    580];
-
-for i = 1:numel(Basin_index)
+for i = 1:numel(Basin_N)
     
     if Replicate ~= 1
-        Basin_Select = Basin_index(i);  
-        fprintf('Basin = %s... \n', Basin_Index{Basin_Select})
+        fprintf('Basin = %s... \n', Basin_Index{i})
     else
-        Basin_Select = 0;
         fprintf('Replicating Rutherford et al 2021')
     end
     
     fprintf('Loading GHGRP data... \n')
-    GHGRP_exp = GHGRP_read_v3(Basin_Select, Basin_Index, Basin_N, GHGRPfolder);
+    GHGRP_exp = GHGRP_read_v3(i, Basin_Index, Basin_N, GHGRPfolder);
     fprintf('Done loading GHGRP data... \n')  
     
     fprintf('Loading model inputs... \n')
-    [Activity_tranches, OPGEE_bin] = tranche_gen_func(Basin_Select, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, DI_filename, GHGRP_exp);
+    [Activity_tranches, OPGEE_bin, Enverus_tab, AF_basin] = tranche_gen_func(i, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, DI_filename, GHGRP_exp, Replicate);
     Activity_tranches = Activity_tranches';
     fprintf('Model inputs generated... \n')
 
     %% Main functions
     fprintf('Starting model... \n')
-    autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index, activityfolder, distributionsfolder, AF_overwrite, AF);
+    autorun_func(n_trial, Activity_tranches, i, Basin_Index, activityfolder, distributionsfolder, AF_overwrite, AF);
     fprintf('Results generated. Processing results... \n')
-    data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_Index, activityfolder, drillinginfofolder)
+    data_proc_master_func(n_trial, welloption, equipoption, i, Basin_Index, activityfolder, drillinginfofolder, Enverus_tab, AF_basin)
 end
+fprintf('Program finished \n')
+diary off
 
 %% Plotting
 
 %EmissionsPlots_UStot()
 
 fprintf('Initializing plotting functions... \n')
-for i = 1:numel(Basin_index)
-    Basin_Select = Basin_index(i);
-    plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial,basinmapfolder, activityfolder, drillinginfofolder,DI_filename)
+for i = 6:6%numel(Basin_N)
+    % Basin_Select = Basin_index(i);
+    plotting_func(Basin_Index, Basin_N, i, n_trial,basinmapfolder, activityfolder, drillinginfofolder,DI_filename)
 end
 
-fprintf('Program finished \n')
+
 

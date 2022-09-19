@@ -219,7 +219,7 @@ equip_count = zeros(1, Activity.wells(j));
 % OUTPUT RESULTS
     MatAdd = zeros(Activity.wells(j),21);
     MatAdd(:, 1) = j;
-    MatAdd(:, 2) = 199 + j;
+    MatAdd(:, 2) = (Activity.prod_bbl(j)/Activity.wells(j));
     MatAdd(:, 3) = sample;
     MatAdd(:, 4) = WellProd;
     MatAdd(:, 5) = (Activity.prod_scf(j)/Activity.wells(j));

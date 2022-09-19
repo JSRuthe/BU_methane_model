@@ -1,4 +1,4 @@
-function [tranche_OPGEE] = OPGEE_rows_func(Basin_Select, OPGEE_bin, LU_type, flare_tab)
+function [tranche_OPGEE] = OPGEE_rows_func(Replicate, OPGEE_bin, LU_type, flare_tab)
 
 
 % OPGEE binning func
@@ -8,7 +8,7 @@ function [tranche_OPGEE] = OPGEE_rows_func(Basin_Select, OPGEE_bin, LU_type, fla
 tranche_data = OPGEE_bin.gasdry;
 tranche_OPGEE = [];
 % if Basin_Select == 0
-   C1_frac = 83.2; 
+%  C1_frac = 83.2; 
 % end
 
 for i = 1: length(tranche_data(:,1))
@@ -17,7 +17,7 @@ for i = 1: length(tranche_data(:,1))
         wells = round(wells);
         prod_mscf = tranche_data(i,3) * LU_type(j);
         prod_bbl = tranche_data(i,4) * LU_type(j);
-        if Basin_Select ~= 0
+        if Replicate  ~= 1
             flare_frac = flare_tab.gasdry(i,4) * LU_type(j);
         else
             flare_frac = 0;
@@ -29,7 +29,7 @@ for i = 1: length(tranche_data(:,1))
         
         prod_GOR = (prod_mscf*1000)/prod_bbl;
         
-        vec = [prod_bbl wells C1_frac prod_GOR j flare_frac tranche_data(i,5:15)];
+        vec = [prod_bbl wells (tranche_data(i,16)*100) prod_GOR j flare_frac tranche_data(i,5:15)];
         tranche_OPGEE = [tranche_OPGEE; vec];
     end    
 end
@@ -37,7 +37,7 @@ end
 % For gas wells with oil
 tranche_data = OPGEE_bin.gasassoc;
 % if Basin_Select == 0
-   C1_frac = 83.2; 
+%  C1_frac = 83.2; 
 % end
 
 for i = 1: length(tranche_data(:,1))
@@ -46,7 +46,7 @@ for i = 1: length(tranche_data(:,1))
         wells = round(wells);
         prod_mscf = tranche_data(i,3) * LU_type(j);
         prod_bbl = tranche_data(i,4) * LU_type(j);
-        if Basin_Select ~= 0
+        if Replicate  ~= 1
             flare_frac = flare_tab.gasassoc(i,4) * LU_type(j);
         else
             flare_frac = 0;
@@ -59,7 +59,7 @@ for i = 1: length(tranche_data(:,1))
         
         prod_GOR = (prod_mscf*1000)/prod_bbl;
            
-        vec = [prod_bbl wells C1_frac prod_GOR j flare_frac tranche_data(i,5:15)];
+        vec = [prod_bbl wells (tranche_data(i,16)*100) prod_GOR j flare_frac tranche_data(i,5:15)];
         tranche_OPGEE = [tranche_OPGEE; vec];
     end    
 end
@@ -67,7 +67,7 @@ end
 % For oil wells with gas
 tranche_data = OPGEE_bin.oilwgas;
 % if Basin_Select == 0
-   C1_frac = 68.3; 
+%  C1_frac = 68.3; 
 % end
 
 for i = 1: length(tranche_data(:,1))
@@ -75,7 +75,7 @@ for i = 1: length(tranche_data(:,1))
     wells = round(wells);
     prod_mscf = tranche_data(i,3);
     prod_bbl = tranche_data(i,4);
-    if Basin_Select ~= 0
+    if Replicate  ~= 1
         flare_frac = flare_tab.oilwgas(i,4);
     else
         flare_frac = 0;
@@ -87,14 +87,14 @@ for i = 1: length(tranche_data(:,1))
     
     prod_GOR = (prod_mscf*1000)/prod_bbl;
             
-    vec = [prod_bbl wells C1_frac prod_GOR 3 flare_frac tranche_data(i,5:15)];
+    vec = [prod_bbl wells (tranche_data(i,16)*100) prod_GOR 3 flare_frac tranche_data(i,5:15)];
     tranche_OPGEE = [tranche_OPGEE; vec];   
 end
 
 % For oil wells
 tranche_data = OPGEE_bin.oil;
 % if Basin_Select == 0
-   C1_frac = 68.3; 
+%  C1_frac = 68.3; 
 % end
 
 for i = 1: length(tranche_data(:,1))
@@ -102,7 +102,7 @@ for i = 1: length(tranche_data(:,1))
     wells = round(wells);
     prod_mscf = tranche_data(i,3);
     prod_bbl = tranche_data(i,4);
-    if Basin_Select ~= 0
+    if Replicate  ~= 1
         flare_frac = flare_tab.oil(i,4);
     else
         flare_frac = 0;
@@ -114,7 +114,7 @@ for i = 1: length(tranche_data(:,1))
     
     prod_GOR = (prod_mscf*1000)/prod_bbl;
         
-    vec = [prod_bbl wells C1_frac prod_GOR 3 flare_frac tranche_data(i,5:15)];
+    vec = [prod_bbl wells (tranche_data(i,16)*100) prod_GOR 3 flare_frac tranche_data(i,5:15)];
     tranche_OPGEE = [tranche_OPGEE; vec];   
 end
 
