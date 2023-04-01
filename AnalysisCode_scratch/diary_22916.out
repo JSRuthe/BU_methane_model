@@ -1,0 +1,14 @@
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('readtable', 'C:\Program Files\MATLAB\R2021a\toolbox\matlab\iofun\readtable.m', 318)" style="font-weight:bold">readtable</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021a\toolbox\matlab\iofun\readtable.m',318,0)">line 318</a>)
+Unable to open file 'C:\Users\jruthe\BU_methane_model\AnalysisCode_scratch\Inputs\Distributions_Paper.csv'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\jruthe\BU_methane_model\AnalysisCode_scratch\main.m', 63)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\jruthe\BU_methane_model\AnalysisCode_scratch\main.m',63,0)">line 63</a>)
+raw_dat = readtable(filepath,'Format',formatSpec);
+} 
+main
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('readtable', 'C:\Program Files\MATLAB\R2021a\toolbox\matlab\iofun\readtable.m', 318)" style="font-weight:bold">readtable</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021a\toolbox\matlab\iofun\readtable.m',318,0)">line 318</a>)
+Unable to open file 'C:\Users\jruthe\BU_methane_model\AnalysisCode_scratch\Inputs\Distributions_Paper.csv'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\jruthe\BU_methane_model\AnalysisCode_scratch\main.m', 63)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\jruthe\BU_methane_model\AnalysisCode_scratch\main.m',63,0)">line 63</a>)
+raw_dat = readtable(filepath,'Format',formatSpec);
+} 
+main
