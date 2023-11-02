@@ -101,7 +101,7 @@ if Replicate  ~= 1
 end
     
 
-[Enverus_tab, OPGEE_bin] = di_scrubbing_func(M_in, i, Basin_Index, activityfolder);
+[plot_dat,Enverus_tab, OPGEE_bin] = di_scrubbing_func(M_in, i, Basin_Index, activityfolder);
 
 if Replicate  ~= 1
     flare_tab = flaring_tranche(i, Basin_Index, Basin_N, OPGEE_bin, activityfolder);

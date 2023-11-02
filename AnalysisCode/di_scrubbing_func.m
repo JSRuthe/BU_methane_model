@@ -1,4 +1,4 @@
-function [plot_dat, OPGEE_bin] = di_scrubbing_func(M_raw, Basin_Select, Basin_Index, activityfolder)
+function [plot_dat,data_tab, OPGEE_bin] = di_scrubbing_func(M_raw, Basin_Select, Basin_Index, activityfolder)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
