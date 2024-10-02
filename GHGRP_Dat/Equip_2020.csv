@@ -1,0 +1,4242 @@
+Compressors,1000435,23.0,220
+Dehydrators,1000435,19.0,220
+Header,1000435,4.0,220
+Heater-treater,1000435,0.0,220
+In-line heaters,1000435,18.0,220
+Meters/piping,1000435,1571.0,220
+Separators,1000435,0.0,220
+Separators,1000435,1267.0,220
+Wellhead,1000435,0.0,220
+Wellhead,1000435,1692.0,220
+Wellhead,1002978,0.0,740
+Wellhead,1002978,175.0,740
+Separators,1002978,2.0,740
+Meters/piping,1002978,0.0,740
+Separators,1002978,0.0,740
+Heater-treater,1002978,2.0,740
+Header,1002978,68.0,740
+Dehydrators,1002978,0.0,740
+Compressors,1002978,0.0,740
+In-line heaters,1002978,0.0,740
+Wellhead,1004628,0.0,745
+Wellhead,1004628,766.0,745
+Separators,1004628,0.0,745
+Separators,1004628,21.0,745
+Meters/piping,1004628,0.0,745
+In-line heaters,1004628,0.0,745
+Header,1004628,44.0,745
+Dehydrators,1004628,0.0,745
+Compressors,1004628,0.0,745
+Heater-treater,1004628,0.0,745
+Separators,1005963,0.0,580
+Wellhead,1005963,428.0,580
+Wellhead,1005963,0.0,580
+Separators,1005963,296.0,580
+Meters/piping,1005963,735.0,580
+Dehydrators,1005963,7.0,580
+Heater-treater,1005963,0.0,580
+Header,1005963,0.0,580
+In-line heaters,1005963,346.0,580
+Compressors,1005963,39.0,580
+Wellhead,1006564,15.0,160
+Separators,1006564,1525.0,160
+Separators,1006564,15.0,160
+Meters/piping,1006564,2511.0,160
+Wellhead,1006564,2507.0,160
+Heater-treater,1006564,6.0,160
+Header,1006564,0.0,160
+Dehydrators,1006564,6.0,160
+Compressors,1006564,12.0,160
+In-line heaters,1006564,35.0,160
+Wellhead,1006750,0.0,745
+Wellhead,1006750,125.0,745
+Separators,1006750,0.0,745
+Separators,1006750,4.0,745
+Meters/piping,1006750,0.0,745
+In-line heaters,1006750,0.0,745
+Header,1006750,23.0,745
+Dehydrators,1006750,0.0,745
+Compressors,1006750,0.0,745
+Heater-treater,1006750,2.0,745
+Separators,1006770,872.0,220
+Wellhead,1006770,51.0,220
+Wellhead,1006770,1411.0,220
+Meters/piping,1006770,86.0,220
+Separators,1006770,122.0,220
+Heater-treater,1006770,196.0,220
+Header,1006770,21.0,220
+In-line heaters,1006770,28.0,220
+Dehydrators,1006770,49.0,220
+Compressors,1006770,76.0,220
+Wellhead,1007037,485.0,430
+Separators,1007037,58.0,430
+Separators,1007037,74.0,430
+Meters/piping,1007037,251.0,430
+Wellhead,1007037,251.0,430
+Heater-treater,1007037,99.0,430
+Header,1007037,0.0,430
+Dehydrators,1007037,2.0,430
+Compressors,1007037,4.0,430
+In-line heaters,1007037,0.0,430
+Wellhead,1007475,546.0,360
+Wellhead,1007475,16.0,360
+Separators,1007475,544.0,360
+Separators,1007475,12.0,360
+Meters/piping,1007475,552.0,360
+In-line heaters,1007475,499.0,360
+Header,1007475,0.0,360
+Dehydrators,1007475,2.0,360
+Compressors,1007475,23.0,360
+Heater-treater,1007475,8.0,360
+Separators,1007476,8.0,420
+Wellhead,1007476,7.0,420
+Separators,1007476,700.0,420
+Meters/piping,1007476,657.0,420
+Wellhead,1007476,726.0,420
+Heater-treater,1007476,0.0,420
+Compressors,1007476,40.0,420
+In-line heaters,1007476,0.0,420
+Header,1007476,0.0,420
+Dehydrators,1007476,0.0,420
+Wellhead,1007479,146.0,430
+Wellhead,1007479,1550.0,430
+Separators,1007479,75.0,430
+Meters/piping,1007479,180.0,430
+Separators,1007479,43.0,430
+Heater-treater,1007479,14.0,430
+Header,1007479,25.0,430
+Dehydrators,1007479,0.0,430
+Compressors,1007479,37.0,430
+In-line heaters,1007479,11.0,430
+Wellhead,1007483,4.0,530
+Wellhead,1007483,0.0,530
+Separators,1007483,4.0,530
+Separators,1007483,0.0,530
+Meters/piping,1007483,4.0,530
+In-line heaters,1007483,0.0,530
+Header,1007483,0.0,530
+Dehydrators,1007483,0.0,530
+Compressors,1007483,0.0,530
+Heater-treater,1007483,0.0,530
+Wellhead,1007484,11195.0,580
+Wellhead,1007484,78.0,580
+Separators,1007484,11836.0,580
+Separators,1007484,75.0,580
+Meters/piping,1007484,12201.0,580
+Heater-treater,1007484,1.0,580
+Header,1007484,78.0,580
+Dehydrators,1007484,6.0,580
+Compressors,1007484,2255.0,580
+In-line heaters,1007484,7.0,580
+Separators,1007485,1108.0,220
+Wellhead,1007485,235.0,220
+Wellhead,1007485,590.0,220
+Separators,1007485,437.0,220
+Meters/piping,1007485,235.0,220
+Dehydrators,1007485,5.0,220
+Heater-treater,1007485,3.0,220
+Header,1007485,590.0,220
+In-line heaters,1007485,36.0,220
+Compressors,1007485,17.0,220
+Wellhead,1007486,639.0,230
+Wellhead,1007486,2.0,230
+Separators,1007486,639.0,230
+Separators,1007486,2.0,230
+Meters/piping,1007486,639.0,230
+Heater-treater,1007486,0.0,230
+Header,1007486,2.0,230
+Dehydrators,1007486,6.0,230
+Compressors,1007486,24.0,230
+In-line heaters,1007486,0.0,230
+Separators,1007599,0.0,230
+Wellhead,1007599,771.0,230
+Wellhead,1007599,0.0,230
+Separators,1007599,620.0,230
+Meters/piping,1007599,771.0,230
+Compressors,1007599,40.0,230
+Heater-treater,1007599,0.0,230
+Header,1007599,0.0,230
+Dehydrators,1007599,4.0,230
+In-line heaters,1007599,0.0,230
+Separators,1007777,0.0,430
+Wellhead,1007777,0.0,430
+Wellhead,1007777,391.0,430
+Separators,1007777,192.0,430
+Meters/piping,1007777,391.0,430
+In-line heaters,1007777,0.0,430
+Heater-treater,1007777,80.0,430
+Header,1007777,391.0,430
+Dehydrators,1007777,1.0,430
+Compressors,1007777,11.0,430
+Wellhead,1007807,9.0,890
+Separators,1007807,0.0,890
+Separators,1007807,6.0,890
+Meters/piping,1007807,1.0,890
+Wellhead,1007807,0.0,890
+Heater-treater,1007807,1.0,890
+Header,1007807,4.0,890
+Dehydrators,1007807,1.0,890
+Compressors,1007807,3.0,890
+In-line heaters,1007807,0.0,890
+Wellhead,1008051,14.0,160
+Wellhead,1008051,0.0,160
+Separators,1008051,14.0,160
+Separators,1008051,0.0,160
+Meters/piping,1008051,14.0,160
+In-line heaters,1008051,0.0,160
+Header,1008051,0.0,160
+Dehydrators,1008051,0.0,160
+Compressors,1008051,6.0,160
+Heater-treater,1008051,0.0,160
+Separators,1008052,101.0,580
+Wellhead,1008052,118.0,580
+Separators,1008052,32.0,580
+Meters/piping,1008052,36.0,580
+Wellhead,1008052,36.0,580
+Heater-treater,1008052,0.0,580
+Header,1008052,2.0,580
+Dehydrators,1008052,0.0,580
+Compressors,1008052,3.0,580
+In-line heaters,1008052,0.0,580
+Wellhead,1008053,3.0,540
+Separators,1008053,221.0,540
+Separators,1008053,1.0,540
+Meters/piping,1008053,1414.0,540
+Wellhead,1008053,1877.0,540
+Heater-treater,1008053,1.0,540
+Header,1008053,2.0,540
+Dehydrators,1008053,9.0,540
+Compressors,1008053,9.0,540
+In-line heaters,1008053,0.0,540
+Wellhead,1008066,358.0,305
+Wellhead,1008066,8.0,305
+Separators,1008066,0.0,305
+Separators,1008066,0.0,305
+Meters/piping,1008066,358.0,305
+In-line heaters,1008066,0.0,305
+Header,1008066,8.0,305
+Dehydrators,1008066,18.0,305
+Compressors,1008066,22.0,305
+Heater-treater,1008066,5.0,305
+Separators,1008078,0.0,507
+Wellhead,1008078,0.0,507
+Separators,1008078,132.0,507
+Meters/piping,1008078,131.0,507
+Wellhead,1008078,131.0,507
+Heater-treater,1008078,0.0,507
+Compressors,1008078,0.0,507
+In-line heaters,1008078,2.0,507
+Header,1008078,0.0,507
+Dehydrators,1008078,127.0,507
+Wellhead,1008079,2432.0,260
+Wellhead,1008079,184.0,260
+Separators,1008079,1072.0,260
+Meters/piping,1008079,2432.0,260
+Separators,1008079,73.0,260
+Heater-treater,1008079,8.0,260
+Header,1008079,36.0,260
+Dehydrators,1008079,10.0,260
+Compressors,1008079,38.0,260
+In-line heaters,1008079,504.0,260
+Wellhead,1008081,177.0,230
+Wellhead,1008081,0.0,230
+Separators,1008081,160.0,230
+Separators,1008081,0.0,230
+Meters/piping,1008081,160.0,230
+In-line heaters,1008081,0.0,230
+Header,1008081,0.0,230
+Dehydrators,1008081,161.0,230
+Compressors,1008081,3.0,230
+Heater-treater,1008081,0.0,230
+Wellhead,1008086,0.0,575
+Wellhead,1008086,581.0,575
+Separators,1008086,0.0,575
+Separators,1008086,506.0,575
+Meters/piping,1008086,0.0,575
+In-line heaters,1008086,0.0,575
+Header,1008086,0.0,575
+Dehydrators,1008086,0.0,575
+Compressors,1008086,0.0,575
+Heater-treater,1008086,453.0,575
+Separators,1008087,0.0,540
+Wellhead,1008087,0.0,540
+Wellhead,1008087,6.0,540
+Meters/piping,1008087,0.0,540
+Separators,1008087,0.0,540
+Heater-treater,1008087,0.0,540
+Header,1008087,0.0,540
+In-line heaters,1008087,0.0,540
+Dehydrators,1008087,0.0,540
+Compressors,1008087,0.0,540
+Wellhead,1008090,455.0,220
+Separators,1008090,0.0,220
+Separators,1008090,15.0,220
+Meters/piping,1008090,0.0,220
+Wellhead,1008090,0.0,220
+Heater-treater,1008090,1.0,220
+Header,1008090,455.0,220
+Dehydrators,1008090,0.0,220
+Compressors,1008090,0.0,220
+In-line heaters,1008090,0.0,220
+Wellhead,1008092,18.0,220
+Wellhead,1008092,900.0,220
+Separators,1008092,392.0,220
+Separators,1008092,0.0,220
+Meters/piping,1008092,395.0,220
+In-line heaters,1008092,0.0,220
+Header,1008092,900.0,220
+Dehydrators,1008092,1.0,220
+Compressors,1008092,1.0,220
+Heater-treater,1008092,103.0,220
+Separators,1008111,12.0,890
+Wellhead,1008111,0.0,890
+Wellhead,1008111,332.0,890
+Separators,1008111,0.0,890
+Meters/piping,1008111,0.0,890
+In-line heaters,1008111,0.0,890
+Heater-treater,1008111,0.0,890
+Header,1008111,33.0,890
+Dehydrators,1008111,0.0,890
+Compressors,1008111,0.0,890
+Wellhead,1008113,649.0,220
+Separators,1008113,0.0,220
+Separators,1008113,649.0,220
+Meters/piping,1008113,0.0,220
+Wellhead,1008113,0.0,220
+Heater-treater,1008113,0.0,220
+Header,1008113,649.0,220
+Dehydrators,1008113,0.0,220
+Compressors,1008113,0.0,220
+In-line heaters,1008113,0.0,220
+Wellhead,1008116,694.0,160
+Wellhead,1008116,0.0,160
+Separators,1008116,67.0,160
+Separators,1008116,0.0,160
+Meters/piping,1008116,694.0,160
+In-line heaters,1008116,34.0,160
+Header,1008116,0.0,160
+Dehydrators,1008116,0.0,160
+Compressors,1008116,8.0,160
+Heater-treater,1008116,0.0,160
+Separators,1008134,45.0,350
+Wellhead,1008134,40.0,350
+Separators,1008134,170.0,350
+Meters/piping,1008134,0.0,350
+Wellhead,1008134,86.0,350
+Heater-treater,1008134,20.0,350
+Header,1008134,40.0,350
+Dehydrators,1008134,0.0,350
+Compressors,1008134,23.0,350
+In-line heaters,1008134,0.0,350
+Wellhead,1008141,14349.0,430
+Separators,1008141,1208.0,430
+Separators,1008141,8999.0,430
+Meters/piping,1008141,674.0,430
+Wellhead,1008141,580.0,430
+Heater-treater,1008141,3550.0,430
+Header,1008141,846.0,430
+Dehydrators,1008141,9.0,430
+Compressors,1008141,71.0,430
+In-line heaters,1008141,0.0,430
+Wellhead,1008165,169.0,595
+Wellhead,1008165,0.0,595
+Separators,1008165,169.0,595
+Separators,1008165,0.0,595
+Meters/piping,1008165,169.0,595
+In-line heaters,1008165,0.0,595
+Header,1008165,0.0,595
+Dehydrators,1008165,0.0,595
+Compressors,1008165,0.0,595
+Heater-treater,1008165,0.0,595
+Separators,1008167,287.0,575
+Wellhead,1008167,970.0,575
+Separators,1008167,0.0,575
+Meters/piping,1008167,0.0,575
+Wellhead,1008167,0.0,575
+Heater-treater,1008167,0.0,575
+Compressors,1008167,2.0,575
+In-line heaters,1008167,0.0,575
+Header,1008167,629.0,575
+Dehydrators,1008167,2.0,575
+Wellhead,1008170,159.0,507
+Wellhead,1008170,0.0,507
+Separators,1008170,159.0,507
+Meters/piping,1008170,159.0,507
+Separators,1008170,0.0,507
+Heater-treater,1008170,0.0,507
+Header,1008170,0.0,507
+Dehydrators,1008170,0.0,507
+Compressors,1008170,4.0,507
+In-line heaters,1008170,3.0,507
+Wellhead,1008172,115.0,890
+Wellhead,1008172,323.0,890
+Separators,1008172,0.0,890
+Separators,1008172,16.0,890
+Meters/piping,1008172,14.0,890
+In-line heaters,1008172,0.0,890
+Header,1008172,24.0,890
+Dehydrators,1008172,0.0,890
+Compressors,1008172,0.0,890
+Heater-treater,1008172,0.0,890
+Wellhead,1008173,0.0,395
+Wellhead,1008173,438.0,395
+Separators,1008173,0.0,395
+Separators,1008173,79.0,395
+Meters/piping,1008173,377.0,395
+In-line heaters,1008173,4.0,395
+Header,1008173,35.0,395
+Dehydrators,1008173,0.0,395
+Compressors,1008173,0.0,395
+Heater-treater,1008173,374.0,395
+Separators,1008190,1.0,305
+Wellhead,1008190,80.0,305
+Separators,1008190,1.0,305
+Meters/piping,1008190,1.0,305
+Wellhead,1008190,1.0,305
+Heater-treater,1008190,86.0,305
+Compressors,1008190,6.0,305
+In-line heaters,1008190,1.0,305
+Header,1008190,33.0,305
+Dehydrators,1008190,4.0,305
+Wellhead,1008199,60.0,345
+Wellhead,1008199,0.0,345
+Separators,1008199,60.0,345
+Meters/piping,1008199,60.0,345
+Separators,1008199,0.0,345
+Heater-treater,1008199,0.0,345
+Header,1008199,0.0,345
+Dehydrators,1008199,0.0,345
+Compressors,1008199,17.0,345
+In-line heaters,1008199,0.0,345
+Separators,1008219,1.0,220
+Wellhead,1008219,0.0,220
+Wellhead,1008219,1.0,220
+Separators,1008219,0.0,220
+Meters/piping,1008219,0.0,220
+Compressors,1008219,0.0,220
+Heater-treater,1008219,0.0,220
+Header,1008219,1.0,220
+Dehydrators,1008219,0.0,220
+In-line heaters,1008219,0.0,220
+Separators,1008224,44.0,220
+Wellhead,1008224,57.0,220
+Separators,1008224,49.0,220
+Meters/piping,1008224,0.0,220
+Wellhead,1008224,34.0,220
+Heater-treater,1008224,12.0,220
+Header,1008224,56.0,220
+Dehydrators,1008224,0.0,220
+Compressors,1008224,16.0,220
+In-line heaters,1008224,15.0,220
+Wellhead,1008241,991.0,360
+Wellhead,1008241,0.0,360
+Separators,1008241,1234.0,360
+Separators,1008241,0.0,360
+Meters/piping,1008241,1186.0,360
+Dehydrators,1008241,7.0,360
+Heater-treater,1008241,0.0,360
+Header,1008241,0.0,360
+In-line heaters,1008241,32.0,360
+Compressors,1008241,115.0,360
+Wellhead,1008242,101.0,220
+Wellhead,1008242,0.0,220
+Separators,1008242,222.0,220
+Separators,1008242,0.0,220
+Meters/piping,1008242,107.0,220
+In-line heaters,1008242,96.0,220
+Heater-treater,1008242,0.0,220
+Header,1008242,0.0,220
+Dehydrators,1008242,7.0,220
+Compressors,1008242,45.0,220
+Wellhead,1008270,252.0,540
+Wellhead,1008270,1964.0,540
+Separators,1008270,75.0,540
+Separators,1008270,1016.0,540
+Meters/piping,1008270,49.0,540
+Heater-treater,1008270,37.0,540
+Header,1008270,187.0,540
+Dehydrators,1008270,0.0,540
+In-line heaters,1008270,0.0,540
+Compressors,1008270,1.0,540
+Meters/piping,1008275,0.0,395
+Wellhead,1008275,0.0,395
+Wellhead,1008275,92.0,395
+Separators,1008275,0.0,395
+Separators,1008275,195.0,395
+In-line heaters,1008275,0.0,395
+Header,1008275,20.0,395
+Dehydrators,1008275,0.0,395
+Compressors,1008275,0.0,395
+Heater-treater,1008275,22.0,395
+Wellhead,1008287,439.0,360
+Wellhead,1008287,181.0,360
+Separators,1008287,57.0,360
+Separators,1008287,160.0,360
+Meters/piping,1008287,439.0,360
+In-line heaters,1008287,264.0,360
+Heater-treater,1008287,160.0,360
+Header,1008287,19.0,360
+Dehydrators,1008287,0.0,360
+Compressors,1008287,21.0,360
+Wellhead,1008289,3329.0,420
+Wellhead,1008289,36.0,420
+Separators,1008289,3495.0,420
+Separators,1008289,34.0,420
+Meters/piping,1008289,3329.0,420
+Heater-treater,1008289,0.0,420
+Header,1008289,5.0,420
+Dehydrators,1008289,0.0,420
+Compressors,1008289,311.0,420
+In-line heaters,1008289,0.0,420
+In-line heaters,1008290,63.0,430
+Compressors,1008290,11.0,430
+Dehydrators,1008290,0.0,430
+Header,1008290,141.0,430
+Heater-treater,1008290,125.0,430
+Meters/piping,1008290,111.0,430
+Separators,1008290,470.0,430
+Separators,1008290,121.0,430
+Wellhead,1008290,240.0,430
+Wellhead,1008290,111.0,430
+Separators,1008293,565.0,220
+Separators,1008293,1367.0,220
+Wellhead,1008293,650.0,220
+Wellhead,1008293,1371.0,220
+Meters/piping,1008293,2001.0,220
+Compressors,1008293,8.0,220
+Heater-treater,1008293,13.0,220
+Header,1008293,2022.0,220
+Dehydrators,1008293,3.0,220
+In-line heaters,1008293,1.0,220
+Wellhead,1008296,1766.0,595
+Wellhead,1008296,0.0,595
+Separators,1008296,677.0,595
+Separators,1008296,0.0,595
+Meters/piping,1008296,410.0,595
+Heater-treater,1008296,0.0,595
+Header,1008296,0.0,595
+Dehydrators,1008296,2.0,595
+Compressors,1008296,1.0,595
+In-line heaters,1008296,1076.0,595
+Separators,1008299,293.0,305
+Wellhead,1008299,299.0,305
+Wellhead,1008299,447.0,305
+Separators,1008299,6.0,305
+Meters/piping,1008299,746.0,305
+Compressors,1008299,264.0,305
+Heater-treater,1008299,129.0,305
+Header,1008299,30.0,305
+Dehydrators,1008299,22.0,305
+In-line heaters,1008299,0.0,305
+Separators,1008323,24.0,595
+Wellhead,1008323,121.0,595
+Wellhead,1008323,24.0,595
+Separators,1008323,103.0,595
+Meters/piping,1008323,121.0,595
+Header,1008323,24.0,595
+Heater-treater,1008323,0.0,595
+In-line heaters,1008323,0.0,595
+Dehydrators,1008323,5.0,595
+Compressors,1008323,10.0,595
+Wellhead,1008331,1523.0,430
+Separators,1008331,0.0,430
+Separators,1008331,481.0,430
+Meters/piping,1008331,0.0,430
+Wellhead,1008331,0.0,430
+Heater-treater,1008331,204.0,430
+Header,1008331,1523.0,430
+Dehydrators,1008331,0.0,430
+Compressors,1008331,0.0,430
+In-line heaters,1008331,0.0,430
+Wellhead,1008346,0.0,745
+Wellhead,1008346,16038.0,745
+Separators,1008346,0.0,745
+Separators,1008346,432.0,745
+Meters/piping,1008346,0.0,745
+In-line heaters,1008346,0.0,745
+Header,1008346,720.0,745
+Dehydrators,1008346,0.0,745
+Compressors,1008346,0.0,745
+Heater-treater,1008346,30.0,745
+Separators,1008348,0.0,305
+Wellhead,1008348,0.0,305
+Separators,1008348,52.0,305
+Meters/piping,1008348,74.0,305
+Wellhead,1008348,360.0,305
+Heater-treater,1008348,0.0,305
+Compressors,1008348,36.0,305
+In-line heaters,1008348,0.0,305
+Header,1008348,0.0,305
+Dehydrators,1008348,12.0,305
+Wellhead,1008351,48.0,430
+Wellhead,1008351,109.0,430
+Separators,1008351,99.0,430
+Meters/piping,1008351,48.0,430
+Separators,1008351,77.0,430
+Heater-treater,1008351,39.0,430
+Header,1008351,62.0,430
+Dehydrators,1008351,0.0,430
+Compressors,1008351,14.0,430
+In-line heaters,1008351,55.0,430
+Wellhead,1008353,4.0,535
+Wellhead,1008353,0.0,535
+Separators,1008353,1.0,535
+Separators,1008353,0.0,535
+Meters/piping,1008353,4.0,535
+In-line heaters,1008353,1.0,535
+Header,1008353,0.0,535
+Dehydrators,1008353,0.0,535
+Compressors,1008353,0.0,535
+Heater-treater,1008353,0.0,535
+Wellhead,1008354,2.0,575
+Wellhead,1008354,2.0,575
+Separators,1008354,2.0,575
+Separators,1008354,2.0,575
+Meters/piping,1008354,2.0,575
+In-line heaters,1008354,2.0,575
+Header,1008354,2.0,575
+Dehydrators,1008354,2.0,575
+Compressors,1008354,0.0,575
+Heater-treater,1008354,0.0,575
+Separators,1008355,1900.0,595
+Wellhead,1008355,4675.0,595
+Wellhead,1008355,0.0,595
+Separators,1008355,0.0,595
+Meters/piping,1008355,941.0,595
+In-line heaters,1008355,6.0,595
+Heater-treater,1008355,0.0,595
+Header,1008355,0.0,595
+Dehydrators,1008355,0.0,595
+Compressors,1008355,0.0,595
+Wellhead,1008383,4.0,350
+Separators,1008383,4.0,350
+Meters/piping,1008383,38.0,350
+In-line heaters,1008383,13.0,350
+Wellhead,1008383,14.0,350
+Header,1008383,0.0,350
+Dehydrators,1008383,0.0,350
+Compressors,1008383,4.0,350
+Heater-treater,1008383,8.0,350
+Separators,1008383,17.0,350
+Wellhead,1008407,0.0,575
+Compressors,1008407,0.0,575
+Dehydrators,1008407,0.0,575
+Header,1008407,1173.0,575
+Heater-treater,1008407,479.0,575
+In-line heaters,1008407,0.0,575
+Meters/piping,1008407,0.0,575
+Separators,1008407,824.0,575
+Separators,1008407,0.0,575
+Wellhead,1008407,1173.0,575
+Wellhead,1008411,145.0,360
+Wellhead,1008411,71.0,360
+Separators,1008411,145.0,360
+Meters/piping,1008411,71.0,360
+Separators,1008411,71.0,360
+Heater-treater,1008411,145.0,360
+Header,1008411,145.0,360
+In-line heaters,1008411,71.0,360
+Dehydrators,1008411,6.0,360
+Compressors,1008411,34.0,360
+Wellhead,1008439,6.0,220
+Wellhead,1008439,276.0,220
+Separators,1008439,22.0,220
+Separators,1008439,509.0,220
+Meters/piping,1008439,6.0,220
+In-line heaters,1008439,0.0,220
+Heater-treater,1008439,136.0,220
+Header,1008439,0.0,220
+Dehydrators,1008439,0.0,220
+Compressors,1008439,15.0,220
+Wellhead,1008471,507.0,395
+Separators,1008471,0.0,395
+Wellhead,1008471,0.0,395
+Separators,1008471,580.0,395
+Meters/piping,1008471,0.0,395
+Header,1008471,507.0,395
+Heater-treater,1008471,507.0,395
+Dehydrators,1008471,0.0,395
+Compressors,1008471,0.0,395
+In-line heaters,1008471,0.0,395
+Wellhead,1008472,217.0,360
+Compressors,1008472,30.0,360
+Dehydrators,1008472,0.0,360
+Header,1008472,240.0,360
+Heater-treater,1008472,236.0,360
+In-line heaters,1008472,0.0,360
+Meters/piping,1008472,217.0,360
+Separators,1008472,427.0,360
+Separators,1008472,338.0,360
+Wellhead,1008472,240.0,360
+Separators,1008474,1075.0,345
+Separators,1008474,0.0,345
+Wellhead,1008474,682.0,345
+Wellhead,1008474,0.0,345
+Meters/piping,1008474,675.0,345
+Compressors,1008474,198.0,345
+Heater-treater,1008474,0.0,345
+Header,1008474,0.0,345
+Dehydrators,1008474,31.0,345
+In-line heaters,1008474,16.0,345
+Wellhead,1008475,6234.0,430
+Wellhead,1008475,0.0,430
+Separators,1008475,3885.0,430
+Separators,1008475,0.0,430
+Meters/piping,1008475,6234.0,430
+In-line heaters,1008475,0.0,430
+Heater-treater,1008475,0.0,430
+Header,1008475,0.0,430
+Dehydrators,1008475,0.0,430
+Compressors,1008475,0.0,430
+Wellhead,1008481,581.0,160
+Wellhead,1008481,0.0,160
+Separators,1008481,4920.0,160
+Separators,1008481,0.0,160
+Meters/piping,1008481,581.0,160
+Heater-treater,1008481,0.0,160
+Header,1008481,0.0,160
+Dehydrators,1008481,1.0,160
+Compressors,1008481,2.0,160
+In-line heaters,1008481,551.0,160
+In-line heaters,1008490,101.0,395
+Compressors,1008490,0.0,395
+Dehydrators,1008490,3.0,395
+Header,1008490,374.0,395
+Heater-treater,1008490,800.0,395
+Meters/piping,1008490,374.0,395
+Separators,1008490,1229.0,395
+Separators,1008490,1229.0,395
+Wellhead,1008490,1229.0,395
+Wellhead,1008490,0.0,395
+Separators,1008492,464.0,230
+Separators,1008492,0.0,230
+Wellhead,1008492,350.0,230
+Wellhead,1008492,0.0,230
+Meters/piping,1008492,328.0,230
+Compressors,1008492,0.0,230
+Heater-treater,1008492,0.0,230
+Header,1008492,0.0,230
+Dehydrators,1008492,0.0,230
+In-line heaters,1008492,0.0,230
+Wellhead,1008499,0.0,745
+Wellhead,1008499,14610.0,745
+Separators,1008499,0.0,745
+Separators,1008499,0.0,745
+Meters/piping,1008499,0.0,745
+Heater-treater,1008499,0.0,745
+Header,1008499,1258.0,745
+Dehydrators,1008499,0.0,745
+Compressors,1008499,0.0,745
+In-line heaters,1008499,0.0,745
+Separators,1008506,122.0,210
+Wellhead,1008506,0.0,210
+Wellhead,1008506,122.0,210
+Separators,1008506,0.0,210
+Meters/piping,1008506,0.0,210
+Compressors,1008506,0.0,210
+Heater-treater,1008506,122.0,210
+Header,1008506,122.0,210
+Dehydrators,1008506,0.0,210
+In-line heaters,1008506,0.0,210
+Separators,1008523,0.0,160
+Wellhead,1008523,635.0,160
+Wellhead,1008523,0.0,160
+Separators,1008523,1307.0,160
+Meters/piping,1008523,336.0,160
+Compressors,1008523,24.0,160
+Heater-treater,1008523,0.0,160
+Dehydrators,1008523,0.0,160
+In-line heaters,1008523,535.0,160
+Header,1008523,0.0,160
+Wellhead,1008526,4.0,220
+Compressors,1008526,4.0,220
+Dehydrators,1008526,2.0,220
+Header,1008526,0.0,220
+Heater-treater,1008526,1247.0,220
+In-line heaters,1008526,0.0,220
+Meters/piping,1008526,5.0,220
+Separators,1008526,1875.0,220
+Separators,1008526,6.0,220
+Wellhead,1008526,1921.0,220
+Wellhead,1008527,372.0,230
+Wellhead,1008527,0.0,230
+Separators,1008527,388.0,230
+Separators,1008527,0.0,230
+Meters/piping,1008527,354.0,230
+Dehydrators,1008527,0.0,230
+Heater-treater,1008527,0.0,230
+Header,1008527,0.0,230
+Compressors,1008527,0.0,230
+In-line heaters,1008527,0.0,230
+Separators,1008528,77.0,260
+Wellhead,1008528,103.0,260
+Separators,1008528,0.0,260
+Wellhead,1008528,0.0,260
+Meters/piping,1008528,0.0,260
+Heater-treater,1008528,98.0,260
+Header,1008528,0.0,260
+Dehydrators,1008528,0.0,260
+Compressors,1008528,0.0,260
+In-line heaters,1008528,0.0,260
+Wellhead,1008530,517.0,360
+Separators,1008530,1048.0,360
+Separators,1008530,543.0,360
+Meters/piping,1008530,1060.0,360
+Wellhead,1008530,1060.0,360
+Heater-treater,1008530,294.0,360
+Header,1008530,0.0,360
+Dehydrators,1008530,3.0,360
+Compressors,1008530,22.0,360
+In-line heaters,1008530,158.0,360
+Wellhead,1008534,0.0,890
+Wellhead,1008534,56.0,890
+Separators,1008534,0.0,890
+Separators,1008534,7.0,890
+Meters/piping,1008534,0.0,890
+In-line heaters,1008534,0.0,890
+Header,1008534,7.0,890
+Dehydrators,1008534,0.0,890
+Compressors,1008534,0.0,890
+Heater-treater,1008534,0.0,890
+Separators,1008538,187.0,515
+Wellhead,1008538,0.0,515
+Wellhead,1008538,164.0,515
+Separators,1008538,0.0,515
+Meters/piping,1008538,0.0,515
+Compressors,1008538,0.0,515
+Heater-treater,1008538,152.0,515
+Dehydrators,1008538,0.0,515
+In-line heaters,1008538,0.0,515
+Header,1008538,0.0,515
+Compressors,1008540,63.0,580
+Dehydrators,1008540,2.0,580
+Header,1008540,0.0,580
+Heater-treater,1008540,0.0,580
+In-line heaters,1008540,0.0,580
+Meters/piping,1008540,741.0,580
+Separators,1008540,188.0,580
+Separators,1008540,116.0,580
+Wellhead,1008540,197.0,580
+Wellhead,1008540,741.0,580
+Separators,1008544,71.0,430
+Wellhead,1008544,81.0,430
+Wellhead,1008544,37.0,430
+Separators,1008544,201.0,430
+Meters/piping,1008544,342.0,430
+Dehydrators,1008544,0.0,430
+Heater-treater,1008544,34.0,430
+Header,1008544,6.0,430
+Compressors,1008544,3.0,430
+In-line heaters,1008544,0.0,430
+Separators,1008545,37.0,350
+Wellhead,1008545,36.0,350
+Wellhead,1008545,34.0,350
+Meters/piping,1008545,49.0,350
+Separators,1008545,35.0,350
+Heater-treater,1008545,6.0,350
+Header,1008545,2.0,350
+Dehydrators,1008545,0.0,350
+Compressors,1008545,0.0,350
+In-line heaters,1008545,0.0,350
+Wellhead,1008548,1.0,220
+Wellhead,1008548,26.0,220
+Separators,1008548,10.0,220
+Separators,1008548,1.0,220
+Meters/piping,1008548,0.0,220
+Dehydrators,1008548,0.0,220
+Heater-treater,1008548,8.0,220
+Header,1008548,2.0,220
+Compressors,1008548,0.0,220
+In-line heaters,1008548,1.0,220
+Wellhead,1008576,0.0,220
+Wellhead,1008576,1.0,220
+Separators,1008576,0.0,220
+Separators,1008576,3.0,220
+Meters/piping,1008576,0.0,220
+In-line heaters,1008576,0.0,220
+Header,1008576,1.0,220
+Dehydrators,1008576,0.0,220
+Compressors,1008576,0.0,220
+Heater-treater,1008576,1.0,220
+Separators,1008577,17.0,395
+Wellhead,1008577,108.0,395
+Separators,1008577,0.0,395
+Meters/piping,1008577,0.0,395
+Wellhead,1008577,0.0,395
+Heater-treater,1008577,137.0,395
+Header,1008577,96.0,395
+Dehydrators,1008577,0.0,395
+Compressors,1008577,0.0,395
+In-line heaters,1008577,0.0,395
+Wellhead,1008587,456.0,260
+Wellhead,1008587,35.0,260
+Separators,1008587,32.0,260
+Separators,1008587,414.0,260
+Meters/piping,1008587,456.0,260
+Dehydrators,1008587,10.0,260
+Heater-treater,1008587,7.0,260
+Compressors,1008587,58.0,260
+In-line heaters,1008587,81.0,260
+Header,1008587,39.0,260
+Compressors,1008588,14.0,345
+Dehydrators,1008588,0.0,345
+Header,1008588,0.0,345
+Heater-treater,1008588,0.0,345
+In-line heaters,1008588,0.0,345
+Meters/piping,1008588,3011.0,345
+Separators,1008588,0.0,345
+Separators,1008588,1859.0,345
+Wellhead,1008588,0.0,345
+Wellhead,1008588,3046.0,345
+Dehydrators,1008590,17.0,535
+Wellhead,1008590,557.0,535
+Wellhead,1008590,0.0,535
+Separators,1008590,554.0,535
+Separators,1008590,0.0,535
+Compressors,1008590,8.0,535
+In-line heaters,1008590,43.0,535
+Heater-treater,1008590,0.0,535
+Header,1008590,0.0,535
+Meters/piping,1008590,557.0,535
+Meters/piping,1008598,17.0,360
+Wellhead,1008598,33.0,360
+Separators,1008598,57.0,360
+Separators,1008598,9.0,360
+Wellhead,1008598,53.0,360
+In-line heaters,1008598,6.0,360
+Header,1008598,0.0,360
+Dehydrators,1008598,6.0,360
+Compressors,1008598,11.0,360
+Heater-treater,1008598,27.0,360
+Wellhead,1008604,12.0,220
+Separators,1008604,791.0,220
+Separators,1008604,13.0,220
+Meters/piping,1008604,791.0,220
+Wellhead,1008604,711.0,220
+Heater-treater,1008604,0.0,220
+Header,1008604,0.0,220
+Dehydrators,1008604,0.0,220
+Compressors,1008604,0.0,220
+In-line heaters,1008604,0.0,220
+Wellhead,1008607,0.0,430
+Wellhead,1008607,7057.0,430
+Separators,1008607,0.0,430
+Separators,1008607,73.0,430
+Meters/piping,1008607,0.0,430
+In-line heaters,1008607,0.0,430
+Header,1008607,215.0,430
+Dehydrators,1008607,0.0,430
+Compressors,1008607,0.0,430
+Heater-treater,1008607,201.0,430
+Separators,1008608,0.0,455
+Wellhead,1008608,0.0,455
+Separators,1008608,2270.0,455
+Wellhead,1008608,2270.0,455
+Meters/piping,1008608,2270.0,455
+Heater-treater,1008608,0.0,455
+Header,1008608,0.0,455
+Dehydrators,1008608,0.0,455
+Compressors,1008608,416.0,455
+In-line heaters,1008608,0.0,455
+Wellhead,1008616,267.0,350
+Separators,1008616,81.0,350
+Separators,1008616,55.0,350
+Meters/piping,1008616,91.0,350
+Wellhead,1008616,91.0,350
+Heater-treater,1008616,8.0,350
+Header,1008616,38.0,350
+Dehydrators,1008616,0.0,350
+Compressors,1008616,9.0,350
+In-line heaters,1008616,0.0,350
+Wellhead,1008622,1486.0,535
+Wellhead,1008622,0.0,535
+Separators,1008622,1927.0,535
+Separators,1008622,0.0,535
+Meters/piping,1008622,1282.0,535
+In-line heaters,1008622,95.0,535
+Header,1008622,0.0,535
+Dehydrators,1008622,570.0,535
+Compressors,1008622,51.0,535
+Heater-treater,1008622,0.0,535
+Separators,1008630,1161.0,220
+Wellhead,1008630,657.0,220
+Wellhead,1008630,657.0,220
+Separators,1008630,1161.0,220
+Meters/piping,1008630,366.0,220
+In-line heaters,1008630,0.0,220
+Heater-treater,1008630,106.0,220
+Header,1008630,0.0,220
+Dehydrators,1008630,0.0,220
+Compressors,1008630,73.0,220
+Wellhead,1008632,235.0,430
+Separators,1008632,235.0,430
+Separators,1008632,74.0,430
+Meters/piping,1008632,100.0,430
+Wellhead,1008632,235.0,430
+Heater-treater,1008632,86.0,430
+Header,1008632,0.0,430
+Dehydrators,1008632,0.0,430
+Compressors,1008632,249.0,430
+In-line heaters,1008632,0.0,430
+Wellhead,1008639,39.0,430
+Wellhead,1008639,949.0,430
+Separators,1008639,18.0,430
+Separators,1008639,28.0,430
+Meters/piping,1008639,46.0,430
+In-line heaters,1008639,0.0,430
+Header,1008639,21.0,430
+Dehydrators,1008639,0.0,430
+Compressors,1008639,2.0,430
+Heater-treater,1008639,13.0,430
+Separators,1008642,154.0,430
+Wellhead,1008642,34.0,430
+Separators,1008642,0.0,430
+Meters/piping,1008642,0.0,430
+Wellhead,1008642,0.0,430
+Heater-treater,1008642,18.0,430
+Header,1008642,40.0,430
+Dehydrators,1008642,0.0,430
+Compressors,1008642,0.0,430
+In-line heaters,1008642,0.0,430
+Wellhead,1008673,0.0,160
+Separators,1008673,119.0,160
+Separators,1008673,0.0,160
+Meters/piping,1008673,121.0,160
+Wellhead,1008673,121.0,160
+Heater-treater,1008673,0.0,160
+Header,1008673,0.0,160
+Dehydrators,1008673,4.0,160
+Compressors,1008673,1.0,160
+In-line heaters,1008673,120.0,160
+Wellhead,1008698,122.0,360
+Wellhead,1008698,6.0,360
+Separators,1008698,130.0,360
+Separators,1008698,7.0,360
+Meters/piping,1008698,209.0,360
+In-line heaters,1008698,0.0,360
+Header,1008698,2.0,360
+Dehydrators,1008698,0.0,360
+Compressors,1008698,5.0,360
+Heater-treater,1008698,2.0,360
+Separators,1008700,99.0,430
+Wellhead,1008700,59.0,430
+Separators,1008700,40.0,430
+Meters/piping,1008700,45.0,430
+Wellhead,1008700,35.0,430
+Heater-treater,1008700,56.0,430
+Compressors,1008700,5.0,430
+In-line heaters,1008700,0.0,430
+Header,1008700,8.0,430
+Dehydrators,1008700,1.0,430
+Wellhead,1008702,487.0,360
+Wellhead,1008702,8.0,360
+Separators,1008702,573.0,360
+Meters/piping,1008702,811.0,360
+Separators,1008702,11.0,360
+Heater-treater,1008702,4.0,360
+Header,1008702,0.0,360
+Dehydrators,1008702,10.0,360
+Compressors,1008702,69.0,360
+In-line heaters,1008702,0.0,360
+Wellhead,1008703,56.0,360
+Wellhead,1008703,1.0,360
+Separators,1008703,55.0,360
+Separators,1008703,1.0,360
+Meters/piping,1008703,66.0,360
+In-line heaters,1008703,0.0,360
+Header,1008703,0.0,360
+Dehydrators,1008703,0.0,360
+Compressors,1008703,1.0,360
+Heater-treater,1008703,1.0,360
+Wellhead,1008714,0.0,220
+Wellhead,1008714,516.0,220
+Separators,1008714,0.0,220
+Separators,1008714,539.0,220
+Meters/piping,1008714,0.0,220
+Heater-treater,1008714,438.0,220
+Header,1008714,0.0,220
+Dehydrators,1008714,1.0,220
+Compressors,1008714,0.0,220
+In-line heaters,1008714,0.0,220
+Separators,1008753,0.0,345
+Wellhead,1008753,394.0,345
+Wellhead,1008753,0.0,345
+Separators,1008753,407.0,345
+Meters/piping,1008753,394.0,345
+Header,1008753,0.0,345
+Heater-treater,1008753,0.0,345
+Compressors,1008753,93.0,345
+In-line heaters,1008753,0.0,345
+Dehydrators,1008753,5.0,345
+Compressors,1008755,2.0,540
+Dehydrators,1008755,0.0,540
+Header,1008755,18.0,540
+Heater-treater,1008755,13.0,540
+In-line heaters,1008755,0.0,540
+Meters/piping,1008755,1391.0,540
+Separators,1008755,15.0,540
+Separators,1008755,363.0,540
+Wellhead,1008755,18.0,540
+Wellhead,1008755,1391.0,540
+Separators,1008783,0.0,160
+Wellhead,1008783,4676.0,160
+Wellhead,1008783,0.0,160
+Separators,1008783,145.0,160
+Meters/piping,1008783,4236.0,160
+Dehydrators,1008783,0.0,160
+Heater-treater,1008783,0.0,160
+Header,1008783,0.0,160
+Compressors,1008783,0.0,160
+In-line heaters,1008783,8.0,160
+Separators,1008784,0.0,160
+Wellhead,1008784,0.0,160
+Separators,1008784,16.0,160
+Meters/piping,1008784,78.0,160
+Wellhead,1008784,79.0,160
+Heater-treater,1008784,0.0,160
+Header,1008784,0.0,160
+Dehydrators,1008784,0.0,160
+Compressors,1008784,0.0,160
+In-line heaters,1008784,1.0,160
+Wellhead,1008788,34.0,430
+Wellhead,1008788,714.0,430
+Separators,1008788,251.0,430
+Separators,1008788,49.0,430
+Meters/piping,1008788,548.0,430
+Dehydrators,1008788,0.0,430
+Heater-treater,1008788,227.0,430
+Header,1008788,714.0,430
+Compressors,1008788,6.0,430
+In-line heaters,1008788,0.0,430
+Wellhead,1008794,24.0,540
+Separators,1008794,16.0,540
+Separators,1008794,96.0,540
+Meters/piping,1008794,10.0,540
+Wellhead,1008794,164.0,540
+Heater-treater,1008794,11.0,540
+Header,1008794,0.0,540
+Dehydrators,1008794,0.0,540
+Compressors,1008794,93.0,540
+In-line heaters,1008794,0.0,540
+Wellhead,1008795,90.0,160
+Compressors,1008795,3.0,160
+Dehydrators,1008795,0.0,160
+Header,1008795,0.0,160
+Heater-treater,1008795,0.0,160
+In-line heaters,1008795,88.0,160
+Meters/piping,1008795,90.0,160
+Separators,1008795,0.0,160
+Separators,1008795,89.0,160
+Wellhead,1008795,0.0,160
+Separators,1008806,39.0,360
+Separators,1008806,807.0,360
+Wellhead,1008806,45.0,360
+Wellhead,1008806,826.0,360
+Meters/piping,1008806,45.0,360
+Dehydrators,1008806,2.0,360
+Heater-treater,1008806,278.0,360
+Compressors,1008806,103.0,360
+In-line heaters,1008806,0.0,360
+Header,1008806,382.0,360
+Compressors,1008807,0.0,375
+Dehydrators,1008807,1.0,375
+Header,1008807,53.0,375
+Heater-treater,1008807,61.0,375
+In-line heaters,1008807,0.0,375
+Meters/piping,1008807,0.0,375
+Separators,1008807,124.0,375
+Separators,1008807,0.0,375
+Wellhead,1008807,121.0,375
+Wellhead,1008807,0.0,375
+Wellhead,1008857,3.0,515
+Wellhead,1008857,122.0,515
+Separators,1008857,4.0,515
+Separators,1008857,124.0,515
+Meters/piping,1008857,3.0,515
+Dehydrators,1008857,0.0,515
+Heater-treater,1008857,122.0,515
+Header,1008857,23.0,515
+In-line heaters,1008857,5.0,515
+Compressors,1008857,0.0,515
+Wellhead,1008882,49.0,160
+Meters/piping,1008882,49.0,160
+Wellhead,1008882,0.0,160
+Separators,1008882,49.0,160
+Separators,1008882,0.0,160
+In-line heaters,1008882,47.0,160
+Header,1008882,0.0,160
+Dehydrators,1008882,0.0,160
+Compressors,1008882,0.0,160
+Heater-treater,1008882,0.0,160
+Wellhead,1008885,118.0,210
+Separators,1008885,157.0,210
+Separators,1008885,3.0,210
+Meters/piping,1008885,157.0,210
+Wellhead,1008885,157.0,210
+Heater-treater,1008885,11.0,210
+Header,1008885,0.0,210
+Dehydrators,1008885,0.0,210
+Compressors,1008885,0.0,210
+In-line heaters,1008885,0.0,210
+Wellhead,1008890,2.0,430
+Wellhead,1008890,567.0,430
+Separators,1008890,0.0,430
+Separators,1008890,406.0,430
+Meters/piping,1008890,2.0,430
+In-line heaters,1008890,0.0,430
+Header,1008890,0.0,430
+Dehydrators,1008890,0.0,430
+Compressors,1008890,3.0,430
+Heater-treater,1008890,223.0,430
+Separators,1008937,232.0,160
+Wellhead,1008937,232.0,160
+Wellhead,1008937,0.0,160
+Meters/piping,1008937,55.0,160
+Separators,1008937,0.0,160
+Heater-treater,1008937,0.0,160
+Header,1008937,0.0,160
+Dehydrators,1008937,5.0,160
+Compressors,1008937,0.0,160
+In-line heaters,1008937,232.0,160
+Wellhead,1008954,347.0,535
+Wellhead,1008954,0.0,535
+Separators,1008954,0.0,535
+Separators,1008954,332.0,535
+Meters/piping,1008954,347.0,535
+Dehydrators,1008954,225.0,535
+Heater-treater,1008954,0.0,535
+Compressors,1008954,0.0,535
+In-line heaters,1008954,333.0,535
+Header,1008954,0.0,535
+Compressors,1008957,0.0,230
+Dehydrators,1008957,0.0,230
+Header,1008957,0.0,230
+Heater-treater,1008957,0.0,230
+In-line heaters,1008957,9.0,230
+Meters/piping,1008957,432.0,230
+Separators,1008957,0.0,230
+Separators,1008957,432.0,230
+Wellhead,1008957,0.0,230
+Wellhead,1008957,432.0,230
+Wellhead,1008958,95.0,260
+Wellhead,1008958,0.0,260
+Separators,1008958,95.0,260
+Separators,1008958,0.0,260
+Meters/piping,1008958,95.0,260
+Dehydrators,1008958,0.0,260
+Heater-treater,1008958,0.0,260
+Header,1008958,0.0,260
+Compressors,1008958,4.0,260
+In-line heaters,1008958,7.0,260
+Separators,1008959,0.0,430
+Wellhead,1008959,0.0,430
+Wellhead,1008959,493.0,430
+Separators,1008959,455.0,430
+Meters/piping,1008959,440.0,430
+Heater-treater,1008959,99.0,430
+Header,1008959,0.0,430
+Dehydrators,1008959,0.0,430
+Compressors,1008959,0.0,430
+In-line heaters,1008959,0.0,430
+Wellhead,1008998,163.0,430
+Wellhead,1008998,163.0,430
+Separators,1008998,113.0,430
+Meters/piping,1008998,111.0,430
+Separators,1008998,113.0,430
+Heater-treater,1008998,44.0,430
+Header,1008998,107.0,430
+Dehydrators,1008998,0.0,430
+Compressors,1008998,1.0,430
+In-line heaters,1008998,0.0,430
+Wellhead,1009039,89.0,430
+Compressors,1009039,33.0,430
+Dehydrators,1009039,0.0,430
+Header,1009039,391.0,430
+Heater-treater,1009039,319.0,430
+In-line heaters,1009039,48.0,430
+Meters/piping,1009039,89.0,430
+Separators,1009039,369.0,430
+Separators,1009039,60.0,430
+Wellhead,1009039,391.0,430
+Separators,1009056,916.0,430
+Meters/piping,1009056,0.0,430
+Wellhead,1009056,1180.0,430
+Separators,1009056,0.0,430
+Wellhead,1009056,0.0,430
+In-line heaters,1009056,0.0,430
+Header,1009056,177.0,430
+Compressors,1009056,0.0,430
+Heater-treater,1009056,348.0,430
+Dehydrators,1009056,0.0,430
+Compressors,1009076,1104.0,580
+Dehydrators,1009076,33.0,580
+Header,1009076,0.0,580
+Heater-treater,1009076,0.0,580
+In-line heaters,1009076,1.0,580
+Meters/piping,1009076,3431.0,580
+Separators,1009076,0.0,580
+Separators,1009076,3356.0,580
+Wellhead,1009076,0.0,580
+Wellhead,1009076,3684.0,580
+Dehydrators,1009082,0.0,230
+Wellhead,1009082,263.0,230
+Wellhead,1009082,347.0,230
+Separators,1009082,204.0,230
+Separators,1009082,150.0,230
+Compressors,1009082,11.0,230
+In-line heaters,1009082,31.0,230
+Heater-treater,1009082,59.0,230
+Header,1009082,66.0,230
+Meters/piping,1009082,263.0,230
+Meters/piping,1009101,4300.0,305
+Wellhead,1009101,3.0,305
+Separators,1009101,103.0,305
+Separators,1009101,1.0,305
+Wellhead,1009101,4197.0,305
+In-line heaters,1009101,0.0,305
+Header,1009101,0.0,305
+Dehydrators,1009101,42.0,305
+Compressors,1009101,51.0,305
+Heater-treater,1009101,2.0,305
+Wellhead,1009106,392.0,395
+Separators,1009106,0.0,395
+Separators,1009106,90.0,395
+Meters/piping,1009106,0.0,395
+Wellhead,1009106,0.0,395
+Heater-treater,1009106,388.0,395
+Header,1009106,388.0,395
+Dehydrators,1009106,0.0,395
+Compressors,1009106,0.0,395
+In-line heaters,1009106,0.0,395
+Wellhead,1009115,6.0,355
+Wellhead,1009115,8.0,355
+Separators,1009115,10.0,355
+Separators,1009115,9.0,355
+Meters/piping,1009115,0.0,355
+In-line heaters,1009115,0.0,355
+Header,1009115,8.0,355
+Dehydrators,1009115,0.0,355
+Compressors,1009115,2.0,355
+Heater-treater,1009115,5.0,355
+Separators,1009126,8.0,515
+Wellhead,1009126,4.0,515
+Separators,1009126,0.0,515
+Meters/piping,1009126,0.0,515
+Wellhead,1009126,0.0,515
+Heater-treater,1009126,4.0,515
+Header,1009126,0.0,515
+Dehydrators,1009126,0.0,515
+Compressors,1009126,0.0,515
+In-line heaters,1009126,0.0,515
+Wellhead,1009135,288.0,360
+Wellhead,1009135,9.0,360
+Separators,1009135,5.0,360
+Separators,1009135,193.0,360
+Meters/piping,1009135,288.0,360
+Dehydrators,1009135,15.0,360
+Heater-treater,1009135,8.0,360
+Compressors,1009135,35.0,360
+In-line heaters,1009135,21.0,360
+Header,1009135,9.0,360
+Compressors,1009139,186.0,455
+Dehydrators,1009139,0.0,455
+Header,1009139,0.0,455
+Heater-treater,1009139,0.0,455
+In-line heaters,1009139,0.0,455
+Meters/piping,1009139,464.0,455
+Separators,1009139,0.0,455
+Separators,1009139,464.0,455
+Wellhead,1009139,0.0,455
+Wellhead,1009139,464.0,455
+Wellhead,1009141,15.0,595
+Wellhead,1009141,0.0,595
+Separators,1009141,17.0,595
+Separators,1009141,0.0,595
+Meters/piping,1009141,15.0,595
+Dehydrators,1009141,0.0,595
+Heater-treater,1009141,0.0,595
+Header,1009141,0.0,595
+Compressors,1009141,1.0,595
+In-line heaters,1009141,2.0,595
+Separators,1009143,25.0,360
+Wellhead,1009143,129.0,360
+Separators,1009143,632.0,360
+Meters/piping,1009143,974.0,360
+Wellhead,1009143,974.0,360
+Heater-treater,1009143,10.0,360
+Header,1009143,23.0,360
+Dehydrators,1009143,0.0,360
+Compressors,1009143,38.0,360
+In-line heaters,1009143,3.0,360
+Wellhead,1009165,2062.0,575
+Wellhead,1009165,0.0,575
+Separators,1009165,1782.0,575
+Separators,1009165,0.0,575
+Meters/piping,1009165,2062.0,575
+Dehydrators,1009165,0.0,575
+Heater-treater,1009165,0.0,575
+Header,1009165,0.0,575
+Compressors,1009165,0.0,575
+In-line heaters,1009165,1429.0,575
+Wellhead,1009170,398.0,260
+Separators,1009170,4.0,260
+Separators,1009170,0.0,260
+Meters/piping,1009170,363.0,260
+Wellhead,1009170,0.0,260
+Heater-treater,1009170,0.0,260
+Dehydrators,1009170,0.0,260
+Compressors,1009170,22.0,260
+In-line heaters,1009170,0.0,260
+Header,1009170,0.0,260
+Wellhead,1009185,0.0,540
+Compressors,1009185,0.0,540
+Dehydrators,1009185,0.0,540
+Header,1009185,76.0,540
+Heater-treater,1009185,102.0,540
+In-line heaters,1009185,0.0,540
+Meters/piping,1009185,0.0,540
+Separators,1009185,95.0,540
+Separators,1009185,0.0,540
+Wellhead,1009185,295.0,540
+Wellhead,1009192,154.0,430
+Dehydrators,1009192,0.0,430
+Separators,1009192,4.0,430
+Wellhead,1009192,8.0,430
+Separators,1009192,28.0,430
+Compressors,1009192,0.0,430
+In-line heaters,1009192,4.0,430
+Header,1009192,2.0,430
+Meters/piping,1009192,8.0,430
+Heater-treater,1009192,52.0,430
+Wellhead,1009197,0.0,395
+Compressors,1009197,0.0,395
+Dehydrators,1009197,0.0,395
+Header,1009197,462.0,395
+Heater-treater,1009197,1329.0,395
+In-line heaters,1009197,0.0,395
+Meters/piping,1009197,0.0,395
+Separators,1009197,498.0,395
+Separators,1009197,0.0,395
+Wellhead,1009197,1739.0,395
+Wellhead,1009238,2.0,220
+Wellhead,1009238,430.0,220
+Separators,1009238,158.0,220
+Separators,1009238,1303.0,220
+Meters/piping,1009238,2.0,220
+Dehydrators,1009238,3.0,220
+Heater-treater,1009238,352.0,220
+Header,1009238,258.0,220
+Compressors,1009238,3.0,220
+In-line heaters,1009238,54.0,220
+Separators,1009240,425.0,430
+Wellhead,1009240,4639.0,430
+Separators,1009240,360.0,430
+Wellhead,1009240,112.0,430
+Meters/piping,1009240,134.0,430
+Heater-treater,1009240,143.0,430
+Header,1009240,269.0,430
+Dehydrators,1009240,0.0,430
+Compressors,1009240,5.0,430
+In-line heaters,1009240,60.0,430
+Wellhead,1009242,166.0,580
+Separators,1009242,822.0,580
+Separators,1009242,217.0,580
+Meters/piping,1009242,983.0,580
+Wellhead,1009242,843.0,580
+Heater-treater,1009242,0.0,580
+Header,1009242,0.0,580
+Dehydrators,1009242,8.0,580
+Compressors,1009242,86.0,580
+In-line heaters,1009242,43.0,580
+Wellhead,1009253,0.0,395
+Wellhead,1009253,275.0,395
+Separators,1009253,0.0,395
+Separators,1009253,192.0,395
+Meters/piping,1009253,0.0,395
+In-line heaters,1009253,0.0,395
+Header,1009253,275.0,395
+Dehydrators,1009253,0.0,395
+Compressors,1009253,0.0,395
+Heater-treater,1009253,172.0,395
+Meters/piping,1009260,0.0,360
+Wellhead,1009260,68.0,360
+Separators,1009260,102.0,360
+Separators,1009260,90.0,360
+Wellhead,1009260,108.0,360
+In-line heaters,1009260,0.0,360
+Header,1009260,68.0,360
+Dehydrators,1009260,0.0,360
+Compressors,1009260,17.0,360
+Heater-treater,1009260,44.0,360
+Wellhead,1009261,0.0,395
+Wellhead,1009261,160.0,395
+Separators,1009261,0.0,395
+Separators,1009261,258.0,395
+Meters/piping,1009261,0.0,395
+Heater-treater,1009261,160.0,395
+Header,1009261,160.0,395
+Dehydrators,1009261,0.0,395
+Compressors,1009261,0.0,395
+In-line heaters,1009261,0.0,395
+Separators,1009265,532.0,360
+Wellhead,1009265,0.0,360
+Wellhead,1009265,532.0,360
+Separators,1009265,0.0,360
+Meters/piping,1009265,0.0,360
+Compressors,1009265,0.0,360
+Heater-treater,1009265,532.0,360
+Header,1009265,0.0,360
+Dehydrators,1009265,0.0,360
+In-line heaters,1009265,0.0,360
+Separators,1009274,121.0,360
+Wellhead,1009274,3332.0,360
+Wellhead,1009274,422.0,360
+Separators,1009274,516.0,360
+Meters/piping,1009274,3316.0,360
+In-line heaters,1009274,0.0,360
+Heater-treater,1009274,0.0,360
+Header,1009274,25.0,360
+Dehydrators,1009274,0.0,360
+Compressors,1009274,58.0,360
+Wellhead,1009276,68.0,415
+Separators,1009276,310.0,415
+Separators,1009276,58.0,415
+Meters/piping,1009276,308.0,415
+Wellhead,1009276,308.0,415
+Heater-treater,1009276,0.0,415
+Header,1009276,23.0,415
+Dehydrators,1009276,0.0,415
+Compressors,1009276,50.0,415
+In-line heaters,1009276,0.0,415
+Wellhead,1009278,0.0,515
+Wellhead,1009278,94.0,515
+Separators,1009278,0.0,515
+Separators,1009278,95.0,515
+Meters/piping,1009278,0.0,515
+In-line heaters,1009278,0.0,515
+Header,1009278,1.0,515
+Dehydrators,1009278,0.0,515
+Compressors,1009278,0.0,515
+Heater-treater,1009278,234.0,515
+Separators,1009286,0.0,540
+Wellhead,1009286,0.0,540
+Separators,1009286,1341.0,540
+Meters/piping,1009286,562.0,540
+Wellhead,1009286,1682.0,540
+Heater-treater,1009286,0.0,540
+Header,1009286,0.0,540
+Dehydrators,1009286,0.0,540
+Compressors,1009286,367.0,540
+In-line heaters,1009286,0.0,540
+Wellhead,1009301,0.0,160
+Separators,1009301,176.0,160
+Separators,1009301,0.0,160
+Meters/piping,1009301,176.0,160
+Wellhead,1009301,176.0,160
+Heater-treater,1009301,0.0,160
+Header,1009301,0.0,160
+Dehydrators,1009301,0.0,160
+Compressors,1009301,0.0,160
+In-line heaters,1009301,99.0,160
+Wellhead,1009308,0.0,160
+Wellhead,1009308,0.0,160
+Separators,1009308,0.0,160
+Separators,1009308,0.0,160
+Meters/piping,1009308,0.0,160
+In-line heaters,1009308,0.0,160
+Header,1009308,0.0,160
+Dehydrators,1009308,0.0,160
+Compressors,1009308,0.0,160
+Heater-treater,1009308,0.0,160
+Separators,1009332,26.0,820
+Wellhead,1009332,37.0,820
+Separators,1009332,57.0,820
+Meters/piping,1009332,46.0,820
+Wellhead,1009332,100.0,820
+Heater-treater,1009332,0.0,820
+Compressors,1009332,23.0,820
+In-line heaters,1009332,57.0,820
+Header,1009332,39.0,820
+Dehydrators,1009332,25.0,820
+Wellhead,1009335,1669.0,360
+Wellhead,1009335,722.0,360
+Separators,1009335,2307.0,360
+Meters/piping,1009335,1669.0,360
+Separators,1009335,923.0,360
+Heater-treater,1009335,733.0,360
+Header,1009335,0.0,360
+Dehydrators,1009335,4.0,360
+Compressors,1009335,960.0,360
+In-line heaters,1009335,1064.0,360
+Wellhead,1009350,113.0,575
+Wellhead,1009350,0.0,575
+Separators,1009350,368.0,575
+Separators,1009350,0.0,575
+Meters/piping,1009350,113.0,575
+In-line heaters,1009350,73.0,575
+Header,1009350,368.0,575
+Dehydrators,1009350,0.0,575
+Compressors,1009350,0.0,575
+Heater-treater,1009350,113.0,575
+Wellhead,1009353,50.0,360
+Wellhead,1009353,15.0,360
+Separators,1009353,64.0,360
+Separators,1009353,17.0,360
+Meters/piping,1009353,127.0,360
+In-line heaters,1009353,48.0,360
+Header,1009353,0.0,360
+Dehydrators,1009353,0.0,360
+Compressors,1009353,17.0,360
+Heater-treater,1009353,32.0,360
+Separators,1009357,139.0,575
+Wellhead,1009357,139.0,575
+Separators,1009357,0.0,575
+Wellhead,1009357,0.0,575
+Meters/piping,1009357,0.0,575
+Heater-treater,1009357,139.0,575
+Header,1009357,0.0,575
+Dehydrators,1009357,0.0,575
+Compressors,1009357,0.0,575
+In-line heaters,1009357,0.0,575
+Wellhead,1009386,90.0,220
+Separators,1009386,115.0,220
+Separators,1009386,11.0,220
+Meters/piping,1009386,137.0,220
+Wellhead,1009386,137.0,220
+Heater-treater,1009386,13.0,220
+Header,1009386,19.0,220
+Dehydrators,1009386,1.0,220
+Compressors,1009386,8.0,220
+In-line heaters,1009386,4.0,220
+Wellhead,1009387,267.0,415
+Wellhead,1009387,0.0,415
+Separators,1009387,320.0,415
+Separators,1009387,0.0,415
+Meters/piping,1009387,267.0,415
+In-line heaters,1009387,0.0,415
+Header,1009387,0.0,415
+Dehydrators,1009387,0.0,415
+Compressors,1009387,35.0,415
+Heater-treater,1009387,0.0,415
+Separators,1009388,1.0,420
+Wellhead,1009388,87.0,420
+Wellhead,1009388,1.0,420
+Separators,1009388,111.0,420
+Meters/piping,1009388,87.0,420
+In-line heaters,1009388,0.0,420
+Heater-treater,1009388,0.0,420
+Header,1009388,1.0,420
+Dehydrators,1009388,0.0,420
+Compressors,1009388,11.0,420
+Wellhead,1009389,0.0,575
+Separators,1009389,3.0,575
+Separators,1009389,0.0,575
+Meters/piping,1009389,2.0,575
+Wellhead,1009389,2.0,575
+Heater-treater,1009389,0.0,575
+Header,1009389,0.0,575
+Dehydrators,1009389,2.0,575
+Compressors,1009389,0.0,575
+In-line heaters,1009389,0.0,575
+Wellhead,1009390,603.0,430
+Wellhead,1009390,3993.0,430
+Separators,1009390,586.0,430
+Separators,1009390,1511.0,430
+Meters/piping,1009390,603.0,430
+In-line heaters,1009390,29.0,430
+Header,1009390,290.0,430
+Dehydrators,1009390,0.0,430
+Compressors,1009390,95.0,430
+Heater-treater,1009390,180.0,430
+Separators,1009391,1172.0,430
+Wellhead,1009391,7113.0,430
+Separators,1009391,184.0,430
+Meters/piping,1009391,0.0,430
+Wellhead,1009391,815.0,430
+Heater-treater,1009391,374.0,430
+Header,1009391,740.0,430
+Dehydrators,1009391,0.0,430
+Compressors,1009391,0.0,430
+In-line heaters,1009391,42.0,430
+Wellhead,1009392,0.0,345
+Separators,1009392,278.0,345
+Separators,1009392,0.0,345
+Meters/piping,1009392,277.0,345
+Wellhead,1009392,277.0,345
+Heater-treater,1009392,0.0,345
+Header,1009392,0.0,345
+Dehydrators,1009392,0.0,345
+Compressors,1009392,25.0,345
+In-line heaters,1009392,0.0,345
+Wellhead,1009434,0.0,430
+Wellhead,1009434,3201.0,430
+Separators,1009434,0.0,430
+Separators,1009434,2312.0,430
+Meters/piping,1009434,0.0,430
+In-line heaters,1009434,0.0,430
+Header,1009434,1253.0,430
+Dehydrators,1009434,0.0,430
+Compressors,1009434,0.0,430
+Heater-treater,1009434,1411.0,430
+Separators,1009436,0.0,305
+Wellhead,1009436,0.0,305
+Separators,1009436,27.0,305
+Meters/piping,1009436,0.0,305
+Wellhead,1009436,496.0,305
+Heater-treater,1009436,0.0,305
+Compressors,1009436,28.0,305
+In-line heaters,1009436,0.0,305
+Header,1009436,0.0,305
+Dehydrators,1009436,25.0,305
+Wellhead,1009485,447.0,160
+Wellhead,1009485,0.0,160
+Separators,1009485,381.0,160
+Meters/piping,1009485,389.0,160
+Separators,1009485,0.0,160
+Heater-treater,1009485,0.0,160
+Header,1009485,0.0,160
+Dehydrators,1009485,0.0,160
+Compressors,1009485,82.0,160
+In-line heaters,1009485,380.0,160
+Wellhead,1009490,3.0,220
+Wellhead,1009490,51.0,220
+Separators,1009490,12.0,220
+Separators,1009490,90.0,220
+Meters/piping,1009490,3.0,220
+In-line heaters,1009490,0.0,220
+Header,1009490,0.0,220
+Dehydrators,1009490,2.0,220
+Compressors,1009490,17.0,220
+Heater-treater,1009490,20.0,220
+Wellhead,1009547,326.0,360
+Wellhead,1009547,190.0,360
+Separators,1009547,1110.0,360
+Separators,1009547,704.0,360
+Meters/piping,1009547,326.0,360
+Heater-treater,1009547,252.0,360
+Header,1009547,0.0,360
+Dehydrators,1009547,0.0,360
+Compressors,1009547,123.0,360
+In-line heaters,1009547,1.0,360
+Separators,1009582,0.0,745
+Wellhead,1009582,0.0,745
+Wellhead,1009582,297.0,745
+Separators,1009582,0.0,745
+Meters/piping,1009582,0.0,745
+In-line heaters,1009582,0.0,745
+Heater-treater,1009582,0.0,745
+Header,1009582,13.0,745
+Dehydrators,1009582,0.0,745
+Compressors,1009582,0.0,745
+Wellhead,1009584,1409.0,260
+Wellhead,1009584,0.0,260
+Separators,1009584,1007.0,260
+Separators,1009584,0.0,260
+Meters/piping,1009584,1126.0,260
+Heater-treater,1009584,0.0,260
+Header,1009584,0.0,260
+Dehydrators,1009584,30.0,260
+Compressors,1009584,119.0,260
+In-line heaters,1009584,103.0,260
+Separators,1009588,36.0,220
+Wellhead,1009588,1794.0,220
+Wellhead,1009588,41.0,220
+Separators,1009588,1900.0,220
+Meters/piping,1009588,1794.0,220
+Compressors,1009588,41.0,220
+Heater-treater,1009588,9.0,220
+Header,1009588,0.0,220
+Dehydrators,1009588,0.0,220
+In-line heaters,1009588,0.0,220
+Separators,1009595,1.0,395
+Wellhead,1009595,0.0,395
+Wellhead,1009595,187.0,395
+Separators,1009595,0.0,395
+Meters/piping,1009595,0.0,395
+In-line heaters,1009595,0.0,395
+Heater-treater,1009595,185.0,395
+Header,1009595,187.0,395
+Dehydrators,1009595,0.0,395
+Compressors,1009595,0.0,395
+Wellhead,1009607,20.0,395
+Separators,1009607,0.0,395
+Separators,1009607,1.0,395
+Meters/piping,1009607,0.0,395
+Wellhead,1009607,0.0,395
+Heater-treater,1009607,13.0,395
+Header,1009607,13.0,395
+Dehydrators,1009607,0.0,395
+Compressors,1009607,0.0,395
+In-line heaters,1009607,0.0,395
+Wellhead,1009624,376.0,220
+Wellhead,1009624,0.0,220
+Separators,1009624,376.0,220
+Separators,1009624,2.0,220
+Meters/piping,1009624,0.0,220
+In-line heaters,1009624,0.0,220
+Header,1009624,0.0,220
+Dehydrators,1009624,0.0,220
+Compressors,1009624,0.0,220
+Heater-treater,1009624,0.0,220
+Separators,1009625,769.0,395
+Wellhead,1009625,769.0,395
+Separators,1009625,0.0,395
+Meters/piping,1009625,769.0,395
+Wellhead,1009625,0.0,395
+Heater-treater,1009625,769.0,395
+Header,1009625,769.0,395
+Dehydrators,1009625,0.0,395
+Compressors,1009625,0.0,395
+In-line heaters,1009625,0.0,395
+Wellhead,1009665,0.0,400
+Separators,1009665,22.0,400
+Separators,1009665,0.0,400
+Meters/piping,1009665,11.0,400
+Wellhead,1009665,11.0,400
+Heater-treater,1009665,0.0,400
+Header,1009665,0.0,400
+Dehydrators,1009665,0.0,400
+Compressors,1009665,0.0,400
+In-line heaters,1009665,0.0,400
+Wellhead,1009666,1021.0,415
+Wellhead,1009666,0.0,415
+Separators,1009666,1021.0,415
+Separators,1009666,0.0,415
+Meters/piping,1009666,1021.0,415
+In-line heaters,1009666,0.0,415
+Header,1009666,0.0,415
+Dehydrators,1009666,0.0,415
+Compressors,1009666,304.0,415
+Heater-treater,1009666,0.0,415
+Separators,1009674,230.0,430
+Wellhead,1009674,332.0,430
+Separators,1009674,0.0,430
+Meters/piping,1009674,137.0,430
+Wellhead,1009674,0.0,430
+Heater-treater,1009674,78.0,430
+Compressors,1009674,6.0,430
+In-line heaters,1009674,0.0,430
+Header,1009674,332.0,430
+Dehydrators,1009674,0.0,430
+Wellhead,1009683,162.0,220
+Wellhead,1009683,0.0,220
+Separators,1009683,284.0,220
+Meters/piping,1009683,160.0,220
+Separators,1009683,0.0,220
+Heater-treater,1009683,0.0,220
+Header,1009683,0.0,220
+Dehydrators,1009683,0.0,220
+Compressors,1009683,14.0,220
+In-line heaters,1009683,0.0,220
+Wellhead,1009686,177.0,230
+Wellhead,1009686,12.0,230
+Separators,1009686,247.0,230
+Separators,1009686,6.0,230
+Meters/piping,1009686,110.0,230
+In-line heaters,1009686,2.0,230
+Header,1009686,0.0,230
+Dehydrators,1009686,0.0,230
+Compressors,1009686,24.0,230
+Heater-treater,1009686,0.0,230
+Wellhead,1009689,56.0,420
+Wellhead,1009689,0.0,420
+Separators,1009689,56.0,420
+Separators,1009689,0.0,420
+Meters/piping,1009689,56.0,420
+In-line heaters,1009689,0.0,420
+Header,1009689,0.0,420
+Dehydrators,1009689,0.0,420
+Compressors,1009689,12.0,420
+Heater-treater,1009689,0.0,420
+Separators,1009691,231.0,430
+Wellhead,1009691,645.0,430
+Separators,1009691,0.0,430
+Meters/piping,1009691,0.0,430
+Wellhead,1009691,0.0,430
+Heater-treater,1009691,30.0,430
+Header,1009691,81.0,430
+Dehydrators,1009691,0.0,430
+Compressors,1009691,0.0,430
+In-line heaters,1009691,0.0,430
+Wellhead,1009706,366.0,220
+Separators,1009706,42.0,220
+Separators,1009706,42.0,220
+Meters/piping,1009706,30.0,220
+Wellhead,1009706,366.0,220
+Heater-treater,1009706,30.0,220
+Header,1009706,366.0,220
+Dehydrators,1009706,24.0,220
+Compressors,1009706,51.0,220
+In-line heaters,1009706,30.0,220
+Wellhead,1009707,57.0,430
+Wellhead,1009707,4973.0,430
+Separators,1009707,57.0,430
+Separators,1009707,3014.0,430
+Meters/piping,1009707,1507.0,430
+In-line heaters,1009707,0.0,430
+Header,1009707,1507.0,430
+Dehydrators,1009707,10.0,430
+Compressors,1009707,743.0,430
+Heater-treater,1009707,2261.0,430
+Separators,1009720,73.0,220
+Wellhead,1009720,448.0,220
+Wellhead,1009720,80.0,220
+Separators,1009720,83.0,220
+Meters/piping,1009720,448.0,220
+In-line heaters,1009720,0.0,220
+Heater-treater,1009720,30.0,220
+Header,1009720,0.0,220
+Dehydrators,1009720,0.0,220
+Compressors,1009720,17.0,220
+Wellhead,1009728,607.0,220
+Separators,1009728,0.0,220
+Separators,1009728,2.0,220
+Meters/piping,1009728,0.0,220
+Wellhead,1009728,0.0,220
+Heater-treater,1009728,0.0,220
+Header,1009728,188.0,220
+Dehydrators,1009728,0.0,220
+Compressors,1009728,0.0,220
+In-line heaters,1009728,0.0,220
+Wellhead,1009731,2.0,540
+Wellhead,1009731,137.0,540
+Separators,1009731,2.0,540
+Separators,1009731,168.0,540
+Meters/piping,1009731,2.0,540
+In-line heaters,1009731,0.0,540
+Header,1009731,75.0,540
+Dehydrators,1009731,0.0,540
+Compressors,1009731,0.0,540
+Heater-treater,1009731,106.0,540
+Separators,1009762,0.0,395
+Wellhead,1009762,63.0,395
+Separators,1009762,0.0,395
+Meters/piping,1009762,0.0,395
+Wellhead,1009762,0.0,395
+Heater-treater,1009762,69.0,395
+Header,1009762,16.0,395
+Dehydrators,1009762,0.0,395
+Compressors,1009762,0.0,395
+In-line heaters,1009762,0.0,395
+Wellhead,1009783,101.0,220
+Separators,1009783,107.0,220
+Separators,1009783,67.0,220
+Meters/piping,1009783,106.0,220
+Wellhead,1009783,106.0,220
+Heater-treater,1009783,22.0,220
+Header,1009783,0.0,220
+Dehydrators,1009783,3.0,220
+Compressors,1009783,9.0,220
+In-line heaters,1009783,0.0,220
+Wellhead,1009785,1068.0,595
+Wellhead,1009785,0.0,595
+Separators,1009785,1068.0,595
+Separators,1009785,0.0,595
+Meters/piping,1009785,1068.0,595
+In-line heaters,1009785,267.0,595
+Header,1009785,0.0,595
+Dehydrators,1009785,0.0,595
+Compressors,1009785,0.0,595
+Heater-treater,1009785,0.0,595
+Separators,1009811,37.0,260
+Wellhead,1009811,42.0,260
+Separators,1009811,165.0,260
+Meters/piping,1009811,165.0,260
+Wellhead,1009811,606.0,260
+Heater-treater,1009811,0.0,260
+Compressors,1009811,4.0,260
+In-line heaters,1009811,0.0,260
+Header,1009811,5.0,260
+Dehydrators,1009811,4.0,260
+Wellhead,1009813,36.0,430
+Wellhead,1009813,250.0,430
+Separators,1009813,31.0,430
+Meters/piping,1009813,25.0,430
+Separators,1009813,54.0,430
+Heater-treater,1009813,6.0,430
+Header,1009813,10.0,430
+Dehydrators,1009813,0.0,430
+Compressors,1009813,0.0,430
+In-line heaters,1009813,3.0,430
+Wellhead,1009830,0.0,515
+Wellhead,1009830,89.0,515
+Separators,1009830,0.0,515
+Separators,1009830,47.0,515
+Meters/piping,1009830,0.0,515
+In-line heaters,1009830,0.0,515
+Header,1009830,77.0,515
+Dehydrators,1009830,0.0,515
+Compressors,1009830,0.0,515
+Heater-treater,1009830,87.0,515
+Wellhead,1009837,48.0,220
+Wellhead,1009837,3.0,220
+Separators,1009837,89.0,220
+Separators,1009837,3.0,220
+Meters/piping,1009837,48.0,220
+In-line heaters,1009837,0.0,220
+Header,1009837,0.0,220
+Dehydrators,1009837,1.0,220
+Compressors,1009837,7.0,220
+Heater-treater,1009837,0.0,220
+Separators,1009845,98.0,360
+Wellhead,1009845,230.0,360
+Separators,1009845,261.0,360
+Meters/piping,1009845,125.0,360
+Wellhead,1009845,372.0,360
+Heater-treater,1009845,214.0,360
+Compressors,1009845,50.0,360
+In-line heaters,1009845,6.0,360
+Header,1009845,0.0,360
+Dehydrators,1009845,0.0,360
+Wellhead,1009846,16.0,430
+Wellhead,1009846,4967.0,430
+Separators,1009846,49.0,430
+Meters/piping,1009846,47.0,430
+Separators,1009846,424.0,430
+Heater-treater,1009846,359.0,430
+Header,1009846,0.0,430
+Dehydrators,1009846,0.0,430
+Compressors,1009846,92.0,430
+In-line heaters,1009846,157.0,430
+Separators,1009848,172.0,220
+Wellhead,1009848,48.0,220
+Wellhead,1009848,119.0,220
+Separators,1009848,113.0,220
+Meters/piping,1009848,48.0,220
+Compressors,1009848,56.0,220
+Heater-treater,1009848,95.0,220
+Header,1009848,0.0,220
+Dehydrators,1009848,1.0,220
+In-line heaters,1009848,0.0,220
+Separators,1009860,0.0,400
+Wellhead,1009860,0.0,400
+Separators,1009860,143.0,400
+Meters/piping,1009860,143.0,400
+Wellhead,1009860,143.0,400
+Heater-treater,1009860,0.0,400
+Header,1009860,0.0,400
+Dehydrators,1009860,0.0,400
+Compressors,1009860,38.0,400
+In-line heaters,1009860,0.0,400
+Wellhead,1009862,43.0,220
+Wellhead,1009862,0.0,220
+Separators,1009862,74.0,220
+Separators,1009862,0.0,220
+Meters/piping,1009862,43.0,220
+Dehydrators,1009862,14.0,220
+Heater-treater,1009862,0.0,220
+Header,1009862,0.0,220
+In-line heaters,1009862,0.0,220
+Compressors,1009862,8.0,220
+Wellhead,1009878,6.0,160
+Wellhead,1009878,0.0,160
+Separators,1009878,0.0,160
+Separators,1009878,0.0,160
+Meters/piping,1009878,6.0,160
+In-line heaters,1009878,0.0,160
+Heater-treater,1009878,0.0,160
+Header,1009878,0.0,160
+Dehydrators,1009878,6.0,160
+Compressors,1009878,6.0,160
+Wellhead,1009885,0.0,430
+Wellhead,1009885,119.0,430
+Separators,1009885,0.0,430
+Separators,1009885,348.0,430
+Meters/piping,1009885,0.0,430
+Heater-treater,1009885,91.0,430
+Header,1009885,119.0,430
+Dehydrators,1009885,0.0,430
+In-line heaters,1009885,0.0,430
+Compressors,1009885,0.0,430
+Meters/piping,1009890,540.0,230
+Wellhead,1009890,622.0,230
+Wellhead,1009890,8.0,230
+Separators,1009890,633.0,230
+Separators,1009890,8.0,230
+In-line heaters,1009890,5.0,230
+Header,1009890,0.0,230
+Dehydrators,1009890,7.0,230
+Compressors,1009890,16.0,230
+Heater-treater,1009890,9.0,230
+Wellhead,1009907,706.0,260
+Wellhead,1009907,2.0,260
+Separators,1009907,607.0,260
+Separators,1009907,2.0,260
+Meters/piping,1009907,915.0,260
+In-line heaters,1009907,1.0,260
+Heater-treater,1009907,2.0,260
+Header,1009907,0.0,260
+Dehydrators,1009907,5.0,260
+Compressors,1009907,44.0,260
+Wellhead,1009932,6309.0,160
+Wellhead,1009932,0.0,160
+Separators,1009932,6169.0,160
+Separators,1009932,0.0,160
+Meters/piping,1009932,6309.0,160
+Heater-treater,1009932,0.0,160
+Header,1009932,0.0,160
+Dehydrators,1009932,0.0,160
+Compressors,1009932,0.0,160
+In-line heaters,1009932,242.0,160
+In-line heaters,1009956,0.0,585
+Compressors,1009956,16.0,585
+Dehydrators,1009956,1.0,585
+Header,1009956,38.0,585
+Heater-treater,1009956,18.0,585
+Meters/piping,1009956,394.0,585
+Separators,1009956,97.0,585
+Separators,1009956,41.0,585
+Wellhead,1009956,392.0,585
+Wellhead,1009956,0.0,585
+Separators,1009967,3820.0,160
+Separators,1009967,0.0,160
+Wellhead,1009967,3321.0,160
+Wellhead,1009967,0.0,160
+Meters/piping,1009967,3321.0,160
+Compressors,1009967,0.0,160
+Heater-treater,1009967,0.0,160
+Header,1009967,0.0,160
+Dehydrators,1009967,0.0,160
+In-line heaters,1009967,220.0,160
+Wellhead,1010002,0.0,395
+Wellhead,1010002,226.0,395
+Separators,1010002,0.0,395
+Separators,1010002,38.0,395
+Meters/piping,1010002,0.0,395
+Heater-treater,1010002,194.0,395
+Header,1010002,226.0,395
+Dehydrators,1010002,0.0,395
+Compressors,1010002,0.0,395
+In-line heaters,1010002,0.0,395
+Separators,1010084,0.0,220
+Wellhead,1010084,183.0,220
+Wellhead,1010084,0.0,220
+Separators,1010084,25.0,220
+Meters/piping,1010084,43.0,220
+Compressors,1010084,1.0,220
+Heater-treater,1010084,0.0,220
+Header,1010084,0.0,220
+Dehydrators,1010084,0.0,220
+In-line heaters,1010084,0.0,220
+Separators,1010117,8.0,305
+Wellhead,1010117,7.0,305
+Wellhead,1010117,19.0,305
+Separators,1010117,2.0,305
+Meters/piping,1010117,7.0,305
+Compressors,1010117,4.0,305
+Heater-treater,1010117,10.0,305
+Header,1010117,0.0,305
+Dehydrators,1010117,3.0,305
+In-line heaters,1010117,3.0,305
+Wellhead,1010157,214.0,535
+Wellhead,1010157,0.0,535
+Separators,1010157,214.0,535
+Separators,1010157,0.0,535
+Meters/piping,1010157,214.0,535
+In-line heaters,1010157,213.0,535
+Heater-treater,1010157,0.0,535
+Header,1010157,0.0,535
+Dehydrators,1010157,0.0,535
+Compressors,1010157,2.0,535
+Wellhead,1010164,0.0,220
+Wellhead,1010164,167.0,220
+Separators,1010164,0.0,220
+Separators,1010164,229.0,220
+Meters/piping,1010164,0.0,220
+Heater-treater,1010164,72.0,220
+Header,1010164,0.0,220
+Dehydrators,1010164,0.0,220
+Compressors,1010164,0.0,220
+In-line heaters,1010164,0.0,220
+In-line heaters,1010181,0.0,595
+Compressors,1010181,2.0,595
+Dehydrators,1010181,1.0,595
+Header,1010181,0.0,595
+Heater-treater,1010181,0.0,595
+Meters/piping,1010181,609.0,595
+Separators,1010181,0.0,595
+Separators,1010181,647.0,595
+Wellhead,1010181,0.0,595
+Wellhead,1010181,627.0,595
+Separators,1010183,474.0,160
+Separators,1010183,0.0,160
+Wellhead,1010183,474.0,160
+Wellhead,1010183,0.0,160
+Meters/piping,1010183,474.0,160
+Compressors,1010183,0.0,160
+Heater-treater,1010183,0.0,160
+Header,1010183,0.0,160
+Dehydrators,1010183,0.0,160
+In-line heaters,1010183,6.0,160
+Wellhead,1010190,0.0,395
+Wellhead,1010190,414.0,395
+Separators,1010190,0.0,395
+Separators,1010190,283.0,395
+Meters/piping,1010190,0.0,395
+Heater-treater,1010190,395.0,395
+Header,1010190,0.0,395
+Dehydrators,1010190,0.0,395
+Compressors,1010190,0.0,395
+In-line heaters,1010190,0.0,395
+Separators,1010205,0.0,345
+Wellhead,1010205,3686.0,345
+Wellhead,1010205,0.0,345
+Separators,1010205,3686.0,345
+Meters/piping,1010205,5529.0,345
+Compressors,1010205,187.0,345
+Heater-treater,1010205,0.0,345
+Header,1010205,0.0,345
+Dehydrators,1010205,0.0,345
+In-line heaters,1010205,0.0,345
+Separators,1010222,1021.0,220
+Wellhead,1010222,4342.0,220
+Wellhead,1010222,2595.0,220
+Separators,1010222,3010.0,220
+Meters/piping,1010222,6937.0,220
+Compressors,1010222,262.0,220
+Heater-treater,1010222,122.0,220
+Dehydrators,1010222,97.0,220
+In-line heaters,1010222,243.0,220
+Header,1010222,0.0,220
+Wellhead,1010233,655.0,160
+Compressors,1010233,3.0,160
+Dehydrators,1010233,2.0,160
+Header,1010233,0.0,160
+Heater-treater,1010233,0.0,160
+In-line heaters,1010233,81.0,160
+Meters/piping,1010233,673.0,160
+Separators,1010233,0.0,160
+Separators,1010233,520.0,160
+Wellhead,1010233,0.0,160
+Wellhead,1010291,0.0,305
+Wellhead,1010291,542.0,305
+Separators,1010291,3.0,305
+Separators,1010291,2.0,305
+Meters/piping,1010291,3.0,305
+Dehydrators,1010291,1.0,305
+Heater-treater,1010291,92.0,305
+Header,1010291,4.0,305
+Compressors,1010291,1.0,305
+In-line heaters,1010291,0.0,305
+Separators,1010294,479.0,430
+Wellhead,1010294,806.0,430
+Separators,1010294,491.0,430
+Wellhead,1010294,491.0,430
+Meters/piping,1010294,722.0,430
+Heater-treater,1010294,194.0,430
+Header,1010294,0.0,430
+Dehydrators,1010294,1.0,430
+Compressors,1010294,43.0,430
+In-line heaters,1010294,0.0,430
+Wellhead,1010318,0.0,230
+Separators,1010318,318.0,230
+Separators,1010318,0.0,230
+Meters/piping,1010318,0.0,230
+Wellhead,1010318,293.0,230
+Heater-treater,1010318,0.0,230
+Header,1010318,217.0,230
+Dehydrators,1010318,0.0,230
+Compressors,1010318,0.0,230
+In-line heaters,1010318,0.0,230
+Wellhead,1010319,43.0,507
+Wellhead,1010319,0.0,507
+Separators,1010319,43.0,507
+Separators,1010319,0.0,507
+Meters/piping,1010319,43.0,507
+In-line heaters,1010319,43.0,507
+Header,1010319,0.0,507
+Dehydrators,1010319,1.0,507
+Compressors,1010319,1.0,507
+Heater-treater,1010319,0.0,507
+Separators,1010320,16.0,305
+Wellhead,1010320,1103.0,305
+Wellhead,1010320,123.0,305
+Separators,1010320,52.0,305
+Meters/piping,1010320,523.0,305
+In-line heaters,1010320,20.0,305
+Heater-treater,1010320,23.0,305
+Header,1010320,38.0,305
+Dehydrators,1010320,20.0,305
+Compressors,1010320,23.0,305
+Wellhead,1010372,35.0,430
+Wellhead,1010372,96.0,430
+Separators,1010372,43.0,430
+Separators,1010372,135.0,430
+Meters/piping,1010372,35.0,430
+Heater-treater,1010372,37.0,430
+Header,1010372,96.0,430
+Dehydrators,1010372,3.0,430
+Compressors,1010372,8.0,430
+In-line heaters,1010372,0.0,430
+Separators,1010397,0.0,535
+Wellhead,1010397,616.0,535
+Wellhead,1010397,0.0,535
+Separators,1010397,643.0,535
+Meters/piping,1010397,616.0,535
+Compressors,1010397,5.0,535
+Heater-treater,1010397,0.0,535
+Header,1010397,0.0,535
+Dehydrators,1010397,104.0,535
+In-line heaters,1010397,13.0,535
+Separators,1010485,0.0,360
+Wellhead,1010485,222.0,360
+Wellhead,1010485,0.0,360
+Separators,1010485,211.0,360
+Meters/piping,1010485,204.0,360
+In-line heaters,1010485,149.0,360
+Heater-treater,1010485,74.0,360
+Header,1010485,0.0,360
+Dehydrators,1010485,47.0,360
+Compressors,1010485,58.0,360
+Wellhead,1010521,12.0,395
+Separators,1010521,0.0,395
+Separators,1010521,13.0,395
+Meters/piping,1010521,0.0,395
+Wellhead,1010521,0.0,395
+Heater-treater,1010521,3.0,395
+Header,1010521,1.0,395
+Dehydrators,1010521,0.0,395
+Compressors,1010521,0.0,395
+In-line heaters,1010521,0.0,395
+Wellhead,1010588,60.0,430
+Wellhead,1010588,120.0,430
+Separators,1010588,131.0,430
+Separators,1010588,369.0,430
+Meters/piping,1010588,57.0,430
+In-line heaters,1010588,31.0,430
+Header,1010588,83.0,430
+Dehydrators,1010588,0.0,430
+Compressors,1010588,2.0,430
+Heater-treater,1010588,74.0,430
+Separators,1010621,400.0,260
+Wellhead,1010621,22.0,260
+Separators,1010621,245.0,260
+Meters/piping,1010621,1725.0,260
+Wellhead,1010621,1725.0,260
+Heater-treater,1010621,0.0,260
+Header,1010621,22.0,260
+Dehydrators,1010621,9.0,260
+Compressors,1010621,87.0,260
+In-line heaters,1010621,0.0,260
+Wellhead,1010673,0.0,585
+Separators,1010673,146.0,585
+Separators,1010673,0.0,585
+Meters/piping,1010673,99.0,585
+Wellhead,1010673,134.0,585
+Heater-treater,1010673,0.0,585
+Header,1010673,0.0,585
+Dehydrators,1010673,2.0,585
+Compressors,1010673,11.0,585
+In-line heaters,1010673,19.0,585
+Wellhead,1010701,31.0,360
+Wellhead,1010701,327.0,360
+Separators,1010701,73.0,360
+Separators,1010701,678.0,360
+Meters/piping,1010701,31.0,360
+In-line heaters,1010701,0.0,360
+Header,1010701,0.0,360
+Dehydrators,1010701,0.0,360
+Compressors,1010701,7.0,360
+Heater-treater,1010701,0.0,360
+Separators,1010707,4.0,745
+Wellhead,1010707,133.0,745
+Separators,1010707,0.0,745
+Meters/piping,1010707,0.0,745
+Wellhead,1010707,0.0,745
+Heater-treater,1010707,0.0,745
+Compressors,1010707,2.0,745
+In-line heaters,1010707,0.0,745
+Header,1010707,5.0,745
+Dehydrators,1010707,0.0,745
+Wellhead,1010721,0.0,160
+Wellhead,1010721,1125.0,160
+Separators,1010721,0.0,160
+Meters/piping,1010721,0.0,160
+Separators,1010721,524.0,160
+Heater-treater,1010721,0.0,160
+Header,1010721,0.0,160
+Dehydrators,1010721,0.0,160
+Compressors,1010721,0.0,160
+In-line heaters,1010721,0.0,160
+Wellhead,1010784,0.0,430
+Wellhead,1010784,218.0,430
+Separators,1010784,0.0,430
+Separators,1010784,22.0,430
+Meters/piping,1010784,0.0,430
+In-line heaters,1010784,0.0,430
+Header,1010784,8.0,430
+Dehydrators,1010784,0.0,430
+Compressors,1010784,0.0,430
+Heater-treater,1010784,24.0,430
+Wellhead,1010837,11.0,220
+Wellhead,1010837,0.0,220
+Separators,1010837,22.0,220
+Separators,1010837,0.0,220
+Meters/piping,1010837,8.0,220
+In-line heaters,1010837,10.0,220
+Header,1010837,0.0,220
+Dehydrators,1010837,6.0,220
+Compressors,1010837,0.0,220
+Heater-treater,1010837,0.0,220
+Separators,1010839,10.0,260
+Wellhead,1010839,3.0,260
+Separators,1010839,480.0,260
+Meters/piping,1010839,424.0,260
+Wellhead,1010839,424.0,260
+Heater-treater,1010839,2.0,260
+Header,1010839,0.0,260
+Dehydrators,1010839,9.0,260
+Compressors,1010839,15.0,260
+In-line heaters,1010839,0.0,260
+Wellhead,1010932,2215.0,745
+Separators,1010932,0.0,745
+Separators,1010932,139.0,745
+Meters/piping,1010932,0.0,745
+Wellhead,1010932,0.0,745
+Heater-treater,1010932,3.0,745
+Header,1010932,225.0,745
+Dehydrators,1010932,0.0,745
+Compressors,1010932,0.0,745
+In-line heaters,1010932,0.0,745
+Wellhead,1010943,303.0,220
+Wellhead,1010943,249.0,220
+Separators,1010943,303.0,220
+Separators,1010943,249.0,220
+Meters/piping,1010943,550.0,220
+In-line heaters,1010943,213.0,220
+Header,1010943,228.0,220
+Dehydrators,1010943,0.0,220
+Compressors,1010943,0.0,220
+Heater-treater,1010943,0.0,220
+Separators,1010945,204.0,220
+Wellhead,1010945,2.0,220
+Wellhead,1010945,216.0,220
+Separators,1010945,2.0,220
+Meters/piping,1010945,218.0,220
+In-line heaters,1010945,0.0,220
+Heater-treater,1010945,102.0,220
+Header,1010945,0.0,220
+Dehydrators,1010945,0.0,220
+Compressors,1010945,0.0,220
+Wellhead,1011081,55.0,745
+Separators,1011081,0.0,745
+Separators,1011081,1.0,745
+Meters/piping,1011081,0.0,745
+Wellhead,1011081,0.0,745
+Heater-treater,1011081,0.0,745
+Header,1011081,8.0,745
+Dehydrators,1011081,0.0,745
+Compressors,1011081,0.0,745
+In-line heaters,1011081,0.0,745
+Wellhead,1011091,259.0,360
+Wellhead,1011091,0.0,360
+Separators,1011091,216.0,360
+Separators,1011091,0.0,360
+Meters/piping,1011091,259.0,360
+In-line heaters,1011091,0.0,360
+Header,1011091,0.0,360
+Dehydrators,1011091,0.0,360
+Compressors,1011091,36.0,360
+Heater-treater,1011091,21.0,360
+Separators,1011100,0.0,580
+Wellhead,1011100,0.0,580
+Separators,1011100,48.0,580
+Meters/piping,1011100,30.0,580
+Wellhead,1011100,30.0,580
+Heater-treater,1011100,0.0,580
+Header,1011100,0.0,580
+Dehydrators,1011100,0.0,580
+Compressors,1011100,1.0,580
+In-line heaters,1011100,0.0,580
+Wellhead,1011185,74.0,395
+Separators,1011185,0.0,395
+Separators,1011185,115.0,395
+Meters/piping,1011185,0.0,395
+Wellhead,1011185,0.0,395
+Heater-treater,1011185,81.0,395
+Header,1011185,0.0,395
+Dehydrators,1011185,0.0,395
+Compressors,1011185,4.0,395
+In-line heaters,1011185,0.0,395
+Wellhead,1011191,40.0,350
+Wellhead,1011191,67.0,350
+Separators,1011191,93.0,350
+Separators,1011191,146.0,350
+Meters/piping,1011191,40.0,350
+In-line heaters,1011191,0.0,350
+Header,1011191,53.0,350
+Dehydrators,1011191,0.0,350
+Compressors,1011191,19.0,350
+Heater-treater,1011191,52.0,350
+Separators,1011194,0.0,230
+Wellhead,1011194,0.0,230
+Separators,1011194,361.0,230
+Meters/piping,1011194,361.0,230
+Wellhead,1011194,361.0,230
+Heater-treater,1011194,0.0,230
+Compressors,1011194,0.0,230
+In-line heaters,1011194,0.0,230
+Header,1011194,0.0,230
+Dehydrators,1011194,0.0,230
+Wellhead,1011223,347.0,220
+Wellhead,1011223,4.0,220
+Separators,1011223,187.0,220
+Meters/piping,1011223,131.0,220
+Separators,1011223,4.0,220
+Heater-treater,1011223,119.0,220
+Header,1011223,0.0,220
+Dehydrators,1011223,13.0,220
+Compressors,1011223,14.0,220
+In-line heaters,1011223,54.0,220
+Wellhead,1011231,8.0,820
+Wellhead,1011231,7.0,820
+Separators,1011231,0.0,820
+Separators,1011231,0.0,820
+Meters/piping,1011231,2.0,820
+In-line heaters,1011231,0.0,820
+Header,1011231,1.0,820
+Dehydrators,1011231,0.0,820
+Compressors,1011231,0.0,820
+Heater-treater,1011231,0.0,820
+Wellhead,1011250,0.0,395
+Wellhead,1011250,207.0,395
+Separators,1011250,0.0,395
+Separators,1011250,2.0,395
+Meters/piping,1011250,0.0,395
+In-line heaters,1011250,0.0,395
+Header,1011250,0.0,395
+Dehydrators,1011250,0.0,395
+Compressors,1011250,0.0,395
+Heater-treater,1011250,218.0,395
+Separators,1011318,113.0,515
+Wellhead,1011318,91.0,515
+Separators,1011318,0.0,515
+Meters/piping,1011318,0.0,515
+Wellhead,1011318,0.0,515
+Heater-treater,1011318,91.0,515
+Compressors,1011318,0.0,515
+In-line heaters,1011318,0.0,515
+Header,1011318,91.0,515
+Dehydrators,1011318,0.0,515
+Wellhead,1011450,1422.0,535
+Wellhead,1011450,0.0,535
+Separators,1011450,0.0,535
+Meters/piping,1011450,800.0,535
+Separators,1011450,0.0,535
+Heater-treater,1011450,0.0,535
+Header,1011450,0.0,535
+Dehydrators,1011450,0.0,535
+Compressors,1011450,0.0,535
+In-line heaters,1011450,43.0,535
+Separators,1011454,0.0,160
+Wellhead,1011454,3.0,160
+Wellhead,1011454,0.0,160
+Separators,1011454,10.0,160
+Meters/piping,1011454,1.0,160
+Compressors,1011454,0.0,160
+Heater-treater,1011454,0.0,160
+Header,1011454,0.0,160
+Dehydrators,1011454,2.0,160
+In-line heaters,1011454,4.0,160
+Separators,1011463,33.0,395
+Wellhead,1011463,115.0,395
+Separators,1011463,0.0,395
+Meters/piping,1011463,0.0,395
+Wellhead,1011463,0.0,395
+Heater-treater,1011463,118.0,395
+Header,1011463,25.0,395
+Dehydrators,1011463,0.0,395
+Compressors,1011463,0.0,395
+In-line heaters,1011463,0.0,395
+Wellhead,1011498,166.0,430
+Wellhead,1011498,1661.0,430
+Separators,1011498,798.0,430
+Separators,1011498,772.0,430
+Meters/piping,1011498,706.0,430
+Dehydrators,1011498,0.0,430
+Heater-treater,1011498,241.0,430
+Header,1011498,1467.0,430
+In-line heaters,1011498,2.0,430
+Compressors,1011498,2.0,430
+Wellhead,1011508,278.0,450
+Wellhead,1011508,0.0,450
+Separators,1011508,3.0,450
+Separators,1011508,0.0,450
+Meters/piping,1011508,278.0,450
+In-line heaters,1011508,0.0,450
+Heater-treater,1011508,0.0,450
+Header,1011508,0.0,450
+Dehydrators,1011508,0.0,450
+Compressors,1011508,0.0,450
+Wellhead,1011519,636.0,430
+Wellhead,1011519,818.0,430
+Separators,1011519,319.0,430
+Separators,1011519,57.0,430
+Meters/piping,1011519,636.0,430
+Heater-treater,1011519,50.0,430
+Header,1011519,0.0,430
+Dehydrators,1011519,0.0,430
+In-line heaters,1011519,0.0,430
+Compressors,1011519,13.0,430
+Meters/piping,1011531,0.0,220
+Wellhead,1011531,0.0,220
+Wellhead,1011531,202.0,220
+Separators,1011531,0.0,220
+Separators,1011531,283.0,220
+In-line heaters,1011531,0.0,220
+Header,1011531,138.0,220
+Dehydrators,1011531,0.0,220
+Compressors,1011531,0.0,220
+Heater-treater,1011531,201.0,220
+Wellhead,1011534,125.0,220
+Separators,1011534,0.0,220
+Separators,1011534,234.0,220
+Meters/piping,1011534,123.0,220
+Wellhead,1011534,0.0,220
+Heater-treater,1011534,53.0,220
+Header,1011534,63.0,220
+Dehydrators,1011534,1.0,220
+Compressors,1011534,28.0,220
+In-line heaters,1011534,0.0,220
+Wellhead,1011555,10.0,430
+Wellhead,1011555,1753.0,430
+Separators,1011555,10.0,430
+Separators,1011555,2092.0,430
+Meters/piping,1011555,339.0,430
+In-line heaters,1011555,2.0,430
+Header,1011555,339.0,430
+Dehydrators,1011555,10.0,430
+Compressors,1011555,275.0,430
+Heater-treater,1011555,426.0,430
+Separators,1011596,19.0,575
+Wellhead,1011596,19.0,575
+Separators,1011596,496.0,575
+Meters/piping,1011596,507.0,575
+Wellhead,1011596,507.0,575
+Heater-treater,1011596,28.0,575
+Compressors,1011596,0.0,575
+In-line heaters,1011596,214.0,575
+Header,1011596,0.0,575
+Dehydrators,1011596,1.0,575
+Wellhead,1011652,217.0,220
+Wellhead,1011652,40.0,220
+Separators,1011652,59.0,220
+Meters/piping,1011652,217.0,220
+Separators,1011652,22.0,220
+Heater-treater,1011652,17.0,220
+Header,1011652,0.0,220
+Dehydrators,1011652,2.0,220
+Compressors,1011652,29.0,220
+In-line heaters,1011652,0.0,220
+Wellhead,1011654,161.0,535
+Wellhead,1011654,1.0,535
+Separators,1011654,161.0,535
+Separators,1011654,0.0,535
+Meters/piping,1011654,161.0,535
+In-line heaters,1011654,13.0,535
+Header,1011654,1.0,535
+Dehydrators,1011654,13.0,535
+Compressors,1011654,5.0,535
+Heater-treater,1011654,1.0,535
+Wellhead,1011659,126.0,430
+Wellhead,1011659,3891.0,430
+Separators,1011659,91.0,430
+Separators,1011659,1220.0,430
+Meters/piping,1011659,113.0,430
+In-line heaters,1011659,0.0,430
+Header,1011659,874.0,430
+Dehydrators,1011659,22.0,430
+Compressors,1011659,0.0,430
+Heater-treater,1011659,1471.0,430
+Separators,1011662,0.0,430
+Wellhead,1011662,0.0,430
+Wellhead,1011662,1390.0,430
+Separators,1011662,1116.0,430
+Meters/piping,1011662,347.0,430
+In-line heaters,1011662,0.0,430
+Heater-treater,1011662,26.0,430
+Header,1011662,347.0,430
+Dehydrators,1011662,1.0,430
+Compressors,1011662,18.0,430
+Wellhead,1011666,0.0,360
+Separators,1011666,49.0,360
+Separators,1011666,0.0,360
+Meters/piping,1011666,62.0,360
+Wellhead,1011666,63.0,360
+Heater-treater,1011666,0.0,360
+Header,1011666,0.0,360
+Dehydrators,1011666,0.0,360
+Compressors,1011666,0.0,360
+In-line heaters,1011666,1.0,360
+Wellhead,1011673,0.0,745
+Wellhead,1011673,891.0,745
+Separators,1011673,0.0,745
+Separators,1011673,42.0,745
+Meters/piping,1011673,0.0,745
+In-line heaters,1011673,0.0,745
+Header,1011673,66.0,745
+Dehydrators,1011673,0.0,745
+Compressors,1011673,0.0,745
+Heater-treater,1011673,5.0,745
+Separators,1011674,0.0,415
+Wellhead,1011674,0.0,415
+Separators,1011674,181.0,415
+Meters/piping,1011674,46.0,415
+Wellhead,1011674,202.0,415
+Heater-treater,1011674,0.0,415
+Compressors,1011674,27.0,415
+In-line heaters,1011674,0.0,415
+Header,1011674,0.0,415
+Dehydrators,1011674,1.0,415
+Wellhead,1011684,158.0,420
+Wellhead,1011684,0.0,420
+Separators,1011684,160.0,420
+Meters/piping,1011684,70.0,420
+Separators,1011684,0.0,420
+Heater-treater,1011684,0.0,420
+Header,1011684,0.0,420
+Dehydrators,1011684,2.0,420
+Compressors,1011684,26.0,420
+In-line heaters,1011684,0.0,420
+Wellhead,1011688,50.0,160
+Wellhead,1011688,3.0,160
+Separators,1011688,50.0,160
+Separators,1011688,3.0,160
+Meters/piping,1011688,53.0,160
+In-line heaters,1011688,50.0,160
+Header,1011688,11.0,160
+Dehydrators,1011688,0.0,160
+Compressors,1011688,2.0,160
+Heater-treater,1011688,3.0,160
+Wellhead,1011689,0.0,210
+Wellhead,1011689,16.0,210
+Separators,1011689,0.0,210
+Separators,1011689,0.0,210
+Meters/piping,1011689,15.0,210
+Heater-treater,1011689,15.0,210
+Header,1011689,0.0,210
+Dehydrators,1011689,0.0,210
+Compressors,1011689,0.0,210
+In-line heaters,1011689,0.0,210
+Separators,1011690,691.0,430
+Wellhead,1011690,61.0,430
+Wellhead,1011690,328.0,430
+Separators,1011690,174.0,430
+Meters/piping,1011690,61.0,430
+Compressors,1011690,305.0,430
+Heater-treater,1011690,112.0,430
+Dehydrators,1011690,0.0,430
+In-line heaters,1011690,0.0,430
+Header,1011690,0.0,430
+Wellhead,1011706,391.0,160
+Wellhead,1011735,0.0,430
+Wellhead,1011735,11.0,430
+Separators,1011735,0.0,430
+Meters/piping,1011735,0.0,430
+Separators,1011735,16.0,430
+Heater-treater,1011735,5.0,430
+Header,1011735,4.0,430
+Dehydrators,1011735,0.0,430
+Compressors,1011735,0.0,430
+In-line heaters,1011735,0.0,430
+Separators,1011752,108.0,360
+Wellhead,1011752,0.0,360
+Wellhead,1011752,108.0,360
+Separators,1011752,0.0,360
+Meters/piping,1011752,0.0,360
+Dehydrators,1011752,0.0,360
+Heater-treater,1011752,108.0,360
+Header,1011752,0.0,360
+Compressors,1011752,0.0,360
+In-line heaters,1011752,0.0,360
+Meters/piping,1011763,368.0,415
+Wellhead,1011763,0.0,415
+Separators,1011763,360.0,415
+Separators,1011763,0.0,415
+Wellhead,1011763,368.0,415
+In-line heaters,1011763,0.0,415
+Header,1011763,0.0,415
+Dehydrators,1011763,4.0,415
+Compressors,1011763,122.0,415
+Heater-treater,1011763,0.0,415
+Wellhead,1011765,566.0,420
+Wellhead,1011765,56.0,420
+Separators,1011765,576.0,420
+Separators,1011765,67.0,420
+Meters/piping,1011765,566.0,420
+Heater-treater,1011765,3.0,420
+Header,1011765,56.0,420
+Dehydrators,1011765,0.0,420
+Compressors,1011765,174.0,420
+In-line heaters,1011765,3.0,420
+Separators,1011773,44.0,220
+Wellhead,1011773,0.0,220
+Wellhead,1011773,73.0,220
+Separators,1011773,0.0,220
+Meters/piping,1011773,73.0,220
+Compressors,1011773,1.0,220
+Heater-treater,1011773,72.0,220
+Header,1011773,0.0,220
+Dehydrators,1011773,1.0,220
+In-line heaters,1011773,0.0,220
+Separators,1011782,7.0,890
+Wellhead,1011782,0.0,890
+Wellhead,1011782,307.0,890
+Separators,1011782,0.0,890
+Meters/piping,1011782,8.0,890
+Heater-treater,1011782,0.0,890
+Header,1011782,11.0,890
+In-line heaters,1011782,0.0,890
+Dehydrators,1011782,1.0,890
+Compressors,1011782,3.0,890
+Wellhead,1011804,0.0,740
+Wellhead,1011804,26.0,740
+Separators,1011804,0.0,740
+Separators,1011804,1.0,740
+Meters/piping,1011804,0.0,740
+Heater-treater,1011804,0.0,740
+Header,1011804,1.0,740
+Dehydrators,1011804,0.0,740
+Compressors,1011804,0.0,740
+In-line heaters,1011804,0.0,740
+Separators,1011831,0.0,890
+Wellhead,1011831,3.0,890
+Wellhead,1011831,0.0,890
+Separators,1011831,3.0,890
+Meters/piping,1011831,2.0,890
+Compressors,1011831,3.0,890
+Heater-treater,1011831,0.0,890
+Header,1011831,0.0,890
+Dehydrators,1011831,1.0,890
+In-line heaters,1011831,0.0,890
+Separators,1011847,15.0,220
+Wellhead,1011847,5.0,220
+Wellhead,1011847,7.0,220
+Separators,1011847,5.0,220
+Meters/piping,1011847,7.0,220
+In-line heaters,1011847,0.0,220
+Heater-treater,1011847,5.0,220
+Header,1011847,0.0,220
+Dehydrators,1011847,1.0,220
+Compressors,1011847,2.0,220
+Wellhead,1011854,1409.0,360
+Separators,1011854,1180.0,360
+Separators,1011854,1978.0,360
+Meters/piping,1011854,590.0,360
+Wellhead,1011854,590.0,360
+Heater-treater,1011854,990.0,360
+Header,1011854,990.0,360
+Dehydrators,1011854,0.0,360
+Compressors,1011854,27.0,360
+In-line heaters,1011854,292.0,360
+Wellhead,1011873,0.0,395
+Wellhead,1011873,245.0,395
+Separators,1011873,0.0,395
+Separators,1011873,7.0,395
+Meters/piping,1011873,0.0,395
+In-line heaters,1011873,0.0,395
+Header,1011873,245.0,395
+Dehydrators,1011873,0.0,395
+Compressors,1011873,0.0,395
+Heater-treater,1011873,245.0,395
+Separators,1011913,0.0,230
+Wellhead,1011913,248.0,230
+Separators,1011913,247.0,230
+Meters/piping,1011913,148.0,230
+Wellhead,1011913,0.0,230
+Heater-treater,1011913,0.0,230
+Header,1011913,0.0,230
+Dehydrators,1011913,4.0,230
+Compressors,1011913,0.0,230
+In-line heaters,1011913,0.0,230
+Wellhead,1011923,297.0,395
+Separators,1011923,0.0,395
+Separators,1011923,47.0,395
+Meters/piping,1011923,0.0,395
+Wellhead,1011923,0.0,395
+Heater-treater,1011923,216.0,395
+Header,1011923,253.0,395
+Dehydrators,1011923,0.0,395
+Compressors,1011923,0.0,395
+In-line heaters,1011923,0.0,395
+Wellhead,1011962,118.0,305
+Wellhead,1011962,28.0,305
+Separators,1011962,0.0,305
+Separators,1011962,0.0,305
+Meters/piping,1011962,118.0,305
+In-line heaters,1011962,0.0,305
+Header,1011962,10.0,305
+Dehydrators,1011962,7.0,305
+Compressors,1011962,7.0,305
+Heater-treater,1011962,28.0,305
+Separators,1011975,8.0,260
+Wellhead,1011975,8.0,260
+Wellhead,1011975,839.0,260
+Meters/piping,1011975,839.0,260
+Separators,1011975,839.0,260
+Heater-treater,1011975,0.0,260
+Header,1011975,8.0,260
+Dehydrators,1011975,0.0,260
+Compressors,1011975,0.0,260
+In-line heaters,1011975,0.0,260
+Wellhead,1011978,164.0,580
+Wellhead,1011978,82.0,580
+Separators,1011978,36.0,580
+Separators,1011978,80.0,580
+Meters/piping,1011978,164.0,580
+In-line heaters,1011978,0.0,580
+Heater-treater,1011978,0.0,580
+Header,1011978,82.0,580
+Dehydrators,1011978,0.0,580
+Compressors,1011978,12.0,580
+Wellhead,1011998,0.0,230
+Separators,1011998,680.0,230
+Wellhead,1011998,567.0,230
+Separators,1011998,0.0,230
+Meters/piping,1011998,567.0,230
+Header,1011998,0.0,230
+Heater-treater,1011998,0.0,230
+Dehydrators,1011998,6.0,230
+Compressors,1011998,46.0,230
+In-line heaters,1011998,29.0,230
+Wellhead,1012014,25.0,420
+Compressors,1012014,15.0,420
+Dehydrators,1012014,0.0,420
+Header,1012014,0.0,420
+Heater-treater,1012014,2.0,420
+In-line heaters,1012014,0.0,420
+Meters/piping,1012014,25.0,420
+Separators,1012014,130.0,420
+Separators,1012014,47.0,420
+Wellhead,1012014,91.0,420
+Wellhead,1012021,64.0,395
+Wellhead,1012021,0.0,395
+Separators,1012021,64.0,395
+Meters/piping,1012021,0.0,395
+Separators,1012021,0.0,395
+Heater-treater,1012021,55.0,395
+Header,1012021,32.0,395
+In-line heaters,1012021,0.0,395
+Dehydrators,1012021,0.0,395
+Compressors,1012021,0.0,395
+Wellhead,1012024,343.0,360
+Separators,1012024,12.0,360
+Separators,1012024,343.0,360
+Meters/piping,1012024,12.0,360
+Wellhead,1012024,12.0,360
+Heater-treater,1012024,343.0,360
+Header,1012024,0.0,360
+Dehydrators,1012024,0.0,360
+Compressors,1012024,0.0,360
+In-line heaters,1012024,12.0,360
+Wellhead,1012040,434.0,260
+Wellhead,1012040,7.0,260
+Separators,1012040,434.0,260
+Separators,1012040,7.0,260
+Meters/piping,1012040,522.0,260
+In-line heaters,1012040,0.0,260
+Header,1012040,7.0,260
+Dehydrators,1012040,6.0,260
+Compressors,1012040,20.0,260
+Heater-treater,1012040,0.0,260
+Separators,1012048,12.0,395
+Wellhead,1012048,0.0,395
+Wellhead,1012048,8.0,395
+Separators,1012048,0.0,395
+Meters/piping,1012048,0.0,395
+In-line heaters,1012048,0.0,395
+Heater-treater,1012048,6.0,395
+Header,1012048,8.0,395
+Dehydrators,1012048,0.0,395
+Compressors,1012048,0.0,395
+Wellhead,1012060,63.0,230
+Separators,1012060,0.0,230
+Separators,1012060,14.0,230
+Meters/piping,1012060,0.0,230
+Wellhead,1012060,3.0,230
+Heater-treater,1012060,3.0,230
+Header,1012060,14.0,230
+Dehydrators,1012060,3.0,230
+Compressors,1012060,0.0,230
+In-line heaters,1012060,0.0,230
+Wellhead,1012068,3.0,430
+Wellhead,1012068,182.0,430
+Separators,1012068,3.0,430
+Separators,1012068,320.0,430
+Meters/piping,1012068,185.0,430
+In-line heaters,1012068,0.0,430
+Header,1012068,0.0,430
+Dehydrators,1012068,0.0,430
+Compressors,1012068,8.0,430
+Heater-treater,1012068,108.0,430
+Separators,1012070,77.0,355
+Wellhead,1012070,77.0,355
+Separators,1012070,7.0,355
+Meters/piping,1012070,0.0,355
+Wellhead,1012070,7.0,355
+Heater-treater,1012070,77.0,355
+Header,1012070,0.0,355
+Dehydrators,1012070,0.0,355
+Compressors,1012070,10.0,355
+In-line heaters,1012070,0.0,355
+Wellhead,1012077,34.0,545
+Separators,1012077,1.0,545
+Separators,1012077,9.0,545
+Meters/piping,1012077,5.0,545
+Wellhead,1012077,5.0,545
+Heater-treater,1012077,0.0,545
+Header,1012077,34.0,545
+Dehydrators,1012077,0.0,545
+Compressors,1012077,0.0,545
+In-line heaters,1012077,0.0,545
+Wellhead,1012100,2626.0,395
+Wellhead,1012100,238.0,395
+Separators,1012100,1615.0,395
+Separators,1012100,106.0,395
+Meters/piping,1012100,2623.0,395
+In-line heaters,1012100,0.0,395
+Header,1012100,33.0,395
+Dehydrators,1012100,0.0,395
+Compressors,1012100,0.0,395
+Heater-treater,1012100,94.0,395
+Separators,1012129,552.0,430
+Wellhead,1012129,657.0,430
+Separators,1012129,0.0,430
+Meters/piping,1012129,0.0,430
+Wellhead,1012129,0.0,430
+Heater-treater,1012129,137.0,430
+Compressors,1012129,0.0,430
+In-line heaters,1012129,0.0,430
+Header,1012129,524.0,430
+Dehydrators,1012129,0.0,430
+Wellhead,1012376,6.0,430
+Wellhead,1012376,0.0,430
+Separators,1012376,23.0,430
+Meters/piping,1012376,4.0,430
+Separators,1012376,0.0,430
+Heater-treater,1012376,0.0,430
+Header,1012376,0.0,430
+Dehydrators,1012376,0.0,430
+Compressors,1012376,7.0,430
+In-line heaters,1012376,0.0,430
+Wellhead,1012437,925.0,360
+Wellhead,1012437,100.0,360
+Separators,1012437,925.0,360
+Separators,1012437,100.0,360
+Meters/piping,1012437,925.0,360
+In-line heaters,1012437,0.0,360
+Header,1012437,0.0,360
+Dehydrators,1012437,0.0,360
+Compressors,1012437,107.0,360
+Heater-treater,1012437,100.0,360
+Wellhead,1012449,0.0,430
+Wellhead,1012449,1520.0,430
+Separators,1012449,0.0,430
+Separators,1012449,243.0,430
+Meters/piping,1012449,0.0,430
+In-line heaters,1012449,0.0,430
+Header,1012449,0.0,430
+Dehydrators,1012449,0.0,430
+Compressors,1012449,0.0,430
+Heater-treater,1012449,148.0,430
+Separators,1012528,31.0,360
+Wellhead,1012528,417.0,360
+Wellhead,1012528,11182.0,360
+Meters/piping,1012528,11182.0,360
+Separators,1012528,1354.0,360
+Heater-treater,1012528,24.0,360
+Header,1012528,37.0,360
+Dehydrators,1012528,0.0,360
+Compressors,1012528,1134.0,360
+In-line heaters,1012528,0.0,360
+Wellhead,1012537,0.0,160
+Separators,1012537,107.0,160
+Separators,1012537,0.0,160
+Meters/piping,1012537,107.0,160
+Wellhead,1012537,107.0,160
+Heater-treater,1012537,0.0,160
+Header,1012537,0.0,160
+Dehydrators,1012537,3.0,160
+Compressors,1012537,7.0,160
+In-line heaters,1012537,107.0,160
+Wellhead,1012556,0.0,430
+Wellhead,1012556,714.0,430
+Separators,1012556,0.0,430
+Separators,1012556,741.0,430
+Meters/piping,1012556,0.0,430
+In-line heaters,1012556,0.0,430
+Header,1012556,152.0,430
+Dehydrators,1012556,0.0,430
+Compressors,1012556,0.0,430
+Heater-treater,1012556,260.0,430
+Separators,1012569,43.0,515
+Wellhead,1012569,78.0,515
+Separators,1012569,0.0,515
+Meters/piping,1012569,0.0,515
+Wellhead,1012569,0.0,515
+Heater-treater,1012569,61.0,515
+Compressors,1012569,0.0,515
+In-line heaters,1012569,0.0,515
+Header,1012569,3.0,515
+Dehydrators,1012569,0.0,515
+Wellhead,1012571,48.0,220
+Wellhead,1012571,332.0,220
+Separators,1012571,5.0,220
+Meters/piping,1012571,380.0,220
+Separators,1012571,68.0,220
+Heater-treater,1012571,3.0,220
+Header,1012571,0.0,220
+Dehydrators,1012571,3.0,220
+Compressors,1012571,5.0,220
+In-line heaters,1012571,0.0,220
+Wellhead,1012605,387.0,355
+Wellhead,1012605,0.0,355
+Separators,1012605,363.0,355
+Separators,1012605,0.0,355
+Meters/piping,1012605,207.0,355
+In-line heaters,1012605,2.0,355
+Header,1012605,0.0,355
+Dehydrators,1012605,1.0,355
+Compressors,1012605,21.0,355
+Heater-treater,1012605,0.0,355
+Wellhead,1012612,203.0,530
+Wellhead,1012612,0.0,530
+Separators,1012612,213.0,530
+Separators,1012612,0.0,530
+Meters/piping,1012612,181.0,530
+Heater-treater,1012612,9.0,530
+Header,1012612,0.0,530
+Dehydrators,1012612,5.0,530
+Compressors,1012612,11.0,530
+In-line heaters,1012612,159.0,530
+Separators,1012664,0.0,535
+Wellhead,1012664,0.0,535
+Separators,1012664,90.0,535
+Wellhead,1012664,61.0,535
+Meters/piping,1012664,61.0,535
+Header,1012664,0.0,535
+Heater-treater,1012664,0.0,535
+Dehydrators,1012664,50.0,535
+Compressors,1012664,37.0,535
+In-line heaters,1012664,43.0,535
+Wellhead,1012666,132.0,430
+Separators,1012666,2.0,430
+Separators,1012666,46.0,430
+Meters/piping,1012666,0.0,430
+Wellhead,1012666,0.0,430
+Heater-treater,1012666,17.0,430
+Header,1012666,0.0,430
+Dehydrators,1012666,0.0,430
+Compressors,1012666,0.0,430
+In-line heaters,1012666,0.0,430
+Wellhead,1012706,496.0,535
+Wellhead,1012706,92.0,535
+Separators,1012706,441.0,535
+Separators,1012706,0.0,535
+Meters/piping,1012706,92.0,535
+In-line heaters,1012706,359.0,535
+Header,1012706,0.0,535
+Dehydrators,1012706,176.0,535
+Compressors,1012706,6.0,535
+Heater-treater,1012706,43.0,535
+Separators,1012724,168.0,580
+Wellhead,1012724,1187.0,580
+Separators,1012724,1264.0,580
+Meters/piping,1012724,1187.0,580
+Wellhead,1012724,159.0,580
+Heater-treater,1012724,1.0,580
+Header,1012724,0.0,580
+Dehydrators,1012724,33.0,580
+Compressors,1012724,239.0,580
+In-line heaters,1012724,0.0,580
+Wellhead,1012728,777.0,415
+Wellhead,1012728,0.0,415
+Separators,1012728,777.0,415
+Separators,1012728,0.0,415
+Meters/piping,1012728,777.0,415
+In-line heaters,1012728,0.0,415
+Heater-treater,1012728,0.0,415
+Header,1012728,0.0,415
+Dehydrators,1012728,0.0,415
+Compressors,1012728,217.0,415
+Wellhead,1012734,44.0,160
+Separators,1012734,83.0,160
+Wellhead,1012734,490.0,160
+Separators,1012734,0.0,160
+Meters/piping,1012734,490.0,160
+Header,1012734,0.0,160
+Heater-treater,1012734,0.0,160
+Dehydrators,1012734,13.0,160
+Compressors,1012734,10.0,160
+In-line heaters,1012734,7.0,160
+Wellhead,1012780,0.0,430
+Compressors,1012780,38.0,430
+Dehydrators,1012780,0.0,430
+Header,1012780,3.0,430
+Heater-treater,1012780,0.0,430
+In-line heaters,1012780,0.0,430
+Meters/piping,1012780,246.0,430
+Separators,1012780,11.0,430
+Separators,1012780,0.0,430
+Wellhead,1012780,246.0,430
+Wellhead,1012816,53.0,220
+Separators,1012816,6.0,220
+Wellhead,1012816,10.0,220
+Separators,1012816,36.0,220
+Meters/piping,1012816,30.0,220
+Header,1012816,0.0,220
+Heater-treater,1012816,5.0,220
+Dehydrators,1012816,4.0,220
+Compressors,1012816,3.0,220
+In-line heaters,1012816,6.0,220
+Wellhead,1012823,1033.0,745
+Separators,1012823,0.0,745
+Separators,1012823,46.0,745
+Meters/piping,1012823,0.0,745
+Wellhead,1012823,0.0,745
+Heater-treater,1012823,7.0,745
+Header,1012823,56.0,745
+Dehydrators,1012823,0.0,745
+Compressors,1012823,0.0,745
+In-line heaters,1012823,0.0,745
+Wellhead,1012873,32.0,220
+Wellhead,1012873,197.0,220
+Separators,1012873,115.0,220
+Separators,1012873,238.0,220
+Meters/piping,1012873,32.0,220
+In-line heaters,1012873,0.0,220
+Header,1012873,0.0,220
+Dehydrators,1012873,8.0,220
+Compressors,1012873,38.0,220
+Heater-treater,1012873,175.0,220
+Separators,1012936,0.0,160
+Wellhead,1012936,0.0,160
+Separators,1012936,9426.0,160
+Meters/piping,1012936,32769.0,160
+Wellhead,1012936,33630.0,160
+Heater-treater,1012936,0.0,160
+Compressors,1012936,136.0,160
+In-line heaters,1012936,2542.0,160
+Header,1012936,0.0,160
+Dehydrators,1012936,0.0,160
+Wellhead,1012945,32.0,220
+Wellhead,1012945,87.0,220
+Separators,1012945,21.0,220
+Meters/piping,1012945,27.0,220
+Separators,1012945,35.0,220
+Heater-treater,1012945,17.0,220
+Header,1012945,27.0,220
+Dehydrators,1012945,9.0,220
+Compressors,1012945,11.0,220
+In-line heaters,1012945,7.0,220
+Wellhead,1012947,0.0,515
+Wellhead,1012947,9.0,515
+Separators,1012947,0.0,515
+Separators,1012947,1.0,515
+Meters/piping,1012947,0.0,515
+In-line heaters,1012947,0.0,515
+Header,1012947,0.0,515
+Dehydrators,1012947,0.0,515
+Compressors,1012947,0.0,515
+Heater-treater,1012947,5.0,515
+Wellhead,1012952,276.0,435
+Wellhead,1012952,5.0,435
+Separators,1012952,57.0,435
+Separators,1012952,1.0,435
+Meters/piping,1012952,276.0,435
+In-line heaters,1012952,0.0,435
+Header,1012952,1.0,435
+Dehydrators,1012952,0.0,435
+Compressors,1012952,31.0,435
+Heater-treater,1012952,0.0,435
+Separators,1012984,223.0,210
+Wellhead,1012984,244.0,210
+Wellhead,1012984,0.0,210
+Separators,1012984,0.0,210
+Meters/piping,1012984,142.0,210
+In-line heaters,1012984,47.0,210
+Heater-treater,1012984,0.0,210
+Header,1012984,0.0,210
+Dehydrators,1012984,12.0,210
+Compressors,1012984,16.0,210
+Wellhead,1012988,0.0,160
+Separators,1012988,0.0,160
+Meters/piping,1012988,152.0,160
+In-line heaters,1012988,152.0,160
+Wellhead,1012988,158.0,160
+Header,1012988,0.0,160
+Dehydrators,1012988,0.0,160
+Compressors,1012988,0.0,160
+Heater-treater,1012988,0.0,160
+Separators,1012988,152.0,160
+Wellhead,1013010,3.0,220
+Compressors,1013010,0.0,220
+Dehydrators,1013010,0.0,220
+Header,1013010,0.0,220
+Heater-treater,1013010,8.0,220
+In-line heaters,1013010,0.0,220
+Meters/piping,1013010,2.0,220
+Separators,1013010,62.0,220
+Separators,1013010,4.0,220
+Wellhead,1013010,36.0,220
+Wellhead,1013021,87.0,395
+Wellhead,1013021,0.0,395
+Separators,1013021,12.0,395
+Meters/piping,1013021,0.0,395
+Separators,1013021,0.0,395
+Heater-treater,1013021,105.0,395
+Header,1013021,0.0,395
+In-line heaters,1013021,0.0,395
+Dehydrators,1013021,0.0,395
+Compressors,1013021,0.0,395
+Wellhead,1013023,27.0,220
+Wellhead,1013023,199.0,220
+Separators,1013023,31.0,220
+Separators,1013023,429.0,220
+Meters/piping,1013023,0.0,220
+In-line heaters,1013023,26.0,220
+Heater-treater,1013023,78.0,220
+Header,1013023,10.0,220
+Dehydrators,1013023,2.0,220
+Compressors,1013023,24.0,220
+Wellhead,1013026,0.0,360
+Separators,1013026,252.0,360
+Wellhead,1013026,261.0,360
+Separators,1013026,0.0,360
+Meters/piping,1013026,266.0,360
+Header,1013026,0.0,360
+Heater-treater,1013026,0.0,360
+Dehydrators,1013026,0.0,360
+Compressors,1013026,37.0,360
+In-line heaters,1013026,165.0,360
+Wellhead,1013034,0.0,260
+Compressors,1013034,0.0,260
+Dehydrators,1013034,0.0,260
+Header,1013034,21.0,260
+Heater-treater,1013034,1.0,260
+In-line heaters,1013034,0.0,260
+Meters/piping,1013034,0.0,260
+Separators,1013034,23.0,260
+Separators,1013034,0.0,260
+Wellhead,1013034,251.0,260
+Separators,1013035,4454.0,160
+Separators,1013035,0.0,160
+Wellhead,1013035,27012.0,160
+Wellhead,1013035,0.0,160
+Meters/piping,1013035,24448.0,160
+Compressors,1013035,22.0,160
+Heater-treater,1013035,0.0,160
+Header,1013035,0.0,160
+Dehydrators,1013035,0.0,160
+In-line heaters,1013035,210.0,160
+Wellhead,1013038,91.0,430
+Wellhead,1013038,49.0,430
+Separators,1013038,95.0,430
+Separators,1013038,77.0,430
+Meters/piping,1013038,141.0,430
+In-line heaters,1013038,6.0,430
+Heater-treater,1013038,105.0,430
+Header,1013038,23.0,430
+Dehydrators,1013038,0.0,430
+Compressors,1013038,36.0,430
+Wellhead,1013080,906.0,260
+Wellhead,1013080,4.0,260
+Separators,1013080,1340.0,260
+Separators,1013080,11.0,260
+Meters/piping,1013080,903.0,260
+Heater-treater,1013080,0.0,260
+Header,1013080,0.0,260
+Dehydrators,1013080,6.0,260
+Compressors,1013080,31.0,260
+In-line heaters,1013080,5.0,260
+In-line heaters,1013087,0.0,220
+Compressors,1013087,11.0,220
+Dehydrators,1013087,0.0,220
+Header,1013087,0.0,220
+Heater-treater,1013087,57.0,220
+Meters/piping,1013087,1.0,220
+Separators,1013087,184.0,220
+Separators,1013087,3.0,220
+Wellhead,1013087,73.0,220
+Wellhead,1013087,1.0,220
+Separators,1013089,6.0,160
+Separators,1013089,0.0,160
+Wellhead,1013089,48.0,160
+Wellhead,1013089,0.0,160
+Meters/piping,1013089,0.0,160
+Compressors,1013089,0.0,160
+Heater-treater,1013089,0.0,160
+Header,1013089,0.0,160
+Dehydrators,1013089,0.0,160
+In-line heaters,1013089,48.0,160
+Wellhead,1013091,0.0,210
+Wellhead,1013091,33.0,210
+Separators,1013091,0.0,210
+Separators,1013091,11.0,210
+Meters/piping,1013091,0.0,210
+Heater-treater,1013091,20.0,210
+Header,1013091,33.0,210
+Dehydrators,1013091,0.0,210
+Compressors,1013091,0.0,210
+In-line heaters,1013091,0.0,210
+Separators,1013100,0.0,345
+Wellhead,1013100,575.0,345
+Wellhead,1013100,0.0,345
+Separators,1013100,529.0,345
+Meters/piping,1013100,349.0,345
+Compressors,1013100,52.0,345
+Heater-treater,1013100,0.0,345
+Header,1013100,0.0,345
+Dehydrators,1013100,0.0,345
+In-line heaters,1013100,5.0,345
+Separators,1013104,0.0,160
+Wellhead,1013104,43.0,160
+Wellhead,1013104,0.0,160
+Separators,1013104,43.0,160
+Meters/piping,1013104,0.0,160
+Compressors,1013104,0.0,160
+Heater-treater,1013104,0.0,160
+Dehydrators,1013104,5.0,160
+In-line heaters,1013104,0.0,160
+Header,1013104,0.0,160
+Wellhead,1013111,924.0,507
+Compressors,1013111,11.0,507
+Dehydrators,1013111,646.0,507
+Header,1013111,0.0,507
+Heater-treater,1013111,0.0,507
+In-line heaters,1013111,889.0,507
+Meters/piping,1013111,938.0,507
+Separators,1013111,0.0,507
+Separators,1013111,890.0,507
+Wellhead,1013111,14.0,507
+Wellhead,1013123,0.0,360
+Wellhead,1013123,76.0,360
+Separators,1013123,0.0,360
+Separators,1013123,76.0,360
+Meters/piping,1013123,0.0,360
+Dehydrators,1013123,0.0,360
+Heater-treater,1013123,76.0,360
+Header,1013123,0.0,360
+Compressors,1013123,0.0,360
+In-line heaters,1013123,0.0,360
+Separators,1013128,14.0,220
+Wellhead,1013128,470.0,220
+Separators,1013128,46.0,220
+Wellhead,1013128,1333.0,220
+Meters/piping,1013128,1333.0,220
+Heater-treater,1013128,7.0,220
+Header,1013128,0.0,220
+Dehydrators,1013128,0.0,220
+Compressors,1013128,4.0,220
+In-line heaters,1013128,0.0,220
+Wellhead,1013214,21.0,420
+Separators,1013214,282.0,420
+Separators,1013214,4.0,420
+Meters/piping,1013214,475.0,420
+Wellhead,1013214,580.0,420
+Heater-treater,1013214,1.0,420
+Header,1013214,3.0,420
+Dehydrators,1013214,0.0,420
+Compressors,1013214,129.0,420
+In-line heaters,1013214,0.0,420
+Wellhead,1013216,25.0,430
+Wellhead,1013216,1183.0,430
+Separators,1013216,0.0,430
+Separators,1013216,85.0,430
+Meters/piping,1013216,25.0,430
+In-line heaters,1013216,0.0,430
+Header,1013216,218.0,430
+Dehydrators,1013216,0.0,430
+Compressors,1013216,0.0,430
+Heater-treater,1013216,20.0,430
+Separators,1013222,183.0,430
+Wellhead,1013222,0.0,430
+Wellhead,1013222,246.0,430
+Separators,1013222,0.0,430
+Meters/piping,1013222,0.0,430
+Compressors,1013222,0.0,430
+Heater-treater,1013222,168.0,430
+Dehydrators,1013222,0.0,430
+In-line heaters,1013222,0.0,430
+Header,1013222,20.0,430
+Compressors,1013227,0.0,360
+Dehydrators,1013227,0.0,360
+Header,1013227,0.0,360
+Heater-treater,1013227,90.0,360
+In-line heaters,1013227,0.0,360
+Meters/piping,1013227,0.0,360
+Separators,1013227,90.0,360
+Separators,1013227,0.0,360
+Wellhead,1013227,90.0,360
+Wellhead,1013227,0.0,360
+Separators,1013241,105.0,430
+Wellhead,1013241,78.0,430
+Wellhead,1013241,84.0,430
+Separators,1013241,89.0,430
+Meters/piping,1013241,78.0,430
+Dehydrators,1013241,0.0,430
+Heater-treater,1013241,67.0,430
+Header,1013241,0.0,430
+Compressors,1013241,56.0,430
+In-line heaters,1013241,1.0,430
+Separators,1013261,946.0,415
+Wellhead,1013261,824.0,415
+Wellhead,1013261,0.0,415
+Meters/piping,1013261,824.0,415
+Separators,1013261,1.0,415
+Heater-treater,1013261,0.0,415
+Header,1013261,0.0,415
+Dehydrators,1013261,0.0,415
+Compressors,1013261,158.0,415
+In-line heaters,1013261,0.0,415
+Wellhead,1013264,0.0,515
+Wellhead,1013264,13.0,515
+Separators,1013264,13.0,515
+Separators,1013264,0.0,515
+Meters/piping,1013264,0.0,515
+Dehydrators,1013264,0.0,515
+Heater-treater,1013264,13.0,515
+Header,1013264,0.0,515
+Compressors,1013264,0.0,515
+In-line heaters,1013264,0.0,515
+Wellhead,1013283,7.0,160
+Wellhead,1013283,0.0,160
+Separators,1013283,20.0,160
+Separators,1013283,0.0,160
+Meters/piping,1013283,2.0,160
+In-line heaters,1013283,0.0,160
+Header,1013283,0.0,160
+Dehydrators,1013283,0.0,160
+Compressors,1013283,6.0,160
+Heater-treater,1013283,0.0,160
+Separators,1013285,6.0,575
+Wellhead,1013285,209.0,575
+Separators,1013285,619.0,575
+Meters/piping,1013285,50.0,575
+Wellhead,1013285,631.0,575
+Heater-treater,1013285,0.0,575
+Header,1013285,0.0,575
+Dehydrators,1013285,44.0,575
+Compressors,1013285,4.0,575
+In-line heaters,1013285,9.0,575
+Wellhead,1013288,0.0,575
+Wellhead,1013288,14.0,575
+Separators,1013288,0.0,575
+Separators,1013288,0.0,575
+Meters/piping,1013288,0.0,575
+Dehydrators,1013288,0.0,575
+Heater-treater,1013288,14.0,575
+Compressors,1013288,0.0,575
+In-line heaters,1013288,0.0,575
+Header,1013288,0.0,575
+Compressors,1013289,0.0,515
+Dehydrators,1013289,0.0,515
+Header,1013289,118.0,515
+Heater-treater,1013289,118.0,515
+In-line heaters,1013289,0.0,515
+Meters/piping,1013289,118.0,515
+Separators,1013289,118.0,515
+Separators,1013289,0.0,515
+Wellhead,1013289,118.0,515
+Wellhead,1013289,0.0,515
+Dehydrators,1013291,0.0,395
+Wellhead,1013291,0.0,395
+Wellhead,1013291,230.0,395
+Separators,1013291,0.0,395
+Separators,1013291,212.0,395
+Compressors,1013291,0.0,395
+In-line heaters,1013291,0.0,395
+Heater-treater,1013291,141.0,395
+Header,1013291,212.0,395
+Meters/piping,1013291,230.0,395
+Meters/piping,1013301,45.0,395
+Wellhead,1013301,45.0,395
+Separators,1013301,0.0,395
+Separators,1013301,41.0,395
+Wellhead,1013301,0.0,395
+In-line heaters,1013301,0.0,395
+Header,1013301,41.0,395
+Dehydrators,1013301,0.0,395
+Compressors,1013301,0.0,395
+Heater-treater,1013301,31.0,395
+Wellhead,1013303,677.0,430
+Separators,1013303,0.0,430
+Separators,1013303,1373.0,430
+Meters/piping,1013303,588.0,430
+Wellhead,1013303,0.0,430
+Heater-treater,1013303,294.0,430
+Header,1013303,294.0,430
+Dehydrators,1013303,0.0,430
+Compressors,1013303,108.0,430
+In-line heaters,1013303,0.0,430
+Wellhead,1013304,0.0,540
+Wellhead,1013304,13.0,540
+Separators,1013304,0.0,540
+Separators,1013304,0.0,540
+Meters/piping,1013304,0.0,540
+In-line heaters,1013304,0.0,540
+Header,1013304,0.0,540
+Dehydrators,1013304,0.0,540
+Compressors,1013304,0.0,540
+Heater-treater,1013304,0.0,540
+Separators,1013306,0.0,160
+Wellhead,1013306,0.0,160
+Separators,1013306,188.0,160
+Wellhead,1013306,188.0,160
+Meters/piping,1013306,188.0,160
+Heater-treater,1013306,0.0,160
+Header,1013306,0.0,160
+Dehydrators,1013306,11.0,160
+Compressors,1013306,19.0,160
+In-line heaters,1013306,0.0,160
+Wellhead,1013318,99.0,220
+Separators,1013318,0.0,220
+Separators,1013318,99.0,220
+Meters/piping,1013318,0.0,220
+Wellhead,1013318,0.0,220
+Heater-treater,1013318,99.0,220
+Header,1013318,33.0,220
+Dehydrators,1013318,0.0,220
+Compressors,1013318,0.0,220
+In-line heaters,1013318,0.0,220
+Wellhead,1013324,0.0,395
+Wellhead,1013324,76.0,395
+Separators,1013324,0.0,395
+Separators,1013324,29.0,395
+Meters/piping,1013324,76.0,395
+In-line heaters,1013324,0.0,395
+Header,1013324,29.0,395
+Dehydrators,1013324,0.0,395
+Compressors,1013324,0.0,395
+Heater-treater,1013324,65.0,395
+Separators,1013325,147.0,220
+Wellhead,1013325,142.0,220
+Separators,1013325,1143.0,220
+Meters/piping,1013325,1048.0,220
+Wellhead,1013325,1048.0,220
+Heater-treater,1013325,16.0,220
+Compressors,1013325,156.0,220
+In-line heaters,1013325,0.0,220
+Header,1013325,0.0,220
+Dehydrators,1013325,2.0,220
+Wellhead,1013337,0.0,360
+Wellhead,1013337,95.0,360
+Separators,1013337,0.0,360
+Meters/piping,1013337,176.0,360
+Separators,1013337,120.0,360
+Heater-treater,1013337,80.0,360
+Header,1013337,0.0,360
+Dehydrators,1013337,0.0,360
+Compressors,1013337,24.0,360
+In-line heaters,1013337,0.0,360
+Wellhead,1013339,0.0,360
+Wellhead,1013339,671.0,360
+Separators,1013339,0.0,360
+Separators,1013339,671.0,360
+Meters/piping,1013339,0.0,360
+In-line heaters,1013339,0.0,360
+Header,1013339,0.0,360
+Dehydrators,1013339,0.0,360
+Compressors,1013339,0.0,360
+Heater-treater,1013339,671.0,360
+Wellhead,1013344,0.0,220
+Wellhead,1013344,52.0,220
+Separators,1013344,0.0,220
+Separators,1013344,77.0,220
+Meters/piping,1013344,0.0,220
+Heater-treater,1013344,38.0,220
+Header,1013344,52.0,220
+Dehydrators,1013344,0.0,220
+Compressors,1013344,0.0,220
+In-line heaters,1013344,0.0,220
+Separators,1013346,34.0,230
+Wellhead,1013346,235.0,230
+Wellhead,1013346,134.0,230
+Separators,1013346,166.0,230
+Meters/piping,1013346,369.0,230
+Compressors,1013346,4.0,230
+Heater-treater,1013346,68.0,230
+Dehydrators,1013346,0.0,230
+In-line heaters,1013346,32.0,230
+Header,1013346,0.0,230
+Compressors,1013354,35.0,220
+Dehydrators,1013354,2.0,220
+Header,1013354,0.0,220
+Heater-treater,1013354,112.0,220
+In-line heaters,1013354,0.0,220
+Meters/piping,1013354,201.0,220
+Separators,1013354,441.0,220
+Separators,1013354,0.0,220
+Wellhead,1013354,244.0,220
+Wellhead,1013354,0.0,220
+Header,1013357,0.0,260
+Wellhead,1013357,238.0,260
+Wellhead,1013357,14.0,260
+Separators,1013357,238.0,260
+Separators,1013357,14.0,260
+Compressors,1013357,14.0,260
+In-line heaters,1013357,0.0,260
+Heater-treater,1013357,0.0,260
+Dehydrators,1013357,1.0,260
+Meters/piping,1013357,300.0,260
+Wellhead,1013369,55.0,540
+Meters/piping,1013377,0.0,430
+Wellhead,1013377,130.0,430
+Separators,1013377,0.0,430
+Separators,1013377,155.0,430
+Wellhead,1013377,0.0,430
+In-line heaters,1013377,0.0,430
+Header,1013377,99.0,430
+Dehydrators,1013377,0.0,430
+Compressors,1013377,0.0,430
+Heater-treater,1013377,20.0,430
+Wellhead,1013386,66.0,160
+Wellhead,1013386,0.0,160
+Separators,1013386,51.0,160
+Separators,1013386,0.0,160
+Meters/piping,1013386,62.0,160
+Heater-treater,1013386,0.0,160
+Header,1013386,0.0,160
+Dehydrators,1013386,0.0,160
+Compressors,1013386,3.0,160
+In-line heaters,1013386,51.0,160
+Separators,1013407,128.0,430
+Wellhead,1013407,0.0,430
+Wellhead,1013407,323.0,430
+Separators,1013407,0.0,430
+Meters/piping,1013407,0.0,430
+Compressors,1013407,0.0,430
+Heater-treater,1013407,217.0,430
+Header,1013407,146.0,430
+Dehydrators,1013407,0.0,430
+In-line heaters,1013407,0.0,430
+Separators,1013412,17.0,430
+Wellhead,1013412,344.0,430
+Separators,1013412,103.0,430
+Wellhead,1013412,163.0,430
+Meters/piping,1013412,165.0,430
+Header,1013412,340.0,430
+Heater-treater,1013412,10.0,430
+Dehydrators,1013412,2.0,430
+Compressors,1013412,9.0,430
+In-line heaters,1013412,4.0,430
+Wellhead,1013413,0.0,160
+Wellhead,1013413,26.0,160
+Separators,1013413,0.0,160
+Separators,1013413,19.0,160
+Meters/piping,1013413,0.0,160
+In-line heaters,1013413,0.0,160
+Heater-treater,1013413,0.0,160
+Header,1013413,0.0,160
+Dehydrators,1013413,0.0,160
+Compressors,1013413,0.0,160
+Wellhead,1013414,283.0,220
+Wellhead,1013414,1.0,220
+Separators,1013414,196.0,220
+Separators,1013414,1.0,220
+Meters/piping,1013414,283.0,220
+Heater-treater,1013414,0.0,220
+Header,1013414,0.0,220
+Dehydrators,1013414,4.0,220
+Compressors,1013414,38.0,220
+In-line heaters,1013414,0.0,220
+In-line heaters,1013417,0.0,430
+Compressors,1013417,6.0,430
+Dehydrators,1013417,0.0,430
+Header,1013417,0.0,430
+Heater-treater,1013417,30.0,430
+Meters/piping,1013417,19.0,430
+Separators,1013417,98.0,430
+Separators,1013417,31.0,430
+Wellhead,1013417,42.0,430
+Wellhead,1013417,19.0,430
+Separators,1013483,0.0,430
+Separators,1013483,146.0,430
+Wellhead,1013483,0.0,430
+Wellhead,1013483,123.0,430
+Meters/piping,1013483,0.0,430
+Compressors,1013483,60.0,430
+Heater-treater,1013483,86.0,430
+Header,1013483,0.0,430
+Dehydrators,1013483,0.0,430
+In-line heaters,1013483,0.0,430
+Wellhead,1013580,232.0,360
+Wellhead,1013580,24.0,360
+Separators,1013580,21.0,360
+Separators,1013580,10.0,360
+Meters/piping,1013580,154.0,360
+Heater-treater,1013580,8.0,360
+Header,1013580,1.0,360
+Dehydrators,1013580,0.0,360
+Compressors,1013580,4.0,360
+In-line heaters,1013580,2.0,360
+Separators,1013601,0.0,345
+Wellhead,1013601,162.0,345
+Wellhead,1013601,0.0,345
+Separators,1013601,192.0,345
+Meters/piping,1013601,192.0,345
+Compressors,1013601,36.0,345
+Heater-treater,1013601,0.0,345
+Header,1013601,0.0,345
+Dehydrators,1013601,13.0,345
+In-line heaters,1013601,0.0,345
+Separators,1013606,60.0,430
+Wellhead,1013606,5.0,430
+Wellhead,1013606,38.0,430
+Separators,1013606,2.0,430
+Meters/piping,1013606,5.0,430
+Compressors,1013606,13.0,430
+Heater-treater,1013606,31.0,430
+Dehydrators,1013606,0.0,430
+In-line heaters,1013606,0.0,430
+Header,1013606,38.0,430
+Wellhead,1013614,0.0,360
+Compressors,1013614,0.0,360
+Dehydrators,1013614,0.0,360
+Header,1013614,0.0,360
+Heater-treater,1013614,7.0,360
+In-line heaters,1013614,0.0,360
+Meters/piping,1013614,0.0,360
+Separators,1013614,7.0,360
+Separators,1013614,0.0,360
+Wellhead,1013614,7.0,360
+Wellhead,1013626,0.0,430
+Wellhead,1013626,13.0,430
+Separators,1013626,0.0,430
+Separators,1013626,13.0,430
+Meters/piping,1013626,0.0,430
+Dehydrators,1013626,0.0,430
+Heater-treater,1013626,13.0,430
+Header,1013626,0.0,430
+Compressors,1013626,0.0,430
+In-line heaters,1013626,0.0,430
+Separators,1013657,17.0,420
+Wellhead,1013657,13.0,420
+Separators,1013657,1105.0,420
+Wellhead,1013657,788.0,420
+Meters/piping,1013657,788.0,420
+Heater-treater,1013657,0.0,420
+Header,1013657,0.0,420
+Dehydrators,1013657,2.0,420
+Compressors,1013657,163.0,420
+In-line heaters,1013657,0.0,420
+Wellhead,1013671,65.0,220
+Separators,1013671,1.0,220
+Separators,1013671,165.0,220
+Meters/piping,1013671,1.0,220
+Wellhead,1013671,1.0,220
+Heater-treater,1013671,23.0,220
+Header,1013671,0.0,220
+Dehydrators,1013671,0.0,220
+Compressors,1013671,16.0,220
+In-line heaters,1013671,0.0,220
+Wellhead,1013674,0.0,430
+Wellhead,1013674,2681.0,430
+Separators,1013674,0.0,430
+Separators,1013674,910.0,430
+Meters/piping,1013674,0.0,430
+In-line heaters,1013674,0.0,430
+Header,1013674,233.0,430
+Dehydrators,1013674,0.0,430
+Compressors,1013674,0.0,430
+Heater-treater,1013674,391.0,430
+Separators,1013677,1.0,415
+Wellhead,1013677,240.0,415
+Wellhead,1013677,0.0,415
+Separators,1013677,299.0,415
+Meters/piping,1013677,240.0,415
+In-line heaters,1013677,0.0,415
+Heater-treater,1013677,0.0,415
+Header,1013677,0.0,415
+Dehydrators,1013677,0.0,415
+Compressors,1013677,36.0,415
+Wellhead,1013682,0.0,540
+Wellhead,1013682,23.0,540
+Separators,1013682,0.0,540
+Separators,1013682,26.0,540
+Meters/piping,1013682,0.0,540
+Heater-treater,1013682,9.0,540
+Header,1013682,0.0,540
+Dehydrators,1013682,0.0,540
+Compressors,1013682,0.0,540
+In-line heaters,1013682,0.0,540
+Separators,1013691,0.0,230
+Wellhead,1013691,241.0,230
+Wellhead,1013691,0.0,230
+Separators,1013691,282.0,230
+Meters/piping,1013691,241.0,230
+Compressors,1013691,24.0,230
+Heater-treater,1013691,0.0,230
+Header,1013691,0.0,230
+Dehydrators,1013691,4.0,230
+In-line heaters,1013691,5.0,230
+Separators,1013699,364.0,430
+Wellhead,1013699,0.0,430
+Wellhead,1013699,5527.0,430
+Separators,1013699,0.0,430
+Meters/piping,1013699,0.0,430
+In-line heaters,1013699,0.0,430
+Heater-treater,1013699,19.0,430
+Header,1013699,106.0,430
+Dehydrators,1013699,0.0,430
+Compressors,1013699,0.0,430
+Wellhead,1013728,42.0,395
+Separators,1013728,0.0,395
+Separators,1013728,0.0,395
+Meters/piping,1013728,0.0,395
+Wellhead,1013728,0.0,395
+Heater-treater,1013728,30.0,395
+Header,1013728,15.0,395
+Dehydrators,1013728,0.0,395
+Compressors,1013728,0.0,395
+In-line heaters,1013728,0.0,395
+Wellhead,1013732,0.0,360
+Wellhead,1013732,819.0,360
+Separators,1013732,0.0,360
+Separators,1013732,1163.0,360
+Meters/piping,1013732,0.0,360
+In-line heaters,1013732,0.0,360
+Header,1013732,0.0,360
+Dehydrators,1013732,0.0,360
+Compressors,1013732,0.0,360
+Heater-treater,1013732,607.0,360
+Separators,1013734,61.0,430
+Wellhead,1013734,135.0,430
+Separators,1013734,19.0,430
+Meters/piping,1013734,228.0,430
+Wellhead,1013734,20.0,430
+Heater-treater,1013734,56.0,430
+Header,1013734,0.0,430
+Dehydrators,1013734,0.0,430
+Compressors,1013734,38.0,430
+In-line heaters,1013734,0.0,430
+Wellhead,1013735,106.0,430
+Separators,1013735,0.0,430
+Separators,1013735,106.0,430
+Meters/piping,1013735,0.0,430
+Wellhead,1013735,0.0,430
+Heater-treater,1013735,0.0,430
+Header,1013735,0.0,430
+Dehydrators,1013735,0.0,430
+Compressors,1013735,0.0,430
+In-line heaters,1013735,0.0,430
+Wellhead,1013742,29.0,430
+Wellhead,1013742,27.0,430
+Separators,1013742,58.0,430
+Separators,1013742,53.0,430
+Meters/piping,1013742,29.0,430
+In-line heaters,1013742,12.0,430
+Header,1013742,27.0,430
+Dehydrators,1013742,0.0,430
+Compressors,1013742,10.0,430
+Heater-treater,1013742,27.0,430
+Separators,1013751,63.0,375
+Wellhead,1013751,63.0,375
+Separators,1013751,0.0,375
+Meters/piping,1013751,0.0,375
+Wellhead,1013751,0.0,375
+Heater-treater,1013751,63.0,375
+Compressors,1013751,0.0,375
+In-line heaters,1013751,0.0,375
+Header,1013751,0.0,375
+Dehydrators,1013751,0.0,375
+Wellhead,1013771,0.0,395
+Wellhead,1013771,71.0,395
+Separators,1013771,0.0,395
+Meters/piping,1013771,0.0,395
+Separators,1013771,71.0,395
+Heater-treater,1013771,75.0,395
+Header,1013771,1.0,395
+Dehydrators,1013771,0.0,395
+Compressors,1013771,0.0,395
+In-line heaters,1013771,0.0,395
+Wellhead,1013833,856.0,360
+Wellhead,1013833,367.0,360
+Separators,1013833,1074.0,360
+Separators,1013833,742.0,360
+Meters/piping,1013833,856.0,360
+In-line heaters,1013833,4.0,360
+Header,1013833,0.0,360
+Dehydrators,1013833,0.0,360
+Compressors,1013833,123.0,360
+Heater-treater,1013833,334.0,360
+Wellhead,1013845,265.0,430
+Wellhead,1013845,442.0,430
+Separators,1013845,526.0,430
+Separators,1013845,828.0,430
+Meters/piping,1013845,265.0,430
+In-line heaters,1013845,0.0,430
+Header,1013845,435.0,430
+Dehydrators,1013845,0.0,430
+Compressors,1013845,5.0,430
+Heater-treater,1013845,434.0,430
+Separators,1013847,14.0,430
+Wellhead,1013847,33.0,430
+Wellhead,1013847,0.0,430
+Meters/piping,1013847,0.0,430
+Separators,1013847,0.0,430
+Heater-treater,1013847,45.0,430
+Header,1013847,14.0,430
+Dehydrators,1013847,0.0,430
+Compressors,1013847,0.0,430
+In-line heaters,1013847,0.0,430
+Wellhead,1013851,49.0,220
+Separators,1013851,0.0,220
+Separators,1013851,49.0,220
+Meters/piping,1013851,0.0,220
+Wellhead,1013851,0.0,220
+Heater-treater,1013851,46.0,220
+Header,1013851,3.0,220
+Dehydrators,1013851,0.0,220
+Compressors,1013851,0.0,220
+In-line heaters,1013851,0.0,220
+Wellhead,1013861,414.0,580
+Wellhead,1013861,0.0,580
+Separators,1013861,329.0,580
+Separators,1013861,0.0,580
+Meters/piping,1013861,414.0,580
+In-line heaters,1013861,0.0,580
+Header,1013861,4.0,580
+Dehydrators,1013861,3.0,580
+Compressors,1013861,11.0,580
+Heater-treater,1013861,0.0,580
+Separators,1013870,8.0,260
+Wellhead,1013870,1123.0,260
+Wellhead,1013870,31.0,260
+Separators,1013870,275.0,260
+Meters/piping,1013870,1900.0,260
+In-line heaters,1013870,0.0,260
+Heater-treater,1013870,8.0,260
+Header,1013870,0.0,260
+Dehydrators,1013870,5.0,260
+Compressors,1013870,54.0,260
+Wellhead,1013896,0.0,260
+Separators,1013896,515.0,260
+Separators,1013896,0.0,260
+Meters/piping,1013896,500.0,260
+Wellhead,1013896,500.0,260
+Heater-treater,1013896,0.0,260
+Header,1013896,0.0,260
+Dehydrators,1013896,0.0,260
+Compressors,1013896,1.0,260
+In-line heaters,1013896,33.0,260
+Wellhead,1013897,0.0,430
+Wellhead,1013897,19.0,430
+Separators,1013897,0.0,430
+Separators,1013897,41.0,430
+Meters/piping,1013897,0.0,430
+In-line heaters,1013897,0.0,430
+Header,1013897,0.0,430
+Dehydrators,1013897,0.0,430
+Compressors,1013897,2.0,430
+Heater-treater,1013897,10.0,430
+Separators,1013913,565.0,430
+Wellhead,1013913,163.0,430
+Separators,1013913,565.0,430
+Meters/piping,1013913,0.0,430
+Wellhead,1013913,822.0,430
+Heater-treater,1013913,272.0,430
+Header,1013913,33.0,430
+Dehydrators,1013913,0.0,430
+Compressors,1013913,28.0,430
+In-line heaters,1013913,0.0,430
+Wellhead,1013918,25.0,540
+Separators,1013918,0.0,540
+Separators,1013918,25.0,540
+Meters/piping,1013918,0.0,540
+Wellhead,1013918,0.0,540
+Heater-treater,1013918,6.0,540
+Header,1013918,0.0,540
+Dehydrators,1013918,0.0,540
+Compressors,1013918,0.0,540
+In-line heaters,1013918,0.0,540
+Wellhead,1013922,7.0,230
+Wellhead,1013922,0.0,230
+Separators,1013922,9.0,230
+Separators,1013922,0.0,230
+Meters/piping,1013922,2.0,230
+In-line heaters,1013922,0.0,230
+Header,1013922,0.0,230
+Dehydrators,1013922,0.0,230
+Compressors,1013922,3.0,230
+Heater-treater,1013922,0.0,230
+Separators,1013925,111.0,260
+Wellhead,1013925,63.0,260
+Separators,1013925,62.0,260
+Meters/piping,1013925,106.0,260
+Wellhead,1013925,43.0,260
+Heater-treater,1013925,7.0,260
+Compressors,1013925,35.0,260
+In-line heaters,1013925,0.0,260
+Header,1013925,75.0,260
+Dehydrators,1013925,0.0,260
+Wellhead,1013931,212.0,220
+Wellhead,1013931,212.0,220
+Separators,1013931,163.0,220
+Meters/piping,1013931,209.0,220
+Separators,1013931,162.0,220
+Heater-treater,1013931,158.0,220
+Header,1013931,209.0,220
+Dehydrators,1013931,6.0,220
+Compressors,1013931,33.0,220
+In-line heaters,1013931,0.0,220
+Wellhead,1013936,166.0,220
+Wellhead,1013936,0.0,220
+Separators,1013936,499.0,220
+Separators,1013936,0.0,220
+Meters/piping,1013936,499.0,220
+In-line heaters,1013936,0.0,220
+Header,1013936,0.0,220
+Dehydrators,1013936,20.0,220
+Compressors,1013936,96.0,220
+Heater-treater,1013936,169.0,220
+Wellhead,1013938,0.0,430
+Wellhead,1013938,22.0,430
+Separators,1013938,0.0,430
+Separators,1013938,41.0,430
+Meters/piping,1013938,0.0,430
+In-line heaters,1013938,0.0,430
+Header,1013938,0.0,430
+Dehydrators,1013938,0.0,430
+Compressors,1013938,0.0,430
+Heater-treater,1013938,16.0,430
+Separators,1013948,100.0,220
+Wellhead,1013948,77.0,220
+Wellhead,1013948,0.0,220
+Meters/piping,1013948,28.0,220
+Separators,1013948,0.0,220
+Heater-treater,1013948,44.0,220
+Header,1013948,0.0,220
+Dehydrators,1013948,0.0,220
+Compressors,1013948,6.0,220
+In-line heaters,1013948,14.0,220
+Wellhead,1013983,26.0,430
+Separators,1013983,7.0,430
+Separators,1013983,20.0,430
+Meters/piping,1013983,18.0,430
+Wellhead,1013983,0.0,430
+Heater-treater,1013983,3.0,430
+Header,1013983,0.0,430
+Dehydrators,1013983,0.0,430
+Compressors,1013983,1.0,430
+In-line heaters,1013983,1.0,430
+Wellhead,1013986,0.0,430
+Wellhead,1013986,49.0,430
+Separators,1013986,0.0,430
+Separators,1013986,38.0,430
+Meters/piping,1013986,0.0,430
+In-line heaters,1013986,0.0,430
+Header,1013986,0.0,430
+Dehydrators,1013986,0.0,430
+Compressors,1013986,0.0,430
+Heater-treater,1013986,20.0,430
+Separators,1013993,127.0,430
+Wellhead,1013993,198.0,430
+Separators,1013993,26.0,430
+Meters/piping,1013993,398.0,430
+Wellhead,1013993,8.0,430
+Heater-treater,1013993,63.0,430
+Compressors,1013993,26.0,430
+In-line heaters,1013993,0.0,430
+Header,1013993,5.0,430
+Dehydrators,1013993,0.0,430
+Wellhead,1014024,13.0,430
+Wellhead,1014024,4.0,430
+Separators,1014024,13.0,430
+Meters/piping,1014024,3.0,430
+Separators,1014024,4.0,430
+Heater-treater,1014024,15.0,430
+Header,1014024,15.0,430
+Dehydrators,1014024,0.0,430
+Compressors,1014024,5.0,430
+In-line heaters,1014024,0.0,430
+Wellhead,1014071,1.0,430
+Wellhead,1014071,140.0,430
+Separators,1014071,1.0,430
+Separators,1014071,173.0,430
+Meters/piping,1014071,1.0,430
+In-line heaters,1014071,0.0,430
+Header,1014071,0.0,430
+Dehydrators,1014071,0.0,430
+Compressors,1014071,0.0,430
+Heater-treater,1014071,60.0,430
+Wellhead,1014085,11.0,220
+Wellhead,1014085,85.0,220
+Separators,1014085,29.0,220
+Separators,1014085,112.0,220
+Meters/piping,1014085,11.0,220
+Heater-treater,1014085,59.0,220
+Header,1014085,0.0,220
+Dehydrators,1014085,0.0,220
+Compressors,1014085,3.0,220
+In-line heaters,1014085,0.0,220
+Separators,1014100,42.0,430
+Wellhead,1014100,38.0,430
+Separators,1014100,0.0,430
+Wellhead,1014100,0.0,430
+Meters/piping,1014100,0.0,430
+Header,1014100,0.0,430
+Heater-treater,1014100,17.0,430
+Dehydrators,1014100,1.0,430
+Compressors,1014100,10.0,430
+In-line heaters,1014100,2.0,430
+Wellhead,1014129,107.0,430
+Separators,1014129,0.0,430
+Separators,1014129,107.0,430
+Meters/piping,1014129,0.0,430
+Wellhead,1014129,0.0,430
+Heater-treater,1014129,107.0,430
+Header,1014129,0.0,430
+Dehydrators,1014129,0.0,430
+Compressors,1014129,0.0,430
+In-line heaters,1014129,0.0,430
+Wellhead,1014369,0.0,430
+Wellhead,1014369,605.0,430
+Separators,1014369,0.0,430
+Separators,1014369,261.0,430
+Meters/piping,1014369,0.0,430
+In-line heaters,1014369,0.0,430
+Header,1014369,148.0,430
+Dehydrators,1014369,0.0,430
+Compressors,1014369,0.0,430
+Heater-treater,1014369,292.0,430
+Separators,1014384,197.0,430
+Wellhead,1014384,0.0,430
+Wellhead,1014384,425.0,430
+Meters/piping,1014384,425.0,430
+Separators,1014384,24.0,430
+Heater-treater,1014384,54.0,430
+Header,1014384,0.0,430
+Dehydrators,1014384,0.0,430
+Compressors,1014384,65.0,430
+In-line heaters,1014384,0.0,430
+Wellhead,1014431,1.0,220
+Wellhead,1014431,147.0,220
+Separators,1014431,0.0,220
+Separators,1014431,164.0,220
+Meters/piping,1014431,1.0,220
+In-line heaters,1014431,0.0,220
+Heater-treater,1014431,41.0,220
+Header,1014431,0.0,220
+Dehydrators,1014431,0.0,220
+Compressors,1014431,2.0,220
+Wellhead,1014504,1128.0,430
+Separators,1014504,0.0,430
+Wellhead,1014504,0.0,430
+Separators,1014504,897.0,430
+Meters/piping,1014504,449.0,430
+Header,1014504,287.0,430
+Heater-treater,1014504,348.0,430
+Dehydrators,1014504,0.0,430
+Compressors,1014504,124.0,430
+In-line heaters,1014504,0.0,430
+Wellhead,1014727,69.0,430
+Compressors,1014727,0.0,430
+Dehydrators,1014727,0.0,430
+Header,1014727,69.0,430
+Heater-treater,1014727,69.0,430
+In-line heaters,1014727,0.0,430
+Meters/piping,1014727,0.0,430
+Separators,1014727,138.0,430
+Separators,1014727,0.0,430
+Wellhead,1014727,0.0,430
