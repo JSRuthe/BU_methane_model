@@ -1,13 +1,13 @@
 import pandas as pd
 import numpy as np
-
+import os
 
 def GHGRP_read_v3_old(i, Basin_Index, Basin_N, GHGRPfolder):
     # Define the cut-off value
     cutoff = 100  # Mscf/bbl
 
     # Load facility correspondence data
-    facility_correspondence = pd.read_csv(f'{GHGRPfolder}/API_Facility_correspondence_2020.csv')
+    facility_correspondence = pd.read_csv(os.path.join(GHGRPfolder, f'API_Facility_correspondence_2020.csv'))
     facility_correspondence.fillna(0, inplace=True)
 
     # Extract columns for gas and oil production and handle missing values
@@ -19,7 +19,7 @@ def GHGRP_read_v3_old(i, Basin_Index, Basin_N, GHGRPfolder):
         {'Facility_No': Facility_No, 'Oil_Production': Oil_Production, 'Gas_Production': Gas_Production})
 
     # Load facility and basin correspondence
-    facility_basin = pd.read_csv(f'{GHGRPfolder}/Facility_Basin_correspondence_2020.csv')
+    facility_basin = pd.read_csv(os.path.join(GHGRPfolder, f'Facility_Basin_correspondence_2020.csv')
     facility_basin['Basin_ID'] = facility_basin['Basin_ID'].replace('160A', '160')
 
     # Filter based on Basin

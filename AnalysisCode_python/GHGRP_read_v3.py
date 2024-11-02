@@ -2,10 +2,10 @@ import pandas as pd
 import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
-
-def GHGRP_read_v3(i, Basin_Index, Basin_N, GHGRPfolder):
+import os
+def GHGRP_read_v3(i, Basin_Index, Basin_N, GHGRPfolder, year):
     # Load facility correspondence data
-    facility_correspondence = pd.read_csv(f'{GHGRPfolder}/API_Facility_correspondence_2020.csv')
+    facility_correspondence = pd.read_csv(os.path.join(GHGRPfolder, f'API_Facility_correspondence_{year}.csv'))
     facility_correspondence.fillna(0, inplace=True)
 
     # Extract gas and oil production data
@@ -21,7 +21,7 @@ def GHGRP_read_v3(i, Basin_Index, Basin_N, GHGRPfolder):
     })
 
     # Load facility and basin correspondence
-    facility_basin = pd.read_csv(f'{GHGRPfolder}/Facility_Basin_correspondence_2020.csv')
+    facility_basin = pd.read_csv(os.path.join(GHGRPfolder, f'Facility_Basin_correspondence_{year}.csv'))
     facility_basin['Basin_ID'] = facility_basin['Basin_ID'].replace('160A', '160')
 
     # Filter based on selected basin
@@ -30,12 +30,12 @@ def GHGRP_read_v3(i, Basin_Index, Basin_N, GHGRPfolder):
     M_in = M_all[M_all['Facility_No'].isin(filtered_facility_basin['FACILITY_ID'])]
 
     # Load other datasets
-    Facilities_dat = pd.read_csv(f'{GHGRPfolder}/Facilities_2020.csv', header=None).fillna(0)
-    Equip_dat = pd.read_csv(f'{GHGRPfolder}/Equip_2020.csv', header=None).fillna(0)
-    Tanks12_dat = pd.read_csv(f'{GHGRPfolder}/Tanks12_2020.csv', header=None).fillna(0)
-    Tanks3_dat = pd.read_csv(f'{GHGRPfolder}/Tanks3_2020.csv', header=None).fillna(0)
-    PC_dat = pd.read_csv(f'{GHGRPfolder}/PC_2020.csv', header=None).fillna(0)
-    Pump_dat = pd.read_csv(f'{GHGRPfolder}/Pump_2020.csv', header=None).fillna(0)
+    Facilities_dat = pd.read_csv(os.path.join(GHGRPfolder, f'Facilities_{year}.csv'), header=None).fillna(0)
+    Equip_dat = pd.read_csv(os.path.join(GHGRPfolder, f'Equip_{year}.csv'), header=None).fillna(0)
+    Tanks12_dat = pd.read_csv(os.path.join(GHGRPfolder, f'Tanks12_{year}.csv'), header=None).fillna(0)
+    Tanks3_dat = pd.read_csv(os.path.join(GHGRPfolder, f'Tanks3_{year}.csv'), header=None).fillna(0)
+    PC_dat = pd.read_csv(os.path.join(GHGRPfolder, f'PC_{year}.csv'), header=None).fillna(0)
+    Pump_dat = pd.read_csv(os.path.join(GHGRPfolder, f'Pump_{year}.csv'), header=None).fillna(0)
 
     # Process equipment data
     Equip_dat.columns = ['Equip_Type', 'Facility_No', 'Equip_Count', 'Basin_ID']

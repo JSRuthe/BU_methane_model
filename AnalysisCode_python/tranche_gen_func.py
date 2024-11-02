@@ -7,7 +7,8 @@ from OPGEE_rows_func import OPGEE_rows_func
 
 def tranche_gen_func(i, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, DI_filename,
                      GHGRP_exp, Replicate):
-    # Import LU Types for year 2015 based on 2020 GHGI
+    # Import LU Types
+
     filepath = os.path.join(os.getcwd(), activityfolder, 'LU_type.csv')
     LU_type = pd.read_csv(filepath, header=None).values
 
@@ -28,7 +29,7 @@ def tranche_gen_func(i, Basin_Index, Basin_N, activityfolder, basinmapfolder, dr
         DI_data['Prov_Cod_1'] = DI_data['Prov_Cod_1'].replace('160A', '160')
         Basin_Name = pd.to_numeric(DI_data['Prov_Cod_1'], errors='coerce')
 
-        # Note that although the headers in the file are “monthly oil” and “monthly gas”, these are summed across all months for 2020 so the units are “bbl/year” and “mscf/year”.
+        # Note that although the headers in the file are “monthly oil” and “monthly gas”, these are summed across all months by year so the units are “bbl/year” and “mscf/year”.
 
         Gas_Production = DI_data['Monthly_Ga'].fillna(0).values
         Oil_Production = DI_data['Monthly_Oi'].fillna(0).values
