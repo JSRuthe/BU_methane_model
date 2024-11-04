@@ -282,7 +282,7 @@ def generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder):
     wellsproduction_df['Year'] = pd.to_datetime(wellsproduction_df['Monthly Production Date']).dt.year
     wellsproduction_df = wellsproduction_df.groupby(['Year', 'API/UWI'])[
         ['Monthly Gas', 'Monthly Oil']].sum().reset_index()
-
+    wellsproduction_df = wellsproduction_df[wellsproduction_df.Year == year]
     # Wells infos (API number, lat, lon)
     wellsinfo_folderpath = os.path.join(raw_enverus_drillinginfo_foldername, 'Wells')
     wellsinfo_csv_files = [f for f in os.listdir(wellsinfo_folderpath)]
