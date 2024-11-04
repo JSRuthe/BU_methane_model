@@ -11,7 +11,7 @@ from plotting_func import *
 from generate_inputs import *
 
 # Specify year
-year = 2022
+year = 2020
 
 # Specify file name of the input data
 # input_filename = 'Distributions_Paper.csv'

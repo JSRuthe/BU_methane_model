@@ -275,17 +275,23 @@ def generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder):
         'AK Cook Inlet Basin': 820}
 
     # Wells production info (API number, Gas prod, Oil prod)
-    wellsproduction_filename = '2022-prod_all Producing Entity Monthly Production.CSV'  # Change if other name (Monthly Production data from Enverus DrillingInfo)
-    wellsproduction_filepath = os.path.join(raw_enverus_drillinginfo_foldername, 'Production', wellsproduction_filename)
-    wellsproduction_df = pd.read_csv(wellsproduction_filepath)
-    wellsproduction_df = wellsproduction_df[['API/UWI', 'Monthly Oil', 'Monthly Gas', 'Monthly Production Date']]
+
+    wellsproduction_folderpath = os.path.join(raw_enverus_drillinginfo_foldername, 'Production')
+    wellsproduction_csv_files = [f for f in os.listdir(wellsproduction_folderpath) if f.lower().endswith('.csv')]
+
+    wellsproduction_df = pd.concat([pd.read_csv(os.path.join(wellsproduction_folderpath, file),
+                                          usecols=['API/UWI', 'Monthly Oil', 'Monthly Gas', 'Monthly Production Date']) for file in wellsproduction_csv_files],
+                             ignore_index=True)
+
     wellsproduction_df['Year'] = pd.to_datetime(wellsproduction_df['Monthly Production Date']).dt.year
     wellsproduction_df = wellsproduction_df.groupby(['Year', 'API/UWI'])[
         ['Monthly Gas', 'Monthly Oil']].sum().reset_index()
     wellsproduction_df = wellsproduction_df[wellsproduction_df.Year == year]
+
     # Wells infos (API number, lat, lon)
+
     wellsinfo_folderpath = os.path.join(raw_enverus_drillinginfo_foldername, 'Wells')
-    wellsinfo_csv_files = [f for f in os.listdir(wellsinfo_folderpath)]
+    wellsinfo_csv_files = [f for f in os.listdir(wellsinfo_folderpath) if f.lower().endswith('.csv')]
     wellsinfo_df = pd.concat([pd.read_csv(os.path.join(wellsinfo_folderpath, file),
                                           usecols=['API14', 'Surface Hole Latitude (WGS84)',
                                                    'Surface Hole Longitude (WGS84)']) for file in wellsinfo_csv_files],
@@ -296,6 +302,7 @@ def generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder):
     geometry = [Point(lon, lat) for lat, lon in zip(wellsinfo_df.lat, wellsinfo_df.lon)]
     wellsinfo_gdf = gpd.GeoDataFrame(wellsinfo_df, geometry=geometry, crs='EPSG:4326')
     wellsinfo_gdf = gpd.sjoin(wellsinfo_gdf.to_crs(26914), basins_gdf.to_crs(26914), op='within')
+    wellsproduction_df = wellsproduction_df[wellsproduction_df.Year == year]
 
     wellsinfo_gdf = wellsinfo_gdf.drop_duplicates(subset=['API14', 'lat', 'lon', 'BASIN_NAME'])
     wellsproduction_df = wellsproduction_df.rename(columns={'API/UWI': 'API14'})
