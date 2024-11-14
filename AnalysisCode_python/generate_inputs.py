@@ -1,9 +1,10 @@
 import pandas as pd
 import warnings
-warnings.filterwarnings('ignore')
 import os
+warnings.filterwarnings('ignore')
 from shapely.geometry import Point
 import geopandas as gpd
+print(f"os module: {os}")
 
 def generate_ghgrp_dat(year, Basin_N, inputsfolder, GHGRPfolder, activityfolder):
     raw_GHGRPfolder = os.path.join(inputsfolder, 'GHGRP')
