@@ -1,6 +1,6 @@
-import os
+
+
 import pandas as pd
-import numpy as np
 from GHGRP_read_v3 import *
 from tranche_gen_func import *
 from autorun_func import *
@@ -10,15 +10,29 @@ from data_proc_master_func import *
 from plotting_func import *
 from generate_inputs import *
 
-# Specify year
-year = 2020
+##############################################################################################################
+# Version: Philippine Burdeau - Updated on January 29th, 2025}
+# Author: Jeff Rutherford
+# Description: This script runs the BU methane model.
+# Notes: Modify the parameters below under "USER INPUTS" to match your desired inputs.
+##############################################################################################################
 
-# Specify file name of the input data
-# input_filename = 'Distributions_Paper.csv'
-# input_filename = 'NorthAmerica_Paper.csv'
-input_filename = 'New_Paper.csv' # Replace with your input file name, containing province code and basin name.
+# USER INPUTS: Specify key parameters here
+##############################################################################################################
 
-# Binary options for results
+# Specify the target year for analysis
+year = 2022  # <-- Change this to the desired year.
+
+# Specify the file name of the input data
+input_filename = 'New_Paper.csv'  # <-- Change this to your input file (must contain province code and basin name).
+
+# Specify the number of Monte Carlo iterations for autorun
+n_trial = 10  # <-- Change this to set the number of MC trials.
+
+##############################################################################################################
+
+
+# Binary options for results - do not change
 welloption = 1
 equipoption = 0
 
@@ -44,17 +58,14 @@ Basin_Index = raw_dat.iloc[:, 1].values  # Second column for Basin names
 # Specify file name of DrillingInfo data
 DI_filename = f'annualDF_{year}_SpatialJoin_2258.csv'
 print('Generating GHGRP data...')
-generate_ghgrp_dat(year, Basin_N, inputsfolder, GHGRPfolder, activityfolder)
+# generate_ghgrp_dat(year, Basin_N, inputsfolder, GHGRPfolder, activityfolder)
 print('Generated GHGRP data, generating DrillingInfo data...')
-generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder)
+# generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder)
 print('Generated DrillingInfo data, generating wells to facility data...')
-return_wells_to_facility(year, inputsfolder, drillinginfofolder, GHGRPfolder)
+# return_wells_to_facility(year, inputsfolder, drillinginfofolder, GHGRPfolder)
 print('Generated wells to facility data.')
 # Do you want to replicate results for Rutherford et al 2021?
 Replicate = 0 # Leave = 0
-
-# Number of Monte Carlo iterations for autorun
-n_trial = 10
 
 # Initialize blank AF matrix
 AF = {}
@@ -63,8 +74,8 @@ AF_overwrite = 0
 if Replicate == 1:
     Basin_index = 1
 
-
-for i in range(4,5):
+for i in range(len(Basin_N)):
+    print(len(Basin_N))
 
     if Replicate != 1:
         print(f"Basin = {Basin_Index[i]}...")
@@ -81,6 +92,7 @@ for i in range(4,5):
     Activity_tranches, OPGEE_bin, Enverus_tab, AF_basin = tranche_gen_func(
         i, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, DI_filename, GHGRP_exp, Replicate
     )
+
     Activity_tranches = Activity_tranches.T
     print("Model inputs generated...")
 
@@ -96,5 +108,6 @@ print("Program finished")
 # Plotting
 print("Initializing plotting functions...")
 
-for i in range(4,5):
+for i in range(len(Basin_N)):
+    print(i)
     plotting_func(Basin_Index, Basin_N, i, n_trial, basinmapfolder, activityfolder, drillinginfofolder, DI_filename)
