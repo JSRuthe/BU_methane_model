@@ -210,7 +210,7 @@ def generate_ghgrp_dat(year, Basin_N, inputsfolder, GHGRPfolder, activityfolder)
     equip_wells = equip_year[equip_year.equipment_type == 'Wellhead']
     total_wells_gas_year = equip_wells.groupby(['basin_id'])['equip_count_total'].sum().reset_index()
 
-    LU_year = LU_year.groupby(['basin_id'])['nb_wells_LU_plunger', 'nb_wells_LU_no_plunger'].sum().reset_index()
+    LU_year = LU_year.groupby(['basin_id'])[['nb_wells_LU_plunger', 'nb_wells_LU_no_plunger']].sum().reset_index()
     LU_year = pd.merge(LU_year, total_wells_gas_year, on='basin_id')
 
     LU_year['fract_LU_with_plunger'] = LU_year.nb_wells_LU_plunger / LU_year.equip_count_total
@@ -302,7 +302,7 @@ def generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder):
 
     geometry = [Point(lon, lat) for lat, lon in zip(wellsinfo_df.lat, wellsinfo_df.lon)]
     wellsinfo_gdf = gpd.GeoDataFrame(wellsinfo_df, geometry=geometry, crs='EPSG:4326')
-    wellsinfo_gdf = gpd.sjoin(wellsinfo_gdf.to_crs(26914), basins_gdf.to_crs(26914), op='within')
+    wellsinfo_gdf = gpd.sjoin(wellsinfo_gdf.to_crs(26914), basins_gdf.to_crs(26914), predicate='within')
     wellsproduction_df = wellsproduction_df[wellsproduction_df.Year == year]
 
     wellsinfo_gdf = wellsinfo_gdf.drop_duplicates(subset=['API14', 'lat', 'lon', 'BASIN_NAME'])
