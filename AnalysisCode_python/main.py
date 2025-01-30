@@ -58,11 +58,11 @@ Basin_Index = raw_dat.iloc[:, 1].values  # Second column for Basin names
 # Specify file name of DrillingInfo data
 DI_filename = f'annualDF_{year}_SpatialJoin_2258.csv'
 print('Generating GHGRP data...')
-# generate_ghgrp_dat(year, Basin_N, inputsfolder, GHGRPfolder, activityfolder)
+generate_ghgrp_dat(year, Basin_N, inputsfolder, GHGRPfolder, activityfolder)
 print('Generated GHGRP data, generating DrillingInfo data...')
-# generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder)
+generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder)
 print('Generated DrillingInfo data, generating wells to facility data...')
-# return_wells_to_facility(year, inputsfolder, drillinginfofolder, GHGRPfolder)
+return_wells_to_facility(year, inputsfolder, drillinginfofolder, GHGRPfolder)
 print('Generated wells to facility data.')
 # Do you want to replicate results for Rutherford et al 2021?
 Replicate = 0 # Leave = 0
