@@ -3,7 +3,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import os
-
+import matplotlib.colors as mcolors
+import matplotlib.ticker as mticker
+import matplotlib.gridspec as gridspec
 
 def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, activityfolder, drillinginfofolder,
                   DI_filename):
@@ -50,11 +52,20 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
     else:
         plot_dat_US, _, OPGEE_bin = di_scrubbing_func(M_US, 0, Basin_Index, activityfolder)
 
-    fig, axs = plt.subplots(2, 2, figsize=(12, 6), gridspec_kw={'width_ratios': [3, 1], 'height_ratios': [1, 1]})
-    fig.subplots_adjust(wspace=0.4, hspace=0.3)
+    fig = plt.figure(figsize=(14, 6))  # Increase figure size slightly
+
+    # Adjust width ratios to make left column take 2/3 of width
+    gs = gridspec.GridSpec(2, 2, width_ratios=[3, 1], height_ratios=[1, 1])
+
+    # Assign subplots
+    ax1 = fig.add_subplot(gs[0, 0])  # Wellpad throughput
+    ax2 = fig.add_subplot(gs[1, 0])  # Cumulative CH4 emissions
+    ax3 = fig.add_subplot(gs[:, 1])  # Expand ax3 to right column
+
+    # Adjust layout to prevent extra whitespace
+    # fig.subplots_adjust(left=0.07, right=0.95, bottom=0.1, top=0.9, wspace=0.3, hspace=0.3)
 
     # Plot 1: Wellpad throughput (logarithmic)
-    ax1 = axs[0, 0]
     N = 40
     start = 10 ** -1
     stop = 10 ** 5
@@ -62,14 +73,17 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
 
     if Basin_Select != -1:
         weights = np.ones_like(plot_dat_basin) / len(plot_dat_basin)
+        color_to_use = mcolors.to_hex(ColorMat[Basin_Select])  # Example RGB → Hex
+        print("Color to Use:", color_to_use)
+        print("Type of color_to_use:", type(color_to_use))
+        print("Length of color_to_use:", len(color_to_use))
+        ax1.hist(plot_dat_basin, bins=b, weights=weights, histtype='step', linewidth=2, edgecolor=color_to_use)
 
-        # Now plot the histogram with the 'weights' argument to normalize by probability
-        ax1.hist(plot_dat_basin, bins=b, weights=weights, histtype='step', linewidth=2,
-                 edgecolor=ColorMat[Basin_Select])
     else:
         weights = np.ones_like(plot_dat_US) / len(plot_dat_US)
+        color_to_use = mcolors.to_hex([0.66, 0.66, 0.66])
+        ax1.hist(plot_dat_US, bins=b, weights=weights, histtype='step', linewidth=2, edgecolor=color_to_use)
 
-        ax1.hist(plot_dat_US, bins=b, weights=weights, histtype='step', linewidth=2, edgecolor=[0.66, 0.66, 0.66])
 
     ax1.set_xscale('log')
     ax1.set_xlabel(r'Wellpad throughput [mscf d$^{-1}$]', fontsize=12)
@@ -83,7 +97,6 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
                      bbox=dict(boxstyle="round,pad=0.3", edgecolor="black", facecolor="white", alpha=0.8))
 
     # Plot 2: Cumulative emissions CH4 per site
-    ax2 = axs[1, 0]
     x_all = []
 
     for i in range(n_trial):
@@ -140,52 +153,49 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
     ax2.grid(True)
 
     # Plot 3
-    ax3 = plt.subplot2grid((2, 2), (0, 1), rowspan=2)
-
     if Basin_Select != -1:
-        # Define categories for the bar chart
+        # Define categories
         categories = ['Tanks', 'Equipment Leaks', 'Pneumatic Devices', 'Liquids Unloadings', 'Flare methane']
 
-        # Calculating the data for each category
+        # Calculate emission data
         GatherData_basin = np.array([
             Study_basin[5, :] + Study_basin[6, :] + Study_basin[15, :],
             np.sum(Study_basin[0:5, :], axis=0) + np.sum(Study_basin[7:9, :], axis=0),
             np.sum(Study_basin[9:11, :], axis=0),
             Study_basin[11, :],
             Study_basin[16, :],
-            np.sum(Study_basin[12:14, :], axis=0),
-            Study_basin[14, :]
         ])
 
         GatherData_basin_ave = np.mean(GatherData_basin, axis=1)
+        yerr = np.std(GatherData_basin, axis=1)  # Use standard deviation as error bars
 
-        GatherData_basin_SumTot = np.sum(GatherData_basin, axis=0)
-        GatherData_basin_Prc = np.percentile(GatherData_basin_SumTot, [2.5, 97.5])
-        GatherData_basin_TotHi = - np.sum(GatherData_basin_ave) + GatherData_basin_Prc[1]  # Upper bound
-        GatherData_basin_TotLo = np.sum(GatherData_basin_ave) - GatherData_basin_Prc[0]   # Lower bound
+        # Plot stacked bars
+        bottom = np.zeros_like(GatherData_basin_ave)
+        for i in range(len(categories)):
+            ax3.bar(1, GatherData_basin_ave[i], bottom=bottom, width=0.2, color=mcolors.to_hex(ColorMat[i]),
+                    label=categories[i])
+            ax3.set_xlim(0.8, 1.2)  # Make sure the bar doesn’t stretch too wide
 
-
-        bottom = 0
-        x_pos = [1.5]
-        for i in range(5):
-            ax3.bar(x_pos, GatherData_basin_ave[i], bottom=bottom, color=ColorMat[i], label=categories[i])
             bottom += GatherData_basin_ave[i]
 
-        y_value = np.sum(GatherData_basin_ave[:5])
-        yerr = np.array([[GatherData_basin_TotLo], [GatherData_basin_TotHi]]) # Error bar values
-        ax3.errorbar(x_pos, y_value, yerr=yerr,  color='black', ecolor='black', capsize=5 )
+        # Add error bars
+        ax3.errorbar(1, np.sum(GatherData_basin_ave), yerr=[[np.std(GatherData_basin.sum(axis=0))]], fmt='none',
+                     color='black', capsize=5)
 
-        ax3.set_ylim([0, y_value + GatherData_basin_TotHi + 0.02])
-        ax3.set_xticks([])
-        ax3.set_xlabel('')
-        ax3.set_ylabel('Tg CH$_4$ yr$^{-1}$', fontsize=12)
-        handles, labels = ax3.get_legend_handles_labels()
-        ax3.legend(handles[::-1], labels[::-1], loc='center left', bbox_to_anchor=(1, 0.5), fontsize=8)
-        # ax3.set_title('Emissions distribution by category', fontsize=12)
-        ax3.set_xlim([0, 3])
-        ax3.grid(True)
+        # Formatting
+        ax3.set_xticks([])  # Remove x-ticks
+        ax3.set_xlabel("")
+        ax3.set_ylabel(r'Tg CH$_4$ yr$^{-1}$', fontsize=12)
 
+        # Ensure proper y-axis ticks
+        ax3.yaxis.set_major_locator(mticker.MaxNLocator(nbins=5))  # Limit number of y-ticks
+        ax3.yaxis.set_minor_locator(mticker.AutoMinorLocator())  # Add minor ticks
+        ax3.tick_params(axis='y', labelsize=10)  # Reduce font size
+
+        # Adjust legend
+        ax3.legend(loc='upper left', bbox_to_anchor=(1, 1), fontsize=10, frameon=True)
+
+    # Adjust layout to prevent overlapping
     plt.tight_layout()
-    output_filename = f"Outputs/plot_{Basin_Index[Basin_Select]}out.jpg"
-    plt.savefig(output_filename, dpi=300)
+    plt.subplots_adjust(right=0.85)
     plt.show()
