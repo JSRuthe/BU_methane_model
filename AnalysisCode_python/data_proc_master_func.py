@@ -35,8 +35,8 @@ def data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_
             csv_file = f'Equip{k + 1}out.csv'
         else:
             csv_file = f'Equip{k + 1}{Basin_Index[Basin_Select]}out.csv'
-
         filepath = os.path.join('Outputs', csv_file)
+
         dataraw = pd.read_csv(filepath, header=None).values
 
         counter += 1
@@ -95,7 +95,7 @@ def data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_
             else:
                 file_name = f'sitedata_{Basin_Index[Basin_Select]}{k + 1}.csv'
 
-            output_filepath = os.path.join('Outputs', file_name)
+            output_filepath = os.path.join(os.getcwd(), 'Outputs', file_name)
             pd.DataFrame(sitedata_All).to_csv(output_filepath, index=False)
 
         if equipoption == 1:
@@ -130,7 +130,7 @@ def data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_
     else:
         file_name = f'Emission_Summary_{Basin_Index[Basin_Select]}out.xlsx'
 
-    output_filepath = os.path.join('Outputs', file_name)
+    output_filepath = os.path.join(os.getcwd(), 'Outputs', file_name)
     data_tab.to_excel(output_filepath, index=False)
 
     # Save Emissions data
