@@ -339,19 +339,36 @@ def return_wells_to_facility(year, inputsfolder, drillinginfofolder, GHGRPfolder
 
     # Drop rows with NA values in the WELL_ID_NUMBER column and remove non-numeric characters
     wells_data = wells_data.dropna(subset=['WELL_ID_NUMBER'])
-    wells_data.WELL_ID_NUMBER = wells_data.WELL_ID_NUMBER.astype(str)
 
-    wells_data.WELL_ID_NUMBER = wells_data.WELL_ID_NUMBER.str.replace(r'\D+', '')
+    # Ensure WELL_ID_NUMBER is a string for processing
+    wells_data['WELL_ID_NUMBER'] = wells_data['WELL_ID_NUMBER'].astype(str)
 
-    # Drop rows where WELL_ID_NUMBER is an empty string
-    wells_data = wells_data[wells_data.WELL_ID_NUMBER != '']
+    # 1️⃣ Convert scientific notation to full numeric format
+    scientific_notation_wells = wells_data[
+        wells_data['WELL_ID_NUMBER'].str.contains(r'E\+', case=False, na=False)]
 
-    # Pad the WELL_ID_NUMBER to ensure proper lengths
-    wells_data['WELL_ID_NUMBER'] = wells_data['WELL_ID_NUMBER'].str.lstrip('0')  # remove leading zeros
-    wells_data['WELL_ID_NUMBER'] = wells_data['WELL_ID_NUMBER'].apply(lambda x: x.ljust(14, '0') if len(x) == 12 else
-    x.ljust(13, '0') if len(x) == 11 else
-    x.ljust(14, '0') if len(x) == 10 else
-    x.ljust(13, '0') if len(x) == 9 else x)
+    # Convert these values to floats, then back to full numbers (string format)
+    wells_data.loc[scientific_notation_wells.index, 'WELL_ID_NUMBER'] = \
+        wells_data.loc[scientific_notation_wells.index, 'WELL_ID_NUMBER'].apply(lambda x: '{:.0f}'.format(float(x)))
+
+    # Remove dashes ('-') if present
+    wells_data['WELL_ID_NUMBER'] = wells_data['WELL_ID_NUMBER'].str.replace('-', '')
+
+    # Identify and remove rows where WELL_ID_NUMBER contains letters
+    # wells_data = wells_data[~wells_data['WELL_ID_NUMBER'].str.contains(r'[A-Za-z]', regex=True, na=False)]
+    wells_data['WELL_ID_NUMBER'].str.replace(r'\D+', '', regex=True)
+
+    # Convert numeric well IDs to int and back to string (removes leading zeros)
+    wells_data['WELL_ID_NUMBER'] = wells_data['WELL_ID_NUMBER'].str.lstrip('0')  # Remove leading zeros
+
+    # Rename WELL_ID_NUMBER to API14 for merging
+
+    wells_data['WELL_ID_NUMBER'] = wells_data['WELL_ID_NUMBER'].apply(
+        lambda x: x.ljust(14, '0') if len(x) == 12 else
+        x.ljust(13, '0') if len(x) == 11 else
+        x.ljust(14, '0') if len(x) == 10 else
+        x.ljust(13, '0') if len(x) == 9 else x
+    )
 
     Enverus_path = os.path.join(drillinginfofolder, f'annualDF_{year}_SpatialJoin_2258.csv')
     Enverus_data = pd.read_csv(Enverus_path, skiprows=1, usecols=[4, 5, 6, 9],
@@ -360,6 +377,8 @@ def return_wells_to_facility(year, inputsfolder, drillinginfofolder, GHGRPfolder
                                encoding_errors='ignore')
 
     Enverus_data['API/UWI'] = Enverus_data['API/UWI'].astype('string')
+    Enverus_data = Enverus_data.drop_duplicates(subset=['API/UWI'])
+    Enverus_data['API/UWI'] = Enverus_data['API/UWI'].str.lstrip('0')  # Remove leading zeros
 
     api_facility_correspondance_df = Enverus_data.merge(wells_data, left_on='API/UWI', right_on='WELL_ID_NUMBER')
 
