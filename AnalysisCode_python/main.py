@@ -1,6 +1,3 @@
-
-
-import pandas as pd
 from GHGRP_read_v3 import *
 from tranche_gen_func import *
 from autorun_func import *
@@ -21,7 +18,7 @@ from generate_inputs import *
 ##############################################################################################################
 
 # Specify the target year for analysis
-year = 2022  # <-- Change this to the desired year.
+year = 2020  # <-- Change this to the desired year.
 
 # Specify the file name of the input data
 input_filename = 'New_Paper.csv'  # <-- Change this to your input file (must contain province code and basin name).
@@ -54,7 +51,6 @@ Basin_N = raw_dat.iloc[:, 0].values  # First column for Basin numbers
 Basin_Index = raw_dat.iloc[:, 1].values  # Second column for Basin names
 
 # Generate inputs
-
 # Specify file name of DrillingInfo data
 DI_filename = f'annualDF_{year}_SpatialJoin_2258.csv'
 print('Generating GHGRP data...')
@@ -109,5 +105,4 @@ print("Program finished")
 print("Initializing plotting functions...")
 
 for i in range(len(Basin_N)):
-    print(i)
-    plotting_func(Basin_Index, Basin_N, i, n_trial, basinmapfolder, activityfolder, drillinginfofolder, DI_filename)
+    plotting_func(Basin_Index, Basin_N, i, n_trial, basinmapfolder, activityfolder, drillinginfofolder, DI_filename, year)
