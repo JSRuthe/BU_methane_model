@@ -8,7 +8,7 @@ import matplotlib.ticker as mticker
 import matplotlib.gridspec as gridspec
 
 def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, activityfolder, drillinginfofolder,
-                  DI_filename):
+                  DI_filename, year):
     ColorMat = np.array([[140 / 255, 21 / 255, 21 / 255],  # Stanford red
                          [233 / 255, 131 / 255, 0 / 255],  # Stanford orange
                          [234 / 255, 171 / 255, 0 / 255],  # Stanford yellow
@@ -191,7 +191,6 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
             bottom += GatherData_basin_ave[i]
 
         y_value = np.sum(GatherData_basin_ave[:5])
-        print(y_value)
         yerr = np.array([[GatherData_basin_TotLo], [GatherData_basin_TotHi]]) # Error bar values
         ax3.errorbar(x_pos, y_value, yerr=yerr,  color='black', ecolor='black', capsize=5 )
 
@@ -222,10 +221,14 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
         # Adjust legend
         ax3.legend(loc='upper left', bbox_to_anchor=(1, 1), fontsize=10, frameon=True)
 
+    fig.suptitle(f"{Basin_Index[Basin_Select]}, year {year}: total = {np.sum(GatherData_basin_ave[:5]):.2f} Tg CH$_4$",
+                 fontsize=16)
+
     # Adjust layout to prevent overlapping
     plt.tight_layout()
-    output_filename = f"Outputs/plot_{Basin_Index[Basin_Select]}out.jpg"
-    plt.savefig(output_filename, dpi=300)
+    filename = "plot_{Basin_Index[Basin_Select]}_out_{year}.jpg"
+    output_filepath = os.path.join('Outputs', filename)
+    plt.savefig(output_filepath, dpi=300)
     plt.show()
 
     plt.tight_layout()
