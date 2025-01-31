@@ -164,38 +164,70 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
             np.sum(Study_basin[9:11, :], axis=0),
             Study_basin[11, :],
             Study_basin[16, :],
+            np.sum(Study_basin[12:14, :], axis=0),
+            Study_basin[14, :]
         ])
 
         GatherData_basin_ave = np.mean(GatherData_basin, axis=1)
-        yerr = np.std(GatherData_basin, axis=1)  # Use standard deviation as error bars
+        # yerr = np.std(GatherData_basin, axis=1)  # Use standard deviation as error bars
+
+        GatherData_basin_SumTot = np.sum(GatherData_basin, axis=0)
+        GatherData_basin_Prc = np.percentile(GatherData_basin_SumTot, [2.5, 97.5])
+        GatherData_basin_TotHi = - np.sum(GatherData_basin_ave) + GatherData_basin_Prc[1]  # Upper bound
+        GatherData_basin_TotLo = np.sum(GatherData_basin_ave) - GatherData_basin_Prc[0]   # Lower bound
 
         # Plot stacked bars
-        bottom = np.zeros_like(GatherData_basin_ave)
-        for i in range(len(categories)):
-            ax3.bar(1, GatherData_basin_ave[i], bottom=bottom, width=0.2, color=mcolors.to_hex(ColorMat[i]),
-                    label=categories[i])
-            ax3.set_xlim(0.8, 1.2)  # Make sure the bar doesn’t stretch too wide
+        # bottom = np.zeros_like(GatherData_basin_ave)
+        # for i in range(len(categories)):
+        #     ax3.bar(1, GatherData_basin_ave[i], bottom=bottom, width=0.2, color=mcolors.to_hex(ColorMat[i]),
+        #             label=categories[i])
+        #     ax3.set_xlim(0.8, 1.2)  # Make sure the bar doesn’t stretch too wide
+
+        bottom = 0
+        x_pos = [1.5]
+        for i in range(5):
+            ax3.bar(x_pos, GatherData_basin_ave[i], bottom=bottom, color=ColorMat[i], label=categories[i])
 
             bottom += GatherData_basin_ave[i]
 
-        # Add error bars
-        ax3.errorbar(1, np.sum(GatherData_basin_ave), yerr=[[np.std(GatherData_basin.sum(axis=0))]], fmt='none',
-                     color='black', capsize=5)
+        y_value = np.sum(GatherData_basin_ave[:5])
+        print(y_value)
+        yerr = np.array([[GatherData_basin_TotLo], [GatherData_basin_TotHi]]) # Error bar values
+        ax3.errorbar(x_pos, y_value, yerr=yerr,  color='black', ecolor='black', capsize=5 )
+
+        # # Add error bars
+        # ax3.errorbar(1, np.sum(GatherData_basin_ave), yerr=[[np.std(GatherData_basin.sum(axis=0))]], fmt='none',
+        #              color='black', capsize=5)
 
         # Formatting
-        ax3.set_xticks([])  # Remove x-ticks
-        ax3.set_xlabel("")
-        ax3.set_ylabel(r'Tg CH$_4$ yr$^{-1}$', fontsize=12)
+        # ax3.set_xticks([])  # Remove x-ticks
+        # ax3.set_xlabel("")
+        # ax3.set_ylabel(r'Tg CH$_4$ yr$^{-1}$', fontsize=12)
+        #
+        # # Ensure proper y-axis ticks
+        # ax3.yaxis.set_major_locator(mticker.MaxNLocator(nbins=5))  # Limit number of y-ticks
+        # ax3.yaxis.set_minor_locator(mticker.AutoMinorLocator())  # Add minor ticks
+        # ax3.tick_params(axis='y', labelsize=10)  # Reduce font size
 
-        # Ensure proper y-axis ticks
-        ax3.yaxis.set_major_locator(mticker.MaxNLocator(nbins=5))  # Limit number of y-ticks
-        ax3.yaxis.set_minor_locator(mticker.AutoMinorLocator())  # Add minor ticks
-        ax3.tick_params(axis='y', labelsize=10)  # Reduce font size
+        ax3.set_ylim([0, y_value + GatherData_basin_TotHi + 0.02])
+        ax3.set_xticks([])
+        ax3.set_xlabel('')
+        ax3.set_ylabel('Tg CH$_4$ yr$^{-1}$', fontsize=12)
+        handles, labels = ax3.get_legend_handles_labels()
+        ax3.legend(handles[::-1], labels[::-1], loc='center left', bbox_to_anchor=(1, 0.5), fontsize=8)
+        # ax3.set_title('Emissions distribution by category', fontsize=12)
+        ax3.set_xlim([0, 3])
+        ax3.grid(True)
 
         # Adjust legend
         ax3.legend(loc='upper left', bbox_to_anchor=(1, 1), fontsize=10, frameon=True)
 
     # Adjust layout to prevent overlapping
     plt.tight_layout()
-    plt.subplots_adjust(right=0.85)
+    output_filename = f"Outputs/plot_{Basin_Index[Basin_Select]}out.jpg"
+    plt.savefig(output_filename, dpi=300)
     plt.show()
+
+    plt.tight_layout()
+    # plt.subplots_adjust(right=0.85)
+    # plt.show()
