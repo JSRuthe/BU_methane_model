@@ -42,15 +42,14 @@ def GHGRP_read_v3(i, Basin_Index, Basin_N, GHGRPfolder, year):
     Equip_dat['Equip_Type'] = Equip_dat['Equip_Type'].astype(str)
     Equip_types = Equip_dat['Equip_Type'].unique()
     logind = {}
-    logind[1] = Equip_dat['Equip_Type'] == Equip_types[2]  # Header: Equip_id{3} in MATLAB
-    logind[2] = (Equip_dat['Equip_Type'] == Equip_types[3]) | (
-                Equip_dat['Equip_Type'] == Equip_types[4])  # Heater: Equip_id{4} | Equip_id{5}
-    logind[3] = Equip_dat['Equip_Type'] == Equip_types[6]  # Separator: Equip_id{7}
-    logind[4] = Equip_dat['Equip_Type'] == Equip_types[5]  # Meter: Equip_id{6}
-    logind[7] = Equip_dat['Equip_Type'] == Equip_types[0]  # Reciprocating Compressor: Equip_id{1}
-    logind[8] = Equip_dat['Equip_Type'] == Equip_types[1]  # Dehydrator: Equip_id{2}
-    logind[9] = Equip_dat['Equip_Type'] == Equip_types[7]  # Wellhead: Equip_id{8}
-
+    logind[1] = Equip_dat['Equip_Type'] == 'Header'  # Header: Equip_id{3} in MATLAB
+    logind[2] = (Equip_dat['Equip_Type'] == 'In-line heaters') | (
+                Equip_dat['Equip_Type'] == 'Heater-treater')  # Heater: Equip_id{4} | Equip_id{5}
+    logind[3] = Equip_dat['Equip_Type'] == 'Separators'  # Separator: Equip_id{7}
+    logind[4] = Equip_dat['Equip_Type'] == 'Meters/piping'  # Meter: Equip_id{6}
+    logind[7] = Equip_dat['Equip_Type'] == 'Compressors'  # Reciprocating Compressor: Equip_id{1}
+    logind[8] = Equip_dat['Equip_Type'] == 'Dehydrators'  # Dehydrator: Equip_id{2}
+    logind[9] = Equip_dat['Equip_Type'] == 'Wellhead'  # Wellhead: Equip_id{8}
 
     col_1 = Equip_dat.loc[logind[1], ['Facility_No', 'Equip_Count']].groupby('Facility_No').sum()['Equip_Count']
     col_2 = Equip_dat.loc[logind[2], ['Facility_No', 'Equip_Count']].groupby('Facility_No').sum()['Equip_Count']
@@ -94,7 +93,9 @@ def GHGRP_read_v3(i, Basin_Index, Basin_N, GHGRPfolder, year):
     })
 
     # Process Tanks3 data
+    Tanks3_dat = Tanks3_dat.iloc[:, :6]  # Select the first 6 columns
     Tanks3_dat.columns = ['Facility_No', 'QVRU_3', 'QVent_3', 'QFlare_3', 'Tank_Count_3', 'Basin_ID']
+
     Facility_ID_prod_tanks3, ic = np.unique(Tanks3_dat['Facility_No'], return_inverse=True)
 
     tanks3_dat_consol = pd.DataFrame({
