@@ -1,5 +1,5 @@
-# BU_methane_model
-A repo for the methane model Matlab code
+# BASE model
+A repo for the methane model BASE (Bottom-up Analyzer for Source Emissions):
 
 1. To run the model for a specific list of basins, go to 'Inputs' and fill file 'New_Paper.csv' with AAPG province codes and names of the basins.
 
