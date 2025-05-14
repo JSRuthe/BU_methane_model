@@ -7,7 +7,7 @@ A Python-based model to estimate methane emissions from oil and gas production a
 
 ## Overview
 
-This model uses publicly available datasets (e.g., EPA GHGRP, Enverus DrillingInfo, CalGEM) to generate basin-level emissions estimates based on production activity, well data, and equipment distributions.
+This model uses publicly available datasets (e.g., EPA GHGRP, CalGEM) to generate basin-level emissions estimates based on production activity, well data, and equipment distributions.
 
 ---
 
