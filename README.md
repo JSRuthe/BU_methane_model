@@ -76,8 +76,8 @@ Edit `Inputs/New_Paper.csv` to list the AAPG province codes and basin names you 
   and place it in `Inputs/GHGRP_Dat/`.
 
 - Place production and well header data in the appropriate subdirectory:
-  - For **CalGEM**: `Inputs/CalGEM/Production/` and `Inputs/CalGEM/Wells/`
-  - For **Enverus**: `Inputs/Enverus_DrillingInfo/Production/` and `Inputs/Enverus_DrillingInfo/Wells/`
+  - For **CalGEM**: `Inputs/CalGEM/`
+  - For **Enverus**: `Inputs/Enverus_DrillingInfo/Production/` for production headers and `Inputs/Enverus_DrillingInfo/Wells/` for well headers
 
 ### 3. Run the Model
 
