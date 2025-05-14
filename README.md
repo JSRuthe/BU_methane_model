@@ -21,6 +21,7 @@ You can either clone the repository (recommended) or download it as a ZIP:
 ```bash
 git clone https://github.com/your-username/BASE.git
 cd BASE
+```
 
 **Option B — Download ZIP:**
 
