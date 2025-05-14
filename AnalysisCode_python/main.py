@@ -15,7 +15,7 @@ import argparse
 ##############################################################################################################
 
 
-def run_model(year, input_filename, n_trial, productionsource):
+def run_model(year, input_filename, n_trial, production_source):
     # Binary options
     welloption = 1
     equipoption = 0
@@ -45,7 +45,7 @@ def run_model(year, input_filename, n_trial, productionsource):
     generate_ghgrp_dat(year, Basin_N, inputsfolder, GHGRPfolder, activityfolder)
 
     print('Generating ProductionData data...')
-    generate_production_data(year, inputsfolder, productionfolder, productionsource)
+    generate_production_data(year, inputsfolder, productionfolder, production_source)
 
     print('Generated ProductionData data, generating wells to facility data...')
     return_wells_to_facility(year, inputsfolder, productionfolder, GHGRPfolder)
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     parser.add_argument('--year', type=int, required=True, help='Target year for analysis')
     parser.add_argument('--input_filename', type=str, required=True, help='CSV file with basin info')
     parser.add_argument('--n_trial', type=int, required=True, help='Number of Monte Carlo trials')
-    parser.add_argument('--productionsource', type=str, choices=['CalGEM', 'DrillingInfo'], required=True, help='Source of production data')
+    parser.add_argument('--production_source', type=str, choices=['CalGEM', 'DrillingInfo'], required=True, help='Source of production data')
 
     args = parser.parse_args()
-    run_model(args.year, args.input_filename, args.n_trial, args.productionsource)
+    run_model(args.year, args.input_filename, args.n_trial, args.production_source)
