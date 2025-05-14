@@ -25,10 +25,7 @@ cd BASE
 
 **Option B — Download ZIP:**
 
-```bash
 Go to the GitHub page, click the green “Code” button, and select “Download ZIP.” Then unzip and open the folder.
-cd BASE
-```
 
 
 ### 2. Install Dependencies
