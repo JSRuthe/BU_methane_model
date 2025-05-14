@@ -5,13 +5,13 @@ A Python-based model to estimate methane emissions from oil and gas production a
 
 ---
 
-## 📌 Overview
+## Overview
 
 This model uses publicly available datasets (e.g., EPA GHGRP, Enverus DrillingInfo, CalGEM) to generate basin-level emissions estimates based on production activity, well data, and equipment distributions.
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 ---
 
-## 📁 Directory Structure
+## Directory Structure
 
 ```
 BASE/
@@ -59,7 +59,7 @@ You can use `.gitkeep` files inside empty folders to ensure Git tracks them.
 
 ---
 
-## 🧭 How to Use
+## How to Use
 
 ### 1. Prepare the Basin Input File
 
@@ -100,20 +100,8 @@ python run_model.py \
 
 ---
 
-## 🧪 Example
+## Example
 
 ```bash
 python run_model.py --year 2020 --input_filename New_Paper.csv --n_trial 10 --productionsource DrillingInfo
 ```
-
----
-
-## 📄 License
-
-MIT License (or update this section if using a different license)
-
----
-
-## 📬 Contact
-
-For questions or collaboration, please contact [Your Name] at [your-email@example.com].
