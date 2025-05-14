@@ -96,7 +96,7 @@ python run_model.py \
   --year 2020 \
   --input_filename New_Paper.csv \
   --n_trial 10 \
-  --productionsource CalGEM
+  --production_source CalGEM
 ```
 
 #### Argument Descriptions
@@ -104,12 +104,12 @@ python run_model.py \
 - `--year`: Year to analyze (e.g., `2020`)
 - `--input_filename`: CSV file with basin codes and names
 - `--n_trial`: Number of Monte Carlo trials
-- `--productionsource`: Either `CalGEM` or `DrillingInfo`
+- `--production_source`: Either `CalGEM` or `DrillingInfo`
 
 ---
 
 ## Example
 
 ```bash
-python run_model.py --year 2020 --input_filename New_Paper.csv --n_trial 10 --productionsource DrillingInfo
+python run_model.py --year 2020 --input_filename New_Paper.csv --n_trial 10 --production_source DrillingInfo
 ```
