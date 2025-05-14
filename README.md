@@ -12,13 +12,23 @@ This model uses publicly available datasets (e.g., EPA GHGRP, Enverus DrillingIn
 ---
 
 ## Setup Instructions
+### 1. Get the Code
 
-### 1. Clone the Repository
+You can either clone the repository (recommended) or download it as a ZIP:
+
+**Option A — Clone the repository:**
 
 ```bash
 git clone https://github.com/your-username/BASE.git
 cd BASE
+
+**Option B — Download ZIP:**
+
+```bash
+Go to the GitHub page, click the green “Code” button, and select “Download ZIP.” Then unzip and open the folder.
+cd BASE
 ```
+
 
 ### 2. Install Dependencies
 
