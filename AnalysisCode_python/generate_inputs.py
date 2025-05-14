@@ -4,7 +4,6 @@ import os
 warnings.filterwarnings('ignore')
 from shapely.geometry import Point
 import geopandas as gpd
-print(f"os module: {os}")
 
 def generate_ghgrp_dat(year, Basin_N, inputsfolder, GHGRPfolder, activityfolder):
     raw_GHGRPfolder = os.path.join(inputsfolder, 'GHGRP')
@@ -198,7 +197,6 @@ def generate_ghgrp_dat(year, Basin_N, inputsfolder, GHGRPfolder, activityfolder)
     facilities_year = facilities_data[facilities_data.reporting_year == year]
     facilities_year['basin_id'] = facilities_year['sub_basin_identifier'].str.extract(r'(\d{3})')
     facilities_year = facilities_year[~pd.isna(facilities_year.basin_id)]
-    facilities_year_260 = facilities_year[facilities_year.basin_id == '260']
 
     facilities_year = facilities_year.drop_duplicates(subset=['facility_id', 'basin_id', 'well_producing_end_of_year'])
 
@@ -237,43 +235,78 @@ def generate_ghgrp_dat(year, Basin_N, inputsfolder, GHGRPfolder, activityfolder)
     LU_export.to_csv(os.path.join(activityfolder, 'LU_type.csv'), index=False, header=False)
     return None
 
-def generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder):
-    # annualDF_2020_SpatialJoin_2258
+def generate_production_data_calgem(year, basins_gdf, inputsfolder):
+    calgem_path = os.path.join(inputsfolder, 'CalGEM')
 
+    # Load well headers with lat/lon (always use AllWells_20250220.csv)
+    well_headers_path = os.path.join(calgem_path, "AllWells_20250220.csv")
+    CalGEM_well_headers = pd.read_csv(well_headers_path)
+    CalGEM_well_headers['API14'] = CalGEM_well_headers['API'].astype(str) + '0000'
+    CalGEM_well_headers['Surface Hole Latitude (WGS84)'] = pd.to_numeric(CalGEM_well_headers['Latitude'],
+                                                                         errors='coerce')
+    CalGEM_well_headers['Surface Hole Longitude (WGS84)'] = pd.to_numeric(CalGEM_well_headers['Longitude'],
+                                                                          errors='coerce')
+    CalGEM_well_headers['geometry'] = CalGEM_well_headers.apply(
+        lambda row: Point(row['Surface Hole Longitude (WGS84)'], row['Surface Hole Latitude (WGS84)']), axis=1
+    )
+    CalGEM_well_headers = gpd.GeoDataFrame(CalGEM_well_headers, geometry='geometry', crs='EPSG:4326')
+
+    # Load production data
+    prod_path = os.path.join(calgem_path, f"{year}CaliforniaOilAndGasWellMonthlyProduction.csv")
+    CalGEM_prod = pd.read_csv(prod_path)
+
+    if year < 2020:
+        # Pre-2020: join using PWT__ID and year-specific header
+        year_headers_path = os.path.join(calgem_path, f"{year}CaliforniaOilandGasWells.csv")
+        year_headers = pd.read_csv(year_headers_path)
+        CalGEM_prod = CalGEM_prod.merge(year_headers[['PWT__ID', 'APINumber']], on='PWT__ID', how='left')
+        CalGEM_prod['APINumber'] = CalGEM_prod['APINumber'].astype(str).str.zfill(8)
+        CalGEM_prod['API14'] = '04' + CalGEM_prod['APINumber'] + '0000'
+        CalGEM_prod['Monthly Gas'] = CalGEM_prod['GasProduced(MCF)']
+        CalGEM_prod['Monthly Production Date'] = pd.to_datetime(CalGEM_prod['ProductionDate'], errors='coerce')
+    else:
+        CalGEM_prod['API14'] = CalGEM_prod['APINumber'].astype(str) + '00'
+        CalGEM_prod['Monthly Gas'] = CalGEM_prod['GasProduced']
+        CalGEM_prod['Monthly Production Date'] = pd.to_datetime(CalGEM_prod['ProductionReportDate'], errors='coerce')
+
+    CalGEM_prod['Monthly Oil'] = CalGEM_prod['OilorCondensateProduced']
+    CalGEM_prod['API14'] = CalGEM_prod['API14'].astype(str)
+    CalGEM_well_headers['API14'] = CalGEM_well_headers['API14'].astype(str)
+
+    merged_cols = ['API14', 'Surface Hole Latitude (WGS84)', 'Surface Hole Longitude (WGS84)', 'geometry']
+    CalGEM_prod = CalGEM_prod.merge(CalGEM_well_headers[merged_cols], on='API14', how='left')
+
+    CalGEM_prod = gpd.GeoDataFrame(CalGEM_prod, geometry='geometry', crs='EPSG:4326')
+
+    spatial_join = gpd.sjoin(CalGEM_prod.to_crs(26914), basins_gdf.to_crs(26914), predicate='within')
+    keep_cols = [
+        'API14', 'Monthly Gas', 'Monthly Oil',
+        'Surface Hole Latitude (WGS84)', 'Surface Hole Longitude (WGS84)',
+        'geometry', 'BASIN_NAME', 'BASIN_CODE'
+    ]
+    spatial_join = spatial_join[keep_cols]
+
+    grouped = (
+        spatial_join.groupby('API14')
+        .agg({
+            'Monthly Oil': 'sum',
+            'Monthly Gas': 'sum',
+            'Surface Hole Latitude (WGS84)': 'first',
+            'Surface Hole Longitude (WGS84)': 'first',
+            'geometry': 'first',
+            'BASIN_NAME': 'first',
+            'BASIN_CODE': 'first'
+        })
+        .reset_index()
+    )
+
+    spatial_join = gpd.GeoDataFrame(grouped, geometry='geometry', crs='EPSG:26914')
+
+    return spatial_join
+
+
+def generate_production_data_di(year, basins_gdf, inputsfolder):
     raw_enverus_drillinginfo_foldername = os.path.join(inputsfolder, 'Enverus_DrillingInfo')
-
-    basins_gdf = gpd.read_file(os.path.join(inputsfolder, 'Basins_shapefiles'))
-
-    basin_to_province = {
-        'Appalachia Basin': 160,
-        'Appalachian Basin (Eastern Overthrust Area)': '160A',
-        'Permian Basin': 430,
-        'Mid Gulf Coast Basin': 210,
-        'Gulf Coast Basin': 220,
-        'Anadarko Basin': 360,
-        'Fort Worth Syncline': 420,
-        'Arkoma Basin': 345,
-        'Denver Basin': 540,
-        'San Juan Basin': 580,
-        'Uinta Basin': 575,
-        'Piceasnce Basin': 595,
-        'Green River Basin': 535,
-        'Williston Basin': 395,
-        'San Joaquin Basin': 745,
-        'Powder River Basin': 515,
-        'Michigan Basin': 305,
-        'Florida Basin': 140,
-        'Arkla Basin': 230,
-        'East Texas Basin': 260,
-        'Strawn Basin': 415,
-        'Bend Arch': 425,
-        'Palo Duro Basin': 435,
-        'Las Animas Arch': 450,
-        'Central Western Overthrust': 507,
-        'Wind River Basin': 530,
-        'Paradox Basin': 585,
-        'Sacramento Basin': 730,
-        'AK Cook Inlet Basin': 820}
 
     # Wells production info (API number, Gas prod, Oil prod)
 
@@ -281,8 +314,10 @@ def generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder):
     wellsproduction_csv_files = [f for f in os.listdir(wellsproduction_folderpath) if f.lower().endswith('.csv')]
 
     wellsproduction_df = pd.concat([pd.read_csv(os.path.join(wellsproduction_folderpath, file),
-                                          usecols=['API/UWI', 'Monthly Oil', 'Monthly Gas', 'Monthly Production Date']) for file in wellsproduction_csv_files],
-                             ignore_index=True)
+                                                usecols=['API/UWI', 'Monthly Oil', 'Monthly Gas',
+                                                         'Monthly Production Date']) for file in
+                                    wellsproduction_csv_files],
+                                   ignore_index=True)
 
     wellsproduction_df['Year'] = pd.to_datetime(wellsproduction_df['Monthly Production Date']).dt.year
     wellsproduction_df = wellsproduction_df.groupby(['Year', 'API/UWI'])[
@@ -303,6 +338,7 @@ def generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder):
     geometry = [Point(lon, lat) for lat, lon in zip(wellsinfo_df.lat, wellsinfo_df.lon)]
     wellsinfo_gdf = gpd.GeoDataFrame(wellsinfo_df, geometry=geometry, crs='EPSG:4326')
     wellsinfo_gdf = gpd.sjoin(wellsinfo_gdf.to_crs(26914), basins_gdf.to_crs(26914), predicate='within')
+
     wellsproduction_df = wellsproduction_df[wellsproduction_df.Year == year]
 
     wellsinfo_gdf = wellsinfo_gdf.drop_duplicates(subset=['API14', 'lat', 'lon', 'BASIN_NAME'])
@@ -310,40 +346,77 @@ def generate_drillinginfo_dat(year, inputsfolder, drillinginfofolder):
 
     spatial_join = wellsproduction_df.merge(wellsinfo_gdf, on=['API14'])
 
+    return spatial_join
+
+
+def generate_production_data(year, inputsfolder, productionfolder, productionsource='DrillingInfo'):
+    basins_gdf = gpd.read_file(os.path.join(inputsfolder, 'Basins_shapefiles'))
+
+    if productionsource == 'DrillingInfo':
+        spatial_join = generate_production_data_di(year, basins_gdf, inputsfolder)
+    elif productionsource == 'CalGEM':
+        spatial_join = generate_production_data_calgem(year, basins_gdf, inputsfolder)
+    else:
+        print('Production source unknown.')
+        return
+
+    # Basin -> province mapping
+    basin_to_province = {
+        'Appalachia Basin': 160, 'Appalachian Basin (Eastern Overthrust Area)': '160A',
+        'Permian Basin': 430, 'Mid Gulf Coast Basin': 210, 'Gulf Coast Basin': 220,
+        'Anadarko Basin': 360, 'Fort Worth Syncline': 420, 'Arkoma Basin': 345,
+        'Denver Basin': 540, 'San Juan Basin': 580, 'Uinta Basin': 575,
+        'Piceasnce Basin': 595, 'Green River Basin': 535, 'Williston Basin': 395,
+        'San Joaquin Basin': 745, 'Powder River Basin': 515, 'Michigan Basin': 305,
+        'Florida Basin': 140, 'Arkla Basin': 230, 'East Texas Basin': 260,
+        'Strawn Basin': 415, 'Bend Arch': 425, 'Palo Duro Basin': 435,
+        'Las Animas Arch': 450, 'Central Western Overthrust': 507,
+        'Wind River Basin': 530, 'Paradox Basin': 585, 'Sacramento Basin': 730,
+        'AK Cook Inlet Basin': 820
+    }
+
+    # Harmonize final output
     spatial_join['Prov_Cod_1'] = spatial_join['BASIN_NAME'].map(basin_to_province)
+    spatial_join = spatial_join[pd.to_numeric(spatial_join.API14, errors='coerce').fillna(0).astype(int) != 0]
     spatial_join = spatial_join.dropna(subset=['Prov_Cod_1'])
 
-    spatial_join = spatial_join.rename(columns={'Monthly Gas': 'Monthly_Ga',
-                                                'Monthly Oil': 'Monthly_Oi',
-                                                'lat': 'Surface_Ho',
-                                                'lon': 'Surface__1'})
+    spatial_join = spatial_join.rename(columns={
+        'Monthly Gas': 'Monthly_Ga',
+        'Monthly Oil': 'Monthly_Oi',
+        'lat': 'Surface_Ho',
+        'lon': 'Surface__1',
+        'Surface Hole Latitude (WGS84)': 'Surface_Ho',
+        'Surface Hole Longitude (WGS84)': 'Surface__1'
+    })
 
-    spatial_join['OBJECTID'] = None
-    spatial_join['Join_Count'] = None
-    spatial_join['TARGET_FID'] = None
-    spatial_join['Field1'] = None
+    for col in ['OBJECTID', 'Join_Count', 'TARGET_FID', 'Field1']:
+        spatial_join[col] = None
 
-    spatial_join = spatial_join[['OBJECTID', 'Join_Count', 'TARGET_FID', 'Field1',
-                                 'Monthly_Oi', 'Monthly_Ga', 'API14', 'Surface_Ho', 'Surface__1', 'Prov_Cod_1']]
+    spatial_join = spatial_join[[
+        'OBJECTID', 'Join_Count', 'TARGET_FID', 'Field1',
+        'Monthly_Oi', 'Monthly_Ga', 'API14', 'Surface_Ho', 'Surface__1', 'Prov_Cod_1'
+    ]]
 
-    spatial_join_filename = f'annualDF_{year}_SpatialJoin_2258.csv'
-
-    spatial_join.to_csv(os.path.join(drillinginfofolder, spatial_join_filename), index=False)
+    outname = f'annualDF_{year}_SpatialJoin_2258.csv'
+    print('Number of wells in SJ: ', spatial_join[spatial_join.Prov_Cod_1 == 745].API14.nunique())
+    spatial_join.to_csv(os.path.join(productionfolder, outname), index=False)
     return None
 
 
-def return_wells_to_facility(year, inputsfolder, drillinginfofolder, GHGRPfolder):
+def return_wells_to_facility(year, inputsfolder, productionfolder, GHGRPfolder):
 
     wells_data_filename = os.path.join(inputsfolder, 'EF_W_ONSHORE_WELLS', f'EF_W_ONSHORE_WELLS_{year}.xlsb')
     wells_data = pd.read_excel(wells_data_filename, usecols=['FACILITY_ID', 'WELL_ID_NUMBER'], engine='pyxlsb')
 
     # Drop rows with NA values in the WELL_ID_NUMBER column and remove non-numeric characters
     wells_data = wells_data.dropna(subset=['WELL_ID_NUMBER'])
+    wells_data = wells_data[~pd.isna(wells_data.WELL_ID_NUMBER)]
+    wells_data = wells_data[wells_data.WELL_ID_NUMBER != 0]
 
     # Ensure WELL_ID_NUMBER is a string for processing
     wells_data['WELL_ID_NUMBER'] = wells_data['WELL_ID_NUMBER'].astype(str)
 
-    # 1️⃣ Convert scientific notation to full numeric format
+    # Convert to full numeric format
     scientific_notation_wells = wells_data[
         wells_data['WELL_ID_NUMBER'].str.contains(r'E\+', case=False, na=False)]
 
@@ -370,7 +443,7 @@ def return_wells_to_facility(year, inputsfolder, drillinginfofolder, GHGRPfolder
         x.ljust(13, '0') if len(x) == 9 else x
     )
 
-    Enverus_path = os.path.join(drillinginfofolder, f'annualDF_{year}_SpatialJoin_2258.csv')
+    Enverus_path = os.path.join(productionfolder, f'annualDF_{year}_SpatialJoin_2258.csv')
     Enverus_data = pd.read_csv(Enverus_path, skiprows=1, usecols=[4, 5, 6, 9],
                                names=['Annual Oil [bbl/year]', 'Annual Gas [mscf/year]', 'API/UWI', 'Prov_Cod_1'],
                                index_col=None,
@@ -383,8 +456,8 @@ def return_wells_to_facility(year, inputsfolder, drillinginfofolder, GHGRPfolder
     api_facility_correspondance_df = Enverus_data.merge(wells_data, left_on='API/UWI', right_on='WELL_ID_NUMBER')
 
     api_facility_correspondance_filename = f'API_Facility_correspondence_{year}.csv'
-
-    api_facility_correspondance_df.to_csv(os.path.join(drillinginfofolder, api_facility_correspondance_filename), index=False)
+    print(len(api_facility_correspondance_df))
+    api_facility_correspondance_df.to_csv(os.path.join(productionfolder, api_facility_correspondance_filename), index=False)
     api_facility_correspondance_df.to_csv(os.path.join(GHGRPfolder, api_facility_correspondance_filename), index=False)
 
     return None
