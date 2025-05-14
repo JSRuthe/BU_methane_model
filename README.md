@@ -12,7 +12,7 @@ This model uses publicly available datasets (e.g., EPA GHGRP, Enverus DrillingIn
 ---
 
 ## Setup Instructions
-### 1. Get the Code
+### 1. Get the code
 
 You can either clone the repository (recommended) or download it as a ZIP:
 
@@ -28,7 +28,7 @@ cd BASE
 Go to the GitHub page, click the green “Code” button, and select “Download ZIP.” Then unzip and open the folder.
 
 
-### 2. Install Dependencies
+### 2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -69,25 +69,25 @@ You can use `.gitkeep` files inside empty folders to ensure Git tracks them.
 
 ## How to Use
 
-### 1. Prepare the Basin Input File
+### 1. Prepare the basin input file
 
 Edit `Inputs/New_Paper.csv` to list the AAPG province codes and basin names you want to analyze. Example:
 
 ```csv
-2258,San Joaquin Basin
-2239,Los Angeles Basin
+745,San Joaquin Basin
+430,Permian Basin
 ```
 
-### 2. Add Input Data
+### 2. Add input data
 
 - Download **GHGRP data** (2016–2022) from [EPA GHG Query Builder](https://enviro.epa.gov/query-builder/ghg)  
   and place it in `Inputs/GHGRP_Dat/`.
 
-- Place production and well header data in the appropriate subdirectory:
+- Place production data (corresponding to the basins in the input file) in the appropriate subdirectory:
   - For **CalGEM**: `Inputs/CalGEM/`
   - For **Enverus**: `Inputs/Enverus_DrillingInfo/Production/` for production headers and `Inputs/Enverus_DrillingInfo/Wells/` for well headers
 
-### 3. Run the Model
+### 3. Run the model
 
 Run the model with your chosen configuration:
 
