@@ -9,7 +9,7 @@ from generate_inputs import *
 import argparse
 
 ##############################################################################################################
-# Version: Philippine Burdeau - Updated on January 29th, 2025}
+# Version: Philippine Burdeau - Updated on May 13th, 2025}
 # Author: Jeff Rutherford
 # Description: This script runs the BU methane model.
 ##############################################################################################################
