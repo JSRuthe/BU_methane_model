@@ -349,12 +349,12 @@ def generate_production_data_di(year, basins_gdf, inputsfolder):
     return spatial_join
 
 
-def generate_production_data(year, inputsfolder, productionfolder, productionsource='DrillingInfo'):
+def generate_production_data(year, inputsfolder, productionfolder, production_source='DrillingInfo'):
     basins_gdf = gpd.read_file(os.path.join(inputsfolder, 'Basins_shapefiles'))
 
-    if productionsource == 'DrillingInfo':
+    if production_source == 'DrillingInfo':
         spatial_join = generate_production_data_di(year, basins_gdf, inputsfolder)
-    elif productionsource == 'CalGEM':
+    elif production_source == 'CalGEM':
         spatial_join = generate_production_data_calgem(year, basins_gdf, inputsfolder)
     else:
         print('Production source unknown.')
