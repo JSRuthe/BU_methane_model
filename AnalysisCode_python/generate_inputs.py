@@ -241,7 +241,7 @@ def generate_production_data_calgem(year, basins_gdf, inputsfolder):
     # Load well headers with lat/lon (always use AllWells_20250220.csv)
     well_headers_path = os.path.join(calgem_path, "AllWells_20250220.csv")
     CalGEM_well_headers = pd.read_csv(well_headers_path)
-    CalGEM_well_headers['API14'] = CalGEM_well_headers['API'].astype(str) + '0000'
+    CalGEM_well_headers['API14'] = (CalGEM_well_headers['API'].astype(str) + '0000').str.zfill(14)
     CalGEM_well_headers['Surface Hole Latitude (WGS84)'] = pd.to_numeric(CalGEM_well_headers['Latitude'],
                                                                          errors='coerce')
     CalGEM_well_headers['Surface Hole Longitude (WGS84)'] = pd.to_numeric(CalGEM_well_headers['Longitude'],
@@ -258,14 +258,14 @@ def generate_production_data_calgem(year, basins_gdf, inputsfolder):
     if year < 2020:
         # Pre-2020: join using PWT__ID and year-specific header
         year_headers_path = os.path.join(calgem_path, f"{year}CaliforniaOilandGasWells.csv")
-        year_headers = pd.read_csv(year_headers_path)
+        year_headers = pd.read_csv(year_headers_path, encoding='latin1')
         CalGEM_prod = CalGEM_prod.merge(year_headers[['PWT__ID', 'APINumber']], on='PWT__ID', how='left')
         CalGEM_prod['APINumber'] = CalGEM_prod['APINumber'].astype(str).str.zfill(8)
         CalGEM_prod['API14'] = '04' + CalGEM_prod['APINumber'] + '0000'
         CalGEM_prod['Monthly Gas'] = CalGEM_prod['GasProduced(MCF)']
         CalGEM_prod['Monthly Production Date'] = pd.to_datetime(CalGEM_prod['ProductionDate'], errors='coerce')
     else:
-        CalGEM_prod['API14'] = CalGEM_prod['APINumber'].astype(str) + '00'
+        CalGEM_prod['API14'] = (CalGEM_prod['APINumber'].astype(str) + '00').str.zfill(14)
         CalGEM_prod['Monthly Gas'] = CalGEM_prod['GasProduced']
         CalGEM_prod['Monthly Production Date'] = pd.to_datetime(CalGEM_prod['ProductionReportDate'], errors='coerce')
 
@@ -274,11 +274,15 @@ def generate_production_data_calgem(year, basins_gdf, inputsfolder):
     CalGEM_well_headers['API14'] = CalGEM_well_headers['API14'].astype(str)
 
     merged_cols = ['API14', 'Surface Hole Latitude (WGS84)', 'Surface Hole Longitude (WGS84)', 'geometry']
-    CalGEM_prod = CalGEM_prod.merge(CalGEM_well_headers[merged_cols], on='API14', how='left')
+    print('Before merging with well headers...', CalGEM_prod.API14.nunique())
 
+    CalGEM_prod = CalGEM_prod.merge(CalGEM_well_headers[merged_cols], on='API14', how='left')
+    print('After merging with well headers...', CalGEM_prod.API14.nunique())
     CalGEM_prod = gpd.GeoDataFrame(CalGEM_prod, geometry='geometry', crs='EPSG:4326')
 
     spatial_join = gpd.sjoin(CalGEM_prod.to_crs(26914), basins_gdf.to_crs(26914), predicate='within')
+    print('After spatial join...', spatial_join.API14.nunique())
+
     keep_cols = [
         'API14', 'Monthly Gas', 'Monthly Oil',
         'Surface Hole Latitude (WGS84)', 'Surface Hole Longitude (WGS84)',
@@ -301,9 +305,8 @@ def generate_production_data_calgem(year, basins_gdf, inputsfolder):
     )
 
     spatial_join = gpd.GeoDataFrame(grouped, geometry='geometry', crs='EPSG:26914')
-
+    print(spatial_join.API14.nunique())
     return spatial_join
-
 
 def generate_production_data_di(year, basins_gdf, inputsfolder):
     raw_enverus_drillinginfo_foldername = os.path.join(inputsfolder, 'Enverus_DrillingInfo')
@@ -349,12 +352,12 @@ def generate_production_data_di(year, basins_gdf, inputsfolder):
     return spatial_join
 
 
-def generate_production_data(year, inputsfolder, productionfolder, production_source='DrillingInfo'):
+def generate_production_data(year, inputsfolder, productionfolder, productionsource='DrillingInfo'):
     basins_gdf = gpd.read_file(os.path.join(inputsfolder, 'Basins_shapefiles'))
 
-    if production_source == 'DrillingInfo':
+    if productionsource == 'DrillingInfo':
         spatial_join = generate_production_data_di(year, basins_gdf, inputsfolder)
-    elif production_source == 'CalGEM':
+    elif productionsource == 'CalGEM':
         spatial_join = generate_production_data_calgem(year, basins_gdf, inputsfolder)
     else:
         print('Production source unknown.')
