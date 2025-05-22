@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 ```
 BASE/
-├── run_model.py                      # Main script with command-line interface
+├── main.py                      # Main script with command-line interface
 ├── requirements.txt
 ├── Inputs/
 │   ├── New_Paper.csv                # CSV with province codes and basin names
@@ -92,7 +92,7 @@ Edit `Inputs/New_Paper.csv` to list the AAPG province codes and basin names you 
 Run the model with your chosen configuration:
 
 ```bash
-python run_model.py \
+python main.py \
   --year 2020 \
   --input_filename New_Paper.csv \
   --n_trial 10 \
@@ -111,5 +111,5 @@ python run_model.py \
 ## Example
 
 ```bash
-python run_model.py --year 2020 --input_filename New_Paper.csv --n_trial 10 --production_source DrillingInfo
+python main.py --year 2020 --input_filename New_Paper.csv --n_trial 10 --production_source DrillingInfo
 ```
