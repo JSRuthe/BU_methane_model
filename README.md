@@ -40,76 +40,86 @@ pip install -r requirements.txt
 
 ```
 BASE/
-├── main.py                      # Main script with command-line interface
-├── requirements.txt
-├── Inputs/
+├── Inputs
 │   ├── New_Paper.csv                # CSV with province codes and basin names
-│   ├── GHGRP_Dat/                   # EPA GHGRP data (2016–2022)
-│   ├── CalGEM/
-│   │   ├── Production/              # CalGEM production data
-│   │   └── Wells/                   # CalGEM well headers
-│   └── Enverus_DrillingInfo/
-│       ├── Production/              # Enverus production data
-│       └── Wells/                   # Enverus well headers
-├── ActivityData/
-├── BasinMaps/
-├── ProductionData/
-├── EquipmentDistributions/
-├── GHGRP_read_v3.py
-├── tranche_gen_func.py
-├── autorun_func.py
-├── data_proc_master_func.py
-├── plotting_func.py
-└── generate_inputs.py
-```
+│   ├── GHGRP_Dat                   # EPA GHGRP data (2016–2022)
+│   ├── CalGEM
+│   │   ├── Production              # CalGEM production data
+│   │   └── Wells                   # CalGEM well headers
+│   └── Enverus_DrillingInfo
+│       ├── Production              # Enverus production data
+│       └── Wells                   # Enverus well headers
+│   └── Basins_shapefiles           # AAPG basin shapefile (with BASIN_CODE, BASIN_NAME)
+│   ├── Geo_File                    # Custom shapefile/geojson for user-defined region
 
-You can use `.gitkeep` files inside empty folders to ensure Git tracks them.
+├── ActivityData
+├── ProductionData
+├── EquipmentDistributions
+├── AnalysisCode_python
 
 ---
 
 ## How to Use
 
-### 1. Prepare the basin input file
+### Option 1: Run using AAPG Basin
 
-Edit `Inputs/New_Paper.csv` to list the AAPG province codes and basin names you want to analyze. Example:
-
-```csv
-745,San Joaquin Basin
-430,Permian Basin
-```
-
-### 2. Add input data
-
-- Download **GHGRP data** (2016–2022) from [EPA GHG Query Builder](https://enviro.epa.gov/query-builder/ghg)  
-  and place it in `Inputs/GHGRP_Dat/`.
-
-- Place production data (corresponding to the basins in the input file) in the appropriate subdirectory:
-  - For **CalGEM**: `Inputs/CalGEM/`
-  - For **Enverus**: `Inputs/Enverus_DrillingInfo/Production/` for production headers and `Inputs/Enverus_DrillingInfo/Wells/` for well headers
-
-### 3. Run the model
-
-Run the model with your chosen configuration:
+If you want to run the model on a predefined AAPG basin:
 
 ```bash
-python main.py \
-  --year 2020 \
-  --input_filename New_Paper.csv \
-  --n_trial 10 \
+python main.py
+  --year 2020
+  --shape_id 745
+  --n_trial 10
   --production_source CalGEM
+  --AAPG_province
 ```
 
-#### Argument Descriptions
+### Option 2: Run using your own geometry
 
-- `--year`: Year to analyze (e.g., `2020`)
-- `--input_filename`: CSV file with basin codes and names
+If you want to run the model on a custom region (shapefile, GeoJSON, GPKG), place exactly **one** file in `Geo_File`, and use:
+
+```bash
+python main.py 
+  --year 2020 
+  --shape_name "My Custom Basin" 
+  --n_trial 10 
+  --production_source DrillingInfo
+```
+
+---
+
+### Arguments
+
+- `--year`: Target year for analysis (e.g., 2020)
+- `--shape_id`: AAPG basin code (e.g., 745) — *Required if using `--AAPG_province`*
+- `--shape_name`: Region name for custom geometry — *Required if **not** using `--AAPG_province`*
 - `--n_trial`: Number of Monte Carlo trials
-- `--production_source`: Either `CalGEM` or `DrillingInfo`
+- `--production_source`: `CalGEM` or `DrillingInfo`
+- `--AAPG_province`: Include this flag to use AAPG shapefiles
+
+---
+
+## Data Requirements
+
+- **GHGRP data (2016–2022)**: Download from the [EPA GHG Query Builder](https://enviro.epa.gov/query-builder/ghg) and place in `Inputs/GHGRP_Dat/`.
+- **Production data**:
+  - `CalGEM`: Place in `Inputs/CalGEM/`
+  - `DrillingInfo`: Place in `Inputs/Enverus_DrillingInfo/`
+- **Custom shapefile or GeoJSON**: Place a single file in `Inputs/Geo_File/` if not using AAPG
 
 ---
 
 ## Example
 
+Run using AAPG province:
+
 ```bash
-python main.py --year 2020 --input_filename New_Paper.csv --n_trial 10 --production_source DrillingInfo
+python main.py --year 2020 --shape_id 745 --n_trial 10 --production_source CalGEM --AAPG_province
 ```
+
+Run using custom geometry:
+
+```bash
+python main.py --year 2020 --shape_name "West San Joaquin Basin" --n_trial 10 --production_source DrillingInfo
+```
+
