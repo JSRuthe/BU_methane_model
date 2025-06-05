@@ -7,7 +7,7 @@ import matplotlib.colors as mcolors
 import matplotlib.ticker as mticker
 import matplotlib.gridspec as gridspec
 
-def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, activityfolder, drillinginfofolder,
+def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, activityfolder, productionfolder,
                   DI_filename, year):
     ColorMat = np.array([[140 / 255, 21 / 255, 21 / 255],  # Stanford red
                          [233 / 255, 131 / 255, 0 / 255],  # Stanford orange
@@ -20,7 +20,7 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
 
     # Load and process data for the specific basin
     if Basin_Select != -1:
-        filepath = os.path.join(drillinginfofolder, DI_filename)
+        filepath = os.path.join(productionfolder, DI_filename)
         DI_data = pd.read_csv(filepath)
 
         DI_data['Prov_Cod_1'] = DI_data['Prov_Cod_1'].replace('160A', '160')
@@ -36,7 +36,7 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
 
     else:
         csvFileName = 'david_lyon_2015_no_offshore.csv'
-        filepath = os.path.join(drillinginfofolder, csvFileName)
+        filepath = os.path.join(productionfolder, csvFileName)
         M_US = np.genfromtxt(filepath, delimiter=',')
 
     if Basin_Select != -1:
@@ -88,7 +88,17 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
     ax1.set_xscale('log')
     ax1.set_xlabel(r'Wellpad throughput [mscf d$^{-1}$]', fontsize=12)
     ax1.set_ylabel('Probability', fontsize=12)
-    ax1.set_ylim([0, 0.15])
+    counts, _, _ = ax1.hist(
+        plot_dat_basin if Basin_Select != -1 else plot_dat_US,
+        bins=b,
+        weights=np.ones_like(plot_dat_basin if Basin_Select != -1 else plot_dat_US) / len(
+            plot_dat_basin if Basin_Select != -1 else plot_dat_US),
+        histtype='step',
+        linewidth=2,
+        edgecolor=color_to_use
+    )
+
+    ax1.set_ylim([0, counts.max() * 1.1])  # Add 10% headroom
     ax1.grid(True)
 
     if Basin_Select != -1:
@@ -226,7 +236,7 @@ def plotting_func(Basin_Index, Basin_N, Basin_Select, n_trial, basinmapfolder, a
 
     # Adjust layout to prevent overlapping
     plt.tight_layout()
-    filename = "plot_{Basin_Index[Basin_Select]}_out_{year}.jpg"
+    filename = f"plot_{Basin_Index[Basin_Select]}_out_{year}.jpg"
     output_filepath = os.path.join('Outputs', filename)
     plt.savefig(output_filepath, dpi=300)
     plt.show()
