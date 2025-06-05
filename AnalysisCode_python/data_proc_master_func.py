@@ -7,8 +7,8 @@ from mat_extend_v2 import *
 warnings.filterwarnings('ignore')
 from wellpersite_func import *
 
-def data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_Index, activityfolder,
-                          drillinginfofolder, Enverus_tab, AF_basin):
+def data_proc_master_func(year, n_trial, welloption, equipoption, Basin_Select, Basin_Index, activityfolder,
+                          productionfolder, Enverus_tab, AF_basin):
 
 
     welldata = {'drygas': np.zeros((1, 1)), 'gaswoil': np.zeros((1, 1)), 'assoc': np.zeros((1, 1)),
@@ -27,15 +27,16 @@ def data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_
     counter = 0
 
     if welloption == 1:
-        tranche = tranche_data(drillinginfofolder)
+        tranche = tranche_data(productionfolder)
 
     for k in range(n_trial):
         # Read data files
         if Basin_Select == -1:
-            csv_file = f'Equip{k + 1}out.csv'
+            csv_file = f'Equip_{k + 1}_out.csv'
         else:
-            csv_file = f'Equip{k + 1}{Basin_Index[Basin_Select]}out.csv'
+            csv_file = f'Equip_{k + 1}_{Basin_Index[Basin_Select]}_{year}_out.csv'
         filepath = os.path.join('Outputs', csv_file)
+        print(filepath)
 
         dataraw = pd.read_csv(filepath, header=None).values
 
@@ -126,15 +127,15 @@ def data_proc_master_func(n_trial, welloption, equipoption, Basin_Select, Basin_
         data_tab.loc[i, 'Oil sites'] = np.mean(EmissionsOil[i - 1, :])
 
     if Basin_Select == -1:
-        file_name = 'Emission_Summary_out.xlsx'
+        file_name = f'Emission_Summary_{year}_out.xlsx'
     else:
-        file_name = f'Emission_Summary_{Basin_Index[Basin_Select]}out.xlsx'
+        file_name = f'Emission_Summary_{Basin_Index[Basin_Select]}_{year}_out.xlsx'
 
     output_filepath = os.path.join(os.getcwd(), 'Outputs', file_name)
     data_tab.to_excel(output_filepath, index=False)
 
     # Save Emissions data
-    emissions_file = 'Emissionsdata_out.npz' if Basin_Select == -1 else f'Emissiondata_{Basin_Index[Basin_Select]}out.npz'
+    emissions_file = 'Emissionsdata_out.npz' if Basin_Select == -1 else f'Emissiondata_{Basin_Index[Basin_Select]}_{year}_out.npz'
     emissions_filepath = os.path.join('Outputs', emissions_file)
     np.savez(emissions_filepath, EmissionsGas=EmissionsGas, EmissionsOil=EmissionsOil)
 
