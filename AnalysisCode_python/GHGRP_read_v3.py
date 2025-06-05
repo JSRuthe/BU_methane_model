@@ -25,10 +25,9 @@ def GHGRP_read_v3(i, Basin_Index, Basin_N, GHGRPfolder, year):
     facility_basin['Basin_ID'] = facility_basin['Basin_ID'].replace('160A', '160')
 
     # Filter based on selected basin
-    basin_ind = facility_basin['Basin_ID'] == Basin_N[i]
+    basin_ind = facility_basin['Basin_ID'] == int(Basin_N[i])
     filtered_facility_basin = facility_basin[basin_ind]
     M_in = M_all[M_all['Facility_No'].isin(filtered_facility_basin['FACILITY_ID'])]
-
     # Load other datasets
     Facilities_dat = pd.read_csv(os.path.join(GHGRPfolder, f'Facilities_{year}.csv'), header=None).fillna(0)
     Equip_dat = pd.read_csv(os.path.join(GHGRPfolder, f'Equip_{year}.csv'), header=None).fillna(0)
