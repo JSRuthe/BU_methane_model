@@ -5,7 +5,7 @@ from di_scrubbing_func import di_scrubbing_func
 from flaring_tranche import flaring_tranche
 from OPGEE_rows_func import OPGEE_rows_func
 
-def tranche_gen_func(i, Basin_Index, Basin_N, activityfolder, basinmapfolder, drillinginfofolder, DI_filename,
+def tranche_gen_func(i, Basin_Index, Basin_N, activityfolder, basinmapfolder, productionfolder, DI_filename,
                      GHGRP_exp, Replicate):
     # Import LU Types
 
@@ -18,17 +18,18 @@ def tranche_gen_func(i, Basin_Index, Basin_N, activityfolder, basinmapfolder, dr
         LU_type = LU_type[i, :]
 
     if Replicate == 1:
-        filepath = os.path.join(os.getcwd(), drillinginfofolder, 'david_lyon_2015_no_offshore.csv')
+        filepath = os.path.join(os.getcwd(), productionfolder, 'david_lyon_2015_no_offshore.csv')
         M_in = pd.read_csv(filepath, header=None).values
     else:
         # Importing data for the distributions paper
-        filepath = os.path.join(os.getcwd(), drillinginfofolder, DI_filename)
+        filepath = os.path.join(os.getcwd(), productionfolder, DI_filename)
         DI_data = pd.read_csv(filepath)
 
         # Handling province code and extracting relevant data
         DI_data['Prov_Cod_1'] = DI_data['Prov_Cod_1'].replace('160A', '160')
         Basin_Name = pd.to_numeric(DI_data['Prov_Cod_1'], errors='coerce')
-
+        print(Basin_Name.unique())
+        print(Basin_N[i])
         # Note that although the headers in the file are “monthly oil” and “monthly gas”, these are summed across all months by year so the units are “bbl/year” and “mscf/year”.
 
         Gas_Production = DI_data['Monthly_Ga'].fillna(0).values
