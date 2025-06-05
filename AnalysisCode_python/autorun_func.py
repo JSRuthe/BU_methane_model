@@ -60,7 +60,7 @@ def autorun_func(n_trial, Activity_tranches, Basin_Select, Basin_Index, activity
         if Basin_Select == -1:
             output_filename = f'Equip{i + 1}out.csv'
         else:
-            output_filename = f'Equip{i + 1}{Basin_Index[Basin_Select]}out.csv'
+            output_filename = f'Equip{i + 1}{Basin_Index[Basin_Select]}_out.csv'
 
         output_filepath = os.path.join(os.getcwd(), 'Outputs', output_filename)
         np.savetxt(output_filepath, Data_Out, delimiter=',')
