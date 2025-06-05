@@ -120,6 +120,6 @@ python main.py --year 2020 --shape_id 745 --n_trial 10 --production_source CalGE
 Run using custom geometry:
 
 ```bash
-python main.py --year 2020 --shape_name "West San Joaquin Basin" --n_trial 10 --production_source DrillingInfo
+python main.py --year 2020 --shape_name "My Custom Basin" --n_trial 10 --production_source DrillingInfo
 ```
 
