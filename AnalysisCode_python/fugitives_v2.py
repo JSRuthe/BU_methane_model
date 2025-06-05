@@ -131,4 +131,3 @@ def fugitives_v2(n, j, maxit, Activity, Emissions, EquipGas, EquipOil, Data_Out,
 
 
     return Data_Out
-
